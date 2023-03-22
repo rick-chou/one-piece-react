@@ -1,33 +1,33 @@
 {
-  "name": "@rickzhou/utils",
-  "version": "0.0.0-beta.0",
-  "author": "rick zhou <944268618@qq.com>",
-  "homepage": "https://github.com/rick-chou/one-piece-react#readme",
-  "keywords": [
-    "utils"
-  ],
-  "contributors": [
-    "rick zhou <944268618@qq.com>"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.yarnpkg.com/"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rick-chou/one-piece-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rick-chou/one-piece-react/issues"
-  },
-  "description": "",
-  "main": "lib/index.ts",
-  "type": "module",
-  "license": "ISC",
-  "dependencies": {
-    "@rickzhou/fabric-react": "^0.0.1-beta.0"
-  }
+	"name": "@rickzhou/utils",
+	"version": "0.0.0",
+	"author": "rick zhou <944268618@qq.com>",
+	"homepage": "https://github.com/rick-chou/one-piece-react#readme",
+	"keywords": [
+		"utils"
+	],
+	"contributors": [
+		"rick zhou <944268618@qq.com>"
+	],
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.yarnpkg.com/"
+	},
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rick-chou/one-piece-react.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rick-chou/one-piece-react/issues"
+	},
+	"description": "",
+	"main": "lib/index.ts",
+	"type": "module",
+	"license": "ISC",
+	"dependencies": {
+		"@rickzhou/fabric-react": "^0.0.1"
+	}
 }
