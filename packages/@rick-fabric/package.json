@@ -5,7 +5,6 @@
 	"main": "lib/index.js",
 	"private": false,
 	"scripts": {
-		"npm-publish": "bash npm-publish",
 		"lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
 		"lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
 		"format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -27,9 +26,7 @@
 		"registry": "https://registry.yarnpkg.com/"
 	},
 	"files": [
-		"lib",
-		".eslintrc",
-		".prettierrc"
+		"lib"
 	],
 	"repository": {
 		"type": "git",
