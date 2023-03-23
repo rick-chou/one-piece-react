@@ -27,7 +27,9 @@
 		"registry": "https://registry.yarnpkg.com/"
 	},
 	"files": [
-		"lib"
+		"lib",
+		".eslintrc",
+		".prettierrc"
 	],
 	"repository": {
 		"type": "git",
