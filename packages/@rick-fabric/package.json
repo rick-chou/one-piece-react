@@ -1,6 +1,6 @@
 {
 	"name": "@rickzhou/fabric-react",
-	"version": "0.0.4-alpha.0",
+	"version": "0.0.5-alpha.0",
 	"description": "eslint / prettier config for React",
 	"main": "lib/index.js",
 	"private": false,
@@ -59,7 +59,7 @@
 			"optional": true
 		},
 		"eslint-config-xo-typescript": {
-			"optional": true
+			"optional": false
 		}
 	}
 }
