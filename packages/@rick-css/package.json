@@ -1,13 +1,8 @@
 {
 	"name": "@rickzhou/react-css",
 	"private": false,
-	"version": "1.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
-	},
+	"version": "1.1.0",
+	"main": "lib/index.js",
 	"author": "rick zhou <944268618@qq.com>",
 	"homepage": "https://github.com/rick-chou/one-piece-react#readme",
 	"description": "React CSS Lib Preset",
@@ -34,6 +29,7 @@
 		"@emotion/babel-plugin": "^11.10.6",
 		"@emotion/react": "^11.10.6",
 		"@tailwindcss/typography": "^0.5.9",
+		"autoprefixer": "^10.4.14",
 		"postcss": "^8.4.21",
 		"sass": "^1.59.3",
 		"tailwindcss": "^3.2.7"
