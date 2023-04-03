@@ -13,6 +13,7 @@
 		"lib"
 	],
 	"publishConfig": {
+		"access": "public",
 		"registry": "https://registry.yarnpkg.com/"
 	},
 	"repository": {
@@ -43,5 +44,6 @@
 	},
 	"scripts": {
 		"test": "jest"
-	}
+	},
+	"gitHead": "cc4e850fec8bd75ecd4636d59c4b5cf530f8cde8"
 }
