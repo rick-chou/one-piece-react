@@ -55,7 +55,7 @@ module.exports = {
     sourceType: 'module',
   },
   ignorePatterns: [
-    '*.[c]js',
+    '*.[m|c]js',
     '*.json',
     'vite-env.d.ts',
     'vite.config.ts',
