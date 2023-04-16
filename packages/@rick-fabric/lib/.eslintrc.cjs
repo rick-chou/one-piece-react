@@ -4,15 +4,14 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'xo',
-    'plugin:prettier/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'xo'],
   overrides: [
     {
-      extends: ['xo-typescript'],
+      extends: [
+        'xo-typescript',
+        'plugin:react-hooks/recommended',
+        'plugin:prettier/recommended',
+      ],
       files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/naming-convention': [
@@ -45,6 +44,7 @@ module.exports = {
         // use @emotion/react css props
         'react/no-unknown-property': ['error', { ignore: ['css'] }],
         'capitalized-comments': 'off',
+        'no-warning-comments': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
       },
@@ -61,7 +61,7 @@ module.exports = {
     'vite.config.ts',
     'jest.setup.ts',
   ],
-  plugins: ['react', 'prettier'],
+  plugins: ['react'],
   settings: {
     react: {
       version: 'detect',
