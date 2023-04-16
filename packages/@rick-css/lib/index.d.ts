@@ -1,7 +1,7 @@
 import { Config as PostcssConfig } from 'postcss-load-config';
 import { Config as TailwindCssConfig } from 'tailwindcss';
 
-declare module '@rickzhou/react-fabric' {
+declare module '@rickzhou/react-css' {
   export const postcss: PostcssConfig;
   export const tailwindcss: TailwindCssConfig;
   export const emotion: {
