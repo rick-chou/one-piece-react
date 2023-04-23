@@ -9,7 +9,7 @@ yarn add @rickzhou/react-css
 ```bash
 echo "module.exports = require('@rickzhou/react-css').postcss" > postcss.config.cjs
 
-echo "module.exports = require('@rickzhou/react-css').tailwind" > tailwind.config.cjs
+echo "module.exports = require('@rickzhou/react-css').tailwindcss" > tailwind.config.cjs
 ```
 
 #### config @emotion/react css prop
@@ -18,9 +18,9 @@ echo "module.exports = require('@rickzhou/react-css').tailwind" > tailwind.confi
 
 ```json
 {
-	"complierOptions": {
-		"jsxImportSource": "@emotion/react"
-	}
+  "complierOptions": {
+    "jsxImportSource": "@emotion/react"
+  }
 }
 ```
 
@@ -31,14 +31,14 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [
-		react({
-			// Add the following two lines to your vite.config.ts file
-			jsxImportSource: '@emotion/react',
-			babel: {
-				plugins: ['@emotion/babel-plugin'],
-			},
-		}),
-	],
+  plugins: [
+    react({
+      // Add the following two lines to your vite.config.ts file
+      jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      },
+    }),
+  ],
 });
 ```
