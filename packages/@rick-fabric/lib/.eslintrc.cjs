@@ -2,17 +2,18 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2022: true,
   },
-  extends: ['plugin:react/recommended', 'xo'],
   overrides: [
     {
+      files: ['*.ts', '*.tsx'],
       extends: [
+        'xo',
         'xo-typescript',
+        'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:prettier/recommended',
       ],
-      files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/naming-convention': [
           'error',
@@ -47,24 +48,18 @@ module.exports = {
         'no-warning-comments': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      settings: {
+        react: {
+          version: 'detect',
+        },
       },
     },
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  ignorePatterns: [
-    '*.[m|c]js',
-    '*.json',
-    'vite-env.d.ts',
-    'vite.config.ts',
-    'jest.setup.ts',
-  ],
-  plugins: ['react'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
+  ignorePatterns: ['*.[m|c]js', '*.json', 'vite-env.d.ts', 'vite.config.ts'],
 };
