@@ -13,7 +13,7 @@ echo "module.exports = require('@rickzhou/react-test').babel" > babel.config.js;
 #### config jest
 
 ```bash
-echo "module.exports = require('@rickzhou/react-test').jest" > jest.config.js;
+echo "module.exports = require('@rickzhou/react-test').jest" > jest.config.cjs;
 ```
 
 #### config script

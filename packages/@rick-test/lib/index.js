@@ -1,4 +1,4 @@
 module.exports = {
-	babel: require('./babel.config'),
-	jest: require('./jest.config'),
+  babel: require('./babel.config'),
+  jest: require('./jest.config'),
 };
