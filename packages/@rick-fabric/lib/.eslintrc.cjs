@@ -60,6 +60,10 @@ module.exports = {
         },
       },
     },
+    {
+      files: ['*.test.tsx', '*.test.ts'],
+      extends: ['plugin:testing-library/react'],
+    },
   ],
   ignorePatterns: ['*.[m|c]js', '*.json', 'vite-env.d.ts', 'vite.config.ts'],
 };
