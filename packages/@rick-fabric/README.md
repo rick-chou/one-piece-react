@@ -1,7 +1,7 @@
 #### install
 
 ```bash
-yarn add @rickzhou/react-fabric eslint-config-xo-typescript -D
+yarn add @rickzhou/react-fabric -D
 ```
 
 #### config eslint
