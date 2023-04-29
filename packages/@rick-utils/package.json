@@ -1,0 +1,39 @@
+{
+  "name": "@rickzhou/react-utils",
+  "private": false,
+  "version": "1.0.0",
+  "main": "lib/cjs/index.js",
+  "module": "index.ts",
+  "types": "types/index.d.ts",
+  "type": "module",
+  "author": "rick zhou <944268618@qq.com>",
+  "homepage": "https://github.com/rick-chou/one-piece-react#readme",
+  "description": "React Utils",
+  "scripts": {
+    "build": "rm -rf lib && rm -rf types && tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json"
+  },
+  "keywords": [
+    "React",
+    "Utils"
+  ],
+  "contributors": [
+    "rick zhou <944268618@qq.com>"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@rickzhou/react-fabric": "^2.0.0",
+    "dayjs": "^1.11.7",
+    "deepmerge": "^4.3.1",
+    "echarts": "^5.4.2",
+    "jszip": "^3.10.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@types/wicg-file-system-access": "^2020.9.6"
+  }
+}
