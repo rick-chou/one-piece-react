@@ -27,9 +27,6 @@
     "access": "public",
     "registry": "https://registry.yarnpkg.com/"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rick-chou/one-piece-react.git"
