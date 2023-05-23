@@ -1,0 +1,74 @@
+{
+  "name": "@rickzhou/react-ui",
+  "private": false,
+  "version": "1.0.0.beta",
+  "type": "module",
+  "main": "lib/components/index.js",
+  "module": "es/components/index.js",
+  "typings": "types",
+  "scripts": {
+    "dev": "vite",
+    "build:docs": "tsc && vite build",
+    "build:cjs": "rm -rf lib && tsc -p config/build-cjs.json",
+    "build:esm": "rm -rf es && tsc -p config/build-esm.json",
+    "build:lib": "npm run build:cjs && npm run build:esm",
+    "preview": "vite preview",
+    "lint": "eslint components/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'components/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'components/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "jest",
+    "badges": "npx istanbul-badges-readme --coverageDir='./coverage'",
+    "gen:materials": "node scripts/generate-materials.cjs"
+  },
+  "author": "rick zhou <944268618@qq.com>",
+  "homepage": "https://github.com/rick-chou/one-piece-react#readme",
+  "description": "React UI Components",
+  "keywords": [
+    "React",
+    "UI",
+    "Components"
+  ],
+  "contributors": [
+    "rick zhou <944268618@qq.com>"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "files": [
+    "es",
+    "lib",
+    "types"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@rickzhou/react-css": "^1.4.2",
+    "@rickzhou/react-utils": "^1.0.0",
+    "antd": "^5.3.2",
+    "await-to-js": "^3.0.0",
+    "dayjs": "^1.11.7",
+    "deepmerge": "^4.3.1",
+    "dompurify": "^3.0.2",
+    "echarts": "^5.4.2",
+    "echarts-for-react": "^3.0.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.2",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.15.5",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1",
+    "ts-morph": "^18.0.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
