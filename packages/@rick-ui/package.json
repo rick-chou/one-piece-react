@@ -1,7 +1,7 @@
 {
   "name": "@rickzhou/react-ui",
   "private": false,
-  "version": "1.0.0.beta",
+  "version": "1.0.0-beta.0",
   "type": "module",
   "main": "lib/components/index.js",
   "module": "es/components/index.js",
@@ -70,5 +70,6 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "gitHead": "d7c45bf1ca9923b5bf4cda6d10edda4589a65146"
 }
