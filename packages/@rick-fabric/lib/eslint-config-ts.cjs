@@ -1,7 +1,6 @@
 'use strict';
 
 /**@type {import('eslint-define-config').ESLintConfig} */
-
 module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   parserOptions: {
@@ -270,7 +269,7 @@ module.exports = {
     '@typescript-eslint/no-confusing-void-expression': 'error',
     '@typescript-eslint/no-dupe-class-members': 'error',
     '@typescript-eslint/no-duplicate-enum-values': 'error',
-    '@typescript-eslint/no-dynamic-delete': 'error',
+    '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-empty-interface': [
       'error',
@@ -347,8 +346,8 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unnecessary-type-constraint': 'error',
     '@typescript-eslint/no-unsafe-argument': 'off',
-    '@typescript-eslint/no-unsafe-assignment': 'error',
-    '@typescript-eslint/no-unsafe-call': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
     '@typescript-eslint/no-unsafe-return': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
@@ -452,7 +451,6 @@ module.exports = {
     {
       files: ['**/*.test-d.ts'],
       rules: {
-        '@typescript-eslint/no-unsafe-call': 'off',
         '@typescript-eslint/no-confusing-void-expression': 'off', // Conflicts with `expectError` assertion.
       },
     },

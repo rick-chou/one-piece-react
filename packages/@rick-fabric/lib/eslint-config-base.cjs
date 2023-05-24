@@ -1,6 +1,6 @@
 'use strict';
-/**@type {import('eslint-define-config').ESLintConfig} */
 
+/**@type {import('eslint-define-config').ESLintConfig} */
 module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',

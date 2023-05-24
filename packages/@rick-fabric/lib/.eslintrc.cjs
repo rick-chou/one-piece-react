@@ -21,7 +21,10 @@ module.exports = {
       ],
       rules: {
         // use @emotion/react css props
-        'react/no-unknown-property': ['error', { ignore: ['css'] }],
+        'react/no-unknown-property': [
+          'error',
+          { ignore: ['css', 'webkitdirectory'] },
+        ],
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
       },
