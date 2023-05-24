@@ -5,7 +5,7 @@
   "type": "module",
   "main": "lib/components/index.js",
   "module": "es/components/index.js",
-  "typings": "types",
+  "typings": "types/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build:docs": "tsc && vite build",
