@@ -1,6 +1,7 @@
 import type echarts from 'echarts';
 import ReactECharts, { type EChartsReactProps } from 'echarts-for-react';
 import { useCallback, useRef, useState } from 'react';
+import { ContainerStyles } from './style';
 
 export type ChartProps = EChartsReactProps;
 
@@ -57,7 +58,7 @@ const Chart: React.FC<ChartProps> = props => {
 
   return (
     <div
-      className="w-full h-full focus:outline-none"
+      css={ContainerStyles}
       ref={echartsContainer}
       tabIndex={-1}
       onClick={() => echartsContainer.current?.focus()}

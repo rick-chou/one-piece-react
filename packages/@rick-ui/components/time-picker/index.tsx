@@ -1,10 +1,17 @@
 import { RedoOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
-import { timestampToDateString } from '@rickzhou/react-utils/date';
+import { timestampToDateString } from '@rickzhou/react-utils';
 import { Button, DatePicker, Tag } from 'antd';
 import { type RangePickerProps } from 'antd/es/date-picker';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  CursorPointer,
+  FlexCenter,
+  FontItalic,
+  PaddingY,
+  WidthFull,
+} from '../style.base';
 
 export type TimePickerProps = {
   /** start time */
@@ -57,14 +64,19 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
   const renderFooter = (startTime: number, endTime: number) => {
     return (
-      <div className="w-full flex justify-center py-3">
+      <div
+        css={css`
+          ${FlexCenter}
+          ${WidthFull}
+          ${PaddingY(3)}
+        `}>
         <Tag
           onClick={() => {
             resetBtnRef.current?.click();
           }}
-          className="cursor-pointer"
+          css={CursorPointer}
           color="gold">
-          <span className="italic">
+          <span css={FontItalic}>
             {timestampToDateString(startTime)} ~{' '}
             {timestampToDateString(endTime)}
             <Button type="link" icon={<RedoOutlined />} />

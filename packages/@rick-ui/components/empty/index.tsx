@@ -1,7 +1,8 @@
-import { isEmptyValue } from '@rickzhou/react-utils/common';
+import { isEmptyValue } from '@rickzhou/react-utils';
 import { Spin } from 'antd';
 import { type PropsWithChildren } from 'react';
-import { EmptyBgStyles } from './style';
+import { FlexCenter } from '../style.base';
+import { DescStyles, EmptyBgStyles } from './style';
 
 export type EmptyProps = {
   desc?: string;
@@ -18,13 +19,9 @@ const Empty: React.FC<EmptyProps> & {
 }) => {
   return (
     <Spin spinning={loading}>
-      <div
-        className="flex flex-col justify-center items-center"
-        style={{ height }}>
+      <div css={FlexCenter} style={{ height }}>
         <div css={EmptyBgStyles} />
-        <div className="text-gray-800 text-xl md:text-2xl font-bold text-center mb-2">
-          {desc}
-        </div>
+        <div css={DescStyles}>{desc}</div>
       </div>
     </Spin>
   );

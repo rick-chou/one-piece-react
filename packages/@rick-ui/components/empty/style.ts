@@ -8,3 +8,12 @@ export const EmptyBgStyles = css`
   min-width: 100%;
   height: 200px;
 `;
+
+export const DescStyles = css`
+  color: rgb(31, 41, 55);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+`;

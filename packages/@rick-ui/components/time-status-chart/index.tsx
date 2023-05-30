@@ -1,5 +1,7 @@
-import { timestampToDateString } from '@rickzhou/react-utils';
-import { formatTimeStatusChartTooltip } from '@rickzhou/react-utils/chart';
+import {
+  formatTimeStatusChartTooltip,
+  timestampToDateString,
+} from '@rickzhou/react-utils';
 import deepmerge from 'deepmerge';
 import * as echarts from 'echarts';
 import { isEmpty } from 'lodash';

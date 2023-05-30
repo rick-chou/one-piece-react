@@ -1,5 +1,7 @@
 import { cleanup, render } from '@testing-library/react';
-import Empty, { WithEmpty } from '../index';
+import Empty from '../index';
+
+const { WithEmpty } = Empty;
 
 describe('Empty Component', () => {
   afterEach(cleanup);

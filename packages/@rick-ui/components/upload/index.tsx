@@ -1,6 +1,8 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
+import { Hidden } from '../style.base';
+import { ContainerStyles } from './style';
 
 const maxSize = 10 * 1024 * 1024;
 
@@ -76,13 +78,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   };
 
   return (
-    <div className={visible ? '' : 'translate-x-[9999px]'}>
+    <div css={ContainerStyles(visible)}>
       <Button icon={<UploadOutlined />} onClick={upload}>
         Click to Upload
       </Button>
       {/* file */}
       <input
-        className="hidden"
+        css={Hidden}
         ref={fileRef}
         type="file"
         multiple={multiple}
@@ -93,7 +95,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       />
       {/* dir */}
       <input
-        className="hidden"
+        css={Hidden}
         ref={dirRef}
         type="file"
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
