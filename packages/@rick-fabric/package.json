@@ -3,7 +3,6 @@
   "version": "2.3.0",
   "description": "eslint / prettier config for React",
   "main": "lib/index.js",
-  "module": "esm/index.mjs",
   "types": "types/index.d.ts",
   "private": false,
   "scripts": {
@@ -46,7 +45,20 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.10.3",
+    "esm": "^3.2.25",
     "prettier": "^2.8.6",
     "typescript": "^5.0.2"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "semi": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "trailingComma": "all",
+    "bracketSameLine": true,
+    "printWidth": 80,
+    "endOfLine": "lf"
   }
 }

@@ -4,7 +4,7 @@
 module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   parserOptions: {
-    warnOnUnsupportedTypeScriptVersion: false,
+    warnOnUnsupportedTypeScriptVersion: true,
     sourceType: 'module',
     project: 'tsconfig.json',
     ecmaFeatures: {

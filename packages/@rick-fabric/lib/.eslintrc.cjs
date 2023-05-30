@@ -1,7 +1,6 @@
 'use strict';
 
 /**@type {import('eslint-define-config').ESLintConfig} */
-
 module.exports = {
   root: true,
   env: {
