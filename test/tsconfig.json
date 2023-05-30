@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "paths": {
+      "@/*": ["src/*"],
+      "@rickzhou/react-css": ["../packages/@rick-css"],
+      "@rickzhou/react-ui": ["../packages/@rick-ui"],
+      "@rickzhou/react-fabric": ["../packages/@react-fabric"],
+      "@rickzhou/react-test": ["../packages/@react-test"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
