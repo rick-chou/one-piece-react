@@ -1,6 +1,6 @@
 {
   "name": "@rickzhou/react-fabric",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "eslint / prettier config for React",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
