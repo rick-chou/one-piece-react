@@ -4,4 +4,3 @@ import type echarts from 'echarts';
  * @inner
  */
 export declare const formatTimeStatusChartTooltip: (params: echarts.TooltipComponentFormatterCallbackParams, title?: string) => string;
-//# sourceMappingURL=chart.d.ts.map

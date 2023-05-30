@@ -1,15 +1,15 @@
 type FilePath = string;
 type FileName = string;
 export type FileObj = {
-  fileTree: FileTreeTypes;
-  fileSet: Record<FileName, File>;
+    fileTree: FileTreeTypes;
+    fileSet: Record<FileName, File>;
 };
 export type FileTreeTypes = {
-  key: FilePath;
-  title: FileName;
-  dir: boolean;
-  isLeaf?: boolean;
-  children: FileTreeTypes[];
+    key: FilePath;
+    title: FileName;
+    dir: boolean;
+    isLeaf?: boolean;
+    children: FileTreeTypes[];
 };
 /**
  *
@@ -26,8 +26,8 @@ export declare const parseZip: (file: File) => Promise<FileObj>;
  *
  */
 export declare const parseFiles: (files: File[]) => {
-  fileTree: FileTreeTypes;
-  fileSet: Record<string, File>;
+    fileTree: FileTreeTypes;
+    fileSet: Record<string, File>;
 };
 /**
  *
@@ -37,9 +37,7 @@ export declare const parseFiles: (files: File[]) => {
  * @see FileSystemDirectoryHandle
  * @see FileObj
  */
-export declare const parseDir: (
-  dirHandle: FileSystemDirectoryHandle,
-) => Promise<FileObj>;
+export declare const parseDir: (dirHandle: FileSystemDirectoryHandle) => Promise<FileObj>;
 /**
  *
  * @description sort files by filename
@@ -50,4 +48,3 @@ export declare const parseDir: (
  */
 export declare const sortFiles: (fileTrees: FileTreeTypes) => FileTreeTypes;
 export {};
-//# sourceMappingURL=file.d.ts.map

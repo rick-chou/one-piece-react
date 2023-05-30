@@ -1,7 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortFiles = exports.parseDir = exports.parseFiles = exports.parseZip = void 0;
-const jszip_1 = require("jszip");
+const jszip_1 = __importDefault(require("jszip"));
 const defaultFileTree = {
     key: '',
     title: '',

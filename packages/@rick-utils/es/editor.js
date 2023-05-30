@@ -1,4 +1,4 @@
-import { prettier as prettierConfig } from '@rickzhou/react-fabric';
+import { prettier as prettierConfig } from '@rickzhou/react-fabric/package.json';
 import parseHtmlPlugin from 'prettier/parser-html';
 import parseMdPlugin from 'prettier/parser-markdown';
 import parserTypeScriptPlugin from 'prettier/parser-typescript';

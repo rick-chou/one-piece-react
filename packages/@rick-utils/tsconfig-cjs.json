@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "CommonJS",
-    "outDir": "lib/cjs",
+    "outDir": "lib",
     "noEmit": false
   },
   "include": ["src"]
