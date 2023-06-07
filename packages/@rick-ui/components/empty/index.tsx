@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { isEmptyValue } from '@rickzhou/react-utils/common';
 import { Spin } from 'antd';
 import { type PropsWithChildren } from 'react';
@@ -18,12 +19,21 @@ const Empty: React.FC<EmptyProps> & {
   height = '100%',
 }) => {
   return (
-    <Spin spinning={loading}>
-      <div css={FlexCenter} style={{ height }}>
-        <div css={EmptyBgStyles} />
-        <div css={DescStyles}>{desc}</div>
-      </div>
-    </Spin>
+    <div
+      css={css`
+        .spin-wrapper {
+          .ant-spin {
+            max-height: none;
+          }
+        }
+      `}>
+      <Spin spinning={loading} wrapperClassName="spin-wrapper">
+        <div css={FlexCenter} style={{ height }}>
+          <div css={EmptyBgStyles} />
+          <div css={DescStyles}>{desc}</div>
+        </div>
+      </Spin>
+    </div>
   );
 };
 
