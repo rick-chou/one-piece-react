@@ -1,7 +1,7 @@
 {
   "name": "@rickzhou/react-ui",
   "private": false,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -41,8 +41,8 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.11.0",
-    "@rickzhou/react-css": "^1.4.2",
-    "@rickzhou/react-utils": "^1.4.0",
+    "@rickzhou/react-css": "^2.0.0",
+    "@rickzhou/react-utils": "^2.0.0",
     "antd": "^5.5.2",
     "await-to-js": "^3.0.0",
     "dayjs": "^1.11.8",
