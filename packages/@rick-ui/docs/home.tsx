@@ -45,7 +45,8 @@ const Home: React.FC = () => {
     <Layout hasSider>
       <Sider
         theme="light"
-        className="!h-screen !fixed !left-0 !top-0 !bottom-0 !overflow-auto shadow-lg rounded-tr-2xl">
+        // style={{ display: 'none' }}
+        className="!h-screen !fixed !left-0 !top-0 !bottom-0 !overflow-auto shadow-xl rounded-tr-2xl">
         <div
           className="h-8 flex justify-center items-center bg-white m-12 cursor-pointer"
           onClick={() => {
@@ -64,7 +65,6 @@ const Home: React.FC = () => {
           selectedKeys={[location.pathname.split('/').at(-1)!]}
           onClick={item => {
             navigate(item.key);
-            console.log(item);
           }}
         />
         <div className="fixed bottom-6" style={{ width: '200px' }}>
@@ -74,11 +74,11 @@ const Home: React.FC = () => {
       <Layout>
         <Content className="bg-gradient-to-r from-blue-50 to-blue-100">
           <div className={'ml-56'}>
-            <div className="bg-white !min-h-screen shadow-lg rounded-tl-2xl">
+            <div className="bg-white !min-h-screen shadow-xl rounded-tl-2xl">
               {location.pathname === '/' ? (
                 <div className="flex justify-center items-center h-screen">
                   <RainbowText />
-                  <div className="w-[70vw] rounded-lg overflow-hidden">
+                  <div className="w-[70vw] rounded-lg overflow-hidden shadow-2xl">
                     <img
                       src={
                         'https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/30.jpg'

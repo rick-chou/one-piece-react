@@ -1,6 +1,6 @@
 import { RedoOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
-import { timestampToDateString } from '@rickzhou/react-utils';
+import { timestampToDateString } from '@rickzhou/react-utils/date';
 import { Button, DatePicker, Tag } from 'antd';
 import { type RangePickerProps } from 'antd/es/date-picker';
 import dayjs, { type Dayjs } from 'dayjs';

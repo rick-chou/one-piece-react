@@ -26,8 +26,13 @@ export const Visible = css({
   display: 'block',
 });
 
+export const Flex = css({
+  display: 'flex',
+});
+
 export const FlexCenter = css({
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
 });

@@ -7,6 +7,10 @@
     "declaration": true,
     "emitDeclarationOnly": true
   },
-  "include": ["../components/**/*.tsx", "../components/index.ts"],
+  "include": [
+    "../components/**/*.tsx",
+    "../components/index.ts",
+    "../vite-env.d.ts"
+  ],
   "exclude": ["../components/**/demo", "../components/**/__tests__"]
 }

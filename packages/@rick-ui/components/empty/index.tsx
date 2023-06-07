@@ -1,4 +1,4 @@
-import { isEmptyValue } from '@rickzhou/react-utils';
+import { isEmptyValue } from '@rickzhou/react-utils/common';
 import { Spin } from 'antd';
 import { type PropsWithChildren } from 'react';
 import { FlexCenter } from '../style.base';

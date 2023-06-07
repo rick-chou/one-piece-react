@@ -63,7 +63,6 @@ const Chart: React.FC<ChartProps> = props => {
       tabIndex={-1}
       onClick={() => echartsContainer.current?.focus()}
       onKeyDown={e => {
-        console.log('echartsContainer', echartsInstance.current);
         if (echartsInstance.current) {
           bindChartHotKey(e, echartsInstance.current);
         }
