@@ -1,5 +1,5 @@
-import { Config as PostcssConfig } from 'postcss-load-config';
-import { Config as TailwindCssConfig } from 'tailwindcss';
+import { type Config as PostcssConfig } from 'postcss-load-config';
+import { type Config as TailwindCssConfig } from 'tailwindcss';
 
 declare module '@rickzhou/react-css' {
   export const postcss: PostcssConfig;
@@ -8,4 +8,12 @@ declare module '@rickzhou/react-css' {
     jsxImportSource: string;
     babel: string;
   };
+}
+
+import '@emotion/react/jsx-runtime';
+
+declare module '@emotion/react/jsx-runtime' {
+  namespace JSX {
+    type ElementType = React.JSX.ElementType;
+  }
 }
