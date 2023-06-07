@@ -1,16 +1,14 @@
-import { Loading, Upload } from '@rickzhou/react-ui';
-import { parseZip } from '@rickzhou/react-utils';
+import { Upload } from '@rickzhou/react-ui';
+import { parseZip } from '@rickzhou/react-utils/file';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-blue-100">
       <Upload
         onChange={async filelist => {
           console.log(await parseZip(Array.from(filelist)[0]));
         }}
       />
-
-      <Loading />
     </div>
   );
 }
