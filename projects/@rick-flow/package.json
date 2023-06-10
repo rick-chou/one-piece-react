@@ -1,0 +1,50 @@
+{
+  "name": "@rickzhou/flowchart",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.cjs",
+    "test": "jest",
+    "badges": "npx istanbul-badges-readme --coverageDir='./coverage'"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.5.1",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@rickzhou/react-css": "^2.0.0",
+    "@rickzhou/react-ui": "^2.1.1",
+    "antd": "^5.6.1",
+    "dagre": "^0.8.5",
+    "file-saver": "^2.0.5",
+    "lodash": "^4.17.21",
+    "monaco-editor": "^0.39.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-medium-image-zoom": "^5.1.6",
+    "react-redux": "^8.0.7",
+    "react-router-dom": "^6.12.0",
+    "reactflow": "^11.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@rickzhou/react-fabric": "^4.0.0",
+    "@types/dagre": "^0.7.48",
+    "@types/file-saver": "^2.0.5",
+    "@types/lodash": "^4.14.195",
+    "@types/react": "^18.2.9",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-redux": "^7.1.25",
+    "@types/redux-logger": "^3.0.9",
+    "@types/uuid": "^9.0.2",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9"
+  }
+}
