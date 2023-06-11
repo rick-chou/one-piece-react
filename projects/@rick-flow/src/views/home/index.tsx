@@ -112,7 +112,7 @@ const FlowHome: React.FC<FlowProps> = ({
         <Button
           icon={<PlusCircleTwoTone />}
           onClick={() => {
-            navigate(`/edit?action=${Action.add}`, { relative: 'path' });
+            navigate(`${import.meta.env.BASE_URL}edit?action=${Action.add}`);
           }}>
           New
         </Button>

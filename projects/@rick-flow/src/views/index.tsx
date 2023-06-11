@@ -29,7 +29,7 @@ const RickFlow: FC = () => {
           <div
             className="flex h-screen justify-center items-center rotate-90"
             onClick={() => {
-              navigate('/');
+              navigate(import.meta.env.BASE_URL);
             }}>
             <Sign />
           </div>
@@ -38,7 +38,11 @@ const RickFlow: FC = () => {
           <Content className="bg-gradient-to-r from-blue-50 to-blue-100">
             <div className="ml-56">
               <div className="bg-white !min-h-screen shadow-lg rounded-tl-2xl overflow-hidden">
-                {location.pathname === '/' ? <Home /> : <Outlet />}
+                {location.pathname === import.meta.env.BASE_URL ? (
+                  <Home />
+                ) : (
+                  <Outlet />
+                )}
               </div>
             </div>
           </Content>

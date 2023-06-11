@@ -1,9 +1,9 @@
 /// <reference types="vite/client" />
 
-import '@emotion/react/jsx-runtime';
+interface ImportMetaEnv {
+  readonly VITE_BASE_URL: string;
+}
 
-declare module '@emotion/react/jsx-runtime' {
-  namespace JSX {
-    type ElementType = React.JSX.ElementType;
-  }
+export interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

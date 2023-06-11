@@ -26,7 +26,9 @@ export const usePreview = () => {
           <div className="font-bold text-lg">{flow.title}</div>
           <FullscreenOutlined
             className="cursor-pointer text-blue-500"
-            onClick={() => window.open(`/flow/${flow.id}`)}
+            onClick={() =>
+              window.open(`${import.meta.env.BASE_URL}flow/${flow.id}`)
+            }
           />
         </div>
       ),

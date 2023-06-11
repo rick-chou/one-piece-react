@@ -30,9 +30,9 @@ export const useMenus = (
       label: (
         <div
           onClick={() => {
-            navigate(`/edit/${id}?action=${Action.copy}`, {
-              relative: 'path',
-            });
+            navigate(
+              `${import.meta.env.BASE_URL}edit/${id}?action=${Action.copy}`,
+            );
           }}>
           Copy
         </div>
@@ -46,9 +46,9 @@ export const useMenus = (
       label: (
         <div
           onClick={() => {
-            navigate(`/edit/${id}?action=${Action.edit}`, {
-              relative: 'path',
-            });
+            navigate(
+              `${import.meta.env.BASE_URL}edit/${id}?action=${Action.edit}`,
+            );
           }}>
           Edit
         </div>

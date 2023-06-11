@@ -5,9 +5,9 @@ import { persistor, store } from '@/store';
 import { ConfigProvider } from 'antd';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+import 'reactflow/dist/style.css';
 import { PersistGate } from 'redux-persist/integration/react';
 import { router } from './router';
-import 'reactflow/dist/style.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ConfigProvider

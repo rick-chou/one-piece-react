@@ -95,8 +95,10 @@ const FlowEdit = () => {
       nodes,
     });
 
-    if (action === Action.add) {
-      navigate(`/edit/${id}?action=${Action.edit}`, { state: Date.now() });
+    if (action !== Action.edit) {
+      navigate(`${import.meta.env.BASE_URL}edit/${id}?action=${Action.edit}`, {
+        state: Date.now(),
+      });
     }
   };
 

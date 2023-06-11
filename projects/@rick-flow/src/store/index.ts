@@ -11,10 +11,11 @@ import {
   persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { name } from '../../package.json';
 import flowchartSlice from './slice/flowchartSlice';
 import modalOpenSlice from './slice/modalOpenSlice';
 
-export const persistKey = (await import('../../package.json')).name;
+export const persistKey = name;
 
 const persistConfig = {
   key: persistKey,
@@ -30,7 +31,7 @@ const persistedReducer = persistReducer(
 );
 
 export const store = configureStore({
-  devTools: process.env.NODE_ENV === 'development',
+  devTools: import.meta.env.DEV,
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

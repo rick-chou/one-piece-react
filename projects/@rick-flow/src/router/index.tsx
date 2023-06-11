@@ -9,7 +9,7 @@ import {
 
 export const routes: RouteObject[] = [
   {
-    path: '',
+    path: import.meta.env.BASE_URL,
     element: <Index />,
     children: [
       {

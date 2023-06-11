@@ -20,15 +20,15 @@
 
 ### 📦 Npm Packages
 
-- [@rickzhou/css]('packages/@rick-css/README.md')
-- [@rickzhou/fabric]('packages/@rick-fabric/README.md')
-- [@rickzhou/test]('packages/@rick-test/README.md')
+- [@rickzhou/css](packages/@rick-css/README.md)
+- [@rickzhou/fabric](packages/@rick-fabric/README.md)
+- [@rickzhou/test](packages/@rick-test/README.md)
 - @rickzhou/utils
 - @rickzhou/ui
 
 ### 🌟 Project Roadmap
 
-- @rickzhou/flowchart
+- [@rickzhou/flowchart](https://rick-chou.github.io/react-flowchart/)
 - @rickzhou/online-zip
 - @rickzhou/java-ide
 - @rickzhou/mdx

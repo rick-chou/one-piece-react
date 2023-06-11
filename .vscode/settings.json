@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["antd", "echarts", "rickzhou", "Sider", "zhou"]
+  "cSpell.words": ["antd", "echarts", "rickzhou", "Sider", "zhou"],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/rick.zhou/Development/one-piece-react/projects/%40rick-flow/.github/workflows/deploy.yml"
+  }
 }

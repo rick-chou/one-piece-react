@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://rick-chou.github.io/react-flowchart/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -16,8 +17,8 @@
   "dependencies": {
     "@monaco-editor/react": "^4.5.1",
     "@reduxjs/toolkit": "^1.9.5",
-    "@rickzhou/react-css": "^2.0.0",
-    "@rickzhou/react-ui": "^2.1.1",
+    "@rickzhou/react-css": "^2.1.0",
+    "@rickzhou/react-ui": "^2.2.0",
     "antd": "^5.6.1",
     "dagre": "^0.8.5",
     "file-saver": "^2.0.5",
