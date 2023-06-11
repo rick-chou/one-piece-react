@@ -22,9 +22,7 @@ jobs:
 
           git config --global user.email "944268618@qq.com"
           git config --global user.name "rick zhou"
-          git remote add origin https://github.com/B-USERNAME/B-REPO.git
-          git checkout -b main
 
           git add .
           git commit -m "🌈 @rickzhou/flowchart"
-          git push -f origin HEAD:main
+          git push
