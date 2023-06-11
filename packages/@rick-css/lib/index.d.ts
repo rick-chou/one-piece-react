@@ -9,11 +9,3 @@ declare module '@rickzhou/react-css' {
     babel: string;
   };
 }
-
-import '@emotion/react/jsx-runtime';
-
-declare module '@emotion/react/jsx-runtime' {
-  namespace JSX {
-    type ElementType = React.JSX.ElementType;
-  }
-}
