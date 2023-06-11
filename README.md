@@ -28,11 +28,11 @@
 
 ### 🌟 Project Roadmap
 
-- [@rickzhou/flowchart](https://rick-chou.github.io/react-flowchart/)
-- @rickzhou/online-zip
-- @rickzhou/java-ide
-- @rickzhou/mdx
-- @rickzhou/editor-embedder
-- @rickzhou/api-docs-generator
+- [x] [@rickzhou/flowchart](https://rick-chou.github.io/react-flowchart/)
+- [ ] @rickzhou/online-zip
+- [ ] @rickzhou/java-ide
+- [ ] @rickzhou/mdx
+- [ ] @rickzhou/editor-embedder
+- [ ] @rickzhou/api-docs-generator
 
 ![@rickzhou](https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/42.jpg)
