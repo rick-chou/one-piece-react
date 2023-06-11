@@ -64,8 +64,8 @@
     "vite": "^4.3.9"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "gitHead": "d7c45bf1ca9923b5bf4cda6d10edda4589a65146"
 }
