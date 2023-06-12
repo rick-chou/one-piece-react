@@ -20,9 +20,12 @@ jobs:
         run: |
           cd projects/@rick-flow
 
+          git init
           git config --global user.email "944268618@qq.com"
           git config --global user.name "rick zhou"
+          git remote add origin https://github.com/rick-chou/react-flowchart.git
 
+          git checkout -b main
           git add .
           git commit -m "🌈 @rickzhou/flowchart"
-          git push
+          git push -f origin
