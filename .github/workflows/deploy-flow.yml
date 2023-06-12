@@ -35,4 +35,4 @@ jobs:
           git checkout -b main
           git add .
           git commit -m "🌈 @rickzhou/flowchart"
-          git push --set-upstream origin main
+          git push -f
