@@ -28,7 +28,7 @@ jobs:
           git init
           git config --global user.email $EMAIL
           git config --global user.name $USERNAME
-          git remote set-url origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
+          git remote add origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
 
           curl -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" https://api.github.com/user
 
