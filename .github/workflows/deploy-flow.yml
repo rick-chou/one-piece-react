@@ -1,0 +1,37 @@
+name: react-flowchart
+
+on:
+  pull_request:
+    types:
+      - 'closed'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Push 📦
+        env:
+          EMAIL: 944268618@qq.com
+          USERNAME: rick zhou
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          cd projects/@rick-flow
+
+          echo $EMAIL
+          echo $USERNAME
+
+          git init
+          git config --global user.email $EMAIL
+          git config --global user.name $USERNAME
+          git remote add origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
+
+
+          git checkout -b main
+          git add .
+          git commit -m "🌈 @rickzhou/flowchart"
+          git push -f --set-upstream origin main
