@@ -1,9 +1,9 @@
 name: react-flowchart
 
 on:
-  push:
-    branches:
-      - '**'
+  pull_request:
+    types:
+      - 'closed'
 
 jobs:
   build:
@@ -30,7 +30,6 @@ jobs:
           git config --global user.name $USERNAME
           git remote add origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
 
-          curl -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" https://api.github.com/user
 
           git checkout -b main
           git add .
