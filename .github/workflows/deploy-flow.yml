@@ -16,14 +16,16 @@ jobs:
 
       - name: Push 📦
         env:
+          EMAIL: 944268618@qq.com
+          USERNAME: rick zhou
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           cd projects/@rick-flow
 
           git init
-          git config --global user.email "944268618@qq.com"
-          git config --global user.name "rick zhou"
-          git remote set-url origin https://rick-chou:${{ secrets.ACCESS_TOKEN }}@github.com/rick-chou/react-flowchart.git
+          git config --global user.email $EMAIL
+          git config --global user.name $USERNAME
+          git remote set-url origin https://rick-chou:$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
 
           git checkout -b main
           git add .
