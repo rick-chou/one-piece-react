@@ -22,10 +22,13 @@ jobs:
         run: |
           cd projects/@rick-flow
 
+          echo $EMAIL
+          echo $USERNAME
+
           git init
           git config --global user.email $EMAIL
           git config --global user.name $USERNAME
-          git remote set-url origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
+          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/rick-chou/react-flowchart.git
 
           git checkout -b main
           git add .
