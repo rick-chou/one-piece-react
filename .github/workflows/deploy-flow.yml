@@ -19,7 +19,6 @@ jobs:
           EMAIL: 944268618@qq.com
           USERNAME: rick zhou
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd projects/@rick-flow
 
@@ -29,7 +28,9 @@ jobs:
           git init
           git config --global user.email $EMAIL
           git config --global user.name $USERNAME
-          git remote set-url origin https://$GITHUB_TOKEN@github.com/rick-chou/react-flowchart.git
+          git remote set-url origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
+
+          curl -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" https://api.github.com/user
 
           git checkout -b main
           git add .
