@@ -2,6 +2,7 @@ import { presetNode } from '@/config';
 import { useAction } from '@/hooks/useAction';
 import { useFlowchart } from '@/hooks/useFlowchart';
 import { useMock } from '@/hooks/useMock';
+import { useNavigate } from '@/hooks/useNavigate';
 import type { FlowChartType } from '@/interface';
 import { Action, type NodeType } from '@/interface';
 import { siderbarNodeStyle, siderbarNodeWrapperStyle } from '@/styles';
@@ -16,7 +17,7 @@ import {
   message,
 } from 'antd';
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 type SiderbarProps = {
   editable: boolean;

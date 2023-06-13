@@ -2,7 +2,7 @@ import { Action } from '@/interface';
 import { sleep } from '@/utils/sleep';
 import type { MenuProps } from 'antd';
 import { Modal, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from './useNavigate';
 import { usePreview } from './usePreview';
 
 export const useMenus = (

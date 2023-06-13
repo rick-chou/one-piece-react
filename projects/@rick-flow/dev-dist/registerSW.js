@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/react-flowchart/dev-sw.js?dev-sw', { scope: '/react-flowchart/', type: 'classic' })

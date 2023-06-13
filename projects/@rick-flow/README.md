@@ -12,6 +12,6 @@
 
 #### 🌈 V2 Roadmap
 
-- [] integration pwa
-- [] support dark mode
-- [] support turbo node theme
+- [x] integration PWA
+- [ ] support dark mode
+- [ ] support turbo node theme

@@ -4,6 +4,7 @@ import { useFlowState } from '@/hooks/useFlowState';
 import { useFlowchart } from '@/hooks/useFlowchart';
 import { useMock } from '@/hooks/useMock';
 import { useModalOpen } from '@/hooks/useModalOpen';
+import { useNavigate } from '@/hooks/useNavigate';
 import type { FlowChartType, NodeDataType } from '@/interface';
 import { Action, NodeType } from '@/interface';
 import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
@@ -28,7 +29,7 @@ import {
 } from 'antd';
 import { isEmpty } from 'lodash';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import type { Edge, ReactFlowInstance } from 'reactflow';
 import ReactFlow, { Background, Controls, ReactFlowProvider } from 'reactflow';
 import FlowChart from '../flow';

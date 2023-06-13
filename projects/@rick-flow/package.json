@@ -3,12 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "description": "React Flowchart",
   "homepage": "https://rick-chou.github.io/react-flowchart/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.cjs",
     "test": "jest",
@@ -46,6 +47,7 @@
     "@types/uuid": "^9.0.2",
     "@vitejs/plugin-react": "^4.0.0",
     "typescript": "^5.1.3",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-pwa": "^0.16.4"
   }
 }

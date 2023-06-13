@@ -1,6 +1,7 @@
 import { useFlowchart } from '@/hooks/useFlowchart';
 import { useMenus } from '@/hooks/useMenus';
 import { useMock } from '@/hooks/useMock';
+import { useNavigate } from '@/hooks/useNavigate';
 import { Action } from '@/interface';
 import { HomePreviewHeight } from '@/styles';
 import {
@@ -21,7 +22,6 @@ import {
 } from 'antd';
 import saveAs from 'file-saver';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import FlowChart from '../flow';
 
 const { WithEmpty } = Empty;
