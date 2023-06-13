@@ -31,7 +31,7 @@ const RickFlow: FC = () => {
             onClick={() => {
               navigate(import.meta.env.BASE_URL);
             }}>
-            {/* <Sign /> */}
+            <Sign />
           </div>
         </Sider>
         <Layout>
