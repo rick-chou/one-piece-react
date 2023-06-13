@@ -117,55 +117,6 @@ export const transformData: TransformDataFn<
   });
 };
 
-export const onCollapse = (
-  node: NodeDataTypeWrapper,
-  nodes: Array<Node<NodeDataTypeWrapper>>,
-  nodesSnapshot: Array<Node<NodeDataTypeWrapper>>,
-  setNodes: (node: Array<Node<NodeDataTypeWrapper>>) => void,
-) => {
-  const nodeIdSet = new Set<number>();
-  const getNodeId = (ids: number[]) => {
-    ids.forEach(i => {
-      nodeIdSet.add(i);
-      const child = nodesSnapshot.find(n => n.data.id === i);
-      if (child?.data.children?.length) {
-        getNodeId(child.data.children);
-      }
-    });
-  };
-
-  getNodeId(node.children);
-
-  const _nodeIds = [...nodeIdSet];
-  const updateNodes = (_nodes: typeof nodes) => {
-    _nodes.forEach(i => {
-      if (i.data.id === node.id) {
-        i.data.collapsed = !i.data.collapsed;
-      }
-    });
-    setNodes(_nodes);
-  };
-
-  if (node.collapsed) {
-    const _nodes = nodesSnapshot
-      .filter(node => _nodeIds.includes(node.data.id))
-      .concat(nodes)
-      .map(i => {
-        if (_nodeIds.includes(i.data.id)) {
-          return { ...i, data: { ...i.data, collapsed: true } };
-        }
-
-        return i;
-      });
-    updateNodes(_nodes);
-  } else {
-    const _nodes = nodesSnapshot.filter(
-      node => !_nodeIds.includes(node.data.id),
-    );
-    updateNodes(_nodes);
-  }
-};
-
 export const transformDataFromChart = (_nodes: Node[], _edges: Edge[]) => {
   const data: NodeDataType[] = [];
   _nodes.forEach(node => {

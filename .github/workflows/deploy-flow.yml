@@ -22,9 +22,6 @@ jobs:
         run: |
           cd projects/@rick-flow
 
-          echo $EMAIL
-          echo $USERNAME
-
           git init
           git config --global user.email $EMAIL
           git config --global user.name $USERNAME

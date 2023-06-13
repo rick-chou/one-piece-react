@@ -28,6 +28,7 @@ export type NodeDataTypeWrapper = {
   executionNodes: Execution['executionNodes'];
   editable: boolean;
   collapsed: boolean;
+  show: boolean;
   onDelete: (id: number) => void;
   onCollapse: (node: NodeDataTypeWrapper) => void;
 } & NodeDataType;
