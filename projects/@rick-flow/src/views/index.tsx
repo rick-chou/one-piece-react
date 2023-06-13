@@ -1,8 +1,9 @@
 import { useInitFlowcharts } from '@/hooks/useInitFlowchart';
+import { useNavigate } from '@/hooks/useNavigate';
 import { Layout, Modal } from 'antd';
 import { type ModalStaticFunctions } from 'antd/es/modal/confirm';
 import { createContext, type FC } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Home from './home';
 import Sign from './sign';
 
