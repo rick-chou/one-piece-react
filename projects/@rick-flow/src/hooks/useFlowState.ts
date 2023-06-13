@@ -7,7 +7,7 @@ import {
 import { genEdges, genNodes, getLayoutedElements } from '@/utils';
 import { sleep } from '@/utils/sleep';
 import { cloneDeep } from 'lodash';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import {
   addEdge,
   useEdgesState,
@@ -81,49 +81,39 @@ export const useFlowState = ({
 
   const { getFlowchart } = useFlowchart();
 
-  const onCollapse = (node: NodeDataTypeWrapper) => {
-    const nodeIdSet = new Set<number>();
-    const getNodeId = (ids: number[]) => {
-      ids.forEach(i => {
-        nodeIdSet.add(i);
-        const child = nodesSnapshot.current.find(n => n.data.id === i);
-        if (child?.data.children?.length) {
-          getNodeId(child.data.children);
-        }
-      });
-    };
-
-    getNodeId(node.children);
-
-    const _nodeIds = [...nodeIdSet];
-    const updateNodes = (_nodes: typeof nodes) => {
-      _nodes.forEach(i => {
-        if (i.data.id === node.id) {
-          i.data.collapsed = !i.data.collapsed;
-        }
-      });
-      setNodes(_nodes);
-    };
-
-    if (node.collapsed) {
-      const _nodes = nodesSnapshot.current
-        .filter(node => _nodeIds.includes(node.data.id))
-        .concat(instance.getNodes())
-        .map(i => {
-          if (_nodeIds.includes(i.data.id)) {
-            return { ...i, data: { ...i.data, collapsed: true } };
+  const onCollapse = useCallback(
+    (node: NodeDataTypeWrapper) => {
+      const nodeIdSet = new Set<number>();
+      const getNodeId = (ids: number[]) => {
+        ids.forEach(i => {
+          nodeIdSet.add(i);
+          const child = nodesSnapshot.current.find(n => n.data.id === i);
+          if (child?.data.children?.length) {
+            getNodeId(child.data.children);
           }
-
-          return i;
         });
-      updateNodes(_nodes);
-    } else {
-      const _nodes = nodesSnapshot.current.filter(
-        node => !_nodeIds.includes(node.data.id),
-      );
-      updateNodes(_nodes);
-    }
-  };
+      };
+
+      getNodeId(node.children);
+
+      const _nodeIds = [...nodeIdSet];
+
+      nodesSnapshot.current = nodesSnapshot.current.map(i => {
+        if (_nodeIds.includes(i.data.id)) {
+          i.data.show = node.collapsed;
+          i.data.collapsed = !node.collapsed;
+        }
+
+        if (i.data.id === node.id) {
+          i = { ...i, data: { ...i.data, collapsed: !node.collapsed } };
+        }
+
+        return i;
+      });
+      setNodes(nodesSnapshot.current.filter(n => n.data.show));
+    },
+    [setNodes],
+  );
 
   const onDelete = (id: number) => {
     const { nodes: newNodes, edges: newEdges } = deleteNode(
@@ -181,6 +171,7 @@ export const useFlowState = ({
           collapsed: false,
           executionNodes,
           editable,
+          show: true,
         })),
       ),
       genEdges(_nodes),
@@ -197,7 +188,7 @@ export const useFlowState = ({
       void initChart(getFlowchart(id).nodes as NodeDataTypeWrapper[]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, instance]);
+  }, [id]);
 
   return {
     nodes,
