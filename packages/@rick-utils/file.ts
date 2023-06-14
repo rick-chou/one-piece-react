@@ -1,4 +1,5 @@
 import zip from 'jszip';
+import { cloneDeep } from 'lodash';
 
 type FilePath = string;
 type FileName = string;
@@ -31,7 +32,7 @@ const defaultFileTree: FileTreeTypes = {
  */
 export const parseZip = async (file: File): Promise<FileObj> => {
   const zipData = await zip.loadAsync(file);
-  const fileTree: FileObj['fileTree'] = defaultFileTree;
+  const fileTree: FileObj['fileTree'] = cloneDeep(defaultFileTree);
   const fileSet: FileObj['fileSet'] = {};
 
   const buildFileTree = async (
@@ -108,7 +109,7 @@ export const parseZip = async (file: File): Promise<FileObj> => {
  *
  */
 export const parseFiles = (files: File[]) => {
-  const fileTree: FileObj['fileTree'] = defaultFileTree;
+  const fileTree: FileObj['fileTree'] = cloneDeep(defaultFileTree);
   const fileSet: FileObj['fileSet'] = {};
 
   files.forEach(file => {
@@ -136,7 +137,7 @@ export const parseFiles = (files: File[]) => {
 export const parseDir = async (
   dirHandle: FileSystemDirectoryHandle,
 ): Promise<FileObj> => {
-  const fileTree: FileObj['fileTree'] = defaultFileTree;
+  const fileTree: FileObj['fileTree'] = cloneDeep(defaultFileTree);
   const fileSet: FileObj['fileSet'] = {};
 
   const buildFileTree = async (
