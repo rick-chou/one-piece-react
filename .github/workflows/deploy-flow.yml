@@ -4,6 +4,9 @@ on:
   pull_request:
     types:
       - closed
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,13 +22,14 @@ jobs:
           EMAIL: 944268618@qq.com
           USERNAME: Rick.Zhou
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          REPO: github.com/rick-chou/react-flowchart.git
         run: |
           cd projects/@rick-flow
 
           git init
           git config --global user.email $EMAIL
           git config --global user.name $USERNAME
-          git remote add origin https://$ACCESS_TOKEN@github.com/rick-chou/react-flowchart.git
+          git remote add origin https://$ACCESS_TOKEN@$REPO
 
 
           git checkout -b main
