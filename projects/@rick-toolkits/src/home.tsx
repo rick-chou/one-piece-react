@@ -40,7 +40,6 @@ const Home: React.FC = () => {
         <Layout>
           <Layout.Content className="bg-gradient-to-r from-blue-50 to-blue-100">
             <div className="ml-56 relative">
-              {/* <Background /> */}
               <div
                 className="bg-white !min-h-[100vh] shadow-lg rounded-tl-2xl rounded-bl-2xl overflow-hidden p-8"
                 style={{

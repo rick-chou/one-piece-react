@@ -1,9 +1,7 @@
 import { router } from '@/router';
 import { ConfigProvider } from 'antd';
-import 'react-contexify/ReactContexify.css';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import ErrorBoundary from './components/error-boundary';
 import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       },
       // algorithm: theme.darkAlgorithm,
     }}>
-    <RouterProvider router={router} fallbackElement={<ErrorBoundary />} />
+    <RouterProvider
+      router={router}
+      fallbackElement={<div>ErrorBoundary</div>}
+    />
   </ConfigProvider>,
 );

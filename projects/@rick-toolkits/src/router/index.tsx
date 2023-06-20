@@ -1,8 +1,5 @@
-import ErrorBoundary from '@/components/error-boundary';
 import Home from '@/home';
 import ImageConversion from '@/tools/image-conversion';
-import OnlineZip from '@/tools/online-zip';
-import { FileZipTwoTone } from '@ant-design/icons';
 import { FcEditImage } from 'react-icons/fc';
 import { createBrowserRouter, type RouteObject } from 'react-router-dom';
 
@@ -25,7 +22,7 @@ export const routes: RouteProps[] = [
         path: 'image-conversion',
         element: <ImageConversion />,
         icon: <FcEditImage />,
-        errorElement: <ErrorBoundary />,
+        errorElement: <div>ErrorBoundary</div>,
       },
     ],
   },
