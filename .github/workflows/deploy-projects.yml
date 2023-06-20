@@ -1,12 +1,7 @@
 name: Deploy Projects
 
 on:
-  pull_request:
-    types:
-      - closed
-  push:
-    branches:
-      - **
+  - push
 
 jobs:
   tookkkits:
