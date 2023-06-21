@@ -45,7 +45,7 @@ const Home: React.FC = () => {
     <Layout hasSider>
       <Sider
         theme="light"
-        // style={{ display: 'none' }}
+        style={{ display: 'none' }}
         className="!h-screen !fixed !left-0 !top-0 !bottom-0 !overflow-auto shadow-xl rounded-tr-2xl">
         <div
           className="h-8 flex justify-center items-center bg-white m-12 cursor-pointer"
@@ -79,12 +79,12 @@ const Home: React.FC = () => {
                 <div className="flex justify-center items-center h-screen">
                   <RainbowText />
                   <div className="w-[70vw] rounded-lg overflow-hidden shadow-2xl">
-                    <img
+                    {/* <img
                       src={
                         'https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/30.jpg'
                       }
                       className="w-[70vw]"
-                    />
+                    /> */}
                   </div>
                 </div>
               ) : (

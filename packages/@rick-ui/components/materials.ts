@@ -1,4 +1,5 @@
 export const materials = [
+  'api-docs',
   'chart',
   'empty',
   'link-text',
