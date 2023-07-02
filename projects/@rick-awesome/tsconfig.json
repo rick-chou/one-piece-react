@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    /* Path Alias */
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@rick-flow/*": ["src/roadmap/flowcharts/*"],
+      "@rick-img-resize/*": ["src/project/img-resize/*"]
+    }
+  },
+  "include": ["src", "tailwind.config.cjs", "src/roadmap/flowcharts"],
+  "exclude": ["src/roadmap", "src/rick"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
