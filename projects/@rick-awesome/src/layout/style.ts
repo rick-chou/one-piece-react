@@ -60,7 +60,7 @@ export const globalStyle = css`
 
 export const containerStyle = css`
   background-color: var(--color-primary-bg);
-  width: 1240px;
+  min-width: 1240px;
   max-height: 900px;
   height: 95vh;
   display: flex;

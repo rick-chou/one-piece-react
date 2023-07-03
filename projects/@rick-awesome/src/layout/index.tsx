@@ -1,11 +1,11 @@
-import { containerStyle } from '@/home.style';
 import Homepage from '@/homepage';
 import { Theme } from '@/theme';
+import { Global } from '@emotion/react';
 import { useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
 import SideBar from './sidebar';
-
+import { containerStyle, globalStyle } from './style';
 const Home = () => {
   const location = useLocation();
 
@@ -20,6 +20,7 @@ const Home = () => {
   return (
     <div css={containerStyle}>
       <Theme />
+      <Global styles={globalStyle} />
       <SideBar />
 
       <div className="flex flex-col flex-grow-[1]">

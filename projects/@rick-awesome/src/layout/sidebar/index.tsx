@@ -1,15 +1,15 @@
+import { metaData } from '@/router/meta-data';
+import { genRandomSvg } from '@/utils';
+import { isEmpty, startCase, upperCase } from 'lodash';
+import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import {
   logoStyle,
   sideMenuStyle,
   sideTitleStyle,
   sideWrapperStyle,
   sidebarStyle,
-} from '@/home.style';
-import { metaData } from '@/router/meta-data';
-import { genRandomSvg } from '@/utils';
-import { isEmpty, startCase, upperCase } from 'lodash';
-import { memo } from 'react';
-import { Link } from 'react-router-dom';
+} from '../style';
 
 const SideBar = () => {
   return (

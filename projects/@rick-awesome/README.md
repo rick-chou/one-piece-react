@@ -28,5 +28,9 @@
 
 - Project [ some tools/page-level components ]
 
-  - [] Image-Resize
-  - [] Flowchart
+  - [ ] Image-Resize
+  - [ ] Flowchart
+
+- NPM
+
+  - [ ] add NPM package introduction page

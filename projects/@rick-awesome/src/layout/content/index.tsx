@@ -1,6 +1,6 @@
-import { mainContainerStyle } from '@/home.style';
 import { routes } from '@/router';
 import { Outlet, matchRoutes, useLocation } from 'react-router-dom';
+import { mainContainerStyle } from '../style';
 
 const Content = () => {
   const location = useLocation();

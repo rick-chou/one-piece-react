@@ -1,14 +1,14 @@
 import ThemeSwitch from '@/components/theme-switch';
+import { GithubOutlined } from '@ant-design/icons';
+import { css } from '@emotion/react';
+import { Divider } from 'antd';
 import {
   headerStyle,
   searchBarStyle,
   userImgStyle,
   userNameStyle,
   userStyle,
-} from '@/home.style';
-import { GithubOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import { Divider } from 'antd';
+} from '../style';
 
 const Header = () => (
   <div css={headerStyle}>

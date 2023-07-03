@@ -1,4 +1,4 @@
-import { animationDelay } from '@/home.style';
+import { animationDelay } from '@/layout/style';
 import { first, pick, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 import { metaData } from './meta-data';
