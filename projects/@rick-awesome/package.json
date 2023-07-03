@@ -2,8 +2,14 @@
   "name": "@rickzhou/awesome-demo",
   "private": true,
   "version": "0.0.0",
+  "author": "Rick.Zhou",
+  "homepage": "https://github.com/rick-chou/react-awesome/",
   "type": "module",
-  "description": "",
+  "description": "Rick.Zhou's Blog 🚀",
+  "keywords": [
+    "RICK.ZHOU",
+    "BLOG"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -16,7 +22,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@rickzhou/react-css": "^2.1.1",
     "@rickzhou/react-ui": "^2.2.1",
-    "antd": "^5.6.3",
+    "antd": "^5.6.4",
     "chance": "^1.1.11",
     "color": "^4.2.3",
     "dagre": "^0.8.5",
@@ -33,7 +39,7 @@
     "react-markdown": "^8.0.7",
     "react-medium-image-zoom": "^5.1.6",
     "react-redux": "^8.1.1",
-    "react-router-dom": "^6.14.0",
+    "react-router-dom": "^6.14.1",
     "reactflow": "^11.7.4",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
@@ -41,7 +47,8 @@
     "uuid": "^9.0.0",
     "veaury": "^2.3.12",
     "vue": "^3.3.4",
-    "vuera": "^0.2.7"
+    "vuera": "^0.2.7",
+    "web-vitals": "^3.3.2"
   },
   "devDependencies": {
     "@rickzhou/react-fabric": "^4.0.0",
@@ -50,16 +57,16 @@
     "@types/dagre": "^0.7.48",
     "@types/file-saver": "^2.0.5",
     "@types/lodash": "^4.14.195",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@types/react-redux": "^7.1.25",
     "@types/redux-logger": "^3.0.9",
     "@types/three": "^0.152.1",
     "@types/uuid": "^9.0.2",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@vitejs/plugin-react": "^4.0.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "typescript": "^5.0.2",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vite-plugin-pwa": "^0.16.4"
   }

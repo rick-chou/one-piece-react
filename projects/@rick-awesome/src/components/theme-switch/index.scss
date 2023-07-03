@@ -1,8 +1,4 @@
 .theme-switch {
-  // height: 34px;
-  // position: relative;
-  // width: 60px;
-
   #switch {
     background-color: var(--color-secondary-bg);
     animation: clickOff 0.5s;
@@ -57,7 +53,7 @@
 
     .btn-switch {
       display: block;
-      background-color: var(--color-theme-switch-active);
+      background-color: var(--color-active);
       width: 6vw;
       height: 6vw;
       border-radius: 3vw;

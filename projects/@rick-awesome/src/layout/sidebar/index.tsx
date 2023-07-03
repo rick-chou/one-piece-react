@@ -5,10 +5,10 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   logoStyle,
+  sidebarStyle,
   sideMenuStyle,
   sideTitleStyle,
   sideWrapperStyle,
-  sidebarStyle,
 } from '../style';
 
 const SideBar = () => {
