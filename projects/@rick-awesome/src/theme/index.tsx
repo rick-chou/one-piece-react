@@ -34,14 +34,13 @@ export const Theme = () => {
         css`
           :root {
             --body-font: 'Odibee Sans', 'Inter', sans-serif;
-
-            --color-switch-button-active: #0451fb;
+            --color-theme-switch-active: #0451fb;
 
             ${theme === 'dark'
               ? `
               --color-primary-bg: #16171a;
               --color-secondary-bg: #000;
-              --color-primary-bg-hover: #fafafa;
+              --color-primary-bg-hover: #303133;
               --color-primary-text: #c7c7c7;
 
 

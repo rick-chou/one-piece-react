@@ -1,5 +1,5 @@
+import { containerStyle } from '@/home.style';
 import Homepage from '@/homepage';
-import '@/router';
 import { Theme } from '@/theme';
 import { useLocation } from 'react-router-dom';
 import Content from './content';
@@ -18,11 +18,11 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
+    <div css={containerStyle}>
       <Theme />
       <SideBar />
 
-      <div className="wrapper">
+      <div className="flex flex-col flex-grow-[1]">
         <Header />
         {renderContent()}
       </div>

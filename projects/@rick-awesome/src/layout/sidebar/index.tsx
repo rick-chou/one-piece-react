@@ -1,4 +1,10 @@
-import { logoStyle, sidebarStyle } from '@/home.style';
+import {
+  logoStyle,
+  sideMenuStyle,
+  sideTitleStyle,
+  sideWrapperStyle,
+  sidebarStyle,
+} from '@/home.style';
 import { metaData } from '@/router/meta-data';
 import { genRandomSvg } from '@/utils';
 import { isEmpty, startCase, upperCase } from 'lodash';
@@ -14,14 +20,11 @@ const SideBar = () => {
       {!isEmpty(metaData) &&
         Object.entries(metaData).map(([key, value]) => {
           return (
-            <div className="side-wrapper" key={key}>
-              <div className="side-title">{upperCase(key)}</div>
-              <div className="side-menu">
+            <div css={sideWrapperStyle} key={key}>
+              <div css={sideTitleStyle}>{upperCase(key)}</div>
+              <div css={sideMenuStyle}>
                 {value.map(i => (
-                  <Link
-                    className="sidebar-link discover is-active"
-                    to={i.path}
-                    key={i.path}>
+                  <Link to={i.path} key={i.path}>
                     <div dangerouslySetInnerHTML={{ __html: genRandomSvg() }} />
                     {startCase(i.name)}
                   </Link>

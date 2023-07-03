@@ -1,22 +1,29 @@
 import ThemeSwitch from '@/components/theme-switch';
+import {
+  headerStyle,
+  searchBarStyle,
+  userImgStyle,
+  userNameStyle,
+  userStyle,
+} from '@/home.style';
 import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Divider } from 'antd';
 
 const Header = () => (
-  <div className="header">
-    <div className="search-bar">
+  <div css={headerStyle}>
+    <div css={searchBarStyle}>
       <input type="text" placeholder="Search    [ comming soon ... ]" />
     </div>
-    <div className="user-settings flex items-center justify-center">
+    <div css={userStyle}>
       <img
-        className="user-img"
+        css={userImgStyle}
         src="https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/png/2.png"
         alt=""
       />
 
       <div className="flex cursor-pointer">
-        <div className="user-name">{import.meta.env.RICK_AUTHOR}</div>
+        <div css={userNameStyle}>{import.meta.env.RICK_AUTHOR}</div>
         {/* <svg viewBox="0 0 492 492" fill="currentColor">
           <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
         </svg> */}
@@ -34,8 +41,8 @@ const Header = () => (
 
       <ThemeSwitch className="scale-[0.2] !w-4 !h-4 ml-8" />
 
-      {/* <div className="notify">
-        <div className="notification"></div>
+      {/* <div css={notifyStyle}>
+        <div css={notificationStyle}></div>
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path
             fillRule="evenodd"
