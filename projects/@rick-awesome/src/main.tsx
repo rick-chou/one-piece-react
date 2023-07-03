@@ -1,3 +1,4 @@
+import '@/config/web-vitals';
 import { ConfigProvider } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             },
             // algorithm: theme.darkAlgorithm,
           }}>
-          <RouterProvider router={router} fallbackElement={<div />} />
+          <RouterProvider router={router} />
         </ConfigProvider>
       </PersistGate>
     </Provider>

@@ -34,7 +34,7 @@ export const Theme = () => {
         css`
           :root {
             --body-font: 'Odibee Sans', 'Inter', sans-serif;
-            --color-theme-switch-active: #0451fb;
+            --color-active: #bae0ff;
 
             ${theme === 'dark'
               ? `

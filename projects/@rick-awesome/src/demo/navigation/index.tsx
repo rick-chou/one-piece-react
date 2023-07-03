@@ -1,9 +1,21 @@
+import { random } from 'lodash';
+import { useNavigate } from 'react-router-dom';
 import { listItemStyle, ulStyle } from './style';
 
 const Navigation = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex items-center justify-center">
-      <ul css={ulStyle}>
+      <ul
+        css={ulStyle}
+        onClick={async e => {
+          e.preventDefault();
+          const { metaData } = await import('@/router/meta-data');
+          const paths = Object.values(metaData).flat();
+          const randomPath = paths.at(random(0, paths.length));
+          navigate(randomPath!.path);
+        }}>
         <li>
           <a css={listItemStyle} href="">
             <i className="icon-reorder"></i>

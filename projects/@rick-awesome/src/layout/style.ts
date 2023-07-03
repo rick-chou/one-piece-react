@@ -136,7 +136,7 @@ export const sideTitleStyle = css`
 `;
 
 export const sideWrapperStyle = css`
-  border-bottom: 1px solid var(--color-secondary-bg);
+  border-bottom: 1px solid var(--color-primary-text);
   padding: 36px 0;
   width: 145px;
   & + & {
@@ -234,4 +234,14 @@ export const mainContainerStyle = css`
   padding: 0 30px 30px;
   flex-grow: 1;
   overflow: auto;
+`;
+
+export const mainHeaderStyle = css`
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 11;
 `;

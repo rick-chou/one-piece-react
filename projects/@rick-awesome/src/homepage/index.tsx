@@ -1,9 +1,10 @@
 import ReactMarkdown from 'react-markdown';
+// import { html } from '../../README.md';
 
 const Homepage = () => {
   return (
     <div>
-      <ReactMarkdown># Hello, *world*!</ReactMarkdown>
+      {/* <ReactMarkdown>{html}</ReactMarkdown> */}
     </div>
   );
 };

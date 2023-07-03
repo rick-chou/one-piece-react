@@ -12,7 +12,7 @@ export const clockStyle = css`
 export const blockStyle = css`
   width: calc(100% / 6);
   height: 20%;
-  color: #474747;
+  color: var(--color-primary-bg-hover);
   transition: 0.4s;
 
   &:not(:nth-child(n + 16)):nth-child(n + 11),
@@ -42,11 +42,11 @@ export const blockStyle = css`
   }
 
   &.active:before {
-    color: whitesmoke;
+    color: var(--color-primary-text);
     font-weight: 900;
   }
 
   &.second:before {
-    color: #ff8300;
+    color: var(--color-active);
   }
 `;

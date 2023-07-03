@@ -5,8 +5,4 @@ const BasicWithNormal = applyVueInReact(MyVueComponent);
 
 const BasicWithPure = applyPureVueInReact(MyVueComponent);
 
-console.log('MyVueComponent', BasicWithPure);
-
-export default () => (
- <BasicWithNormal />
-);
+export default () => <BasicWithNormal />;
