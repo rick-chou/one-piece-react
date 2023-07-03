@@ -1,10 +1,10 @@
 {
-	"name": "@rickzhou/react",
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
-	"devDependencies": {
-		"lerna": "^6.6.2"
-	}
+  "name": "@rickzhou/react",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^7.1.0"
+  }
 }
