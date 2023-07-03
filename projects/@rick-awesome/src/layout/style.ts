@@ -136,7 +136,11 @@ export const sideTitleStyle = css`
 `;
 
 export const sideWrapperStyle = css`
+<<<<<<< HEAD
   border-bottom: 1px solid var(--color-primary-text);
+=======
+  border-bottom: 1px solid var(--color-secondary-bg);
+>>>>>>> main
   padding: 36px 0;
   width: 145px;
   & + & {

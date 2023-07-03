@@ -6,7 +6,6 @@ import Content from './content';
 import Header from './header';
 import SideBar from './sidebar';
 import { containerStyle, globalStyle } from './style';
-
 const Home = () => {
   const location = useLocation();
 
