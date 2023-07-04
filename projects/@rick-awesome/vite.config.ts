@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
-// import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { defineConfig } from 'vite';
+import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { VitePWA } from 'vite-plugin-pwa';
 import { description, name } from './package.json';
 
@@ -30,7 +30,7 @@ export default defineConfig({
         plugins: ['@emotion/babel-plugin'],
       },
     }),
-    // md({ mode: [Mode.HTML] }),
+    md({ mode: [Mode.HTML, Mode.MARKDOWN, Mode.REACT, Mode.TOC] }),
     // vue(),
     // veauryVitePlugins({
     //   type: 'react',

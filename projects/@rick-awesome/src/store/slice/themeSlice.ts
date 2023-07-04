@@ -1,4 +1,4 @@
-import { type ThemeMode } from '@/type';
+import { type ThemeMode } from '@/interface';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 

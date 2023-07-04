@@ -73,3 +73,7 @@ chance.mixin({
 export const genRandomSvg = (options?: Partial<Options>) => {
   return chance.svg(options);
 };
+
+export const isMac = () => {
+  return /(Mac|iP[ahno]+[de])/i.test(navigator.userAgent);
+};

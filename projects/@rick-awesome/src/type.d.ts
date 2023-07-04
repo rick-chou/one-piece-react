@@ -39,5 +39,3 @@ declare module '*.md' {
     toc,
   };
 }
-
-export type ThemeMode = 'light' | 'dark';

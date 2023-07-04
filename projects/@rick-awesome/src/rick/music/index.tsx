@@ -1,9 +1,9 @@
-import { applyPureVueInReact, applyVueInReact } from 'veaury';
-import MyVueComponent from './index.vue';
+// import { applyPureVueInReact, applyVueInReact } from 'veaury';
+// import MyVueComponent from './index.vue';
 
-const BasicWithNormal = applyVueInReact(MyVueComponent);
+// const BasicWithNormal = applyVueInReact(MyVueComponent);
 
-const BasicWithPure = applyPureVueInReact(MyVueComponent);
+// const BasicWithPure = applyPureVueInReact(MyVueComponent);
 
-export default () => <BasicWithNormal />;
-console.log('MyVueComponent', BasicWithPure);
+export default () => <div />;
+// console.log('MyVueComponent', BasicWithPure);

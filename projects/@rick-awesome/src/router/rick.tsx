@@ -1,4 +1,4 @@
 import { type RouteObject } from 'react-router-dom';
 import { genRoutes } from './meta-data';
 
-export const DemoRoutes: RouteObject = genRoutes('rick');
+export const RickRoutes: RouteObject = genRoutes('rick');

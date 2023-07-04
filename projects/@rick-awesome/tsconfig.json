@@ -2,19 +2,28 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./",
     "paths": {
@@ -23,7 +32,7 @@
       "@rick-img-resize/*": ["src/project/img-resize/*"]
     }
   },
-  "include": ["src", "tailwind.config.cjs", "src/roadmap/flowcharts"],
-  "exclude": ["src/roadmap", "src/rick"],
+  "include": ["src", "../../README.md"],
+  "exclude": ["src/roadmap"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

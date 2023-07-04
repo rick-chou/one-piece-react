@@ -23,7 +23,7 @@ const Home = () => {
       <Global styles={globalStyle} />
       <SideBar />
 
-      <div className="flex flex-col flex-grow-[1]">
+      <div className="flex flex-col flex-1">
         <Header />
         {renderContent()}
       </div>
