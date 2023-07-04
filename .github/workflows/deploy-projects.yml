@@ -32,34 +32,6 @@ jobs:
           git commit -m "🌈 @rickzhou/awesome"
           git push -f --set-upstream origin main
 
-  flowchart:
-    runs-on: ubuntu-latest
-
-    steps:
-      # https://github.com/actions/checkout
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
-
-      - name: Push 📦
-        env:
-          EMAIL: 944268618@qq.com
-          USERNAME: Rick.Zhou
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPO: github.com/rick-chou/react-flowchart.git
-        run: |
-          cd projects/@rick-toolkits
-
-          git init
-          git config --global user.email $EMAIL
-          git config --global user.name $USERNAME
-          git remote add origin https://$ACCESS_TOKEN@$REPO
-
-
-          git checkout -b main
-          git add .
-          git commit -m "🌈 @rickzhou/flowchart"
-          git push -f --set-upstream origin main
-
   editor:
     runs-on: ubuntu-latest
 
@@ -75,7 +47,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPO: github.com/rick-chou/react-editor.git
         run: |
-          cd projects/@rick-toolkits
+          cd projects/@rick-editor
 
           git init
           git config --global user.email $EMAIL
