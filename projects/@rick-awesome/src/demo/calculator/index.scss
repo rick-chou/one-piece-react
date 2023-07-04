@@ -15,14 +15,6 @@
     inset -6px -6px 5px 0 var(--color-calculator-soft-highlight);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  color: var(--color-calculator-primary-text);
-}
-
 .calculator {
   background: var(--color-calculator-bg);
   color: var(--color-calculator-primary-text);

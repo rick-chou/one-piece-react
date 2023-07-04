@@ -6,6 +6,6 @@ interface ImportMetaEnv {
   readonly RICK_JUEJIN: string;
 }
 
-export interface ImportMeta {
+interface ImportMeta {
   readonly env: ImportMetaEnv;
 }

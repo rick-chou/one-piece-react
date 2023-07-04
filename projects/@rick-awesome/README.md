@@ -4,27 +4,29 @@
 
   - [ ] Introduction
   - [ ] Albums
+  - [ ] Music
   - [ ] Technical notes
 
 - Config [ technical ]
 
   - [x] Dark / Light mode
-  - [ ] More themes
+  - [ ] More themes ( custom bg ... )
 
 - Demo [ some awesome demos from social ]
 
   - CodePen
 
     - [x] [Calculator](https://codepen.io/rickyeckhardt/pen/eYNzRQJ)
-    - [ ] [Typographic Clock](https://codepen.io/graphilla/pen/zEZKpN)
+    - [x] [Typographic Clock](https://codepen.io/graphilla/pen/zEZKpN)
     - [ ] [Commands] 📦 mine
     - [ ] [Countdown]
     - [ ] [Cube](https://codepen.io/bsehovac/pen/EMyWVv)
-    - [ ] [Equalizer]
-    - [ ] [Navigation](https://codepen.io/katydecorah/pen/nYLbEN)
+    - [ ] [Equalizer](https://codepen.io/kunukn/pen/obJEJE)
+    - [x] [Navigation](https://codepen.io/katydecorah/pen/nYLbEN)
     - [ ] [Planet](https://codepen.io/piotrkalinowski/pen/yMXomv)
     - [x] [Theme Switch](https://codepen.io/isaaclouzeiro/pen/YzRzmwQ)
     - [ ] [Timeline](https://codepen.io/knyttneve/pen/bgvmma)
+    - [x] [Keyboard](https://codepen.io/jkantner/pen/ZEqKgWJ)
 
 - Project [ some tools/page-level components ]
 

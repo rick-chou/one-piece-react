@@ -13,17 +13,15 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <>
-      <section
-        className={`theme-switch theme-switch--${theme} ${className}`}
-        id="theme-switch">
-        <button type="button" id="switch" onClick={toggleTheme}>
-          <i className="bx bxs-sun"></i>
-          <span className="btn-switch"></span>
-          <i className="bx bxs-moon"></i>
-        </button>
-      </section>
-    </>
+    <div
+      className={`theme-switch theme-switch--${theme} ${className}`}
+      id="theme-switch">
+      <button type="button" id="switch" onClick={toggleTheme}>
+        <i className="bx bxs-sun"></i>
+        <span className="btn-switch"></span>
+        <i className="bx bxs-moon"></i>
+      </button>
+    </div>
   );
 };
 

@@ -54,7 +54,7 @@ export const metaData = await genMetaData(
 
 export const genRoutes: (path: string) => RouteObject = (path: string) =>
   first(
-    Object.entries(pick(metaData, path)).map(([key, value]) => {
+    Object.entries(pick(metaData, path))?.map(([key, value]) => {
       return {
         path: key,
         children: value.map(i => {
@@ -86,4 +86,4 @@ export const genRoutes: (path: string) => RouteObject = (path: string) =>
         }),
       };
     }),
-  )!;
+  ) ?? ([] as RouteObject);

@@ -24,7 +24,7 @@ export const globalStyle = css`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: rgb(21 20 26 / 63%);
+    background-color: var(--color-primary-text);
     border-radius: 10px;
   }
 
@@ -119,7 +119,7 @@ export const sideMenuStyle = css`
   }
   svg {
     width: 30px;
-    padding: 8px;
+    padding: 4px;
     border-radius: 10px;
     background-color: var(--color-secondary-bg);
     flex-shrink: 0;
@@ -136,14 +136,10 @@ export const sideTitleStyle = css`
 `;
 
 export const sideWrapperStyle = css`
-<<<<<<< HEAD
   border-bottom: 1px solid var(--color-primary-text);
-=======
-  border-bottom: 1px solid var(--color-secondary-bg);
->>>>>>> main
   padding: 36px 0;
   width: 145px;
-  & + & {
+  &:last-child {
     border-bottom: none;
   }
 `;

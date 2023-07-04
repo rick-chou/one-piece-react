@@ -28,11 +28,8 @@
 
 ### 🌟 Project Roadmap
 
-- [x] [@rickzhou/flowchart](https://rick-chou.github.io/react-flowchart/)
+- [x] [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/)
 - [ ] @rickzhou/online-zip
-- [ ] @rickzhou/java-ide
-- [ ] @rickzhou/mdx
-- [ ] @rickzhou/editor-embedder
 - [ ] @rickzhou/api-docs-generator
 
 ![@rickzhou](https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/42.jpg)

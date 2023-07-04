@@ -1,16 +1,17 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import './index.scss';
+gsap.registerPlugin(ScrollTrigger);
 
 const Album = () => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  const main = useRef<HTMLDivElement>(null);
 
+  useLayoutEffect(() => {
     const additionalY = { val: 0 };
-    let additionalYAnim;
+    let additionalYAnim: any;
     let offset = 0;
-    const cols = gsap.utils.toArray('.col');
+    const cols = gsap.utils.toArray<HTMLDivElement>('.col');
 
     cols.forEach((col, i) => {
       const images = col.childNodes;
@@ -23,8 +24,8 @@ const Album = () => {
 
       // SET ANIMATION
       images.forEach(item => {
-        const columnHeight = item.parentElement.clientHeight;
-        const direction = i % 2 !== 0 ? '+=' : '-='; // Change direction for odd columns
+        const columnHeight = item.parentElement!.clientHeight;
+        const direction = i % 2 === 0 ? '-=' : '+='; // Change direction for odd columns
 
         gsap.to(item, {
           y: direction + Number(columnHeight / 2),
@@ -47,44 +48,57 @@ const Album = () => {
         });
       });
     });
+    const ctx = gsap.context(self => {
+      const album = self.selector!('.album');
+      if (document.querySelector('.album')) {
+        gsap.to(album, {
+          scrollTrigger: {
+            trigger: album,
+            start: 'top 50%',
+            end: 'bottom 50%',
+            markers: true,
+            onUpdate(self) {
+              const velocity = self.getVelocity();
+              if (velocity > 0) {
+                if (additionalYAnim) additionalYAnim.kill();
+                additionalY.val = -velocity / 2000;
+                additionalYAnim = gsap.to(additionalY, { val: 0 });
+                console.log(additionalYAnim);
+              }
 
-    ScrollTrigger.create({
-      trigger: document.querySelector('section'),
-      start: 'top 50%',
-      end: 'bottom 50%',
-      onUpdate(self) {
-        const velocity = self.getVelocity();
-        if (velocity > 0) {
-          if (additionalYAnim) additionalYAnim.kill();
-          additionalY.val = -velocity / 2000;
-          additionalYAnim = gsap.to(additionalY, { val: 0 });
-        }
-
-        if (velocity < 0) {
-          if (additionalYAnim) additionalYAnim.kill();
-          additionalY.val = -velocity / 3000;
-          additionalYAnim = gsap.to(additionalY, { val: 0 });
-        }
-      },
-    });
+              if (velocity < 0) {
+                if (additionalYAnim) additionalYAnim.kill();
+                additionalY.val = -velocity / 3000;
+                additionalYAnim = gsap.to(additionalY, { val: 0 });
+              }
+            },
+          },
+        });
+      }
+    }, main); // <- Scope!
+    return () => {
+      ctx.revert();
+    }; // <- Cleanup!
   }, []);
 
   return (
     <>
-      <section>
-        <h1>Vertical image loop with scroll acceleration with gsap</h1>
+      <div className="album">
+        <div className="title">
+          Vertical image loop with scroll acceleration with gsap
+        </div>
 
-        <h2 className="credit">
+        <div className="credit">
           <a
             href="https://thisisadvantage.com"
             target="_blank"
             rel="noreferrer">
             Made by Advantage
           </a>
-        </h2>
-      </section>
+        </div>
+      </div>
 
-      <div className="gallery">
+      <div className="gallery" ref={main}>
         <div className="col">
           <div className="image">
             <img

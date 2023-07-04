@@ -1,11 +1,13 @@
-import ReactMarkdown from 'react-markdown';
-// import { html } from '../../README.md';
+import { animationDelay } from '@/layout/style';
+import { html } from '../../README.md';
 
 const Homepage = () => {
   return (
-    <div>
-      {/* <ReactMarkdown>{html}</ReactMarkdown> */}
-    </div>
+    <div
+      css={animationDelay(0.1)}
+      className="prose prose-slate overflow-y-scroll lg:prose-xl max-w-none dark:prose-invert"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 };
 

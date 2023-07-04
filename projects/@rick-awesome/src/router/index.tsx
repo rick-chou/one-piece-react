@@ -5,14 +5,14 @@ import {
   type RouteObject,
 } from 'react-router-dom';
 import { DemoRoutes } from './demo';
+import { RickRoutes } from './rick';
 // import { ProjectRoutes } from './project';
 
 export const routes: RouteObject[] = [
   {
     path: import.meta.env.BASE_URL,
     element: <Home />,
-    // children: [RickRoutes, ProjectRoutes, DemoRoutes],
-    children: [DemoRoutes],
+    children: [DemoRoutes, RickRoutes],
   },
   {
     path: '*',

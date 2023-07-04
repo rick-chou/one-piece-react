@@ -1,3 +1,7 @@
+/**
+ * @link https://codepen.io/kunukn/pen/obJEJE
+ */
+
 import './index.scss';
 
 const Equalizer = () => {
@@ -95,7 +99,7 @@ const Equalizer = () => {
       },
     };
 
-    function mapDataRange(value) {
+    function mapDataRange(value: number) {
       // stackoverflow.com/a/929107/5707008
       // return (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
       return (
@@ -105,9 +109,9 @@ const Equalizer = () => {
       );
     }
 
-    function updateSlider($element) {
+    function updateSlider($element: HTMLInputElement) {
       if ($element) {
-        const rangeIndex = $element.getAttribute('data-slider-index');
+        const rangeIndex = $element.getAttribute('data-slider-index')!;
         const range = ranges[rangeIndex];
         const { value } = $element;
 
@@ -135,7 +139,7 @@ const Equalizer = () => {
       // Convert from percentage to coordinate values
       // Calculate and floor the values
       points.point1.y =
-        (svgViewBoxHeight - (svgViewBoxHeight * ranges.range1) / 100) | 0;
+        (svgViewBoxHeight - (svgViewBoxHeight * ranges.range1!) / 100) | 0;
       points.point2.y =
         (svgViewBoxHeight - (svgViewBoxHeight * ranges.range2) / 100) | 0;
       points.point3.y =
@@ -243,110 +247,105 @@ const Equalizer = () => {
     }
 
     return {
-      inputs: [].slice.call(document.querySelectorAll('.sliders input')),
+      inputs: Array.from(
+        document.querySelectorAll<HTMLInputElement>('.sliders input'),
+      ),
       updateSlider,
       reset,
       selectPreset,
     };
   })();
 
-  (function initAndSetupTheSliders() {
+  function initAndSetupTheSliders() {
     const { inputs } = app;
     let index = 1;
-    inputs.forEach(input =>
-      input.setAttribute('data-slider-index', 'range' + index++),
-    );
+    inputs.forEach(input => {
+      input.setAttribute('data-slider-index', 'range' + index++);
+    });
     inputs.forEach(input => (input.value = 50));
     inputs.forEach(input => {
       app.updateSlider(input);
     });
     // Cross-browser support where value changes instantly as you drag the handle, therefore two event types.
-    inputs.forEach(input =>
+    inputs.forEach(input => {
       input.addEventListener('input', element => {
         app.updateSlider(input);
-      }),
-    );
-    inputs.forEach(input =>
+      });
+    });
+    inputs.forEach(input => {
       input.addEventListener('change', element => {
         app.updateSlider(input);
-      }),
-    );
+      });
+    });
     app.selectPreset('custom');
-  })();
+  }
 
   return (
-    <div className="component">
-      <aside>
-        <div className="preamp">
-          <label>preamp</label>
-        </div>
-      </aside>
-
-      <main>
-        <div className="presets">
-          <label>Presets:</label>
-          <select name="Custom" onChange="app.selectPreset(this)">
-            <option value="custom">Custom</option>
-            <option value="rock">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="pop">Classical</option>
-            <option value="pop">Disco</option>
-          </select>
-          <button className="reset" onClick="app.reset()">
-            Reset
-          </button>
-        </div>
-
-        <div className="sliders">
-          <svg preserveAspectRatio="none" viewBox="0 0 140 100">
-            <path d="" className="line-shadow"></path>
-            <path d="" className="line"></path>
-          </svg>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
+    <>
+      <div className="component">
+        <aside>
+          <div className="preamp">
+            <label>preamp</label>
           </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
+        </aside>
+        <main>
+          <div className="presets">
+            <label>Presets:</label>
+            <select name="Custom" onChange="app.selectPreset(this)">
+              <option value="custom">Custom</option>
+              <option value="rock">Rock</option>
+              <option value="pop">Pop</option>
+              <option value="pop">Classical</option>
+              <option value="pop">Disco</option>
+            </select>
+            <button className="reset" onClick="app.reset()">
+              Reset
+            </button>
           </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
+          <div className="sliders">
+            <svg preserveAspectRatio="none" viewBox="0 0 140 100">
+              <path d="" className="line-shadow" />
+              <path d="" className="line" />
+            </svg>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
+            <div className="range-slider">
+              <input type="range" orient="vertical" min={0} max={100} />
+              <div className="range-slider__bar" />
+              <div className="range-slider__thumb" />
+            </div>
           </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
-          </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
-          </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
-          </div>
-
-          <div className="range-slider">
-            <input type="range" orient="vertical" min="0" max="100" />
-            <div className="range-slider__bar"></div>
-            <div className="range-slider__thumb"></div>
-          </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
 

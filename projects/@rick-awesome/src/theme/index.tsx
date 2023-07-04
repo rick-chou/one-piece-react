@@ -1,6 +1,7 @@
 import { useTheme } from '@/hooks/useTheme';
-import { type ThemeMode } from '@/type';
+import { type ThemeMode } from '@/interface';
 import { css, Global } from '@emotion/react';
+import { useEffect } from 'react';
 
 type ThemeType = {
   colorBg: string;
@@ -24,6 +25,27 @@ export const themeConfig: Record<ThemeMode, ThemeType> = {
 
 export const Theme = () => {
   const { theme } = useTheme();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('class', theme);
+
+    // depend on system them mode
+    // const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // const onThemeChange = (e: MediaQueryListEvent) => {
+    //   document.documentElement.setAttribute(
+    //     'class',
+    //     e.matches ? 'dark' : 'light',
+    //   );
+    // };
+
+    // media.addEventListener('change', onThemeChange);
+
+    // return () => {
+    //   media.removeEventListener('change', onThemeChange);
+    // };
+  }, [theme]);
+
   return (
     <Global
       styles={css(
@@ -35,6 +57,9 @@ export const Theme = () => {
           :root {
             --body-font: 'Odibee Sans', 'Inter', sans-serif;
             --color-active: #bae0ff;
+            --keyboard-duration: 0.3s;
+            --keyboard-hue: 0;
+            --keyboard-sat: 0%;
 
             ${theme === 'dark'
               ? `
@@ -49,6 +74,9 @@ export const Theme = () => {
               --color-calculator-secondary-text: #03a9f4;
               --color-calculator-soft-highlight: rgba(255, 255, 255, 0.05);
               --color-calculator-dark-highlight: rgba(0, 0, 0, 0.51);
+
+              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
+              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 10%);
               `
               : `
               --color-primary-bg: #e0e5ec;
@@ -62,6 +90,9 @@ export const Theme = () => {
               --color-calculator-secondary-text: rgba(51, 64, 89, 1);
               --color-calculator-soft-highlight: rgba(255, 255, 255, 0.43);
               --color-calculator-dark-highlight: rgba(217, 210, 200, 0.51);
+
+              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 20%);
+              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
               `}
           }
         `,

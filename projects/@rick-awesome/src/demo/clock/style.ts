@@ -15,11 +15,11 @@ export const blockStyle = css`
   color: var(--color-primary-bg-hover);
   transition: 0.4s;
 
-  &:not(:nth-child(n + 16)):nth-child(n + 11),
-  &:not(:nth-child(n + 46)):nth-child(n + 41) {
+  &:not(:nth-of-type(n + 16)):nth-of-type(n + 11),
+  &:not(:nth-of-type(n + 46)):nth-of-type(n + 41) {
     margin-right: 10px;
   }
-  &:not(:nth-child(n + 31)):nth-child(n + 26) {
+  &:not(:nth-of-type(n + 31)):nth-of-type(n + 26) {
     margin-right: 20px;
   }
 
@@ -37,7 +37,7 @@ export const blockStyle = css`
     align-items: center;
   }
 
-  &:nth-child(-n + 10):before {
+  &:nth-of-type(-n + 10):before {
     content: '0' attr(data-num);
   }
 
