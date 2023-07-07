@@ -1,7 +1,16 @@
-import './flipdown.css';
+// @ts-nocheck
 
+import './flipdown.css';
+/**
+ * @name FlipDown
+ * @description Flip styled countdown clock
+ * @author Peter Butcher (PButcher) <pbutcher93[at]gmail[dot]com>
+ * @param {number} uts - Time to count down to as unix timestamp
+ * @param {string} el - DOM element to attach FlipDown to
+ * @param {object} opt - Optional configuration settings
+ **/
 export class FlipDown {
-  constructor(uts: number, el = 'flipdown', opt: Record<string, unknown> = {}) {
+  constructor(uts, el = 'flipdown', opt = {}) {
     // If uts is not specified
     if (typeof uts !== 'number') {
       throw new Error(
@@ -14,6 +23,9 @@ export class FlipDown {
       opt = el;
       el = 'flipdown';
     }
+
+    // FlipDown version
+    this.version = '0.3.2';
 
     // Initialised?
     this.initialised = false;
@@ -61,15 +73,12 @@ export class FlipDown {
 
     // Set options
     this._setOptions();
-
-    // Print Version
-    console.log(`FlipDown ${this.version} (Theme: ${this.opts.theme})`);
   }
 
   /**
    * @name start
    * @description Start the countdown
-
+   * @author PButcher
    **/
   start() {
     // Initialise the clock
@@ -85,7 +94,7 @@ export class FlipDown {
   /**
    * @name ifEnded
    * @description Call a function once the countdown ends
-
+   * @author PButcher
    * @param {function} cb - Callback
    **/
   ifEnded(cb) {
@@ -101,7 +110,7 @@ export class FlipDown {
   /**
    * @name _getTime
    * @description Get the time in seconds (unix timestamp)
-
+   * @author PButcher
    **/
   _getTime() {
     return new Date().getTime() / 1000;
@@ -110,7 +119,7 @@ export class FlipDown {
   /**
    * @name _hasCountdownEnded
    * @description Has the countdown ended?
-
+   * @author PButcher
    **/
   _hasCountdownEnded() {
     // Countdown has ended
@@ -139,7 +148,7 @@ export class FlipDown {
    * @name _parseOptions
    * @description Parse any passed options
    * @param {object} opt - Optional configuration settings
-
+   * @author PButcher
    **/
   _parseOptions(opt) {
     let headings = ['Days', 'Hours', 'Minutes', 'Seconds'];
@@ -157,7 +166,7 @@ export class FlipDown {
   /**
    * @name _setOptions
    * @description Set optional configuration settings
-
+   * @author PButcher
    **/
   _setOptions() {
     // Apply theme
@@ -167,7 +176,7 @@ export class FlipDown {
   /**
    * @name _init
    * @description Initialise the countdown
-
+   * @author PButcher
    **/
   _init() {
     this.initialised = true;
@@ -232,6 +241,7 @@ export class FlipDown {
   /**
    * @name _createRotorGroup
    * @description Add rotors to the DOM
+   * @author PButcher
    * @param {array} rotors - A set of rotors
    **/
   _createRotorGroup(rotors, rotorIndex) {
@@ -251,6 +261,7 @@ export class FlipDown {
   /**
    * @name _createRotor
    * @description Create a rotor DOM element
+   * @author PButcher
    * @param {number} v - Initial rotor value
    **/
   _createRotor(v = 0) {
@@ -277,7 +288,7 @@ export class FlipDown {
   /**
    * @name _tick
    * @description Calculate current tick
-
+   * @author PButcher
    **/
   _tick() {
     // Get time now
@@ -311,7 +322,7 @@ export class FlipDown {
   /**
    * @name _updateClockValues
    * @description Update the clock face values
-
+   * @author PButcher
    * @param {boolean} init - True if calling for initialisation
    **/
   _updateClockValues(init = false) {

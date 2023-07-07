@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Cardo|Pathway+Gothic+One');
+// Responsive
+@mixin responsive() {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+$content-font: Cardo;
+$heading-font: 'Pathway Gothic One', sans-serif;
+$timeline-width: 700px;
+$timeline-container-width: 100%;
+.timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: $timeline-width;
+  position: relative;
+  &__content {
+    &-title {
+      font-weight: normal;
+      font-size: 66px;
+      margin: -10px 0 0 0;
+      transition: 0.4s;
+      padding: 0 10px;
+      box-sizing: border-box;
+      font-family: $heading-font;
+      color: #fff;
+    }
+    &-desc {
+      margin: 0;
+      font-size: 15px;
+      box-sizing: border-box;
+      color: rgba(#fff, 0.7);
+      font-family: $content-font;
+      font-weight: normal;
+      line-height: 25px;
+    }
+  }
+  &:before {
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+    content: '';
+    background: rgba(255, 255, 255, 0.07);
+    @include responsive() {
+      left: 40px;
+    }
+  }
+  &-item {
+    padding: 40px 0;
+    opacity: 0.3;
+    filter: blur(2px);
+    transition: 0.5s;
+    box-sizing: border-box;
+    width: calc(50% - 40px);
+    display: flex;
+    position: relative;
+    transform: translateY(-80px);
+    &:before {
+      content: attr(data-text);
+      letter-spacing: 3px;
+      width: 100%;
+      position: absolute;
+      color: rgba(#fff, 0.5);
+      font-size: 13px;
+      font-family: $heading-font;
+      border-left: 2px solid rgba(#fff, 0.5);
+      top: 70%;
+      margin-top: -5px;
+      padding-left: 15px;
+      opacity: 0;
+      right: calc(-100% - 56px);
+    }
+    &:nth-child(even) {
+      align-self: flex-end;
+      &:before {
+        right: auto;
+        text-align: right;
+        left: calc(-100% - 56px);
+        padding-left: 0;
+        border-left: none;
+        border-right: 2px solid rgba(#fff, 0.5);
+        padding-right: 15px;
+      }
+    }
+    &--active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+      &:before {
+        top: 50%;
+        transition: 0.3s all 0.2s;
+        opacity: 1;
+      }
+      .timeline__content-title {
+        margin: -50px 0 20px 0;
+      }
+    }
+    @include responsive() {
+      align-self: baseline !important;
+      width: 100%;
+      padding: 0 30px 150px 80px;
+      &:before {
+        left: 10px !important;
+        padding: 0 !important;
+        top: 50px;
+        text-align: center !important;
+        width: 60px;
+        border: none !important;
+      }
+      &:last-child {
+        padding-bottom: 40px;
+      }
+    }
+  }
+  &__img {
+    max-width: 100%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  }
+  &-container {
+    width: $timeline-container-width;
+    position: relative;
+    padding: 80px 0;
+    transition: 0.3s ease 0s;
+    background-attachment: fixed;
+    background-size: cover;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(99, 99, 99, 0.8);
+      content: '';
+    }
+  }
+  &-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    &__title {
+      color: #fff;
+      font-size: 46px;
+      font-family: $content-font;
+      font-weight: normal;
+      margin: 0;
+    }
+    &__subtitle {
+      color: rgba(255, 255, 255, 0.5);
+      font-family: $heading-font;
+      font-size: 16px;
+      letter-spacing: 5px;
+      margin: 10px 0 0 0;
+      font-weight: normal;
+    }
+  }
+}
+
+// DEMO
+.demo-footer {
+  padding: 60px 0;
+  text-align: center;
+  a {
+    color: #999;
+    display: inline-block;
+    font-family: $content-font;
+  }
+}

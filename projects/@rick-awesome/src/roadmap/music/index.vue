@@ -234,14 +234,12 @@ export default {
     <div class="player">
       <div class="player__top">
         <div class="player-cover">
-          <transition-group :name="transitionName">
-            <div
-              class="player-cover__item"
-              v-if="$index === currentTrackIndex"
-              :style="{ backgroundImage: `url(${track.cover})` }"
-              v-for="(track, $index) in tracks"
-              :key="$index"></div>
-          </transition-group>
+          <div
+            class="player-cover__item"
+            v-if="$index === currentTrackIndex"
+            :style="{ backgroundImage: `url(${track.cover})` }"
+            v-for="(track, $index) in tracks"
+            :key="$index"></div>
         </div>
         <div class="player-controls">
           <div

@@ -15,46 +15,13 @@
     inset -6px -6px 5px 0 var(--color-calculator-soft-highlight);
 }
 
-.calculator {
-  background: var(--color-calculator-bg);
-  color: var(--color-calculator-primary-text);
-}
-
-.display {
-  @include inOutNeumorphism;
-  border: 5px solid var(--color-calculator-soft-highlight);
-  color: var(--color-calculator-secondary-text);
-}
-
-.neumorphism {
-  @include neumorphism;
-  border-radius: 50%;
-  transition: 0.1s all ease-in-out;
-  border: 1px solid var(--color-calculator-soft-highlight);
-}
-
-.neumorphism:hover {
-  @include insetNeumorphism;
-  color: var(--color-calculator-secondary-text);
-}
-
 /*
   GRID LAYOUT & NON NEUMORPHIC 
 */
 
-.display {
-  border-radius: 12px;
-  transition: 0.1s all ease-in-out;
-  height: 60px;
-  line-height: 60px;
-  text-align: right;
-  padding-right: 20px;
-  width: 100%;
-  font-size: 32px;
-  letter-spacing: 4px;
-}
-
-.calculator {
+.demo-calculator {
+  background: var(--color-calculator-bg);
+  color: var(--color-calculator-primary-text);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -65,118 +32,145 @@
   grid-column-gap: 25px;
   border-radius: 20px;
   padding: 40px 40px 40px 40px;
-}
 
-.c,
-.signed,
-.percent,
-.divide,
-.seven,
-.eight,
-.nine,
-.times,
-.four,
-.five,
-.six,
-.minus,
-.one,
-.two,
-.three,
-.plus,
-.zero,
-.decimal,
-.equals {
-  text-align: center;
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-}
+  .display {
+    @include inOutNeumorphism;
+    border: 5px solid var(--color-calculator-soft-highlight);
+    color: var(--color-calculator-secondary-text);
+    border-radius: 12px;
+    transition: 0.1s all ease-in-out;
+    height: 60px;
+    line-height: 60px;
+    text-align: right;
+    padding-right: 20px;
+    width: 100%;
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
 
-.zero {
-  width: 100%;
-  border-radius: 12px;
-}
+  .neumorphism {
+    @include neumorphism;
+    border-radius: 50%;
+    transition: 0.1s all ease-in-out;
+    border: 1px solid var(--color-calculator-soft-highlight);
 
-.toggle {
-  grid-area: toggle;
-}
+    &:hover {
+      @include insetNeumorphism;
+      color: var(--color-calculator-secondary-text);
+    }
+  }
 
-.display {
-  grid-area: display;
-}
+  .c,
+  .signed,
+  .percent,
+  .divide,
+  .seven,
+  .eight,
+  .nine,
+  .times,
+  .four,
+  .five,
+  .six,
+  .minus,
+  .one,
+  .two,
+  .three,
+  .plus,
+  .zero,
+  .decimal,
+  .equals {
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+  }
 
-.c {
-  grid-area: c;
-}
+  .zero {
+    width: 100%;
+    border-radius: 12px;
+  }
 
-.signed {
-  grid-area: signed;
-}
+  .toggle {
+    grid-area: toggle;
+  }
 
-.percent {
-  grid-area: percent;
-}
+  .display {
+    grid-area: display;
+  }
 
-.divide {
-  grid-area: divide;
-}
+  .c {
+    grid-area: c;
+  }
 
-.seven {
-  grid-area: seven;
-}
+  .signed {
+    grid-area: signed;
+  }
 
-.eight {
-  grid-area: eight;
-}
+  .percent {
+    grid-area: percent;
+  }
 
-.nine {
-  grid-area: nine;
-}
+  .divide {
+    grid-area: divide;
+  }
 
-.times {
-  grid-area: times;
-}
+  .seven {
+    grid-area: seven;
+  }
 
-.four {
-  grid-area: four;
-}
+  .eight {
+    grid-area: eight;
+  }
 
-.five {
-  grid-area: five;
-}
+  .nine {
+    grid-area: nine;
+  }
 
-.six {
-  grid-area: six;
-}
+  .times {
+    grid-area: times;
+  }
 
-.minus {
-  grid-area: minus;
-}
+  .four {
+    grid-area: four;
+  }
 
-.one {
-  grid-area: one;
-}
+  .five {
+    grid-area: five;
+  }
 
-.two {
-  grid-area: two;
-}
+  .six {
+    grid-area: six;
+  }
 
-.three {
-  grid-area: three;
-}
+  .minus {
+    grid-area: minus;
+  }
 
-.plus {
-  grid-area: plus;
-}
+  .one {
+    grid-area: one;
+  }
 
-.zero {
-  grid-area: zero;
-}
+  .two {
+    grid-area: two;
+  }
 
-.decimal {
-  grid-area: decimal;
-}
+  .three {
+    grid-area: three;
+  }
 
-.equals {
-  grid-area: equals;
+  .plus {
+    grid-area: plus;
+  }
+
+  .zero {
+    grid-area: zero;
+  }
+
+  .decimal {
+    grid-area: decimal;
+  }
+
+  .equals {
+    grid-area: equals;
+  }
 }

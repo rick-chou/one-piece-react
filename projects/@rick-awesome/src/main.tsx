@@ -1,29 +1,31 @@
 import '@/config/web-vitals';
-import { ConfigProvider } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import './index.scss';
+import Album from './rick/album/index.react';
+import Music from './roadmap/music';
 import { router } from './router';
 import { persistor, store } from './store';
+import Frame from 'react-frame-component'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ConfigProvider
-          theme={{
-            token: {
-              // fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
-              // colorBgContainer: 'rgb(15,14,14)',
-            },
-            // algorithm: theme.darkAlgorithm,
-          }}>
+const RickAwesome = () => {
+  return (
+    // <React.StrictMode>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
           <RouterProvider router={router} />
-        </ConfigProvider>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
-);
+        </PersistGate>
+      </Provider>
+    // </React.StrictMode>
+  );
+};
+
+const Debug = () => {
+  return <Frame style={{width: '1000px',height: '700px'}}><Album /></Frame>
+  // return <iframe src='/react-awesome/album/index.html' style={{width: '1000px',height: '700px'}} />
+};
+
+ReactDOM.createRoot(document.getElementById('root')!).render(<RickAwesome />);

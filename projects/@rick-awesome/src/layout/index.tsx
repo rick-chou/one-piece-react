@@ -1,13 +1,19 @@
+import CmdModal from '@/components/commands';
 import Homepage from '@/homepage';
+import { useShortKey } from '@/hooks/useShortkey';
+import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/theme';
 import { Global } from '@emotion/react';
+import { ConfigProvider } from 'antd';
 import { useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
-import SideBar from './sidebar';
+import Sidebar from './sidebar';
 import { containerStyle, globalStyle } from './style';
 const Home = () => {
   const location = useLocation();
+  const { dark } = useTheme();
+  useShortKey();
 
   const renderContent = () => {
     if (location.pathname === import.meta.env.BASE_URL) {
@@ -18,16 +24,25 @@ const Home = () => {
   };
 
   return (
-    <div css={containerStyle}>
-      <Theme />
-      <Global styles={globalStyle} />
-      <SideBar />
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: 'Odibee Sans, Inter, sans-serif',
+          colorBgContainer: dark ? '#000' : '#fff',
+        },
+      }}>
+      <div css={containerStyle}>
+        <Theme />
+        <Global styles={globalStyle} />
+        <CmdModal />
+        <Sidebar />
 
-      <div className="flex flex-col flex-1">
-        <Header />
-        {renderContent()}
+        <div className="flex flex-col flex-1">
+          <Header />
+          {renderContent()}
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   );
 };
 

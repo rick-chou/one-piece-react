@@ -49,6 +49,8 @@ const Neumorphic = () => {
       setTimeout(clock, 500);
     };
 
+    // clock()
+
     const rotation = (target: HTMLElement, val: number) => {
       target.style.transform = `rotate(${val}deg)`;
     };
@@ -117,138 +119,132 @@ const Neumorphic = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="components">
-        <div className="switch">
-          <div className="switch__1">
-            <input id="switch-1" type="checkbox" />
-            <label htmlFor="switch-1" />
-          </div>
-          <div className="switch__2">
-            <input id="switch-2" type="checkbox" defaultChecked />
-            <label htmlFor="switch-2" />
-          </div>
+    <div className="components">
+      <div className="switch">
+        <div className="switch__1">
+          <input id="switch-1" type="checkbox" />
+          <label htmlFor="switch-1" />
         </div>
-        <div className="checkbox">
-          <div className="checkbox__1">
-            <input id="checkbox-1" type="checkbox" />
-            <label htmlFor="checkbox-1">
-              <i className="material-icons">done</i>
-            </label>
-          </div>
-          <div className="checkbox__2">
-            <input id="checkbox-2" type="checkbox" defaultChecked />
-            <label htmlFor="checkbox-2">
-              <i className="material-icons">done</i>
-            </label>
-          </div>
+        <div className="switch__2">
+          <input id="switch-2" type="checkbox" defaultChecked />
+          <label htmlFor="switch-2" />
         </div>
-        <div className="radio">
-          <div className="radio__1">
-            <input id="radio-1" type="radio" name="radio" defaultValue={1} />
-            <label htmlFor="radio-1" />
-          </div>
-          <div className="radio__2">
-            <input
-              id="radio-2"
-              type="radio"
-              name="radio"
-              defaultValue={2}
-              defaultChecked
-            />
-            <label htmlFor="radio-2" />
-          </div>
+      </div>
+      <div className="checkbox">
+        <div className="checkbox__1">
+          <input id="checkbox-1" type="checkbox" />
+          <label htmlFor="checkbox-1">
+            <i className="material-icons">done</i>
+          </label>
         </div>
-        <div className="btn btn__primary">
-          <p>Button</p>
+        <div className="checkbox__2">
+          <input id="checkbox-2" type="checkbox" defaultChecked />
+          <label htmlFor="checkbox-2">
+            <i className="material-icons">done</i>
+          </label>
         </div>
-        <div className="btn btn__secondary">
-          <p>Button</p>
+      </div>
+      <div className="radio">
+        <div className="radio__1">
+          <input id="radio-1" type="radio" name="radio" defaultValue={1} />
+          <label htmlFor="radio-1" />
         </div>
-        <div className="clock">
-          <div className="hand hours" />
-          <div className="hand minutes" />
-          <div className="hand seconds" />
-          <div className="point" />
-          <div className="marker">
-            <span className="marker__1" />
-            <span className="marker__2" />
-            <span className="marker__3" />
-            <span className="marker__4" />
-          </div>
-        </div>
-        <div className="chip">
-          <div className="chip__icon">
-            <IoIosColorPalette />
-          </div>
-          <p>Neumorphic Design</p>
-          <div className="chip__close">
-            <IoIosClose />
-          </div>
-        </div>
-        <div className="circle">
-          <span className="circle__btn">
-            <IoIosPause className="pause" />
-            <IoIosPlay className="play" />
-          </span>
-          <span className="circle__back-1" />
-          <span className="circle__back-2" />
-        </div>
-        <div className="form">
+        <div className="radio__2">
           <input
-            type="text"
-            className="form__input"
-            placeholder="Type anything..."
-          />
-        </div>
-        <div className="search">
-          <input
-            type="text"
-            className="search__input"
-            placeholder="Search..."
-          />
-          <div className="search__icon">
-            <IoIosSearch />
-          </div>
-        </div>
-        <div className="segmented-control">
-          <input
+            id="radio-2"
             type="radio"
-            name="radio2"
-            defaultValue={3}
-            id="tab-1"
+            name="radio"
+            defaultValue={2}
             defaultChecked
           />
-          <label htmlFor="tab-1" className="segmented-control__1">
-            <p>Tab 1</p>
-          </label>
-          <input type="radio" name="radio2" defaultValue={4} id="tab-2" />
-          <label htmlFor="tab-2" className="segmented-control__2">
-            <p>Tab 2</p>
-          </label>
-          <input type="radio" name="radio2" defaultValue={5} id="tab-3" />
-          <label htmlFor="tab-3" className="segmented-control__3">
-            <p>Tab 3</p>
-          </label>
-          <div className="segmented-control__color" />
+          <label htmlFor="radio-2" />
         </div>
-        <div className="icon">
-          <div className="icon__home">
-            <IoIosHome />
-          </div>
-          <div className="icon__account">
-            <IoIosPerson />
-          </div>
-          <div className="icon__settings">
-            <IoIosSettings />
-          </div>
+      </div>
+      <div className="btn btn__primary">
+        <p>Button</p>
+      </div>
+      <div className="btn btn__secondary">
+        <p>Button</p>
+      </div>
+      <div className="clock">
+        <div className="hand hours" />
+        <div className="hand minutes" />
+        <div className="hand seconds" />
+        <div className="point" />
+        <div className="marker">
+          <span className="marker__1" />
+          <span className="marker__2" />
+          <span className="marker__3" />
+          <span className="marker__4" />
         </div>
-        <div className="slider">
-          <div className="slider__box">
-            <span className="slider__btn" id="find" />
-            <span className="slider__color" />
-            <span className="slider__tooltip">50%</span>
-          </div>
+      </div>
+      <div className="chip">
+        <div className="chip__icon">
+          <IoIosColorPalette />
+        </div>
+        <p>Neumorphic Design</p>
+        <div className="chip__close">
+          <IoIosClose />
+        </div>
+      </div>
+      <div className="circle">
+        <span className="circle__btn">
+          <IoIosPause className="pause" />
+          <IoIosPlay className="play" />
+        </span>
+        <span className="circle__back-1" />
+        <span className="circle__back-2" />
+      </div>
+      <div className="form">
+        <input
+          type="text"
+          className="form__input"
+          placeholder="Type anything..."
+        />
+      </div>
+      <div className="search">
+        <input type="text" className="search__input" placeholder="Search..." />
+        <div className="search__icon">
+          <IoIosSearch />
+        </div>
+      </div>
+      <div className="segmented-control">
+        <input
+          type="radio"
+          name="radio2"
+          defaultValue={3}
+          id="tab-1"
+          defaultChecked
+        />
+        <label htmlFor="tab-1" className="segmented-control__1">
+          <p>Tab 1</p>
+        </label>
+        <input type="radio" name="radio2" defaultValue={4} id="tab-2" />
+        <label htmlFor="tab-2" className="segmented-control__2">
+          <p>Tab 2</p>
+        </label>
+        <input type="radio" name="radio2" defaultValue={5} id="tab-3" />
+        <label htmlFor="tab-3" className="segmented-control__3">
+          <p>Tab 3</p>
+        </label>
+        <div className="segmented-control__color" />
+      </div>
+      <div className="icon">
+        <div className="icon__home">
+          <IoIosHome />
+        </div>
+        <div className="icon__account">
+          <IoIosPerson />
+        </div>
+        <div className="icon__settings">
+          <IoIosSettings />
+        </div>
+      </div>
+      <div className="slider">
+        <div className="slider__box">
+          <span className="slider__btn" id="find" />
+          <span className="slider__color" />
+          <span className="slider__tooltip">50%</span>
         </div>
       </div>
     </div>

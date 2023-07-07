@@ -19,12 +19,12 @@ export const animationDelay = (delay: number) =>
 
 export const globalStyle = css`
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 2px;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary-text);
+    background-color: var(--color-primary-bg-hover);
     border-radius: 10px;
   }
 
@@ -32,7 +32,6 @@ export const globalStyle = css`
     font-family: var(--body-font);
     color: var(--color-primary-text);
     background-image: url('https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80');
-    background-image: url(https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -46,6 +45,7 @@ export const globalStyle = css`
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    user-select: none;
     &:before {
       position: absolute;
       left: 0;
@@ -136,7 +136,7 @@ export const sideTitleStyle = css`
 `;
 
 export const sideWrapperStyle = css`
-  border-bottom: 1px solid var(--color-primary-text);
+  border-bottom: 1px solid var(--color-primary-bg-hover);
   padding: 36px 0;
   width: 145px;
   &:last-child {
@@ -160,6 +160,7 @@ export const searchBarStyle = css`
     width: 100%;
     height: 100%;
     border: none;
+    outline: none;
     background-color: var(--color-secondary-bg);
     border-radius: 8px;
     font-size: 14px;
@@ -229,10 +230,7 @@ export const notificationStyle = css`
 `;
 
 export const mainContainerStyle = css`
-  display: flex;
-  flex-direction: column;
   padding: 0 30px 30px;
-  flex-grow: 1;
   overflow: auto;
 `;
 

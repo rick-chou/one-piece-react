@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { VitePWA } from 'vite-plugin-pwa';
 import { description, name } from './package.json';
+// import veauryVitePlugins from 'veaury/vite/index.js'
 
 const baseUrl = '/react-awesome/';
 
@@ -34,12 +35,18 @@ export default defineConfig({
     // vue(),
     // veauryVitePlugins({
     //   type: 'react',
+    //   reactOptions: {
+    //     jsxImportSource: '@emotion/react',
+    //     babel: {
+    //       plugins: ['@emotion/babel-plugin'],
+    //     },
+    //   }
     // }),
     VitePWA({
       injectRegister: 'auto',
       workbox: {
         maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
-        globPatterns: ['**/*.{html,js,css,ico,png,svg}'],
+        globPatterns: ['**/*.{html,js,css,ico,png,jpg,jpeg,svg}'],
       },
       registerType: 'autoUpdate',
       devOptions: {
@@ -87,5 +94,10 @@ export default defineConfig({
         './src/project/rick-img-resize',
       ),
     },
+  },
+  define: {
+    // By default, Vite doesn't include shims for NodeJS/
+    // necessary for segment analytics lib to work
+    // global: {},
   },
 });

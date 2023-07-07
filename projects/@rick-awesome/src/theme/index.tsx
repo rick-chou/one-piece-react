@@ -1,7 +1,8 @@
 import { useTheme } from '@/hooks/useTheme';
 import { type ThemeMode } from '@/interface';
 import { css, Global } from '@emotion/react';
-import { useEffect } from 'react';
+import { useEffect, type FC, type PropsWithChildren } from 'react';
+import { AntdStyle } from './antd-style';
 
 type ThemeType = {
   colorBg: string;
@@ -49,10 +50,6 @@ export const Theme = () => {
   return (
     <Global
       styles={css(
-        {
-          background: themeConfig[theme].colorBg,
-          color: themeConfig[theme].colorText,
-        },
         css`
           :root {
             --body-font: 'Odibee Sans', 'Inter', sans-serif;
@@ -65,6 +62,7 @@ export const Theme = () => {
               ? `
               --color-primary-bg: #16171a;
               --color-secondary-bg: #000;
+              --color-inverse-bg: #fff;
               --color-primary-bg-hover: #303133;
               --color-primary-text: #c7c7c7;
 
@@ -81,6 +79,7 @@ export const Theme = () => {
               : `
               --color-primary-bg: #e0e5ec;
               --color-secondary-bg: #fff;
+              --color-inverse-bg: #000;
               --color-primary-bg-hover: #fafafa;
               --color-primary-text: #16171a;
               
@@ -96,7 +95,26 @@ export const Theme = () => {
               `}
           }
         `,
+        AntdStyle,
       )}
     />
+  );
+};
+
+export const contentHeight = '65vh';
+
+export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <div
+      css={css({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: contentHeight,
+        overflowY: 'scroll',
+      })}>
+      {children}
+    </div>
   );
 };

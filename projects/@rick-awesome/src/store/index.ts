@@ -18,6 +18,9 @@ import themeSlice from './slice/themeSlice';
 
 export const persistKey = name;
 
+const isStartupReduxLoggerMiddleware =
+  import.meta.env.RICK_REDUX_LOGGER === 'true';
+
 const persistConfig = {
   key: persistKey,
   storage,
@@ -35,12 +38,18 @@ const persistedReducer = persistReducer(
 export const store = configureStore({
   devTools: import.meta.env.DEV,
   reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
+  middleware(getDefaultMiddleware) {
+    const middleware = getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(logger),
+    });
+    if (isStartupReduxLoggerMiddleware) {
+      middleware.push(logger);
+    }
+
+    return middleware;
+  },
 });
 
 export const persistor = persistStore(store);

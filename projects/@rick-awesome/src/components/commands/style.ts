@@ -1,5 +1,10 @@
 import { css } from '@emotion/react';
 
+export const CommandModalContainer = css`
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+`;
+
 export const CommandModalInputStyle = css`
   background: transparent;
   border: none;
@@ -9,6 +14,8 @@ export const CommandModalInputStyle = css`
   font-size: 16px;
   line-height: 1;
   padding: 16px;
+  margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
 export const CommandModalInputDividerWrapperStyle = css`
@@ -23,7 +30,7 @@ export const CommandModalInputDividerStyle = css`
   border: none;
 `;
 
-export const CommandHotkeyTitleStyle = css`
+export const CommandItemTitleStyle = css`
   color: rgb(128, 128, 128);
   font-size: 12px;
   font-weight: 700;
@@ -31,10 +38,17 @@ export const CommandHotkeyTitleStyle = css`
   padding-bottom: 8px;
   user-select: none;
   padding-left: 16px;
+  margin-left: 1rem;
 `;
 
-export const CommandHotkeyItemStyle = css`
-  color: rgb(229, 229, 229);
+export const CommandListStyle = css`
+  height: 24rem;
+  max-height: 24rem;
+  overflow-y: scroll;
+`;
+
+export const CommandItemStyle = css`
+  color: var(--color-primary-text);
   font-size: 13px;
   height: 36px;
   padding-top: 8px;
@@ -42,9 +56,12 @@ export const CommandHotkeyItemStyle = css`
   user-select: none;
   padding-left: 24px;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1rem;
 
-  &:hover {
-    background-color: rgba(229, 229, 229, 0.1);
+  &.hover {
+    background-color: var(--color-primary-bg-hover);
+    border-radius: 4px;
   }
 `;
 
