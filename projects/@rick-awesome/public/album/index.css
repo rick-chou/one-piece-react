@@ -87,13 +87,15 @@ h1 {
 
 .image {
   width: 100%;
-  filter: saturate(0);
+  filter: blur(1px);
   padding: 1rem;
+  transition: all 0.5s ease;
+  border-radius: 2px;
 }
 
 .image:hover {
   z-index: 99999999999 !important;
-  filter: saturate(1);
+  filter: blur(0);
 }
 
 img {
