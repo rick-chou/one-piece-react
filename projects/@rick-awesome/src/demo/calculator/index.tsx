@@ -64,7 +64,7 @@ const Calculator = () => {
   }, []);
 
   return (
-    <div className="calculator select-none" id="calc">
+    <div className="demo-calculator" id="calc">
       <div className="display"></div>
       <span className="c neumorphism">C</span>
       <span className="signed neumorphism">+/-</span>

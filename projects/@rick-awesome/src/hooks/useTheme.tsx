@@ -14,6 +14,9 @@ export const useTheme = () => {
 
   return {
     theme,
+    dark: theme === 'dark',
+    light: theme === 'light',
+    inverseTheme: (theme === 'dark' ? 'light' : 'dark') as typeof theme,
     toggleTheme,
   };
 };

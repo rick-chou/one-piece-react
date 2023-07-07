@@ -7,7 +7,7 @@ const Content = () => {
   const currentRoute = matchRoutes(routes, location)?.at(-1)?.route;
 
   return (
-    <div css={mainContainerStyle}>
+    <div css={mainContainerStyle} className="layout-content">
       <Outlet context={currentRoute?.path} />
     </div>
   );

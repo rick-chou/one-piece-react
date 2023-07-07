@@ -32,7 +32,7 @@
       "@rick-img-resize/*": ["src/project/img-resize/*"]
     }
   },
-  "include": ["src", "../../README.md"],
+  "include": ["src", "script", "public/js"],
   "exclude": ["src/roadmap"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
