@@ -25,6 +25,7 @@ window.onload = () => {
         duration: 20,
         repeat: -1,
         ease: 'none',
+        immediateRender: false,
         modifiers: {
           y: gsap.utils.unitize(y => {
             if (direction == '+=') {

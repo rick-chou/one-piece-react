@@ -87,18 +87,15 @@ h1 {
 
 .image {
   width: 100%;
-  filter: blur(1px);
   padding: 1rem;
-  transition: all 0.5s ease;
-  border-radius: 2px;
 }
 
 .image:hover {
   z-index: 99999999999 !important;
-  filter: blur(0);
 }
 
 img {
+  border-radius: 2px;
   transition: 0.3s ease-out;
   overflow: hidden;
   width: 100%;
