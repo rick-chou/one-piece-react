@@ -1,12 +1,14 @@
 import { css } from '@emotion/react';
 
 export const clockStyle = css`
-  padding: 20px;
+  padding: 120px 100px;
   position: relative;
   display: flex;
   flex-flow: column wrap;
-  width: 450px;
-  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: var(--layout-content-height);
 `;
 
 export const blockStyle = css`

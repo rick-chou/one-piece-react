@@ -1,119 +1,245 @@
+import { useEffect, useRef, useState } from 'react';
 import './index.scss';
 
-const data = {
-  audio: null,
-  circleLeft: null,
-  barWidth: null,
-  duration: null,
-  currentTime: null,
-  isTimerPlaying: false,
-  tracks: [
-    {
-      name: 'Mekanın Sahibi',
-      artist: 'Norm Ender',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3',
-      url: 'https://www.youtube.com/watch?v=z3wAjJXbYzA',
-      favorited: false,
-    },
-    {
-      name: 'Everybody Knows',
-      artist: 'Leonard Cohen',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3',
-      url: 'https://www.youtube.com/watch?v=Lin-a2lTelg',
-      favorited: true,
-    },
-    {
-      name: 'Extreme Ways',
-      artist: 'Moby',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3',
-      url: 'https://www.youtube.com/watch?v=ICjyAe9S54c',
-      favorited: false,
-    },
-    {
-      name: 'Butterflies',
-      artist: 'Sia',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3',
-      url: 'https://www.youtube.com/watch?v=kYgGwWYOd9Y',
-      favorited: false,
-    },
-    {
-      name: 'The Final Victory',
-      artist: 'Haggard',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3',
-      url: 'https://www.youtube.com/watch?v=0WlpALnQdN8',
-      favorited: true,
-    },
-    {
-      name: 'Genius ft. Sia, Diplo, Labrinth',
-      artist: 'LSD',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3',
-      url: 'https://www.youtube.com/watch?v=HhoATZ1Imtw',
-      favorited: false,
-    },
-    {
-      name: 'The Comeback Kid',
-      artist: 'Lindi Ortega',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3',
-      url: 'https://www.youtube.com/watch?v=me6aoX0wCV8',
-      favorited: true,
-    },
-    {
-      name: 'Overdose',
-      artist: 'Grandson',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3',
-      url: 'https://www.youtube.com/watch?v=00-Rl3Jlx-o',
-      favorited: false,
-    },
-    {
-      name: "Rag'n'Bone Man",
-      artist: 'Human',
-      cover:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg',
-      source:
-        'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3',
-      url: 'https://www.youtube.com/watch?v=L3wKzyIN1yk',
-      favorited: false,
-    },
-  ],
-  currentTrack: null,
-  currentTrackIndex: 0,
-  transitionName: null,
+type TrackType = {
+  name: string;
+  artist: string;
+  cover: string;
+  source: string;
+  url: string;
+  favorited: boolean;
 };
 
+const pad = (num: number) => {
+  return `${num}`.padStart(2, '0');
+};
+
+const tracks: TrackType[] = [
+  {
+    name: 'Mekanın Sahibi',
+    artist: 'Norm Ender',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3',
+    url: 'https://www.youtube.com/watch?v=z3wAjJXbYzA',
+    favorited: false,
+  },
+  {
+    name: 'Everybody Knows',
+    artist: 'Leonard Cohen',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3',
+    url: 'https://www.youtube.com/watch?v=Lin-a2lTelg',
+    favorited: true,
+  },
+  {
+    name: 'Extreme Ways',
+    artist: 'Moby',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3',
+    url: 'https://www.youtube.com/watch?v=ICjyAe9S54c',
+    favorited: false,
+  },
+  {
+    name: 'Butterflies',
+    artist: 'Sia',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3',
+    url: 'https://www.youtube.com/watch?v=kYgGwWYOd9Y',
+    favorited: false,
+  },
+  {
+    name: 'The Final Victory',
+    artist: 'Haggard',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3',
+    url: 'https://www.youtube.com/watch?v=0WlpALnQdN8',
+    favorited: true,
+  },
+  {
+    name: 'Genius ft. Sia, Diplo, Labrinth',
+    artist: 'LSD',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3',
+    url: 'https://www.youtube.com/watch?v=HhoATZ1Imtw',
+    favorited: false,
+  },
+  {
+    name: 'The Comeback Kid',
+    artist: 'Lindi Ortega',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3',
+    url: 'https://www.youtube.com/watch?v=me6aoX0wCV8',
+    favorited: true,
+  },
+  {
+    name: 'Overdose',
+    artist: 'Grandson',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3',
+    url: 'https://www.youtube.com/watch?v=00-Rl3Jlx-o',
+    favorited: false,
+  },
+  {
+    name: "Rag'n'Bone Man",
+    artist: 'Human',
+    cover:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg',
+    source:
+      'https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3',
+    url: 'https://www.youtube.com/watch?v=L3wKzyIN1yk',
+    favorited: false,
+  },
+];
+
 const Music = () => {
+  const audio = useRef<HTMLAudioElement>(new Audio());
+  const [barWidth, setBarWidth] = useState<string>();
+  const [duration, setDuration] = useState<string>();
+  const [currentTime, setCurrentTime] = useState<string>();
+  const [isTimerPlaying, setIsTimerPlaying] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState<TrackType>(tracks[0]);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [transitionName, setTransitionName] = useState<string>();
+
+  const play = async () => {
+    if (audio.current.paused) {
+      await audio.current.play();
+      setIsTimerPlaying(true);
+    } else {
+      audio.current.pause();
+      setIsTimerPlaying(false);
+    }
+  };
+
+  const generateTime = () => {
+    const width = (100 / audio.current.duration) * audio.current.currentTime;
+    setBarWidth(`${width}%`);
+    console.log(audio);
+    const durmin = Math.floor(audio.current.duration / 60);
+    const dursec = Math.floor(audio.current.duration - durmin * 60);
+    const curmin = Math.floor(audio.current.currentTime / 60);
+    const cursec = Math.floor(audio.current.currentTime - curmin * 60);
+    console.log('durmin', durmin);
+    // console.log('dursec', dursec);
+    // console.log('curmin', curmin);
+    // console.log('cursec', cursec);
+    setDuration(`${pad(durmin)}:${pad(dursec)}`);
+    setCurrentTime(`${pad(curmin)}:${pad(cursec)}`);
+  };
+
+  const updateBar = async (offset: number) => {
+    const progress = document.querySelector<HTMLDivElement>('.progress')!;
+    const maxduration = audio.current.duration;
+    const position = offset - progress.offsetLeft;
+    let percentage = (100 * position) / progress.offsetWidth;
+    if (percentage > 100) {
+      percentage = 100;
+    }
+
+    if (percentage < 0) {
+      percentage = 0;
+    }
+
+    setBarWidth(`${percentage}%`);
+
+    audio.current.currentTime = (maxduration * percentage) / 100;
+    await audio.current.play();
+  };
+
+  const clickProgress = async (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsTimerPlaying(true);
+    audio.current.pause();
+    await updateBar(e.pageX);
+  };
+
+  const prevTrack = () => {
+    setTransitionName('scale-in');
+    let idx = tracks.length - 1;
+    if (currentTrackIndex > 0) {
+      idx = currentTrackIndex - 1;
+    }
+
+    setCurrentTrackIndex(idx);
+    setCurrentTrack(tracks[idx]);
+
+    resetPlayer();
+  };
+
+  const nextTrack = () => {
+    setTransitionName('scale-out');
+    let idx = 0;
+    if (currentTrackIndex < tracks.length - 1) {
+      idx = currentTrackIndex + 1;
+    }
+
+    setCurrentTrackIndex(idx);
+    setCurrentTrack(tracks[idx]);
+
+    resetPlayer();
+  };
+
+  const resetPlayer = () => {
+    setBarWidth('0%');
+    setCurrentTime('00:00');
+    initAudio(currentTrackIndex);
+    setTimeout(async () => {
+      if (isTimerPlaying) {
+        await audio.current.play();
+      } else {
+        audio.current.pause();
+      }
+    }, 300);
+  };
+
+  const favorite = () => {};
+
+  const initAudio = (idx: number) => {
+    audio.current.src = tracks[idx].source;
+    audio.current.ontimeupdate = () => {
+      generateTime();
+    };
+
+    audio.current.onloadedmetadata = () => {
+      generateTime();
+    };
+
+    audio.current.onended = () => {
+      nextTrack();
+      setIsTimerPlaying(true);
+    };
+  };
+
+  useEffect(() => {
+    initAudio(currentTrackIndex);
+  }, []);
+
   return (
     <>
-      <div className="wrapper" id="app">
+      <div className="rick-music">
         <div className="player">
           <div className="player__top">
             <div className="player-cover">
               {/* <transition-group :name="transitionName">
             </transition-group> */}
-              <div className="player-cover__item"></div>
+              <div
+                className="player-cover__item"
+                style={{ backgroundImage: `url(${currentTrack.cover})` }}></div>
             </div>
             <div className="player-controls">
               <div className="player-controls__item -favorite">
@@ -126,20 +252,20 @@ const Music = () => {
                   <use xlinkHref="#icon-link"></use>
                 </svg>
               </a>
-              <div className="player-controls__item">
+              <div className="player-controls__item" onClick={prevTrack}>
                 <svg className="icon">
                   <use xlinkHref="#icon-prev"></use>
                 </svg>
               </div>
-              <div className="player-controls__item">
+              <div className="player-controls__item" onClick={nextTrack}>
                 <svg className="icon">
                   <use xlinkHref="#icon-next"></use>
                 </svg>
               </div>
-              <div className="player-controls__item -xl js-play">
+              <div className="player-controls__item -xl js-play" onClick={play}>
                 <svg className="icon">
-                  <use xlinkHref="#icon-pause"></use>
-                  <use xlinkHref="#icon-play"></use>
+                  {isTimerPlaying && <use xlinkHref="#icon-pause"></use>}
+                  {!isTimerPlaying && <use xlinkHref="#icon-play"></use>}
                 </svg>
               </div>
             </div>
@@ -147,22 +273,24 @@ const Music = () => {
           <div className="progress">
             <div className="progress__top">
               <div className="album-info">
-                <div className="album-info__name"></div>
-                <div className="album-info__track"></div>
+                <div className="album-info__name">{currentTrack.artist}</div>
+                <div className="album-info__track">{currentTrack.name}</div>
               </div>
-              <div className="progress__duration"></div>
+              <div className="progress__duration">{duration}</div>
             </div>
-            <div className="progress__bar">
-              <div className="progress__current"></div>
+            <div className="progress__bar" onClick={clickProgress}>
+              <div
+                className="progress__current"
+                style={{ width: barWidth }}></div>
             </div>
-            <div className="progress__time"></div>
+            <div className="progress__time">{currentTime}</div>
           </div>
         </div>
       </div>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
+        className="hidden"
         xmlnsXlink="http://www.w3.org/1999/xlink">
         <defs>
           <symbol id="icon-heart-o" viewBox="0 0 32 32">

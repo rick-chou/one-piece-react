@@ -18,18 +18,15 @@
 
 <hr>
 
-### 📦 Npm Packages
-
-- [@rickzhou/css](packages/@rick-css/README.md)
-- [@rickzhou/fabric](packages/@rick-fabric/README.md)
-- [@rickzhou/test](packages/@rick-test/README.md)
-- @rickzhou/utils
-- @rickzhou/ui
-
 ### 🌟 Project Roadmap
 
-- [x] [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/)
-- [ ] @rickzhou/online-zip
-- [ ] @rickzhou/api-docs-generator
+- [x] [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/) [README](projects/@rick-awesome/README.md)
 
-![@rickzhou](https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/42.jpg)
+![demo](assets/blog_theme_light.png)
+![demo](assets/blog_theme_dark.png)
+![demo](assets/blog_demo.png)
+![demo](assets/blog_search.png)
+
+- [ ] @rickzhou/online-zip
+- [ ] @rickzhou/online-ide
+- [ ] @rickzhou/api-docs-generator

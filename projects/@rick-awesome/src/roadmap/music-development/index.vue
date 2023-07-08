@@ -1,6 +1,8 @@
 <script>
+/**
+ * @link https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
+ */
 export default {
-  el: '#app',
   data() {
     return {
       audio: null,
@@ -156,6 +158,7 @@ export default {
       this.audio.play();
     },
     clickProgress(e) {
+      console.log('e', e);
       this.isTimerPlaying = true;
       this.audio.pause();
       this.updateBar(e.pageX);
@@ -234,12 +237,14 @@ export default {
     <div class="player">
       <div class="player__top">
         <div class="player-cover">
-          <div
-            class="player-cover__item"
-            v-if="$index === currentTrackIndex"
-            :style="{ backgroundImage: `url(${track.cover})` }"
-            v-for="(track, $index) in tracks"
-            :key="$index"></div>
+          <transition-group :name="transitionName">
+            <div
+              class="player-cover__item"
+              v-if="$index === currentTrackIndex"
+              :style="{ backgroundImage: `url(${track.cover})` }"
+              v-for="(track, $index) in tracks"
+              :key="$index"></div>
+          </transition-group>
         </div>
         <div class="player-controls">
           <div
@@ -291,6 +296,12 @@ export default {
       </div>
       <div v-cloak></div>
     </div>
+    <a
+      href="https://github.com/muhammederdem/mini-player"
+      target="_blank"
+      class="github-btn">
+      See on GitHub
+    </a>
   </div>
 
   <svg
@@ -370,10 +381,11 @@ export default {
   </svg>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 body {
+  // background: #e1e7ec;
   background: #dfe7ef;
-  /* font-family: 'Bitter', serif; */
+  font-family: 'Bitter', serif;
 }
 
 * {
@@ -395,6 +407,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  // background: url(../img/bg.png) no-repeat center;
   background-size: cover;
   @media screen and (max-width: 700px), (max-height: 500px) {
     flex-wrap: wrap;
@@ -406,6 +419,8 @@ body {
   background: #eef3f7;
   width: 410px;
   min-height: 480px;
+  // box-shadow: 0px 55px 75px -10px rgba(76, 70, 124, 0.5);
+  // box-shadow: 0px 55px 105px 10px rgba(76, 70, 124, 0.35);
   box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
   border-radius: 15px;
   padding: 30px;
@@ -435,6 +450,8 @@ body {
     position: relative;
     z-index: 2;
     border-radius: 15px;
+    // transform: perspective(512px) translate3d(0, 0, 0);
+    // transition: all .4s cubic-bezier(.125, .625, .125, .875);
     z-index: 1;
 
     @media screen and (max-width: 576px), (max-height: 500px) {
@@ -580,8 +597,10 @@ body {
       &.-xl {
         margin-bottom: 0;
         font-size: 95px;
+        // filter: drop-shadow(0 2px 8px rgba(172, 184, 204, 0.3));
+        // filter: drop-shadow(0 9px 6px rgba(172, 184, 204, 0.35));
         filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));
-
+        color: #fff;
         width: auto;
         height: auto;
         display: inline-flex;
@@ -690,7 +709,7 @@ body {
   border-radius: 4px;
   box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
   background: #24292e;
-
+  color: #fff;
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 16px;
@@ -716,6 +735,8 @@ body {
   }
 }
 
+//scale out
+
 .scale-out-enter-active {
   transition: all 0.35s ease-in-out;
 }
@@ -732,6 +753,8 @@ body {
   pointer-events: none;
   opacity: 0;
 }
+
+//scale in
 
 .scale-in-enter-active {
   transition: all 0.35s ease-in-out;

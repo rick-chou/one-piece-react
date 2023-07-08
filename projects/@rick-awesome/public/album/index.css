@@ -65,11 +65,11 @@ h1 {
   transform: translateX(-50%);
   overflow: visible;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .gallery {
     width: 160%;
   }
-}
+} */
 
 .col {
   display: flex;
@@ -99,4 +99,12 @@ img {
   transition: 0.3s ease-out;
   overflow: hidden;
   width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
 }

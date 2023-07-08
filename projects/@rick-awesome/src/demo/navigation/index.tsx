@@ -1,3 +1,4 @@
+import { ContentWrapper } from '@/theme';
 import { random } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import { listItemStyle, ulStyle } from './style';
@@ -6,7 +7,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center">
+    <ContentWrapper>
       <ul
         css={ulStyle}
         onClick={async e => {
@@ -67,7 +68,7 @@ const Navigation = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </ContentWrapper>
   );
 };
 

@@ -57,6 +57,7 @@ export const Theme = () => {
             --keyboard-duration: 0.3s;
             --keyboard-hue: 0;
             --keyboard-sat: 0%;
+            --layout-content-height: ${contentHeight};
 
             ${theme === 'dark'
               ? `
@@ -65,6 +66,7 @@ export const Theme = () => {
               --color-inverse-bg: #fff;
               --color-primary-bg-hover: #303133;
               --color-primary-text: #c7c7c7;
+   
 
 
               --color-calculator-bg: #131419;

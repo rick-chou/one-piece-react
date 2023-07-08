@@ -3,8 +3,9 @@ declare module 'flipdown';
 declare module '*.js';
 
 declare module '*.vue' {
-  import Vue from 'vue';
-  export default Vue;
+  import { type defineComponent } from 'vue';
+  const Component: ReturnType<typeof defineComponent>;
+  export default Component;
 }
 
 declare module '*.md' {

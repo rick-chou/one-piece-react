@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react';
+import vue from '@vitejs/plugin-vue';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { VitePWA } from 'vite-plugin-pwa';
 import { description, name } from './package.json';
-// import veauryVitePlugins from 'veaury/vite/index.js'
 
 const baseUrl = '/react-awesome/';
 
@@ -19,6 +20,9 @@ export default defineConfig({
           lodash: ['lodash'],
           echarts: ['echarts'],
           antd: ['antd'],
+          vue: ['vue'],
+          react: ['react'],
+          prettier: ['prettier'],
         },
       },
     },
@@ -31,22 +35,20 @@ export default defineConfig({
         plugins: ['@emotion/babel-plugin'],
       },
     }),
+    vue(),
+    visualizer({
+      template: 'treemap', // or sunburst
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      filename: 'dist/analyse.html', // will be saved in project's root
+    }),
     md({ mode: [Mode.HTML, Mode.MARKDOWN, Mode.REACT, Mode.TOC] }),
-    // vue(),
-    // veauryVitePlugins({
-    //   type: 'react',
-    //   reactOptions: {
-    //     jsxImportSource: '@emotion/react',
-    //     babel: {
-    //       plugins: ['@emotion/babel-plugin'],
-    //     },
-    //   }
-    // }),
     VitePWA({
       injectRegister: 'auto',
       workbox: {
         maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
-        globPatterns: ['**/*.{html,js,css,ico,png,jpg,jpeg,svg}'],
+        globPatterns: ['**/*.{js,css,ico,png,jpg,jpeg,svg}'],
       },
       registerType: 'autoUpdate',
       devOptions: {

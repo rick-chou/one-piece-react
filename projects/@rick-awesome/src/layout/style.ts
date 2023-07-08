@@ -1,3 +1,4 @@
+import { Bg } from '@/assets';
 import { css, keyframes } from '@emotion/react';
 
 const bottomShow = keyframes`
@@ -31,7 +32,7 @@ export const globalStyle = css`
   body {
     font-family: var(--body-font);
     color: var(--color-primary-text);
-    background-image: url('https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80');
+    background-image: url(${Bg});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -60,7 +61,8 @@ export const globalStyle = css`
 
 export const containerStyle = css`
   background-color: var(--color-primary-bg);
-  min-width: 1240px;
+  min-width: 65vw;
+  max-width: 65vw;
   max-height: 900px;
   height: 95vh;
   display: flex;
@@ -119,13 +121,11 @@ export const sideMenuStyle = css`
   }
   svg {
     width: 30px;
-    padding: 4px;
+    padding: 2px;
     border-radius: 10px;
     background-color: var(--color-secondary-bg);
     flex-shrink: 0;
     margin-right: 16px;
-    &:hover {
-    }
   }
 `;
 
