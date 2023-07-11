@@ -40,22 +40,24 @@ const CmdModal = () => {
     const genCommandItems = () => {
       const commands: CommandItemTypes[] = [];
 
-      Object.entries(metaData).forEach(([key, value]) => {
-        commands.push({
-          type: key,
-          mode: 'title',
-          title: upperCase(key),
-        });
-
-        value.forEach(i => {
+      Object.entries(metaData)
+        .reverse()
+        .forEach(([key, value]) => {
           commands.push({
             type: key,
-            mode: 'item',
-            title: upperCase(i.name),
-            meta: i,
+            mode: 'title',
+            title: upperCase(key),
+          });
+
+          value.forEach(i => {
+            commands.push({
+              type: key,
+              mode: 'item',
+              title: upperCase(i.name),
+              meta: i,
+            });
           });
         });
-      });
 
       setCommandItems(commands);
       setDisplayCommandItems(commands);

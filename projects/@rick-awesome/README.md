@@ -32,6 +32,10 @@
   - [ ] Image-Resize
   - [ ] Flowchart
 
+- Chart 
+
+  - [x] [mscgen](https://www.mcternan.me.uk/mscgen/)
+
 - NPM
 
   - [ ] add NPM package introduction page

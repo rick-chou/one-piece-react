@@ -5,16 +5,16 @@ import {
   redirect,
   type RouteObject,
 } from 'react-router-dom';
+import { ChartRoutes } from './chart';
 import { DemoRoutes } from './demo';
 import { ProjectRoutes } from './project';
 import { RickRoutes } from './rick';
-// import { ProjectRoutes } from './project';
 
 export const routes: RouteObject[] = [
   {
     path: import.meta.env.BASE_URL,
     element: <Home />,
-    children: [DemoRoutes, RickRoutes, ProjectRoutes],
+    children: [DemoRoutes, RickRoutes, ProjectRoutes, ChartRoutes],
     errorElement: <ErrorPage />,
   },
   {

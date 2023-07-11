@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import Sequence from './chart/sequence';
 import './index.scss';
-import Music from './roadmap/music-development';
 import { router } from './router';
 import { persistor, store } from './store';
 
@@ -22,7 +22,7 @@ const RickAwesome = () => {
 };
 
 const Debug = () => {
-  return <Music />;
+  return <Sequence />;
 };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<RickAwesome />);
