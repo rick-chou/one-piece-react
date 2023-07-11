@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-import './flipdown.css';
 /**
  * @name FlipDown
  * @description Flip styled countdown clock
@@ -24,11 +23,13 @@ export class FlipDown {
       el = 'flipdown';
     }
 
-    // FlipDown version
-    this.version = '0.3.2';
+    // FlipDown DOM element
+    this.element = document.getElementById(el);
+
+    this.element.innerHTML = '';
 
     // Initialised?
-    this.initialised = false;
+    this.initialized = !!this.element?.hasChildNodes();
 
     // Time at instantiation in seconds
     this.now = this._getTime();
@@ -41,9 +42,6 @@ export class FlipDown {
 
     // User defined callback for countdown end
     this.hasEndedCallback = null;
-
-    // FlipDown DOM element
-    this.element = document.getElementById(el);
 
     // Rotor DOM elements
     this.rotors = [];
@@ -82,7 +80,7 @@ export class FlipDown {
    **/
   start() {
     // Initialise the clock
-    if (!this.initialised) this._init();
+    if (!this.initialized) this._init();
 
     // Set up the countdown interval
     this.countdown = setInterval(this._tick.bind(this), 1000);
@@ -179,7 +177,7 @@ export class FlipDown {
    * @author PButcher
    **/
   _init() {
-    this.initialised = true;
+    this.initialized = true;
 
     // Check whether countdown has ended and calculate how many digits the day counter needs
     if (this._hasCountdownEnded()) {
@@ -323,7 +321,7 @@ export class FlipDown {
    * @name _updateClockValues
    * @description Update the clock face values
    * @author PButcher
-   * @param {boolean} init - True if calling for initialisation
+   * @param {boolean} init - True if calling for initialsation
    **/
   _updateClockValues(init = false) {
     // Build clock value strings

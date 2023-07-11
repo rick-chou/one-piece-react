@@ -25,4 +25,4 @@ const Debug = () => {
   return <Music />;
 };
 
-ReactDOM.createRoot(document.getElementById('root')!).render(<Debug />);
+ReactDOM.createRoot(document.getElementById('root')!).render(<RickAwesome />);
