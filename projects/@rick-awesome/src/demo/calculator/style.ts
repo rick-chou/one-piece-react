@@ -1,25 +1,23 @@
-@mixin neumorphism {
+import { css } from '@emotion/react';
+
+const neumorphism = css`
   box-shadow: 6px 6px 16px 0 var(--color-calculator-dark-highlight),
     -6px -6px 16px 0 var(--color-calculator-soft-highlight);
-}
+`;
 
-@mixin insetNeumorphism {
+const insetNeumorphism = css`
   box-shadow: inset 6px 6px 5px 0 var(--color-calculator-dark-highlight),
     inset -6px -6px 5px 0 var(--color-calculator-soft-highlight);
-}
+`;
 
-@mixin inOutNeumorphism {
+const inOutNeumorphism = css`
   box-shadow: 6px 6px 16px 0 var(--color-calculator-dark-highlight),
     -6px -6px 16px 0 var(--color-calculator-soft-highlight),
     inset 6px 6px 5px 0 var(--color-calculator-dark-highlight),
     inset -6px -6px 5px 0 var(--color-calculator-soft-highlight);
-}
+`;
 
-/*
-  GRID LAYOUT & NON NEUMORPHIC 
-*/
-
-.demo-calculator {
+export const calculatorStyle = css`
   background: var(--color-calculator-bg);
   color: var(--color-calculator-primary-text);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
@@ -34,7 +32,7 @@
   padding: 40px 40px 40px 40px;
 
   .display {
-    @include inOutNeumorphism;
+    ${inOutNeumorphism};
     border: 5px solid var(--color-calculator-soft-highlight);
     color: var(--color-calculator-secondary-text);
     border-radius: 12px;
@@ -49,36 +47,18 @@
   }
 
   .neumorphism {
-    @include neumorphism;
+    ${neumorphism};
     border-radius: 50%;
     transition: 0.1s all ease-in-out;
     border: 1px solid var(--color-calculator-soft-highlight);
 
     &:hover {
-      @include insetNeumorphism;
+      ${insetNeumorphism};
       color: var(--color-calculator-secondary-text);
     }
   }
 
-  .c,
-  .signed,
-  .percent,
-  .divide,
-  .seven,
-  .eight,
-  .nine,
-  .times,
-  .four,
-  .five,
-  .six,
-  .minus,
-  .one,
-  .two,
-  .three,
-  .plus,
-  .zero,
-  .decimal,
-  .equals {
+  span {
     text-align: center;
     height: 60px;
     width: 60px;
@@ -173,4 +153,4 @@
   .equals {
     grid-area: equals;
   }
-}
+`;

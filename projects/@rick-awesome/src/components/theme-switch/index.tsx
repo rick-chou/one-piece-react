@@ -3,25 +3,26 @@
  */
 
 import { useTheme } from '@/hooks/useTheme';
-import './index.scss';
+import { ThemeWrapper } from '@/theme';
+import { themeSwitchStyle } from './style';
 
 export type ThemeSwitchProps = {
   className?: string;
 };
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
-  const { toggleTheme, theme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
-    <div
-      className={`theme-switch theme-switch--${theme} ${className}`}
-      id="theme-switch">
-      <button type="button" id="switch" onClick={toggleTheme}>
-        <i className="bx bxs-sun"></i>
-        <span className="btn-switch"></span>
-        <i className="bx bxs-moon"></i>
-      </button>
-    </div>
+    <ThemeWrapper style={themeSwitchStyle}>
+      <div className={`theme-switch ${className}`}>
+        <button type="button" id="switch" onClick={toggleTheme}>
+          <i className="bx bxs-sun"></i>
+          <span className="btn-switch"></span>
+          <i className="bx bxs-moon"></i>
+        </button>
+      </div>
+    </ThemeWrapper>
   );
 };
 

@@ -1,15 +1,15 @@
 import { css } from '@emotion/react';
 
-export const clockStyle = css`
-  padding: 120px 100px;
-  position: relative;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  width: 30vw;
-  height: var(--layout-content-height);
-`;
+export const clockStyle = css({
+  padding: '120px 100px',
+  position: 'relative',
+  display: 'flex',
+  flexFlow: 'column wrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '30vw',
+  height: 'var(--layout-content-height)',
+});
 
 export const blockStyle = css`
   width: calc(100% / 6);
@@ -21,6 +21,7 @@ export const blockStyle = css`
   &:not(:nth-of-type(n + 46)):nth-of-type(n + 41) {
     margin-right: 10px;
   }
+
   &:not(:nth-of-type(n + 31)):nth-of-type(n + 26) {
     margin-right: 20px;
   }

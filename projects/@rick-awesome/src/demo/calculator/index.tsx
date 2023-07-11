@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable @typescript-eslint/no-loop-func */
 /**
@@ -5,7 +6,7 @@
  */
 
 import { useEffect } from 'react';
-import './index.scss';
+import { calculatorStyle } from './style';
 
 const operators = ['+', '-', 'x', '÷'];
 
@@ -64,7 +65,7 @@ const Calculator = () => {
   }, []);
 
   return (
-    <div className="demo-calculator" id="calc">
+    <div css={calculatorStyle} id="calc">
       <div className="display"></div>
       <span className="c neumorphism">C</span>
       <span className="signed neumorphism">+/-</span>
