@@ -130,15 +130,10 @@ const Music = () => {
   const generateTime = () => {
     const width = (100 / audio.current.duration) * audio.current.currentTime;
     setBarWidth(`${width}%`);
-    console.log(audio);
     const durmin = Math.floor(audio.current.duration / 60);
     const dursec = Math.floor(audio.current.duration - durmin * 60);
     const curmin = Math.floor(audio.current.currentTime / 60);
     const cursec = Math.floor(audio.current.currentTime - curmin * 60);
-    console.log('durmin', durmin);
-    // console.log('dursec', dursec);
-    // console.log('curmin', curmin);
-    // console.log('cursec', cursec);
     setDuration(`${pad(durmin)}:${pad(dursec)}`);
     setCurrentTime(`${pad(curmin)}:${pad(cursec)}`);
   };
@@ -276,7 +271,9 @@ const Music = () => {
                 <div className="album-info__name">{currentTrack.artist}</div>
                 <div className="album-info__track">{currentTrack.name}</div>
               </div>
-              <div className="progress__duration">{duration}</div>
+              {Boolean(duration) && (
+                <div className="progress__duration">{duration}</div>
+              )}
             </div>
             <div className="progress__bar" onClick={clickProgress}>
               <div
