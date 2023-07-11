@@ -1,4 +1,4 @@
-import { Bg } from '@/assets';
+import { Bg } from '@/assets/pic';
 import { css, keyframes } from '@emotion/react';
 
 const bottomShow = keyframes`
