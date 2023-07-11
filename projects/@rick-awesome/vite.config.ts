@@ -13,6 +13,9 @@ export default defineConfig({
   base: baseUrl,
   envPrefix: 'RICK_',
   build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
     target: 'ESNext',
     rollupOptions: {
       output: {

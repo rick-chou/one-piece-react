@@ -14,6 +14,10 @@ jobs:
 
       - name: Install and Build
         run: |
+          echo node version
+          node -v
+          echo npm version
+          npm -v
           npm ci
           npm run build
           cp dist/index.html dist/404.html
