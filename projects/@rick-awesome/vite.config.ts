@@ -1,10 +1,13 @@
 import react from '@vitejs/plugin-react';
-import vue from '@vitejs/plugin-vue';
+import vue3 from '@vitejs/plugin-vue';
+import vue2 from '@vitejs/plugin-vue2';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { VitePWA } from 'vite-plugin-pwa';
+import vueCompiler2 from 'vueCompiler2';
+import vueCompiler3 from 'vueCompiler3';
 import { description, name } from './package.json';
 
 const baseUrl = '/react-awesome/';
@@ -38,7 +41,8 @@ export default defineConfig({
         plugins: ['@emotion/babel-plugin'],
       },
     }),
-    vue(),
+    vue2({ compiler: vueCompiler2 as any, include: 'src/**/*.v2.vue' }),
+    vue3({ compiler: vueCompiler3, include: 'src/**/*.v3.vue' }),
     visualizer({
       template: 'treemap', // or sunburst
       open: true,
@@ -51,7 +55,7 @@ export default defineConfig({
       injectRegister: 'auto',
       workbox: {
         maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
-        globPatterns: ['**/*.{js,css,ico,png,jpg,jpeg,svg}'],
+        globPatterns: ['**/*.{js,css,ico,png,jpg,jpeg,svg,mp3}'],
       },
       registerType: 'autoUpdate',
       devOptions: {
