@@ -65,27 +65,29 @@ const Calculator = () => {
   }, []);
 
   return (
-    <div css={calculatorStyle} id="calc">
-      <div className="display"></div>
-      <span className="c neumorphism">C</span>
-      <span className="signed neumorphism">+/-</span>
-      <span className="percent neumorphism">%</span>
-      <span className="divide neumorphism">÷</span>
-      <span className="seven neumorphism">7</span>
-      <span className="eight neumorphism">8</span>
-      <span className="nine neumorphism">9</span>
-      <span className="times neumorphism">x</span>
-      <span className="four neumorphism">4</span>
-      <span className="five neumorphism">5</span>
-      <span className="six neumorphism">6</span>
-      <span className="minus neumorphism">-</span>
-      <span className="one neumorphism">1</span>
-      <span className="two neumorphism">2</span>
-      <span className="three neumorphism">3</span>
-      <span className="plus neumorphism">+</span>
-      <span className="zero neumorphism">0</span>
-      <span className="decimal neumorphism">.</span>
-      <span className="equals neumorphism">=</span>
+    <div className="flex justify-center items-center">
+      <div css={calculatorStyle} id="calc">
+        <div className="display"></div>
+        <span className="c neumorphism">C</span>
+        <span className="signed neumorphism">+/-</span>
+        <span className="percent neumorphism">%</span>
+        <span className="divide neumorphism">÷</span>
+        <span className="seven neumorphism">7</span>
+        <span className="eight neumorphism">8</span>
+        <span className="nine neumorphism">9</span>
+        <span className="times neumorphism">x</span>
+        <span className="four neumorphism">4</span>
+        <span className="five neumorphism">5</span>
+        <span className="six neumorphism">6</span>
+        <span className="minus neumorphism">-</span>
+        <span className="one neumorphism">1</span>
+        <span className="two neumorphism">2</span>
+        <span className="three neumorphism">3</span>
+        <span className="plus neumorphism">+</span>
+        <span className="zero neumorphism">0</span>
+        <span className="decimal neumorphism">.</span>
+        <span className="equals neumorphism">=</span>
+      </div>
     </div>
   );
 };

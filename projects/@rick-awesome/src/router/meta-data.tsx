@@ -1,12 +1,11 @@
 /* eslint-disable guard-for-in */
 
 import { animationDelay, mainHeaderStyle } from '@/layout/style';
-import { css } from '@emotion/react';
 import { first, pick, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-type Component = typeof import('@/demo/clock');
+type Component = typeof import('@/demo/switch');
 
 export type MetaData = {
   // full router path
@@ -67,17 +66,9 @@ export const genRoutes: (path: string) => RouteObject = (path: string) =>
                 Component() {
                   const path: string = useOutletContext();
                   return (
-                    <div>
-                      <div
-                        css={css`
-                          ${animationDelay(0)};
-                          ${mainHeaderStyle}
-                        `}>
-                        {upperFirst(path)}
-                      </div>
-                      <div css={animationDelay(0.1)}>
-                        <Component />
-                      </div>
+                    <div css={animationDelay()}>
+                      <div css={mainHeaderStyle}>{upperFirst(path)}</div>
+                      <Component />
                     </div>
                   );
                 },

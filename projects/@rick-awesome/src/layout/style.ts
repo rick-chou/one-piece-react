@@ -8,12 +8,12 @@ const bottomShow = keyframes`
     }
 
     100% {
+      transform: translateY(0px);
       opacity: 1;
-      transform: none;
     }
 `;
 
-export const animationDelay = (delay: number) =>
+export const animationDelay = (delay = 0) =>
   css`
     animation: ${bottomShow} 0.8s ${delay}s both;
   `;
@@ -232,6 +232,14 @@ export const notificationStyle = css`
 export const mainContainerStyle = css`
   padding: 0 30px 30px;
   overflow: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    display: none;
+  }
 `;
 
 export const mainHeaderStyle = css`

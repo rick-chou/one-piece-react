@@ -24,12 +24,12 @@ export const calculatorStyle = css`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: 'toggle toggle toggle toggle' 'display display display display' 'c signed percent divide' 'seven eight nine times' 'four five six minus' 'one two three plus' 'zero zero decimal equals';
-  align-items: center;
-  justify-items: center;
   grid-row-gap: 25px;
   grid-column-gap: 25px;
   border-radius: 20px;
   padding: 40px 40px 40px 40px;
+  width: 80%;
+  
 
   .display {
     ${inOutNeumorphism};
