@@ -158,6 +158,7 @@ type Data = {
   transitionName: string;
   tracks: TrackType[];
   github: string;
+  route: string;
 };
 
 export default {
@@ -172,6 +173,7 @@ export default {
       transitionName: '',
       tracks,
       github: import.meta.env.RICK_GITHUB,
+      route: window.location.pathname,
     };
   },
   methods: {
@@ -279,6 +281,14 @@ export default {
       link.as = 'image';
       document.head.appendChild(link);
     }
+
+    // patch mock unmount fn
+    const timer = setInterval(() => {
+      if (window.location.pathname !== this.route) {
+        this.audio.pause();
+        clearInterval(timer);
+      }
+    }, 1000);
   },
 };
 </script>
