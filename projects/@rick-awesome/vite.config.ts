@@ -1,10 +1,11 @@
+import mdx from '@mdx-js/rollup';
 import react from '@vitejs/plugin-react';
 import vue3 from '@vitejs/plugin-vue';
 import vue2 from '@vitejs/plugin-vue2';
 import path from 'path';
+import remarkGfm from 'remark-gfm';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
-import { Mode, plugin as md } from 'vite-plugin-markdown';
 import { VitePWA } from 'vite-plugin-pwa';
 import vueCompiler2 from 'vueCompiler2';
 import vueCompiler3 from 'vueCompiler3';
@@ -50,7 +51,11 @@ export default defineConfig({
       brotliSize: true,
       filename: 'dist/analyse.html', // will be saved in project's root
     }),
-    md({ mode: [Mode.HTML, Mode.MARKDOWN, Mode.REACT, Mode.TOC] }),
+    mdx({
+      jsxImportSource: '@emotion/react',
+      providerImportSource: '@mdx-js/react',
+      remarkPlugins: [remarkGfm],
+    }),
     VitePWA({
       injectRegister: 'auto',
       workbox: {
