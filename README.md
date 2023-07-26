@@ -2,9 +2,6 @@
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/png/28.png" alt="" height="60px"/>
-  <br>
-  <i>This is a React learning repository that includes the followings</i>
-  <br>
 </p>
 
 <p align="center">
@@ -18,9 +15,33 @@
 
 <hr>
 
-### 🌟 Project Roadmap
+## 🌈 Time Machine
 
-#### [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/) [README](projects/@rick-awesome/README.md)
+### 2021
+
+- [x] Graduation! 🥂 🧱 👷🏿‍♂️
+- [x] Use Vue 2 😀
+- [x] Use React 😍
+
+### 2022
+
+- [x] Use React Native 😅
+- [x] Learn Mysql
+
+### 2023
+
+- [x] Use Angular2.0+ 🤔
+- [x] Continue to use React 😅
+- [x] Learn Nestjs 😀
+- [ ] Learn Java 😎
+- [ ] Get married 🥰
+
+![bg](https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/43.jpg)
+
+
+## 🌟 Project Roadmap
+
+### [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/) [README](projects/@rick-awesome/README.md)
 
 ![demo](assets/blog_demo.png)
 ![demo](assets/blog_theme_light.png)
