@@ -165,3 +165,110 @@ const VueComponentWrapper: React.FC<VueComponentProps> = ({
 
 export default VueComponentWrapper;
 ```
+
+## Blog 方案
+
+第一版的方案用的是 `vite-plugin-markdown` 用的是 beta 版本
+
+> "vite-plugin-markdown": "^2.2.0-2",
+
+```ts
+import { Mode, plugin as md } from 'vite-plugin-markdown';
+
+// vite plugin
+md({ mode: [Mode.HTML, Mode.MARKDOWN, Mode.REACT, Mode.TOC] }),
+```
+
+然后用 tailwind 的 `@tailwindcss/typography` plugin
+
+```jsx
+import { html } from 'README.md';
+
+<div
+  css={animationDelay(0.1)}
+  className="px-8 pb-8 prose prose-slate overflow-y-scroll lg:prose-xl max-w-none dark:prose-invert"
+  dangerouslySetInnerHTML={{ __html: html }}
+/>;
+```
+
+其实整体下来效果还不错 可参考 [@tailwindcss/typography Live Demo](https://play.tailwindcss.com/uj1vGACRJA)
+
+现在的方案是接入 `@mdx-js/react`
+
+一方面它支持 jsx 语法
+
+另一方面可以用它的社区插件实现更多的定制化的功能
+
+```ts
+import mdx from '@mdx-js/rollup';
+// 实现代码高亮
+import rehypeHighlight from 'rehype-highlight';
+// 给代码块添加props 例如添加文件名
+import rehypeMdxCodeProps from 'rehype-mdx-code-props';
+// 支持类似Github Markdown语法
+import remarkGfm from 'remark-gfm';
+
+// plugin
+  mdx({
+    jsxImportSource: '@emotion/react',
+    providerImportSource: '@mdx-js/react',
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
+  }),
+```
+
+改写 Article 组件 添加 `not-prose` class 类名可以告诉 tailwind 这里不需要 typography 插件的样式
+
+```tsx
+import { MDXProvider } from '@mdx-js/react';
+import { type FC, type PropsWithChildren } from 'react';
+import { codeBlockStyle, codeBtnStyle, codeFilename } from './style';
+import './theme.scss';
+
+const Article: FC<PropsWithChildren<{ classname?: string }>> = ({
+  children,
+  classname = '',
+}) => {
+  return (
+    <div
+      className={`px-8 pb-8 prose prose-slate overflow-scroll max-w-[45vw] dark:prose-invert !select-text no-scrollbar ${classname}`}>
+      <MDXProvider
+        components={{
+          a: props => <a target="_blank" {...props} className="italic"></a>,
+          pre(props: any) {
+            return (
+              <div className="not-prose">
+                <figure css={codeBlockStyle}>
+                  <figcaption>
+                    <span css={codeBtnStyle} />
+                    <span css={codeBtnStyle} />
+                    <span css={codeBtnStyle} />
+                    <span css={codeFilename}>
+                      {props.filename ??
+                        props?.children?.props?.className?.split('-').at(-1)}
+                    </span>
+                  </figcaption>
+                  <pre {...props} className="!bg-[#002b36]"></pre>
+                </figure>
+              </div>
+            );
+          },
+        }}>
+        {children}
+      </MDXProvider>
+    </div>
+  );
+};
+
+export default Article;
+```
+
+因为项目中引用了 tailwindcss
+
+```ts
+corePlugins: {
+  preflight: true,
+}
+```
+
+且在配置中除去了默认样式 所以还得用 `@tailwindcss/typography` 包一层

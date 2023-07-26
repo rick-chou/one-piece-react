@@ -32,7 +32,7 @@
   - [ ] Image-Resize
   - [ ] Flowchart
 
-- Chart 
+- Chart
 
   - [x] [mscgen](https://www.mcternan.me.uk/mscgen/)
 

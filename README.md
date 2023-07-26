@@ -20,13 +20,13 @@
 
 ### 🌟 Project Roadmap
 
-- [x] [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/) [README](projects/@rick-awesome/README.md)
+#### [@rickzhou/awesome](https://rick-chou.github.io/react-awesome/) [README](projects/@rick-awesome/README.md)
 
+![demo](assets/blog_demo.png)
 ![demo](assets/blog_theme_light.png)
 ![demo](assets/blog_theme_dark.png)
-![demo](assets/blog_demo.png)
+![demo](assets/blog_music.png)
 ![demo](assets/blog_search.png)
-
-- [ ] @rickzhou/online-zip
-- [ ] @rickzhou/online-ide
-- [ ] @rickzhou/api-docs-generator
+![demo](assets/blog_blog.png)
+![demo](assets/blog_light.png)
+![demo](assets/blog_dark.png)
