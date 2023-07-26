@@ -1,5 +1,7 @@
 const blogs = import.meta.glob(['../blog/*/*.{md,mdx}']);
-const sidebar = await (await fetch('/blog.md')).text();
+const sidebar = await (
+  await fetch(`${import.meta.env.BASE_URL}/blog.md`)
+).text();
 const meta = sidebar.split('\n').filter(i => i.includes('['));
 
 import Article from '@/components/article';
