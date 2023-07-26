@@ -1,9 +1,10 @@
 import { Hotkey } from '@/config/shortcut';
 import { useModalOpen } from '@/hooks/useModalOpen';
+import { BlogRoutes } from '@/router/blog';
 import { metaData, type MetaData } from '@/router/meta-data';
 import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
 import { Modal } from 'antd';
-import { first, last, toLower, upperCase } from 'lodash';
+import { first, last, toLower, upperCase, upperFirst } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -58,6 +59,25 @@ const CmdModal = () => {
             });
           });
         });
+
+      commands.push({
+        type: 'blog',
+        mode: 'title',
+        title: 'Blog',
+      });
+
+      BlogRoutes.children?.forEach(i => {
+        commands.push({
+          type: 'blog',
+          mode: 'item',
+          title: upperFirst(i.path),
+          meta: {
+            path: `${import.meta.env.BASE_URL}rick/blog/${i.path!}`,
+            name: '',
+            parent: 'Blog',
+          } as any,
+        });
+      });
 
       setCommandItems(commands);
       setDisplayCommandItems(commands);
@@ -163,7 +183,12 @@ const CmdModal = () => {
             const result = commandItems.filter(i => {
               return (
                 toLower(i.title).includes(toLower(e.target.value)) ||
-                i.mode === 'title'
+                (i.mode === 'title' &&
+                  commandItems.some(
+                    j =>
+                      i.type === j.type &&
+                      toLower(j.title).includes(toLower(e.target.value)),
+                  ))
               );
             });
 

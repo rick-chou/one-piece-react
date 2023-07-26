@@ -243,11 +243,11 @@ export const mainContainerStyle = css`
 `;
 
 export const mainHeaderStyle = css`
+  background: var(--color-primary-bg);
   font-size: 30px;
   font-weight: 700;
   padding-bottom: 20px;
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 11;
 `;

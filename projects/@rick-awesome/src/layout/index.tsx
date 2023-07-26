@@ -5,7 +5,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/theme';
 import { Global } from '@emotion/react';
 import { ConfigProvider } from 'antd';
-import { useLocation } from 'react-router-dom';
+import { ScrollRestoration, useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
 import Sidebar from './sidebar';
@@ -42,6 +42,7 @@ const Home = () => {
           {renderContent()}
         </div>
       </div>
+      <ScrollRestoration />
     </ConfigProvider>
   );
 };

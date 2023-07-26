@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import vue3 from '@vitejs/plugin-vue';
 import vue2 from '@vitejs/plugin-vue2';
 import path from 'path';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import remarkGfm from 'remark-gfm';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
@@ -55,6 +57,7 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
       providerImportSource: '@mdx-js/react',
       remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
     }),
     VitePWA({
       injectRegister: 'auto',
