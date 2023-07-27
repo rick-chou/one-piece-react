@@ -105,10 +105,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@rick-flow': path.resolve(__dirname, './src/roadmap/flowcharts'),
-      '@rick-img-resize': path.resolve(
+      '@rick-flow': path.resolve(__dirname, './src/project/flowcharts'),
+      '@rick-img-transform': path.resolve(
         __dirname,
-        './src/project/rick-img-resize',
+        './src/project/img-transform',
       ),
     },
   },

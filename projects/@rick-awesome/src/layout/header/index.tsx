@@ -38,6 +38,7 @@ const Header = () => {
       <div css={searchBarStyle}>
         <input
           type="text"
+          value=""
           placeholder={`Search    [ ${Hotkey.Meta} + ${Hotkey.S} / ${Hotkey.F} ]`}
           onFocus={onShow}
         />

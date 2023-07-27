@@ -14,7 +14,7 @@ export const ContainerHeight = '80vh';
 export const NodeHeight = 50;
 export const NodeWidth = 400;
 export const MinimapHeight = 120;
-export const HomePreviewHeight = '35vh';
+export const HomePreviewHeight = '20vh';
 
 /**
  * UI

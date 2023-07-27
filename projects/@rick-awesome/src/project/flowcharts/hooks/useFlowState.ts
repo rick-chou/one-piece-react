@@ -3,9 +3,13 @@ import {
   NodeType,
   type Execution,
   type NodeDataTypeWrapper,
-} from '@rick-flow/interface';
-import { genEdges, genNodes, getLayoutedElements } from '@rick-flow/utils';
-import { sleep } from '@rick-flow/utils/sleep';
+} from '@/project/flowcharts/interface';
+import {
+  genEdges,
+  genNodes,
+  getLayoutedElements,
+} from '@/project/flowcharts/utils';
+import { sleep } from '@/project/flowcharts/utils/sleep';
 import { cloneDeep } from 'lodash';
 import { useCallback, useEffect, useRef } from 'react';
 import {

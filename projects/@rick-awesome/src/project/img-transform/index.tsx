@@ -2,9 +2,9 @@ import {
   CloseCircleFilled,
   MinusCircleOutlined,
   PlusOutlined,
-  UploadOutlined,
 } from '@ant-design/icons';
 import { css } from '@emotion/react';
+import { Empty } from '@rickzhou/react-ui';
 import {
   Image as AntImage,
   Button,
@@ -12,7 +12,6 @@ import {
   Checkbox,
   Divider,
   Drawer,
-  FloatButton,
   Form,
   Input,
   InputNumber,
@@ -23,6 +22,7 @@ import {
 import saveAs from 'file-saver';
 import { cloneDeep, isEmpty } from 'lodash';
 import { useState } from 'react';
+import { HiOutlineTrash, HiUpload } from 'react-icons/hi';
 
 // TODO
 // ico "image/x-icon"
@@ -95,72 +95,111 @@ const RickImgResize = () => {
     }
   };
 
+  const renderBtn = () => {
+    return (
+      <div className="flex justify-center items-center">
+        <Button
+          className="flex items-center justify-center"
+          onClick={uploadImg}>
+          <HiUpload />
+          <span className="mx-1">Upload Image</span>
+        </Button>
+
+        <Divider type="vertical" />
+
+        <Button
+          className="flex items-center justify-center"
+          onClick={() => {
+            setData([]);
+          }}>
+          <HiOutlineTrash />
+          <span className="mx-1">Clear All</span>
+        </Button>
+      </div>
+    );
+  };
+
   return (
-    <div>
-      <div className="grid lg:grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1">
-        {data.map((i, idx) => {
-          return (
-            <Card
-              key={idx}
-              className="w-[300px] img-card"
-              css={css`
-                &:hover {
-                  .close-icon {
-                    opacity: 100;
+    <div className="p-8 pr-0">
+      <div className="flex items-center justify-between pr-8">
+        <div className="flex items-center">
+          <div className="font-bold text-xl mr-8">Image Transform</div>
+        </div>
+        <div>{renderBtn()}</div>
+      </div>
+
+      <div className="pr-8">
+        <Divider />
+      </div>
+
+      <div className="grid gap-4 grid-cols-2 max-h-[70vh] overflow-auto">
+        {isEmpty(data) ? (
+          <div className="col-span-2">
+            <Empty height="60vh" desc="Please upload image" />
+          </div>
+        ) : (
+          data.map((i, idx) => {
+            return (
+              <Card
+                key={idx}
+                className="w-[300px]"
+                css={css`
+                  &:hover {
+                    .close-icon {
+                      opacity: 100;
+                    }
                   }
-                }
-              `}
-              hoverable
-              onClick={() => {
-                setIdx(idx);
-                setOpen(true);
-              }}>
-              <div className="flex flex-col justify-between">
-                <CloseCircleFilled
-                  className="absolute right-1 top-1 text-lg text-sky-400 close-icon opacity-0 duration-300 ease-in"
-                  onClick={e => {
-                    e.stopPropagation();
-                    const _data = cloneDeep(data);
-                    _data.splice(idx, 1);
-                    setData(_data);
-                  }}
-                />
-                <AntImage width={'100%'} src={i.img.src} preview={false} />
-                <div className="flex items-center justify-center my-4 font-semibold">
-                  {i.file.name}
+                `}
+                hoverable
+                onClick={() => {
+                  setIdx(idx);
+                  setOpen(true);
+                }}>
+                <div className="flex flex-col justify-between">
+                  <CloseCircleFilled
+                    className="absolute right-2 top-2 text-lg text-sky-400 dark:text-sky-200 close-icon opacity-0 duration-300 ease-in"
+                    onClick={e => {
+                      e.stopPropagation();
+                      const _data = cloneDeep(data);
+                      _data.splice(idx, 1);
+                      setData(_data);
+                    }}
+                  />
+                  <AntImage width={'100%'} src={i.img.src} preview={false} />
+                  <div className="flex items-center justify-center my-4 font-semibold">
+                    {i.file.name}
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Tag color="geekblue">
+                      {i.img.width} x {i.img.height}
+                    </Tag>
+                  </div>
                 </div>
-                <div className="flex items-center justify-center">
-                  <Tag color="geekblue">
-                    {i.img.width} x {i.img.height}
-                  </Tag>
-                </div>
-              </div>
-            </Card>
-          );
-        })}
+              </Card>
+            );
+          })
+        )}
       </div>
 
       {!isEmpty(data) && (
         <Drawer
-          width={'40vw'}
+          width={'25vw'}
           title={
-            <div className="flex justify-between">
-              <div className="flex">
-                <div className="mr-4">{data[idx].file.name}</div>
+            <div>
+              <div className="mr-4">{data[idx]?.file.name}</div>
+              <div className="flex justify-between mt-4">
+                <Tag color="geekblue">
+                  {data[idx]?.img.width} x {data[idx]?.img.height}
+                </Tag>
                 <div>
-                  <Tag color="geekblue">
-                    {data[idx].img.width} x {data[idx].img.height}
-                  </Tag>
+                  <Checkbox
+                    checked={lockingAspectRatio}
+                    onChange={e => {
+                      setLockingAspectRatio(e.target.checked);
+                    }}>
+                    Locking aspect ratio
+                  </Checkbox>
                 </div>
-              </div>
-              <div>
-                <Checkbox
-                  checked={lockingAspectRatio}
-                  onChange={e => {
-                    setLockingAspectRatio(e.target.checked);
-                  }}>
-                  Locking aspect ratio
-                </Checkbox>
               </div>
             </div>
           }
@@ -174,11 +213,7 @@ const RickImgResize = () => {
 
           <Divider />
 
-          <Form
-            form={form}
-            name="img-resize"
-            style={{ maxWidth: 600 }}
-            autoComplete="off">
+          <Form form={form} name="img-resize" autoComplete="off">
             <Form.List name="size">
               {(fields, { add, remove }) => (
                 <>
@@ -257,14 +292,6 @@ const RickImgResize = () => {
           </Button>
         </Drawer>
       )}
-
-      <FloatButton
-        className="animate-bounce"
-        onClick={uploadImg}
-        shape="circle"
-        tooltip="Upload Image"
-        icon={<UploadOutlined className="text-blue-500" />}
-      />
     </div>
   );
 };

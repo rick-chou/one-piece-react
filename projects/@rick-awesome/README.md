@@ -2,10 +2,10 @@
 
 - Rick [ homepage ]
 
-  - [ ] Introduction
+  - [x] Introduction
   - [x] [Albums](https://codepen.io/cameronknight/pen/oNGEvmw)
-  - [ ] [Music](https://codepen.io/JavaScriptJunkie/pen/qBWrRyg)
-  - [ ] Technical notes
+  - [x] [Music](https://codepen.io/JavaScriptJunkie/pen/qBWrRyg)
+  - [x] Technical notes
 
 - Config [ technical ]
 
@@ -31,6 +31,7 @@
 
   - [ ] Image-Resize
   - [ ] Flowchart
+  - [ ] Chat
 
 - Chart
 
