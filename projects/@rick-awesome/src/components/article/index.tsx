@@ -9,7 +9,7 @@ const Article: FC<PropsWithChildren<{ classname?: string }>> = ({
 }) => {
   return (
     <div
-      className={`px-8 pb-8 prose prose-slate overflow-scroll max-w-[45vw] dark:prose-invert !select-text no-scrollbar ${classname}`}>
+      className={`px-8 pb-8 prose prose-slate overflow-auto max-w-[45vw] dark:prose-invert !select-text no-scrollbar ${classname}`}>
       <MDXProvider
         components={{
           a: props => <a target="_blank" {...props} className="italic"></a>,

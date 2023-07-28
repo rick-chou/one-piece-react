@@ -1,9 +1,4 @@
-import {
-  CheckCircleTwoTone,
-  ExportOutlined,
-  MoreOutlined,
-  PlusCircleTwoTone,
-} from '@ant-design/icons';
+import { CheckCircleTwoTone, MoreOutlined } from '@ant-design/icons';
 import { useFlowchart } from '@rick-flow/hooks/useFlowchart';
 import { useMenus } from '@rick-flow/hooks/useMenus';
 import { useMock } from '@rick-flow/hooks/useMock';
@@ -22,6 +17,7 @@ import {
 } from 'antd';
 import saveAs from 'file-saver';
 import { useEffect } from 'react';
+import { HiDownload, HiPlusSm } from 'react-icons/hi';
 import FlowChart from '../flow';
 
 const { WithEmpty } = Empty;
@@ -62,7 +58,7 @@ const Preview: React.FC<
           </Dropdown>
         )
       }>
-      <div className="h-[35vh]">
+      <div className="h-[20vh]">
         <WithEmpty data={chart} emptyProps={{ height: HomePreviewHeight }}>
           <FlowChart id={id} height={HomePreviewHeight} />
         </WithEmpty>
@@ -108,19 +104,24 @@ const FlowHome: React.FC<FlowProps> = ({
     }
 
     return (
-      <>
+      <div className="flex justify-center items-center">
         <Button
-          icon={<PlusCircleTwoTone />}
+          disabled
+          className="flex items-center justify-center"
           onClick={() => {
-            navigate(`./edit?action=${Action.add}`, { relative: 'path' });
+            navigate(`./edit?action=${Action.add as string}`, {
+              relative: 'path',
+            });
           }}>
+          <HiPlusSm />
           New
         </Button>
 
         <Divider type="vertical" />
 
         <Button
-          icon={<ExportOutlined className="text-[#1890ff]" />}
+          disabled
+          className="flex items-center justify-center"
           onClick={() => {
             Modal.confirm({
               title: 'Do you want to export these flowcharts ?',
@@ -134,9 +135,10 @@ const FlowHome: React.FC<FlowProps> = ({
               },
             });
           }}>
+          <HiDownload />
           Export
         </Button>
-      </>
+      </div>
     );
   };
 
@@ -154,12 +156,14 @@ const FlowHome: React.FC<FlowProps> = ({
       </div>
 
       <WithEmpty
-        data={!loading || selectable}
-        emptyProps={{ loading: !selectable, height: 'calc(100vh - 150px)' }}>
+        // data={!loading || selectable}
+        data={false}
+        emptyProps={{ height: '60vh', desc: 'Roadmap' }}>
+        {/* emptyProps={{ loading: !selectable, height: '60vh' }}> */}
         <div
-          className={`grid grid-cols-2 gap-x-8 gap-y-12 overflow-scroll pb-6 pr-8 ${
-            selectable ? 'h-[calc(80vh-150px)]' : 'h-[calc(100vh-150px)]'
-          } `}>
+          className={
+            'grid grid-cols-2 gap-x-8 gap-y-12 pb-6 pr-8 h-[var(--layout-content-height)] overflow-scroll'
+          }>
           {Object.keys(flowcharts).map(i => (
             <div key={i}>
               <Preview {...props} id={i} onDelete={deleteChart} />

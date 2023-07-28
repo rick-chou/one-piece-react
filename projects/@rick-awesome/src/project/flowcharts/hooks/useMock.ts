@@ -1,5 +1,5 @@
-import { flowchartsMock } from '@rick-flow/mock';
-import { sleep } from '@rick-flow/utils/sleep';
+import { flowchartsMock } from '@/project/flowcharts/mock';
+import { sleep } from '@/project/flowcharts/utils/sleep';
 import { useCallback, useMemo } from 'react';
 import { useLoading } from './useLoading';
 

@@ -1,4 +1,4 @@
-import { NodeType, type FlowChartType } from '@rick-flow/interface';
+import { NodeType, type FlowChartType } from '@/project/flowcharts/interface';
 
 export const flowchartsMock: FlowChartType[] = [
   {

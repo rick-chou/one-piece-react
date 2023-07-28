@@ -1,4 +1,4 @@
-import { Action } from '@rick-flow/interface';
+import { Action } from '@/project/flowcharts/interface';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 

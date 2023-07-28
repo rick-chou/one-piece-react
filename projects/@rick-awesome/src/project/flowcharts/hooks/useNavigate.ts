@@ -1,4 +1,4 @@
-import { isPwaMode } from '@rick-flow/utils/isPwaMode';
+import { isPwaMode } from '@/project/flowcharts/utils/isPwaMode';
 import type { NavigateOptions } from 'react-router-dom';
 import { useNavigate as _useNavigate } from 'react-router-dom';
 

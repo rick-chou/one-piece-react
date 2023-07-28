@@ -5,8 +5,8 @@ import {
   type NodeDataType,
   type NodeDataTypeWrapper,
   type TransformFn as TransformDataFn,
-} from '@rick-flow/interface';
-import { NodeHeight, NodeWidth } from '@rick-flow/styles';
+} from '@/project/flowcharts/interface';
+import { NodeHeight, NodeWidth } from '@/project/flowcharts/styles';
 import dagre from 'dagre';
 import { cloneDeep, without } from 'lodash';
 import type { Edge, Node } from 'reactflow';

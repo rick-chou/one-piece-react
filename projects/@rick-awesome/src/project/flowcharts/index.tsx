@@ -18,7 +18,7 @@ const RickFlow: FC = () => {
 
   return (
     <ContextModal.Provider value={modal}>
-      <div className="rounded-tl-2xl overflow-hidden max-h-[500px]">
+      <div className="rounded-tl-2xl overflow-hidden max-h-[95vh-100px]">
         {location.pathname ===
         `${import.meta.env.BASE_URL}project/flowcharts` ? (
           <Home />

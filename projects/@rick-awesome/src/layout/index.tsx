@@ -4,7 +4,7 @@ import { useShortKey } from '@/hooks/useShortkey';
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/theme';
 import { Global } from '@emotion/react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme } from 'antd';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
@@ -28,8 +28,9 @@ const Home = () => {
       theme={{
         token: {
           fontFamily: 'Odibee Sans, Inter, sans-serif',
-          colorBgContainer: dark ? '#000' : '#fff',
+          // colorBgContainer: dark ? '#000' : '#fff',
         },
+        algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
       }}>
       <div css={containerStyle}>
         <Theme />
