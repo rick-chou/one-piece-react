@@ -1,4 +1,4 @@
-import { type FlowChartType } from '@/project/flowcharts/interface';
+import { type FlowChartType } from '@/modules/project/flowcharts/interface';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { produce } from 'immer';

@@ -1,17 +1,17 @@
-const blogs = import.meta.glob(['../blog/*/*.{md,mdx}']);
+const blogs = import.meta.glob(['../blog/content/*/*.{md,mdx}']);
 
-import Article from '@/components/article';
+import Article from '@/blog/components/article';
 import { type RouteObject } from 'react-router-dom';
 
 export const BlogRoutes: RouteObject = {
   path: 'rick/blog',
   children: Object.entries(blogs).map(([key, value]) => {
     return {
-      path: key.split('../blog/').at(-1)!.split('.').at(0)!,
+      path: key.split('../blog/content/').at(-1)!.split('.').at(0)!,
       async lazy() {
         const { default: Component, frontmatter } =
           // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-          (await value()) as typeof import('@/blog/angular/directive.md');
+          (await value()) as typeof import('@/blog/content/README.mdx');
 
         return {
           Component() {

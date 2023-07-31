@@ -5,7 +5,7 @@ import { first, pick, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-type Component = typeof import('@/demo/switch');
+type Component = typeof import('@/modules/demo/switch');
 
 export type MetaData = {
   // full router path
@@ -26,10 +26,10 @@ export async function genMetaData(
   for (const key in modules) {
     const temp = key.split('/');
     const meta: MetaData = {
-      path: `${import.meta.env?.BASE_URL}${temp[1]}/${temp[2]}`,
+      path: `${import.meta.env?.BASE_URL}${temp[2]}/${temp[3]}`,
       component: modules[key],
-      name: temp[2],
-      parent: temp[1],
+      name: temp[3],
+      parent: temp[2],
     };
     if (!metadata[meta.parent]) {
       metadata[meta.parent] = [];
@@ -42,10 +42,10 @@ export async function genMetaData(
 }
 
 const modules = import.meta.glob([
-  '../rick/*/index.tsx',
-  '../demo/*/index.tsx',
-  '../chart/*/index.tsx',
-  '../project/*/index.tsx',
+  '../modules/rick/*/index.tsx',
+  '../modules/demo/*/index.tsx',
+  '../modules/chart/*/index.tsx',
+  '../modules/project/*/index.tsx',
 ]);
 
 export const metaData = await genMetaData(

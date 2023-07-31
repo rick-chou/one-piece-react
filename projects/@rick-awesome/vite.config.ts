@@ -14,6 +14,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import vueCompiler2 from 'vueCompiler2';
 import vueCompiler3 from 'vueCompiler3';
 import { description, name } from './package.json';
+import mdxInjectImport from './src/blog/plugins/inject-import';
 
 const baseUrl = '/react-awesome/';
 
@@ -59,7 +60,12 @@ export default defineConfig({
     mdx({
       jsxImportSource: '@emotion/react',
       providerImportSource: '@mdx-js/react',
-      remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
+      remarkPlugins: [
+        remarkGfm,
+        remarkFrontmatter,
+        remarkMdxFrontmatter,
+        mdxInjectImport,
+      ],
       rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
     }),
     VitePWA({

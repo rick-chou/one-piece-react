@@ -17,8 +17,4 @@ const RickAwesome = () => {
   );
 };
 
-// const Debug = () => {
-//   return <Slider nodes={[RickAwesome, RickAwesome]} />;
-// };
-
 ReactDOM.createRoot(document.getElementById('root')!).render(<RickAwesome />);
