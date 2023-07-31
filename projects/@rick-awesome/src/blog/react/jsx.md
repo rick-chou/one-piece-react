@@ -1,3 +1,7 @@
+---
+title: React Quick Start - JSX
+---
+
 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c073ccd5104845b6b053727e2e4f48~tplv-k3u1fbpfcp-zoom-1.image"/>
 
 ## 你可能需要知道的一丢丢 JS 语法

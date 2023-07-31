@@ -13,10 +13,9 @@ const bottomShow = keyframes`
     }
 `;
 
-export const animationDelay = (delay = 0) =>
-  css`
-    animation: ${bottomShow} 0.8s ${delay}s both;
-  `;
+export const animationDelay = css`
+  animation: ${bottomShow} 0.8s 0s both;
+`;
 
 export const globalStyle = css`
   ::-webkit-scrollbar {

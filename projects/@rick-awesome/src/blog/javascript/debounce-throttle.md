@@ -1,3 +1,7 @@
+---
+title: JavaScript - debounce & throttle
+---
+
 ## 函数防抖
 
 ```js

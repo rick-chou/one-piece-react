@@ -1,3 +1,7 @@
+---
+title: JavaScript - design-patterns-strategy
+---
+
 > 转载自<a href="https://www.wekic.com/article/30">Vincent</a>
 
 ## 前言

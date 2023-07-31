@@ -9,7 +9,6 @@ import { FlowNodeClassname, NodeWidth, nodeStyle } from '@rick-flow/styles';
 import { Alert, Badge, Dropdown, Modal } from 'antd';
 import { isEmpty } from 'lodash';
 import { memo } from 'react';
-import 'react-medium-image-zoom/dist/styles.css';
 import type { NodeProps } from 'reactflow';
 import { Handle, Position } from 'reactflow';
 

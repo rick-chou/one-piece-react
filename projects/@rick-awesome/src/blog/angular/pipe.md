@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Pipe
+---
+
 Pipe 作用于 html template 用来格式化/预处理你的 html template
 
 Angular 内置的 pipe 有下列

@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Project
+---
+
 由于最近工作的转变 技术栈也由 React 向 Angular 进行了切换
 
 用了两/三个月的 Angular 打算写一些文章 也好有个积累

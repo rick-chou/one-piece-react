@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Router
+---
+
 ### 基本使用
 
 在 angular 中构建自己的 Router System 非常简单

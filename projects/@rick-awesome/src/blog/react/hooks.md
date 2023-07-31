@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Hooks
+---
+
 ## 背景
 
 在 React 16.8 之前 函数式组件又被称为无状态组件
@@ -84,8 +88,7 @@ export default class App extends React.Component {
           <b>Choose profile to view: </b>
           <select
             value={this.state.user}
-            onChange={(e) => this.setState({ user: e.target.value })}
-          >
+            onChange={e => this.setState({ user: e.target.value })}>
             <option value="nanshu">nanshu</option>
             <option value="chou">chou</option>
           </select>
@@ -142,13 +145,13 @@ this.props 的调用每次都会获取最新的 props 确保数据实时性
 
 设想一下 如果我们每次执行 this.setState React 都要做出上述响应
 
-那么 大概没有几次 你的页面就会出现卡顿了 
+那么 大概没有几次 你的页面就会出现卡顿了
 
-所以 React 做了批量更新 也就是多个 setState 会被合并 
+所以 React 做了批量更新 也就是多个 setState 会被合并
 
 请记住 React 中所有更新状态的操作都是异步的
 
-然而在 类组件中 如果你使用 setTimeout / Promise 这些异步的方法包裹 setState 的话 
+然而在 类组件中 如果你使用 setTimeout / Promise 这些异步的方法包裹 setState 的话
 
 它会让这些更新摆脱 React 的控制 从而看上去表现出了同步的样子
 
@@ -160,11 +163,11 @@ this.props 的调用每次都会获取最新的 props 确保数据实时性
 
 文中提到了在即将到来的 React18 中将会默认开始批量更新
 
-包括在类组件中 如果我们使用 setTimeout / Promise 的这些情况 
+包括在类组件中 如果我们使用 setTimeout / Promise 的这些情况
 
 现在 React 也都能对它们进行控制 从而使类组件和函数式组件的表现趋于一致
 
-具体有关 setState 和 useState 的介绍可以移步  Sticky Note（TODO）
+具体有关 setState 和 useState 的介绍可以移步 Sticky Note（TODO）
 
 👇 下面是 `useState` 的基础用法
 
@@ -183,8 +186,8 @@ const Counter: React.FC = () => {
 
   // 回调函数
   const addCountWithCallback = () => {
-    setCount((preState) => preState + 1);
-    setCount((preState) => preState + 1);
+    setCount(preState => preState + 1);
+    setCount(preState => preState + 1);
   };
 
   return (
@@ -260,8 +263,7 @@ const Count = () => {
     <div>
       <h1>当前计数：{state.count}</h1>
       <Button
-        onClick={() => dispatch({ type: Actions.ADD_COUNT_VALUE, payload: 2 })}
-      >
+        onClick={() => dispatch({ type: Actions.ADD_COUNT_VALUE, payload: 2 })}>
         +2
       </Button>
       <Button onClick={() => dispatch({ type: Actions.SUB_COUNT_VALUE })}>
@@ -283,7 +285,7 @@ export default function App() {
 
 执行代码后 你会发现 不同组件之间的 state 互不影响
 
-两个 Count 组件各自维护一份自己的count
+两个 Count 组件各自维护一份自己的 count
 
 ## useEffect
 
@@ -293,9 +295,9 @@ export default function App() {
 
 - 可以接收两个参数，分别是回调函数与依赖数组 useEffect(callBack, [])
 
-- 第一个参数 是一个回调函数  它可以返回一个函数用来消除副作用 类似 componentWillUnmount 可以做一些事件的解绑 定时器的关闭等
+- 第一个参数 是一个回调函数 它可以返回一个函数用来消除副作用 类似 componentWillUnmount 可以做一些事件的解绑 定时器的关闭等
 
-- 第二个参数 是一个数组 表示依赖项 当其中的某个值更新时 会重新执行callback
+- 第二个参数 是一个数组 表示依赖项 当其中的某个值更新时 会重新执行 callback
 
 ```tsx
 import { FC, useEffect, useState } from 'react';
@@ -409,7 +411,7 @@ export default App;
 在函数式组件中使用 memo 包裹我们的组件 可以帮助我们对前后的 props 进行一个浅比较
 
 ```jsx
-const App = memo((props) => {
+const App = memo(props => {
   return 'UI';
 });
 ```
@@ -474,7 +476,7 @@ const Parent = () => {
     <div>
       <p>num : {num}</p>
       <Button onClick={() => setNum(num + 1)}>change num</Button>
-      <Button onClick={() => setMax((pre) => pre * 2)}>change max</Button>
+      <Button onClick={() => setMax(pre => pre * 2)}>change max</Button>
       <ComponentWithoutUseCallback getSum={methodsWithoutUseCallback} />
       <ComponentWithUseCallback getSum={methodsWithUseCallback} />
     </div>
@@ -533,7 +535,7 @@ hook 的本质是链表 React 在执行 hook 的时候 是按顺序执行的
 
 所以 请将你的 hook 放在最顶层进行使用
 
-但是 一般项目中都继承了eslint 如果你非要这样的话 大概率是会被⚠️一番
+但是 一般项目中都继承了 eslint 如果你非要这样的话 大概率是会被 ⚠️ 一番
 
 ## 总结
 
@@ -569,7 +571,7 @@ componentDidUpdate() {
   - HOC（高阶组件）
 
   - Render Props
-  
+
 <hr />
 
 最后补充一下 无论是函数式还是类组件 都没有谁优谁劣之分
@@ -590,4 +592,4 @@ React 就是一个吃进数据 吐出 UI 的函数
 
 但是目前来看 类组件的能力边界还是强于函数组件的
 
-例如 在上一讲提到的处理错误边界的 `componentDidCatch`  就强依赖于类组件
+例如 在上一讲提到的处理错误边界的 `componentDidCatch` 就强依赖于类组件

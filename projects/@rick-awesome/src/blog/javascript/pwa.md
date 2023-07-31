@@ -1,3 +1,7 @@
+---
+title: JavaScript - PWA
+---
+
 ## PWA 定义
 
 首先 带大家看一下什么是 PWA
@@ -194,10 +198,10 @@ window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
       .register('./sw.js')
-      .then((registration) => {
+      .then(registration => {
         console.log('注册成功', registration);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(`注册失败`, err);
       });
   }
@@ -220,7 +224,7 @@ window.addEventListener('load', () => {
 
 ```js
 // install 事件会在service worker注册成功时触发 主要用于缓存资源
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
   console.log(`install`, event);
   // 让service worker跳过等待 直接进入activate状态 返回一个promise对象
   // self.skipWaiting();
@@ -229,7 +233,7 @@ self.addEventListener('install', (event) => {
 });
 
 // activate 事件会在service worker激活的时候触发 主要用于删除旧的资源
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
   console.log(`activate`, event);
   // 当一个sw注册时 页面在下次加载时才会使用它 claim方法会立即控制这些页面
   // self.clients.claim();
@@ -237,7 +241,7 @@ self.addEventListener('activate', (event) => {
 });
 
 // fetch 事件会在发送请求的时候触发 主要用于缓存或者读取网络资源
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   console.log(`fetch`, event);
 });
 ```
@@ -273,7 +277,7 @@ self.addEventListener('fetch', (event) => {
 const CACHE_NAME = 'cache_v1';
 
 // 缓存内容
-self.addEventListener('install', async (event) => {
+self.addEventListener('install', async event => {
   // 开启一个cache 得到一个cache对象
   const cache = await caches.open(CACHE_NAME);
   await cache.addAll([
@@ -288,9 +292,9 @@ self.addEventListener('install', async (event) => {
 });
 
 // 清除旧的缓存
-self.addEventListener('activate', async (event) => {
+self.addEventListener('activate', async event => {
   const keys = await caches.keys();
-  keys.forEach((key) => {
+  keys.forEach(key => {
     if (key !== CACHE_NAME) {
       caches.delete(key);
     }
@@ -300,7 +304,7 @@ self.addEventListener('activate', async (event) => {
 
 // fetch 事件会在发送请求的时候触发 主要用于缓存或者读取网络资源
 // 判断资源能否请求成功 请求成功 --> 响应成功的结果 请求失败 --> 读取caches缓存
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   // 请求对象
   const req = event.request;
   // 浏览器响应
@@ -308,7 +312,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 // 网络优先策略
-const networkFirst = async (req) => {
+const networkFirst = async req => {
   try {
     // 先从网络读取资源
     const fresh = await fetch(req);

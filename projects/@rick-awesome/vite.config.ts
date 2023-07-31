@@ -5,7 +5,9 @@ import vue2 from '@vitejs/plugin-vue2';
 import path from 'path';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
+import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -32,6 +34,7 @@ export default defineConfig({
           vue: ['vue'],
           react: ['react'],
           prettier: ['prettier'],
+          chance: ['chance'],
         },
       },
     },
@@ -56,7 +59,7 @@ export default defineConfig({
     mdx({
       jsxImportSource: '@emotion/react',
       providerImportSource: '@mdx-js/react',
-      remarkPlugins: [remarkGfm],
+      remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
       rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
     }),
     VitePWA({

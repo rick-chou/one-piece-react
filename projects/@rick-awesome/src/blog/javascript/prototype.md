@@ -1,3 +1,7 @@
+---
+title: JavaScript - prototype
+---
+
 在 ES2019 中 对于 prototype 的定义为
 
 > 给其它对象提供共享属性的对象

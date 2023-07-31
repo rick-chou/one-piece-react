@@ -1,12 +1,14 @@
 import { routes } from '@/router';
 import { useEffect, useRef } from 'react';
-import { Outlet, matchRoutes, useLocation } from 'react-router-dom';
-import { mainContainerStyle } from '../style';
+import { matchRoutes, useLocation, useOutlet } from 'react-router-dom';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { animationDelay, mainContainerStyle } from '../style';
 
 const Content = () => {
   const location = useLocation();
   const currentRoute = matchRoutes(routes, location)?.at(-1)?.route;
   const ref = useRef<HTMLDivElement>(null);
+  const currentOutlet = useOutlet(currentRoute?.path);
 
   useEffect(() => {
     ref.current?.scrollTo(0, 0);
@@ -14,7 +16,16 @@ const Content = () => {
 
   return (
     <div css={mainContainerStyle} ref={ref}>
-      <Outlet context={currentRoute?.path} />
+      <SwitchTransition>
+        <CSSTransition
+          key={location.pathname}
+          timeout={300}
+          mountOnEnter
+          unmountOnExit
+          in>
+          {() => <div css={animationDelay}>{currentOutlet}</div>}
+        </CSSTransition>
+      </SwitchTransition>
     </div>
   );
 };

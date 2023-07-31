@@ -1,3 +1,7 @@
+---
+title: TypeScript - advanced type]
+---
+
 ## 联合类型
 
 ```ts

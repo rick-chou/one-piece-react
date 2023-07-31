@@ -1,3 +1,7 @@
+---
+title: JavaScript - design-patterns-subscriber
+---
+
 ### 实现思路
 
 - 创建一个对象，来存储事件和监听函数之间的关系

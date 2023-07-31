@@ -1,6 +1,6 @@
 /* eslint-disable guard-for-in */
 
-import { animationDelay, mainHeaderStyle } from '@/layout/style';
+import { mainHeaderStyle } from '@/layout/style';
 import { first, pick, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 
@@ -66,7 +66,7 @@ export const genRoutes: (path: string) => RouteObject = (path: string) =>
                 Component() {
                   const path: string = useOutletContext();
                   return (
-                    <div css={animationDelay()}>
+                    <div>
                       <div css={mainHeaderStyle}>{upperFirst(path)}</div>
                       <Component />
                     </div>

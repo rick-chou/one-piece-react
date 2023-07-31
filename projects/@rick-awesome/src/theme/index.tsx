@@ -63,7 +63,7 @@ export const Theme = () => {
       styles={css(
         css`
           :root {
-            --body-font: 'Odibee Sans', 'Inter', sans-serif;
+            --body-font: ${fontFamily};
             --color-active: #bae0ff;
             --keyboard-duration: 0.3s;
             --keyboard-hue: 0;
@@ -106,6 +106,9 @@ export const Theme = () => {
 };
 
 export const contentHeight = '65vh';
+
+export const fontFamily = 'Odibee Sans, Inter, sans-serif';
+export const codeFontFamily = 'Fira Code';
 
 export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
   return (

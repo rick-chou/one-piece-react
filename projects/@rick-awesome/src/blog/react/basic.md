@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Basic Syntax
+---
+
 > 注：本章节的 demo 都以`类组件 + TS`为例 等下一章 hook 章节后都为函数式组件
 
 > 注：在写本章节的时候 React 已经更新到 17 版本 不必在代码中手动导入 React 了

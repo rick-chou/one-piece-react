@@ -7,8 +7,6 @@ interface ImportMetaEnv {
   readonly RICK_ISSUE: string;
   readonly RICK_AVATAR: string;
   readonly RICK_PUBLIC_KEY: string;
-  readonly RICK_GITHUB_TOKEN: string;
-  readonly RICK_GITHUB_ENCRYPT_TOKEN: string;
   readonly RICK_REDUX_LOGGER: 'true' | 'false';
 }
 

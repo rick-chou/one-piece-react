@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Directive
+---
+
 Directive 用来修饰 DOM 给它添加额外的行为
 
 > Angular 内置指令 https://angular.cn/guide/built-in-directives

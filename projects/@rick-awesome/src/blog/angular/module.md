@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Module
+---
+
 `NgModule` 是 `Angular` 用来组织内部模块的一种方式
 
 例如我们的根模块 如下

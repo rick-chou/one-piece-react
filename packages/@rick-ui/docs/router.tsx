@@ -13,7 +13,7 @@ export const routes: RouteObject[] = [
           const { Demo } = (await import(
             `../components/${material}/demo`
             // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-          )) as typeof import('../components/chart/demo/index');
+          )) as typeof import('../roadmap/chart/demo/index');
           return {
             Component: Demo,
           };

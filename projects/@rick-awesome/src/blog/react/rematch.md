@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Rematch
+---
+
 关于 rematch 的介绍 可以参考[传送门](https://rematch.gitbook.io/handbook/mu-de)
 
 rematch 可以简化传统的 redux 使我们免去写 actionType actionCreator
