@@ -28,8 +28,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@rick-flow/*": ["src/project/flowcharts/*"],
-      "@rick-img-transform/*": ["src/project/img-transform/*"]
+      "@rick-flow/*": ["src/modules/project/flowcharts/*"],
+      "@rick-img-transform/*": ["src/modules/project/img-transform/*"]
     }
   },
   "include": ["src", "script", "public/js"],

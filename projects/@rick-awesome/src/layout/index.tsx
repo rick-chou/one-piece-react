@@ -1,5 +1,4 @@
 import CmdModal from '@/components/commands';
-import Homepage from '@/homepage';
 import { useShortKey } from '@/hooks/useShortkey';
 import { useTheme } from '@/hooks/useTheme';
 import { Theme, fontFamily } from '@/theme';
@@ -8,6 +7,7 @@ import { ConfigProvider, theme } from 'antd';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
+import Homepage from './homepage';
 import Sidebar from './sidebar';
 import { containerStyle, globalStyle } from './style';
 const Home = () => {
