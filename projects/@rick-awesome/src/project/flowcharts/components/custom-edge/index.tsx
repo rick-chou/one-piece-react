@@ -1,4 +1,3 @@
-import 'react-medium-image-zoom/dist/styles.css';
 import { EdgeLabelRenderer, getBezierPath, type EdgeProps } from 'reactflow';
 
 export default function CustomEdge({

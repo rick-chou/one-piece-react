@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - html-in-service
+---
+
 > code repo https://github.com/rick-chou/angular-demo/tree/main/html-in-service
 
 > 背景：我希望封装一个自己的 message service 但是我不知道如何在 service 中使用 html 以下是我的一个解决方案

@@ -2,7 +2,7 @@ import CmdModal from '@/components/commands';
 import Homepage from '@/homepage';
 import { useShortKey } from '@/hooks/useShortkey';
 import { useTheme } from '@/hooks/useTheme';
-import { Theme } from '@/theme';
+import { Theme, fontFamily } from '@/theme';
 import { Global } from '@emotion/react';
 import { ConfigProvider, theme } from 'antd';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
@@ -27,8 +27,7 @@ const Home = () => {
     <ConfigProvider
       theme={{
         token: {
-          fontFamily: 'Odibee Sans, Inter, sans-serif',
-          // colorBgContainer: dark ? '#000' : '#fff',
+          fontFamily,
         },
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
       }}>

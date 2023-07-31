@@ -4,8 +4,7 @@ import { isEmpty } from 'lodash';
  * @since 1.0.0
  */
 export const isEmptyValue = (value: any) => {
-  if (typeof value === 'object') return isEmpty(value);
-  if (typeof value === 'undefined') return false;
-  if (typeof value === 'boolean') return !value;
-  return true;
+  if (typeof value === 'string') return !value.trim();
+  if (typeof value === 'number') return value === 0;
+  return isEmpty(value);
 };

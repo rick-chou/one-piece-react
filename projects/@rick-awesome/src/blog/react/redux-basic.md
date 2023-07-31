@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Redux Basics
+---
+
 本文参考如下文档
 
 > <a href="https://redux.js.org/">Redux 官方文档</a>

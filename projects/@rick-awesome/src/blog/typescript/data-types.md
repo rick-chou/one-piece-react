@@ -1,3 +1,7 @@
+---
+title: TypeScript - data type
+---
+
 ## 类型系统
 
 ### 基本数据类型

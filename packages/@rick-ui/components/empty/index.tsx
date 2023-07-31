@@ -6,7 +6,7 @@ import { FlexCenter } from '../style.base';
 import { DescStyles, EmptyBgStyles } from './style';
 
 export type EmptyProps = {
-  desc?: string;
+  desc?: React.ReactNode;
   loading?: boolean;
   height?: string;
 };

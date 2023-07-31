@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Standalone Component 🔥
+---
+
 ### 基本使用
 
 > https://angular.io/guide/standalone-components

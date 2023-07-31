@@ -1,3 +1,7 @@
+---
+title: Github actions
+---
+
 > https://docs.github.com/cn/actions/quickstart
 
 ```yml

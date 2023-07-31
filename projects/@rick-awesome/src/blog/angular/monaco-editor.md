@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Monaco-Editor
+---
+
 > 本篇文章主要记录下最近的一次业务中用到的 monaco-editor 在 angular 中的使用
 
 ### 安装依赖
@@ -123,10 +127,10 @@ editor.revealLineInCenter(1);
 6. 绑定事件
 
 ```ts
-editor.onMouseDown((event) => {
+editor.onMouseDown(event => {
   // do something
 });
-editor.onKeyDown((event) => {
+editor.onKeyDown(event => {
   // do something
 });
 ```
@@ -145,7 +149,7 @@ editor.restoreViewState(snapshot);
 function isMac() {
   return /macintosh|mac os x/i.test(navigator.userAgent);
 }
-editor.onKeyDown((event) => {
+editor.onKeyDown(event => {
   if (
     (isMac() && event.browserEvent.key === 'f' && event.metaKey) ||
     (!isMac() && event.browserEvent.key === 'f' && event.ctrlKey)

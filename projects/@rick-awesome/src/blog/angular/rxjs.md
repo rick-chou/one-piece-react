@@ -1,3 +1,7 @@
+---
+title: Angular Quick Start - Rxjs
+---
+
 因为 Angular2.0 是构建在 Rxjs 之上的
 
 所以在介绍 Angular 具体用法之前 很有必要先介绍一下 Rxjs 的简单使用

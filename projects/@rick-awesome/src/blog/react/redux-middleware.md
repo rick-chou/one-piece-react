@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Redux Middleware
+---
+
 本文参考如下文档
 
 > <a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a>

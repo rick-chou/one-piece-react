@@ -1,3 +1,7 @@
+---
+title: JavaScript - equality operator
+---
+
 首先，== 的定义是：
 
 <img src="https://pic1.zhimg.com/cf1e9188f66186ecd77fb31ac0c5400f_r.jpg?source=1940ef5c" />

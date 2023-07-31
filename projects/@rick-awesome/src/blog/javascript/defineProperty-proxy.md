@@ -1,3 +1,7 @@
+---
+title: JavaScript - defineProperty & proxy
+---
+
 我们可以对一个对象进行赋值和取值
 
 但是如果我们在赋值或取值的时候 需要进行一些操作

@@ -1,3 +1,7 @@
+---
+title: React Quick Start - CRA Config
+---
+
 ## 配置 cra
 
 当我们使用 `cra` 脚手架搭建我们的项目时如果需要配置 `webpack` 又不想运行 `eject` 命令

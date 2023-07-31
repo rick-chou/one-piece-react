@@ -1,3 +1,7 @@
+---
+title: JavaScript - decorate
+---
+
 ## 配置装饰器环境
 
 ```json

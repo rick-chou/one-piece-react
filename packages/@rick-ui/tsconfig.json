@@ -6,6 +6,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["docs", "components", "assets", "vite-env.d.ts"],
+  "include": ["docs", "components"],
+  "exclude": ["roadmap"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

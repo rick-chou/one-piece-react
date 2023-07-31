@@ -1,11 +1,6 @@
 const blogs = import.meta.glob(['../blog/*/*.{md,mdx}']);
-const sidebar = await (
-  await fetch(`${import.meta.env.BASE_URL}/blog.md`)
-).text();
-const meta = sidebar.split('\n').filter(i => i.includes('['));
 
 import Article from '@/components/article';
-import { animationDelay } from '@/layout/style';
 import { type RouteObject } from 'react-router-dom';
 
 export const BlogRoutes: RouteObject = {
@@ -14,27 +9,16 @@ export const BlogRoutes: RouteObject = {
     return {
       path: key.split('../blog/').at(-1)!.split('.').at(0)!,
       async lazy() {
-        const Component =
+        const { default: Component, frontmatter } =
           // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-          ((await value()) as typeof import('@/blog/angular/directive.md'))
-            .default;
+          (await value()) as typeof import('@/blog/angular/directive.md');
 
         return {
           Component() {
             return (
-              <div css={animationDelay()}>
+              <div>
                 <Article>
-                  <h1>
-                    {
-                      /\[(.*?)\]/
-                        .exec(
-                          meta.find(i =>
-                            i.includes(key.split('../blog/').at(-1)!),
-                          )!,
-                        )!
-                        .at(1)!
-                    }
-                  </h1>
+                  <h1>{frontmatter?.title}</h1>
                   <Component />
                 </Article>
               </div>

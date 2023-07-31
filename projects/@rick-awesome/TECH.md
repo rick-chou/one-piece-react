@@ -185,7 +185,7 @@ md({ mode: [Mode.HTML, Mode.MARKDOWN, Mode.REACT, Mode.TOC] }),
 import { html } from 'README.md';
 
 <div
-  css={animationDelay(0.1)}
+  css={animationDelay}
   className="px-8 pb-8 prose prose-slate overflow-y-scroll lg:prose-xl max-w-none dark:prose-invert"
   dangerouslySetInnerHTML={{ __html: html }}
 />;

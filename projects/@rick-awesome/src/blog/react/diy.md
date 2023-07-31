@@ -1,3 +1,7 @@
+---
+title: React Quick Start - Webpack ｜ Vite ｜ Snowpack
+---
+
 > 本篇记录一下手动搭建 React 项目过程中遇到的问题 项目分别借助当下热门 🔥 的 Webpack ｜ Vite ｜ Snowpack 来搭建
 
 > 需要的 vscode 插件 eslint ｜ prettier
