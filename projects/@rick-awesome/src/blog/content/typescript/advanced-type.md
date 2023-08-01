@@ -1,5 +1,5 @@
 ---
-title: TypeScript - advanced type]
+title: TypeScript - advanced type
 ---
 
 ## 联合类型

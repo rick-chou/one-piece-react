@@ -1,6 +1,7 @@
 import { codeFontFamily } from '@/theme';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
+import { Image } from 'antd';
 import { type FC, type PropsWithChildren } from 'react';
 import {
   codeBlockStyle,
@@ -41,6 +42,7 @@ const Article: FC<PropsWithChildren<{ classname?: string }>> = ({
               </div>
             );
           },
+          img: props => <Image src={props.src} />,
         }}>
         {children}
       </MDXProvider>
