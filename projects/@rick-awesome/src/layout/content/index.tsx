@@ -1,6 +1,11 @@
 import { routes } from '@/router';
 import { useEffect, useRef } from 'react';
-import { matchRoutes, useLocation, useOutlet } from 'react-router-dom';
+import {
+  matchRoutes,
+  useLocation,
+  useNavigation,
+  useOutlet,
+} from 'react-router-dom';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { animationDelay, mainContainerStyle } from '../style';
 
@@ -9,10 +14,15 @@ const Content = () => {
   const currentRoute = matchRoutes(routes, location)?.at(-1)?.route;
   const ref = useRef<HTMLDivElement>(null);
   const currentOutlet = useOutlet(currentRoute?.path);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    ref.current?.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (navigation.state === 'idle') {
+      setTimeout(() => {
+        ref.current?.scrollTo(0, 0);
+      }, 300);
+    }
+  }, [navigation.state]);
 
   return (
     <div css={mainContainerStyle} ref={ref}>
