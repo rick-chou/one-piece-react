@@ -1,5 +1,5 @@
-import { useTheme } from '@/hooks/useTheme';
-import { type ThemeMode } from '@/interface';
+import { useTheme } from '@/core/hooks/useTheme';
+import { type ThemeMode } from '@/core/interface';
 import { css, Global, type SerializedStyles } from '@emotion/react';
 import { useEffect, type FC, type PropsWithChildren } from 'react';
 import { AntdStyle } from './antd-style';
@@ -65,9 +65,6 @@ export const Theme = () => {
           :root {
             --body-font: ${fontFamily};
             --color-active: #bae0ff;
-            --keyboard-duration: 0.3s;
-            --keyboard-hue: 0;
-            --keyboard-sat: 0%;
             --layout-content-height: ${contentHeight};
 
             --color-primary-bg: ${themeConfig[theme].colorPrimaryBg};
@@ -75,28 +72,6 @@ export const Theme = () => {
             --color-inverse-bg: ${themeConfig[theme].colorInverseBg};
             --color-primary-bg-hover: ${themeConfig[theme].colorPrimaryBgHover};
             --color-primary-text: ${themeConfig[theme].colorPrimaryText};
-
-            ${theme === 'dark'
-              ? `
-              --color-calculator-bg: #131419;
-              --color-calculator-primary-text: #c7c7c7;
-              --color-calculator-secondary-text: #03a9f4;
-              --color-calculator-soft-highlight: rgba(255, 255, 255, 0.05);
-              --color-calculator-dark-highlight: rgba(0, 0, 0, 0.51);
-
-              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
-              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 10%);
-              `
-              : `
-              --color-calculator-bg: #e0e5ec;
-              --color-calculator-primary-text: rgba(144, 152, 168, 1);
-              --color-calculator-secondary-text: rgba(51, 64, 89, 1);
-              --color-calculator-soft-highlight: rgba(255, 255, 255, 0.43);
-              --color-calculator-dark-highlight: rgba(217, 210, 200, 0.51);
-
-              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 20%);
-              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
-              `}
           }
         `,
         AntdStyle,
@@ -109,23 +84,6 @@ export const contentHeight = '65vh';
 
 export const fontFamily = import.meta.env.RICK_FONTFAMILY;
 export const codeFontFamily = import.meta.env.RICK_CODE_FONTFAMILY;
-export const containerOpacity = import.meta.env.RICK_OPACITY;
-
-export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <div
-      css={css({
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: contentHeight,
-        overflowY: 'scroll',
-      })}>
-      {children}
-    </div>
-  );
-};
 
 export const ThemeWrapper: FC<
   PropsWithChildren<{ style?: SerializedStyles }>

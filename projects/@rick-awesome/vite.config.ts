@@ -2,6 +2,7 @@ import mdx from '@mdx-js/rollup';
 import react from '@vitejs/plugin-react';
 import vue3 from '@vitejs/plugin-vue';
 import vue2 from '@vitejs/plugin-vue2';
+import mdxMermaid from 'mdx-mermaid';
 import path from 'path';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
@@ -14,7 +15,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 import vueCompiler2 from 'vueCompiler2';
 import vueCompiler3 from 'vueCompiler3';
 import { description, name } from './package.json';
-import mdxInjectImport from './src/blog/plugins/inject-import';
 
 const baseUrl = '/react-awesome/';
 
@@ -64,7 +64,7 @@ export default defineConfig({
         remarkGfm,
         remarkFrontmatter,
         remarkMdxFrontmatter,
-        mdxInjectImport,
+        mdxMermaid,
       ],
       rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
     }),

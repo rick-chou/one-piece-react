@@ -7,11 +7,10 @@ interface ImportMetaEnv {
   readonly RICK_ISSUE: string;
   readonly RICK_AVATAR: string;
 
-  readonly RICK_OPACITY: string;
+  readonly RICK_BG: string;
   readonly RICK_FONTFAMILY: string;
   readonly RICK_CODE_FONTFAMILY: string;
-
-  readonly RICK_REDUX_LOGGER: 'true' | 'false';
+  readonly RICK_OPACITY: string;
 }
 
 interface ImportMeta {

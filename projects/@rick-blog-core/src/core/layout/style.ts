@@ -1,6 +1,10 @@
-import { Bg } from '@/assets/pic';
-import { containerOpacity } from '@/theme';
 import { css, keyframes } from '@emotion/react';
+
+let Bg = import.meta.env.RICK_BG;
+
+if (!Bg.includes('https') && !Bg.includes('http')) {
+  Bg = `/blog/src/assets/${Bg}`;
+}
 
 const bottomShow = keyframes`
    0% {
@@ -73,7 +77,7 @@ export const containerStyle = css`
   font-weight: 500;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   position: relative;
-  opacity: ${containerOpacity};
+  opacity: ${import.meta.env.RICK_OPACITY};
 `;
 
 export const sidebarStyle = css`
@@ -109,31 +113,24 @@ export const logoStyle = css`
 `;
 
 export const sideMenuStyle = css`
-  display: flex;
-  flex-direction: column;
   a {
+    font-style: italic;
     display: flex;
     align-items: center;
     text-decoration: none;
+    font-weight: 300;
     color: var(--color-primary-text);
     & + a {
       margin-top: 26px;
     }
   }
-  svg {
-    width: 30px;
-    padding: 2px;
-    border-radius: 10px;
-    background-color: var(--color-secondary-bg);
-    flex-shrink: 0;
-    margin-right: 16px;
-  }
 `;
 
 export const sideTitleStyle = css`
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.07em;
   margin-bottom: 24px;
+  font-weight: 900;
 `;
 
 export const sideWrapperStyle = css`
@@ -202,32 +199,6 @@ export const userImgStyle = css`
 export const userNameStyle = css`
   font-size: 14px;
   margin: 0 6px 0 12px;
-  @media screen and (max-width: 575px) {
-    display: none;
-  }
-`;
-
-export const notifyStyle = css`
-  position: relative;
-  svg {
-    width: 20px;
-    margin-left: 24px;
-    flex-shrink: 0;
-  }
-`;
-
-export const notificationStyle = css`
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #ec5252;
-  position: absolute;
-  right: 1px;
-  border: 1px solid var(--color-primary-bg);
-  top: -2px;
-  @media screen and (max-width: 575px) {
-    display: none;
-  }
 `;
 
 export const mainContainerStyle = css`

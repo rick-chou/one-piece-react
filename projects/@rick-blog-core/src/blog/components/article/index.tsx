@@ -1,20 +1,20 @@
-import { codeFontFamily } from '@/theme';
+import { codeFontFamily } from '@/core/theme';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { Image } from 'antd';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { Mermaid } from 'mdx-mermaid/Mermaid';
 import { type FC, type PropsWithChildren } from 'react';
+import Codepen from '../codepen';
+import Codesandbox from '../codesandbox';
+import SequenceChart from '../sequence-chart';
 import {
   codeBlockStyle,
   codeBtnStyle,
   codeFilename,
   useCodeStyle,
 } from './style';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import { Mermaid } from 'mdx-mermaid/Mermaid';
-import Codepen from '../codepen';
-import Codesandbox from '../codesandbox';
-import SequenceChart from '../sequence-chart';
 
 const Article: FC<PropsWithChildren<{ classname?: string }>> = ({
   children,
