@@ -1,4 +1,4 @@
-import SequenceChart from '@/components/sequence-chart';
+import SequenceChart from '@/blog/components/sequence-chart';
 import { message } from 'antd';
 import { msc } from './msc';
 
