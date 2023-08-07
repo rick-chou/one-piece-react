@@ -23,7 +23,6 @@
   - [React Quick Start - Redux Basics](react/redux-basic.md)
   - [React Quick Start - Redux Middleware](react/redux-middleware.md)
   - [React Quick Start - Redux Toolkit](react/redux-toolkit.md)
-  - [React Quick Start - Rematch](react/rematch.md)
   - [React Quick Start - Router](react/router.md)
   - [React Quick Start - Mobx](react/mobx.md)
   - [React Quick Start - Webpack ｜ Vite ｜ Snowpack](react/diy.md)

@@ -58,10 +58,6 @@ export const useCodeStyle = () => {
         padding: 1em;
       }
 
-      blockquote {
-        border-left-color: var(--color-inverse-bg);
-      }
-
       code.hljs {
         padding: 3px 5px;
       } /*!
@@ -159,10 +155,6 @@ export const useCodeStyle = () => {
       display: block;
       overflow-x: auto;
       padding: 1em;
-    }
-
-    blockquote {
-      border-left-color: var(--color-inverse-bg);
     }
 
     code.hljs {

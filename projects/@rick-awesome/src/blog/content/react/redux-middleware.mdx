@@ -149,6 +149,8 @@ export const store = createStore(reducer, enhancer);
 
 其他地方正常使用即可
 
+<Codesandbox id="redux-thunk-sypr27" />
+
 通过 thunk 我们可以在 dispatch 前拦截 action
 
 然后进行网络请求等异步操作 最后让 action 带上我们需要的数据 变成原始的 action(plain object) 再 dispatch 出去
@@ -265,6 +267,8 @@ function* mySaga() {
 
 export default mySaga;
 ```
+
+<Codesandbox id="redux-saga-qnvh7h" />
 
 ## rematch
 
