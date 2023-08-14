@@ -1,10 +1,10 @@
-import { useFlowchart } from '@/modules/project/flowcharts/hooks/useFlowchart';
-import { useMenus } from '@/modules/project/flowcharts/hooks/useMenus';
-import { useMock } from '@/modules/project/flowcharts/hooks/useMock';
-import { useNavigate } from '@/modules/project/flowcharts/hooks/useNavigate';
-import { Action } from '@/modules/project/flowcharts/interface';
-import { HomePreviewHeight } from '@/modules/project/flowcharts/styles';
 import { CheckCircleTwoTone, MoreOutlined } from '@ant-design/icons';
+import { useFlowchart } from '@rickzhou/flowcharts/hooks/useFlowchart';
+import { useMenus } from '@rickzhou/flowcharts/hooks/useMenus';
+import { useMock } from '@rickzhou/flowcharts/hooks/useMock';
+import { useNavigate } from '@rickzhou/flowcharts/hooks/useNavigate';
+import { Action } from '@rickzhou/flowcharts/interface';
+import { HomePreviewHeight } from '@rickzhou/flowcharts/styles';
 import { Empty } from '@rickzhou/react-ui';
 import {
   Button,
@@ -106,7 +106,6 @@ const FlowHome: React.FC<FlowProps> = ({
     return (
       <div className="flex justify-center items-center">
         <Button
-          disabled
           className="flex items-center justify-center"
           onClick={() => {
             navigate(`./edit?action=${Action.add as string}`, {
@@ -120,7 +119,6 @@ const FlowHome: React.FC<FlowProps> = ({
         <Divider type="vertical" />
 
         <Button
-          disabled
           className="flex items-center justify-center"
           onClick={() => {
             Modal.confirm({
@@ -155,11 +153,7 @@ const FlowHome: React.FC<FlowProps> = ({
         <Divider />
       </div>
 
-      <WithEmpty
-        // data={!loading || selectable}
-        data={false}
-        emptyProps={{ height: '60vh', desc: 'Roadmap' }}>
-        {/* emptyProps={{ loading: !selectable, height: '60vh' }}> */}
+      <WithEmpty data={!loading} emptyProps={{ loading, height: '60vh' }}>
         <div
           className={
             'grid grid-cols-2 gap-x-8 gap-y-12 pb-6 pr-8 h-[var(--layout-content-height)] overflow-scroll'

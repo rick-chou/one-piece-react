@@ -1,4 +1,3 @@
-import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
 import {
   edgeTypes,
   nodeTypes,
@@ -26,7 +25,8 @@ import {
   transformData,
   transformDataFromChart,
 } from '@/modules/project/flowcharts/utils';
-import { css } from '@emotion/react';
+import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
+import { contentHeight } from '@/theme';
 import { Empty } from '@rickzhou/react-ui';
 import {
   Button,
@@ -108,9 +108,14 @@ const FlowEdit = () => {
     });
 
     if (action !== Action.edit) {
-      navigate(`${import.meta.env.BASE_URL}edit/${id}?action=${Action.edit}`, {
-        state: Date.now(),
-      });
+      navigate(
+        `${import.meta.env.BASE_URL}project/flowcharts/edit/${id}?action=${
+          Action.edit
+        }`,
+        {
+          state: Date.now(),
+        },
+      );
     }
   };
 
@@ -200,14 +205,13 @@ const FlowEdit = () => {
   return (
     <Empty.WithEmpty
       data={!isEmpty(nodes) || action === Action.add}
-      emptyProps={{ loading, height: '100vh' }}>
+      emptyProps={{ loading, height: contentHeight }}>
       <div className="flex overflow-hidden">
         <ReactFlowProvider>
-          <div
-            css={css`
-              ${flowContainer('100vh')}
-            `}>
+          <div css={flowContainer('80vh')}>
             <ReactFlow
+              maxZoom={1}
+              minZoom={0.2}
               nodeTypes={nodeTypes}
               edgeTypes={edgeTypes}
               nodes={nodes}

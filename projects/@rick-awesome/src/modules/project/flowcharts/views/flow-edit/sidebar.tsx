@@ -2,37 +2,26 @@ import { presetNode } from '@/modules/project/flowcharts/config';
 import { useAction } from '@/modules/project/flowcharts/hooks/useAction';
 import { useFlowchart } from '@/modules/project/flowcharts/hooks/useFlowchart';
 import { useMock } from '@/modules/project/flowcharts/hooks/useMock';
-import { useNavigate } from '@/modules/project/flowcharts/hooks/useNavigate';
 import type { FlowChartType } from '@/modules/project/flowcharts/interface';
 import { Action, type NodeType } from '@/modules/project/flowcharts/interface';
 import {
-  siderbarNodeStyle,
-  siderbarNodeWrapperStyle,
+  sidebarNodeStyle,
+  sidebarNodeWrapperStyle,
 } from '@/modules/project/flowcharts/styles';
-import {
-  Alert,
-  Badge,
-  Button,
-  Card,
-  Divider,
-  Form,
-  Input,
-  message,
-} from 'antd';
+import { Alert, Badge, Button, Divider, Form, Input, message } from 'antd';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-type SiderbarProps = {
+type SidebarProps = {
   editable: boolean;
   onSave: (data: FlowChartType) => void;
 };
 
-const Siderbar: React.FC<SiderbarProps> = ({ editable, onSave }) => {
+const Sidebar: React.FC<SidebarProps> = ({ editable, onSave }) => {
   const [form] = Form.useForm();
   const { id } = useParams();
   const { action } = useAction();
   const { getFlowchart } = useFlowchart();
-  const navigate = useNavigate();
   const { loading, mockLoadingFn } = useMock();
 
   useEffect(() => {
@@ -50,7 +39,7 @@ const Siderbar: React.FC<SiderbarProps> = ({ editable, onSave }) => {
   };
 
   return (
-    <Card className="h-screen translate-x-5 w-96">
+    <div className="w-[200px] bg-white p-4">
       <div className="mb-4 select-none">
         You can drag these nodes to the pane on the left.
       </div>
@@ -59,7 +48,7 @@ const Siderbar: React.FC<SiderbarProps> = ({ editable, onSave }) => {
         return (
           <div
             key={i.type}
-            css={siderbarNodeWrapperStyle(editable)}
+            css={sidebarNodeWrapperStyle(editable)}
             onDragStart={event => {
               onDragStart(event, i.type);
             }}
@@ -67,14 +56,14 @@ const Siderbar: React.FC<SiderbarProps> = ({ editable, onSave }) => {
             {i.icon ? (
               <Badge.Ribbon text={i.icon} placement="start">
                 <Alert
-                  css={siderbarNodeStyle}
+                  css={sidebarNodeStyle}
                   message={i.type}
                   type={editable ? 'info' : 'error'}
                 />
               </Badge.Ribbon>
             ) : (
               <Alert
-                css={siderbarNodeStyle}
+                css={sidebarNodeStyle}
                 message={i.type}
                 type={editable ? 'info' : 'error'}
               />
@@ -116,8 +105,8 @@ const Siderbar: React.FC<SiderbarProps> = ({ editable, onSave }) => {
           </Button>
         </Form.Item>
       </Form>
-    </Card>
+    </div>
   );
 };
 
-export default Siderbar;
+export default Sidebar;

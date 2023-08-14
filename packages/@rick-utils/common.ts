@@ -6,5 +6,6 @@ import { isEmpty } from 'lodash';
 export const isEmptyValue = (value: any) => {
   if (typeof value === 'string') return !value.trim();
   if (typeof value === 'number') return value === 0;
+  if (typeof value === 'boolean') return !value;
   return isEmpty(value);
 };

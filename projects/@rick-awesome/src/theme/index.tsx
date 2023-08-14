@@ -35,26 +35,26 @@ export const themeConfig: Record<ThemeMode, ThemeType> = {
 };
 
 export const Theme = () => {
-  const { theme } = useTheme();
+  const { mode, dark, fontFamily } = useTheme();
   useEffect(() => {
-    document.documentElement.setAttribute('class', theme);
+    document.documentElement.setAttribute('class', mode);
 
     // depend on system them mode
     // const media = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // const onThemeChange = (e: MediaQueryListEvent) => {
+    // const onThemeModeChange = (e: MediaQueryListEvent) => {
     //   document.documentElement.setAttribute(
     //     'class',
     //     e.matches ? 'dark' : 'light',
     //   );
     // };
 
-    // media.addEventListener('change', onThemeChange);
+    // media.addEventListener('change', onThemeModeChange);
 
     // return () => {
-    //   media.removeEventListener('change', onThemeChange);
+    //   media.removeEventListener('change', onThemeModeChange);
     // };
-  }, [theme]);
+  }, [mode]);
 
   // convenient to refer to variables in css / scss
   // use themeConfig in css in js
@@ -70,13 +70,13 @@ export const Theme = () => {
             --keyboard-sat: 0%;
             --layout-content-height: ${contentHeight};
 
-            --color-primary-bg: ${themeConfig[theme].colorPrimaryBg};
-            --color-secondary-bg: ${themeConfig[theme].colorSecondaryBg};
-            --color-inverse-bg: ${themeConfig[theme].colorInverseBg};
-            --color-primary-bg-hover: ${themeConfig[theme].colorPrimaryBgHover};
-            --color-primary-text: ${themeConfig[theme].colorPrimaryText};
+            --color-primary-bg: ${themeConfig[mode].colorPrimaryBg};
+            --color-secondary-bg: ${themeConfig[mode].colorSecondaryBg};
+            --color-inverse-bg: ${themeConfig[mode].colorInverseBg};
+            --color-primary-bg-hover: ${themeConfig[mode].colorPrimaryBgHover};
+            --color-primary-text: ${themeConfig[mode].colorPrimaryText};
 
-            ${theme === 'dark'
+            ${dark
               ? `
               --color-calculator-bg: #131419;
               --color-calculator-primary-text: #c7c7c7;
@@ -112,7 +112,6 @@ export const Theme = () => {
 
 export const contentHeight = '65vh';
 
-export const fontFamily = import.meta.env.RICK_FONTFAMILY;
 export const codeFontFamily = import.meta.env.RICK_CODE_FONTFAMILY;
 export const containerOpacity = import.meta.env.RICK_OPACITY;
 
@@ -135,9 +134,9 @@ export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
 export const ThemeWrapper: FC<
   PropsWithChildren<{ style?: SerializedStyles }>
 > = ({ children, style }) => {
-  const { theme } = useTheme();
+  const { mode } = useTheme();
   return (
-    <div className={theme} css={style}>
+    <div className={mode} css={style}>
       {children}
     </div>
   );

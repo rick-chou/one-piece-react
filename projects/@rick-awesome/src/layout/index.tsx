@@ -1,9 +1,9 @@
 import CmdModal from '@/components/commands';
 import { useShortKey } from '@/hooks/useShortkey';
 import { useTheme } from '@/hooks/useTheme';
-import { Theme, fontFamily } from '@/theme';
+import { Theme } from '@/theme';
 import { Global } from '@emotion/react';
-import { ConfigProvider, theme } from 'antd';
+import { App, ConfigProvider } from 'antd';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
@@ -12,12 +12,16 @@ import Sidebar from './sidebar';
 import { containerStyle, globalStyle } from './style';
 const Home = () => {
   const location = useLocation();
-  const { dark } = useTheme();
+  const { fontFamily } = useTheme();
   useShortKey();
 
   const renderContent = () => {
     if (location.pathname === import.meta.env.BASE_URL) {
-      return <Homepage />;
+      return (
+        <div className="flex justify-center overflow-auto">
+          <Homepage />
+        </div>
+      );
     }
 
     return <Content />;
@@ -29,19 +33,21 @@ const Home = () => {
         token: {
           fontFamily,
         },
-        algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        // algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
       }}>
-      <div css={containerStyle}>
-        <Theme />
-        <Global styles={globalStyle} />
-        <CmdModal />
-        <Sidebar />
+      <App>
+        <div css={containerStyle}>
+          <Theme />
+          <Global styles={globalStyle} />
+          <CmdModal />
+          <Sidebar />
 
-        <div className="flex flex-col flex-1">
-          <Header />
-          {renderContent()}
+          <div className="flex flex-col flex-1">
+            <Header />
+            {renderContent()}
+          </div>
         </div>
-      </div>
+      </App>
       <ScrollRestoration />
     </ConfigProvider>
   );

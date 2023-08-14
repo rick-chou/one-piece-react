@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { CommandItemTypes } from '.';
 
 export const CommandModalContainer = css({
   paddingTop: '1rem',
@@ -39,6 +40,7 @@ export const CommandItemTitleStyle = css({
   userSelect: 'none',
   paddingLeft: '16px',
   marginLeft: '1rem',
+  textTransform: 'uppercase',
 });
 
 export const CommandListStyle = css({
@@ -47,22 +49,26 @@ export const CommandListStyle = css({
   overflowY: 'scroll',
 });
 
-export const CommandItemStyle = css({
-  color: 'var(--color-primary-text)',
-  fontSize: '13px',
-  height: '36px',
-  paddingTop: '8px',
-  paddingBottom: '8px',
-  userSelect: 'none',
-  paddingLeft: '24px',
-  cursor: 'pointer',
-  marginLeft: '1rem',
-  marginRight: '1rem',
-  '&.hover': {
-    backgroundColor: 'var(--color-primary-bg-hover)',
-    borderRadius: '4px',
-  },
-});
+export const CommandItemStyle = (i?: CommandItemTypes) => {
+  return css({
+    color: 'var(--color-primary-text)',
+    fontSize: '13px',
+    fontFamily: i?.type === 'font' ? i.title : 'inherit',
+    height: '36px',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    userSelect: 'none',
+    paddingLeft: '24px',
+    cursor: 'pointer',
+    marginLeft: '1rem',
+    marginRight: '1rem',
+    textTransform: 'uppercase',
+    '&.hover': {
+      backgroundColor: 'var(--color-primary-bg-hover)',
+      borderRadius: '4px',
+    },
+  });
+};
 
 export const CommandHotkeyStyle = css({
   borderRadius: '4px',

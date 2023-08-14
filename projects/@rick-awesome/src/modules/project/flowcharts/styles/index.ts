@@ -30,7 +30,7 @@ export const nodeStyle = css({
   textAlign: 'center',
 });
 
-export const siderbarNodeWrapperStyle = (editable: boolean) => css`
+export const sidebarNodeWrapperStyle = (editable: boolean) => css`
   user-select: none;
   cursor: ${editable ? 'grab' : 'not-allowed'};
   margin-bottom: 1rem;
@@ -39,8 +39,8 @@ export const siderbarNodeWrapperStyle = (editable: boolean) => css`
   transform: translate(0, 0);
 `;
 
-export const siderbarNodeStyle = css({
-  width: 250,
+export const sidebarNodeStyle = css({
+  width: 150,
   minHeight: NodeHeight / 2,
   border: '1px #d9d9d9 solid',
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.02)',

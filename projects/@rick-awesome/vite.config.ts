@@ -114,11 +114,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@rick-flow': path.resolve(__dirname, './src/project/flowcharts'),
-      '@rick-img-transform': path.resolve(
+      '@rickzhou/flowcharts': path.resolve(
         __dirname,
-        './src/project/img-transform',
+        './src/modules/project/flowcharts',
       ),
+      '@rickzhou/react-ui': path.resolve(__dirname, '../../packages/@rick-ui'),
     },
   },
   define: {
