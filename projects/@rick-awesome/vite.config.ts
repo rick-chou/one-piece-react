@@ -16,7 +16,7 @@ import vueCompiler2 from 'vueCompiler2';
 import vueCompiler3 from 'vueCompiler3';
 import { description, name } from './package.json';
 
-const baseUrl = '/react-awesome/';
+const baseUrl = '/one-piece-react/';
 
 export default defineConfig({
   base: baseUrl,
