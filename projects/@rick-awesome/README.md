@@ -24,19 +24,14 @@
     - [x] [Navigation](https://codepen.io/katydecorah/pen/nYLbEN)
     - [ ] [Planet](https://codepen.io/piotrkalinowski/pen/yMXomv)
     - [x] [Theme Switch](https://codepen.io/isaaclouzeiro/pen/YzRzmwQ)
-    - [ ] [Timeline](https://codepen.io/knyttneve/pen/bgvmma)
     - [x] [Keyboard](https://codepen.io/jkantner/pen/ZEqKgWJ)
 
 - Project [ some tools/page-level components ]
 
-  - [ ] Image-Resize
+  - [x] Image-Resize
   - [ ] Flowchart
   - [ ] Chat
 
 - Chart
 
   - [x] [mscgen](https://www.mcternan.me.uk/mscgen/)
-
-- NPM
-
-  - [ ] add NPM package introduction page

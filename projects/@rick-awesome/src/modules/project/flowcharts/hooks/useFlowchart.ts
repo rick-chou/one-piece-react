@@ -1,5 +1,5 @@
-import { update } from '@/store/slice/flowchartSlice';
 import { type FlowChartType } from '@/modules/project/flowcharts/interface';
+import { update } from '@/store/slice/flowchartSlice';
 import { useCallback, useMemo } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import { useRickDispatch, useRickSelector } from '../../../../hooks/useStore';

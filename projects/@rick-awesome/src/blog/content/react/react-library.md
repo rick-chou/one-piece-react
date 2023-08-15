@@ -120,29 +120,27 @@ title: React Quick Start - Library
 
 ## React CSS
 
-### Sass
-
-最喜欢的还是 css modules 结合 scss 了
-
-> https://sass-lang.com/
-
-![Screen Shot 2021-09-23 at 12.41.57 AM.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59165833caa648f48411116a03c54f56~tplv-k3u1fbpfcp-watermark.image?)
-
 ### Tailwind
 
 > https://github.com/tailwindlabs/tailwindcss
 
 ![Screen Shot 2021-09-23 at 12.35.14 AM.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd26c704b2f5404e8f4ad1f6d1d758e4~tplv-k3u1fbpfcp-watermark.image?)
 
+### Css in Js
+
+> https://emotion.sh/docs/@emotion/react
+
+### Sass
+
+> https://sass-lang.com/
+
+![Screen Shot 2021-09-23 at 12.41.57 AM.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59165833caa648f48411116a03c54f56~tplv-k3u1fbpfcp-watermark.image?)
+
 ### Less
 
 > https://lesscss.org/
 
 语法和 scss 基本一样
-
-### styled-components
-
-> https://github.com/styled-components/styled-components
 
 可以像使用组件一样 使用 css 样式
 
@@ -153,6 +151,10 @@ title: React Quick Start - Library
 > https://github.com/nfl/react-helmet
 
 ## React Icon
+
+### react-icons
+
+> https://react-icons.github.io/react-icons/
 
 ### iconfont
 
@@ -167,6 +169,10 @@ title: React Quick Start - Library
 ![截屏2021-09-18 下午2.54.56.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cec8b16b0da941158af0e815b6dd3bbb~tplv-k3u1fbpfcp-watermark.image?)
 
 ## React 可视化
+
+### Echarts
+
+> https://echarts.apache.org/handbook/en/get-started/
 
 ### Nivo
 
@@ -222,17 +228,21 @@ title: React Quick Start - Library
 
 ## React 动画库
 
+### gsap
+
+> https://greensock.com/gsap/
+
+> https://gsap.framer.wiki/stated
+
 ### react-spring
 
 > https://aleclarson.github.io/react-spring/v9/
 
 ![截屏2021-09-19 下午7.13.33.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2977f652f03447d48c5065da7d99cc08~tplv-k3u1fbpfcp-watermark.image?)
 
-### react-motion
+### framer-motion
 
-emmmmm 实在找不到像样的文档 而且最近一次维护在 19 年了 😳
-
-> https://github.com/chenglou/react-motion
+> https://www.framer.com/motion/introduction/
 
 ## React 拖拽
 
@@ -284,6 +294,10 @@ emmmmm 实在找不到像样的文档 而且最近一次维护在 19 年了 😳
 
 ## React MD 渲染
 
+### mdx
+
+> https://mdxjs.com/docs/
+
 ### react-markdown
 
 > https://github.com/remarkjs/react-markdown
@@ -299,6 +313,10 @@ emmmmm 实在找不到像样的文档 而且最近一次维护在 19 年了 😳
 ![截屏2021-09-18 下午4.34.58.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/581486906c4d480abb65f2c0f3013be7~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## React 时间管理
+
+### Dayjs
+
+> https://day.js.org/
 
 ### Moment
 
@@ -357,12 +375,6 @@ emmmmm 实在找不到像样的文档 而且最近一次维护在 19 年了 😳
 > https://docs.taro.zone/docs/README
 
 京东开源 没啥好说的 生产环境不二之选
-
-### Remax
-
-> https://github.com/remaxjs/remax
-
-目前来看 有点像 KPI 产品了 GitHub 已经好久没有更新了 而且配套的 UI 也不完善 😓
 
 ## React 服务端渲染
 

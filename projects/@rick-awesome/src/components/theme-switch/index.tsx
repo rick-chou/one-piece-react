@@ -11,12 +11,17 @@ export type ThemeSwitchProps = {
 };
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
-  const { toggleTheme } = useTheme();
+  const { toggleThemeMode } = useTheme();
 
   return (
     <ThemeWrapper style={themeSwitchStyle}>
       <div className={`theme-switch ${className}`}>
-        <button type="button" id="switch" onClick={toggleTheme}>
+        <button
+          type="button"
+          id="switch"
+          onClick={() => {
+            toggleThemeMode();
+          }}>
           <i className="bx bxs-sun"></i>
           <span className="btn-switch"></span>
           <i className="bx bxs-moon"></i>

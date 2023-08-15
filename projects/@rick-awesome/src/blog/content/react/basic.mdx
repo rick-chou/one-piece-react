@@ -138,6 +138,8 @@ constructor(props: IProps) {
 <ChildComponent count={this.state.count} onClick={() => this.handleClick()} />
 ```
 
+<Codesandbox id="fu-zi-zu-jian-tong-xin-dwzcv3" />
+
 这里再补充一个单项数据流的概念
 
 所谓单向数据流，指的就是当前组件的 state 以 props 的形式流动时，**只能流向组件树中比自己层级更低的组件。**   比如在父-子组件这种嵌套关系中，只能由父组件传 props 给子组件，而不能反过来。
@@ -271,6 +273,8 @@ class App extends Component<IProps, IState> {
 export default App;
 ```
 
+<Codesandbox id="class-ref-usage-slzdmq" />
+
 两者的区别是
 
 - 前者 其实例在 current 属性下
@@ -305,7 +309,7 @@ HeaderWrapper 组件内部 又有一个 Header 组件
 
 数据流如下
 
-```
+```text
 App --> HeaderWrapper --> Header
 ```
 
@@ -365,7 +369,10 @@ export default App;
 
 这时 React 给我们提供了一个属性 **context** 用来解决跨组件通信的问题
 
-<img src = "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ea0321a715d492f8075fdde42619e90~tplv-k3u1fbpfcp-zoom-1.image" width = "500" />
+<img
+  src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ea0321a715d492f8075fdde42619e90~tplv-k3u1fbpfcp-zoom-1.image"
+  width="500"
+/>
 
 常用 API 有
 

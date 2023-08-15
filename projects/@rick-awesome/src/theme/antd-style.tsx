@@ -5,4 +5,12 @@ export const AntdStyle = css({
     backgroundColor: 'var(--color-secondary-bg)',
     padding: 0,
   },
+
+  '.ant-spin-spinning': {
+    maxHeight: 'none !important',
+  },
+
+  '.ant-btn-primary': {
+    backgroundColor: '#1677ff',
+  },
 });

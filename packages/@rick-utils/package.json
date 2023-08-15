@@ -19,7 +19,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@rickzhou/react-fabric": "^4.0.0",
     "@types/lodash": "^4.14.195",
     "@types/wicg-file-system-access": "^2020.9.6",
     "dayjs": "^1.11.8",

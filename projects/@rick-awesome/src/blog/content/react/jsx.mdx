@@ -2,11 +2,11 @@
 title: React Quick Start - JSX
 ---
 
-![map](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c073ccd5104845b6b053727e2e4f48~tplv-k3u1fbpfcp-zoom-1.image)
+![mindmap](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c073ccd5104845b6b053727e2e4f48~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 你可能需要知道的一丢丢 JS 语法
 
-墙裂安利大家看完 阮一峰老师的 ES6
+安利大家看完 阮一峰老师的 ES6
 
 > https://es6.ruanyifeng.com/
 
@@ -16,7 +16,7 @@ title: React Quick Start - JSX
 
 箭头函数表达式的语法比函数表达式更简洁，并且没有自己的 this 🥳
 
-当我们需要返回一个对象时 可以用()包裹对象 从而省略 return
+当我们需要返回一个对象时 可以用`()`包裹对象 从而省略 return
 
 ```js
 const setUsername = (username: string) => ({
@@ -64,18 +64,20 @@ const setUsername = (username: string) => ({
   <div id="root"></div>
   <script
     crossorigin
-    src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script
     crossorigin
-    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
   <script type="text/babel">
     const App = () => <h1>Hello React</h1>;
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 ```
+
+<Codesandbox id="react-in-browser-ctjkpt" />
 
 ## JSX
 
@@ -130,8 +132,6 @@ React.createElement(
 );
 ```
 
-<hr />
-
 createElement 中并没有十分复杂的涉及算法或真实 DOM 的逻辑，它的每一个步骤几乎都是在格式化数据
 
 也就是处理成我们耳熟能详的`虚拟DOM`，关于`虚拟DOM` 我们都知道它解决了大量 DOM 操作带来的性能问题
@@ -146,20 +146,17 @@ React 在早期的时候 `react` 和 `react-dom` 这两个包是在一起的 从
 
 这也是 RN 诞生的时候 这也可见一斑 `react-dom` 的作用
 
-<hr />
-
 至此 `createElement` 便完成了它的任务 那就是格式化数据
 
 接下来 将由`ReactDOM.render` 接入处理好的数据 然后将它挂在真正的 dom 节点上
 
 ```js
-ReactDOM.render(
-  // 需要渲染的元素（ReactElement）
-  element,
+ReactDOM.createRoot(
   // 元素挂载的目标容器（一个真实DOM）
   container,
-  // 回调函数，可选参数，可以用来处理渲染结束后的逻辑
-  [callback],
+).render(
+  // 需要渲染的元素（ReactElement）
+  element,
 );
 ```
 
@@ -238,7 +235,9 @@ const gamesUI = gameList.map((item, index) => {
 
 如果在类组件中 你可能就需要考虑到 this 的绑定问题了
 
-记得使用 bind || 箭头函数 😛 😛 😛
+记得使用 bind 或者 箭头函数 😛 😛 😛
+
+<Codesandbox id="jsx-nrt5fn" />
 
 ## 开发规范
 

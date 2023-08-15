@@ -2,20 +2,35 @@ import { type ThemeMode } from '@/interface';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = 'dark';
+const initialState = {
+  mode: 'dark' as ThemeMode,
+  fontFamily: import.meta.env.RICK_FONTFAMILY,
+};
 
-type PayloadType = ThemeMode;
+type PayloadType = {
+  mode: ThemeMode;
+  fontFamily: string;
+};
 
 export const themeSlice = createSlice({
-  name: 'theme-mode',
+  name: 'theme',
   initialState,
   reducers: {
-    onThemeChange(_, action: PayloadAction<PayloadType>) {
-      return action.payload;
+    onThemeModeChange(state, action: PayloadAction<PayloadType['mode']>) {
+      state.mode = action.payload;
+      return state;
+    },
+    onThemeFontFamilyChange(
+      state,
+      action: PayloadAction<PayloadType['fontFamily']>,
+    ) {
+      state.fontFamily = action.payload;
+      return state;
     },
   },
 });
 
-export const { onThemeChange } = themeSlice.actions;
+export const { onThemeModeChange, onThemeFontFamilyChange } =
+  themeSlice.actions;
 
 export default themeSlice.reducer;

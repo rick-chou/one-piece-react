@@ -2,18 +2,14 @@
  * @link https://codepen.io/jkantner/pen/ZEqKgWJ
  */
 
+import { ThemeWrapper } from '@/theme';
 import { isMac } from '@/utils';
 import { useEffect } from 'react';
-// import './index.scss';
-import { useTheme } from '@/hooks/useTheme';
-import { ThemeWrapper } from '@/theme';
 import { keyboardStyle } from './style';
 
 const activeClass = 'active';
 
 const Keyboard = () => {
-  const { theme } = useTheme();
-
   useEffect(() => {
     const el = document.querySelector<HTMLDivElement>('.keyboard')!;
 

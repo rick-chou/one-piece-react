@@ -15,6 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react"
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "./",
+    "paths": {
+      "@rickzhou/react-css": ["./packages/@rick-css"],
+      "@rickzhou/react-ui": ["./packages/@rick-ui"],
+      "@rickzhou/react-fabric": ["./packages/@react-fabric"],
+      "@rickzhou/react-test": ["./packages/@react-test"]
+    }
   }
 }

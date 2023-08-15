@@ -1,10 +1,10 @@
 import { useTheme } from '@/hooks/useTheme';
 
 const Codesandbox: React.FC<{ id: string }> = ({ id }) => {
-  const { theme } = useTheme();
+  const { mode } = useTheme();
   return (
     <iframe
-      src={`https://codesandbox.io/embed/${id}?autoresize=1&fontsize=14&hidenavigation=1&theme=${theme}`}
+      src={`https://codesandbox.io/embed/${id}?autoresize=1&fontsize=14&hidenavigation=1&theme=${mode}`}
       className="w-full h-[500px] border-0 rounded overflow-hidden"
       title={id}
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

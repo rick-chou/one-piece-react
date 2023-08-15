@@ -1,9 +1,8 @@
-import { edgeTypes, nodeTypes } from '@/modules/project/flowcharts/config';
-import { useFlowState } from '@/modules/project/flowcharts/hooks/useFlowState';
-import { useMock } from '@/modules/project/flowcharts/hooks/useMock';
-import type { Execution } from '@/modules/project/flowcharts/interface';
-import { flowContainer } from '@/modules/project/flowcharts/styles';
-import { css } from '@emotion/react';
+import { edgeTypes, nodeTypes } from '@rickzhou/flowcharts/config';
+import { useFlowState } from '@rickzhou/flowcharts/hooks/useFlowState';
+import { useMock } from '@rickzhou/flowcharts/hooks/useMock';
+import type { Execution } from '@rickzhou/flowcharts/interface';
+import { flowContainer } from '@rickzhou/flowcharts/styles';
 import { Empty } from '@rickzhou/react-ui';
 import { useEffect, useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
@@ -44,10 +43,7 @@ const FlowChart: React.FC<FlowChartProps> = ({
     <WithEmpty data={!loading} emptyProps={{ loading, height: `${height}` }}>
       <div className="flex overflow-hidden">
         <ReactFlowProvider>
-          <div
-            css={css`
-              ${flowContainer(height)}
-            `}>
+          <div css={flowContainer(height)}>
             <ReactFlow
               minZoom={0.1}
               nodeTypes={nodeTypes}

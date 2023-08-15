@@ -1,10 +1,13 @@
+/* eslint-disable new-cap */
 import { Hotkey } from '@/config/shortcut';
 import { useModalOpen } from '@/hooks/useModalOpen';
+import { useTheme } from '@/hooks/useTheme';
+import { type ThemeMode } from '@/interface';
 import { BlogRoutes } from '@/router/blog';
 import { metaData, type MetaData } from '@/router/meta-data';
 import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
 import { Modal } from 'antd';
-import { first, last, toLower, upperCase, upperFirst } from 'lodash';
+import { first, last, lowerCase, toLower, upperCase } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -17,7 +20,7 @@ import {
   CommandModalInputStyle,
 } from './style';
 
-type CommandItemTypes = {
+export type CommandItemTypes = {
   type: string;
   mode: 'item' | 'title';
   title: string;
@@ -26,6 +29,8 @@ type CommandItemTypes = {
 
 const commandItemCls = 'command-item';
 const commandHoverCls = 'hover';
+
+const fontFamily = [import.meta.env.RICK_FONTFAMILY, 'Roboto', 'Fira Code'];
 
 const CmdModal = () => {
   const { onHidden, open } = useModalOpen(OpenTypeConfig.CommandOpen);
@@ -36,11 +41,13 @@ const CmdModal = () => {
   >([]);
   const navigate = useNavigate();
   const [searchVal, setSearchVal] = useState('');
+  const { toggleThemeMode, toggleThemeFontFamily } = useTheme();
 
   useEffect(() => {
     const genCommandItems = () => {
       const commands: CommandItemTypes[] = [];
 
+      // FIXME add sort fn
       Object.entries(metaData)
         .reverse()
         .forEach(([key, value]) => {
@@ -60,22 +67,56 @@ const CmdModal = () => {
           });
         });
 
+      // Mixin Blog Meta Data
       commands.push({
         type: 'blog',
         mode: 'title',
-        title: 'Blog',
+        title: 'blog',
       });
 
       BlogRoutes.children?.forEach(i => {
         commands.push({
           type: 'blog',
           mode: 'item',
-          title: upperFirst(i.path),
+          title: i.path!.split('/').join(' / '),
           meta: {
             path: `${import.meta.env.BASE_URL}rick/blog/${i.path!}`,
             name: '',
             parent: 'Blog',
           } as any,
+        });
+      });
+
+      // Mixin Theme Meta Data
+      commands.push({
+        type: 'theme',
+        mode: 'title',
+        title: 'theme',
+      });
+
+      commands.push({
+        type: 'theme',
+        mode: 'item',
+        title: 'dark',
+      });
+
+      commands.push({
+        type: 'theme',
+        mode: 'item',
+        title: 'light',
+      });
+
+      commands.push({
+        type: 'font',
+        mode: 'title',
+        title: 'font',
+      });
+
+      fontFamily.forEach(i => {
+        commands.push({
+          type: 'font',
+          mode: 'item',
+          title: i,
         });
       });
 
@@ -144,9 +185,23 @@ const CmdModal = () => {
   }, [open]);
 
   const onClick = (item: CommandItemTypes) => {
-    if (item.meta?.path) {
-      navigate(item.meta.path);
-      onHidden();
+    switch (item.type) {
+      case 'theme': {
+        toggleThemeMode(lowerCase(item.title) as ThemeMode);
+        break;
+      }
+
+      case 'font': {
+        toggleThemeFontFamily(lowerCase(item.title));
+        break;
+      }
+
+      default: {
+        if (item.meta?.path) {
+          navigate(item.meta.path);
+          onHidden();
+        }
+      }
     }
   };
 
@@ -198,11 +253,9 @@ const CmdModal = () => {
             }
           }}
         />
-
         <div css={CommandModalInputDividerWrapperStyle}>
           <hr css={CommandModalInputDividerStyle} />
         </div>
-
         <div
           css={CommandListStyle}
           onMouseMove={e => {
@@ -217,13 +270,13 @@ const CmdModal = () => {
           {displayCommandItems.map(item => {
             return (
               <div
-                key={item.title}
+                key={`${item.type}-${item.title}`}
                 data-type={item.mode}
                 className={commandItemCls}
                 css={
                   item.mode === 'title'
                     ? CommandItemTitleStyle
-                    : CommandItemStyle
+                    : CommandItemStyle(item)
                 }
                 onClick={() => {
                   onClick?.(item);

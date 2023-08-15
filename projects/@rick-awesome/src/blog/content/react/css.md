@@ -12,7 +12,7 @@ title: React Quick Start - CSS
 
 ## scss + css modules
 
-这是我之前使用的方式 所以在这里记录一下
+这是我之前使用的方式 在这里记录一下
 
 我们可以为对应的组件新建一个 index.module.scss 然后在里面书写 scss 的语法
 
