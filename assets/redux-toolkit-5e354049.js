@@ -1,0 +1,4 @@
+import{u as s,j as e,a as n,F as c}from"./index-cd28c823.js";import"./antd-e9e8fd35.js";import"./lodash-6114c6d4.js";import"./chance-d5bce0ad.js";const p={title:"React Quick Start - Redux Toolkit"};function i(o){const t=Object.assign({blockquote:"blockquote",p:"p",a:"a"},s(),o.components),{Codesandbox:r}=t;return r||a("Codesandbox",!0),n(c,{children:[n(t.blockquote,{children:[`
+`,n(t.p,{children:["EN ",e(t.a,{href:"https://redux-toolkit.js.org/",children:"https://redux-toolkit.js.org/"})]}),`
+`]}),`
+`,e(r,{id:"redux-toolkit-usage-w2rmv8"})]})}function x(o={}){const{wrapper:t}=Object.assign({},s(),o.components);return t?e(t,Object.assign({},o,{children:e(i,o)})):i(o)}function a(o,t){throw new Error("Expected "+(t?"component":"object")+" `"+o+"` to be defined: you likely forgot to import, pass, or provide it.")}export{x as default,p as frontmatter};
