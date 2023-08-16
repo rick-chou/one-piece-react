@@ -1,0 +1,1 @@
+import{j as e}from"./index-8ee1bc25.js";import"./antd-e9e8fd35.js";import"./lodash-6114c6d4.js";import"./chance-d5bce0ad.js";const o=()=>e("iframe",{src:"/one-piece-react/album/index.html",style:{width:"100%",height:screen.height*.6}});export{o as default};
