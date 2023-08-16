@@ -15,7 +15,7 @@ const SideBar = () => {
   return (
     <div css={sidebarStyle}>
       <Link css={logoStyle} to={import.meta.env.BASE_URL}>
-        @RICK.ZHOU
+        @{import.meta.env.RICK_AUTHOR}
       </Link>
       {!isEmpty(metaData) &&
         Object.entries(metaData)

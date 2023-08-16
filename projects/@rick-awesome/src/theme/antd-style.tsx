@@ -13,4 +13,8 @@ export const AntdStyle = css({
   '.ant-btn-primary': {
     backgroundColor: '#1677ff',
   },
+
+  '.ant-app': {
+    color: 'inherit',
+  },
 });

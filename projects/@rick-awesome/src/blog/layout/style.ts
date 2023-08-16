@@ -2,6 +2,9 @@ import { Bg } from '@/assets/pic';
 import { containerOpacity } from '@/theme';
 import { css, keyframes } from '@emotion/react';
 
+const height = '95vh';
+const width = '65vw'
+
 const bottomShow = keyframes`
    0% {
       transform: translateY(100px);
@@ -18,57 +21,16 @@ export const animationDelay = css`
   animation: ${bottomShow} 0.8s 0s both;
 `;
 
-export const globalStyle = css`
-  ::-webkit-scrollbar {
-    width: 2px;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary-bg-hover);
-    border-radius: 10px;
-  }
-
-  body {
-    font-family: var(--body-font);
-    color: var(--color-primary-text);
-    background-image: url(${Bg});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: color-dodge;
-    background-color: rgba(18, 21, 39, 0.86);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1em 2em;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    user-select: none;
-    &:before {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.4;
-      content: '';
-    }
-  }
-`;
-
 export const containerStyle = css`
   background-color: var(--color-primary-bg);
-  min-width: 65vw;
-  max-width: 65vw;
-  max-height: 900px;
-  height: 95vh;
+  min-width: ${width};
+  max-width: ${width};
+  // max-height: 900px;
+  height: ${height};
   display: flex;
   overflow: hidden;
   width: 100%;
-  border-radius: 20px;
+  // border-radius: 20px;
   font-size: 15px;
   font-weight: 500;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
@@ -95,6 +57,7 @@ export const logoStyle = css`
   font-weight: 600;
   line-height: 34px;
   position: sticky;
+  text-transform: uppercase;
   top: 0;
   &:before {
     content: '';

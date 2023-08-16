@@ -119,6 +119,10 @@ export default defineConfig({
         './src/modules/project/flowcharts',
       ),
       '@rickzhou/react-ui': path.resolve(__dirname, '../../packages/@rick-ui'),
+      '@rickzhou/react-playground': path.resolve(
+        __dirname,
+        '../../projects/@rick-playground/src',
+      ),
     },
   },
   define: {

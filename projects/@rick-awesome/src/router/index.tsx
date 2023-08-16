@@ -1,5 +1,5 @@
+import App from '@/app';
 import ErrorPage from '@/components/error-page';
-import Home from '@/layout';
 import {
   createBrowserRouter,
   redirect,
@@ -14,7 +14,7 @@ import { RickRoutes } from './rick';
 export const routes: RouteObject[] = [
   {
     path: import.meta.env.BASE_URL,
-    element: <Home />,
+    element: <App />,
     children: [DemoRoutes, RickRoutes, ProjectRoutes, ChartRoutes, BlogRoutes],
     errorElement: <ErrorPage />,
   },

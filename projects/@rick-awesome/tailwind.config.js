@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: ['./index.html', './src/**/*.{ts,tsx,vue,mdx}'],
+  content: [
+    './index.html',
+    './src/**/*.{ts,tsx,vue,mdx}',
+    '../@rick-playground/src/**/*.tsx',
+  ],
   theme: {
     extend: {
       typography: ({ theme }) => ({

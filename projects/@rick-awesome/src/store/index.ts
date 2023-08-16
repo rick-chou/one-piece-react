@@ -11,12 +11,12 @@ import {
   persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { name } from '../../package.json';
+import { name, version } from '../../package.json';
 import flowchartSlice from './slice/flowchartSlice';
 import modalOpenSlice from './slice/modalOpenSlice';
 import themeSlice from './slice/themeSlice';
 
-export const persistKey = name;
+export const persistKey = `${name}-${version}`;
 
 const isStartupReduxLoggerMiddleware =
   import.meta.env.RICK_REDUX_LOGGER === 'true';

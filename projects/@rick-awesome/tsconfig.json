@@ -32,7 +32,8 @@
       "@rickzhou/react-ui": ["../../packages/@rick-ui"],
 
       /* Projects */
-      "@rickzhou/flowcharts/*": ["src/modules/project/flowcharts/*"]
+      "@rickzhou/flowcharts/*": ["src/modules/project/flowcharts/*"],
+      "@rickzhou/react-playground/*": ["../../projects/@rick-playground/src/*"]
     }
   },
   "include": ["src", "script", "public/js"],

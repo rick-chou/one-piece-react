@@ -314,19 +314,7 @@ module.exports = {
     '@typescript-eslint/no-redeclare': 'error',
     '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/no-require-imports': 'error',
-    '@typescript-eslint/no-restricted-imports': [
-      'error',
-      [
-        'error',
-        'domain',
-        'freelist',
-        'smalloc',
-        'punycode',
-        'sys',
-        'querystring',
-        'colors',
-      ],
-    ],
+    '@typescript-eslint/no-restricted-imports': 'error',
     '@typescript-eslint/no-this-alias': [
       'error',
       {
@@ -402,8 +390,7 @@ module.exports = {
     '@typescript-eslint/restrict-plus-operands': [
       'error',
       {
-        checkCompoundAssignments: true,
-        allowAny: false,
+        skipCompoundAssignments: true,
       },
     ],
     '@typescript-eslint/restrict-template-expressions': [

@@ -1,6 +1,6 @@
 /* eslint-disable guard-for-in */
 
-import { mainHeaderStyle } from '@/layout/style';
+import { mainHeaderStyle } from '@/blog/layout/style';
 import { first, pick, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 
