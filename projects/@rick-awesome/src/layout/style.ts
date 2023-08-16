@@ -95,6 +95,7 @@ export const logoStyle = css`
   font-weight: 600;
   line-height: 34px;
   position: sticky;
+  text-transform: uppercase;
   top: 0;
   &:before {
     content: '';
