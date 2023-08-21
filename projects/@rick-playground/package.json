@@ -1,0 +1,37 @@
+{
+  "name": "@rickzhou/playground",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "React Playground",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "acorn": "^8.10.0",
+    "color": "^4.2.3",
+    "lodash": "^4.17.21",
+    "monaco-editor": "^0.41.0",
+    "monaco-editor-textmate": "^4.0.0",
+    "monaco-textmate": "^3.0.1",
+    "onigasm": "^2.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-split-pane": "^0.1.92"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.3",
+    "@types/lodash": "^4.14.197",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "overrides": {
+    "react-split-pane": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  }
+}
