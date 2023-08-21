@@ -12,6 +12,9 @@ export const useTabs = () => {
 
   return {
     updateTabs: null,
-    tabs: [],
+    tabs: state.tabs.map(i => ({
+      ...i,
+      active: state.currentFilePath === i.path,
+    })),
   };
 };

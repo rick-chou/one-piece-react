@@ -7,11 +7,9 @@ const defaultContent = import.meta.glob('./default/*.tsx', {
 
 const defaultTabs = Object.entries(defaultContent).map(([path, content]) => {
   return {
-    title: `file:///${last(path.split('/'))}`,
+    title: `file:///${last(path.split('/'))!}`,
     content,
   };
 });
-
-console.log('defaultTabs', defaultTabs);
 
 export { defaultTabs };

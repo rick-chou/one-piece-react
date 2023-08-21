@@ -6,11 +6,11 @@ import {
 } from '@/styles';
 import { CloseOutlined } from '@ant-design/icons';
 
-
 const Tab = () => {
   const { tabs, updateTabs } = useTabs();
   const editorTabWrapperStyle = useEditorTabWrapperStyle();
   const editorTabStyle = useEditorTabStyle();
+  console.log('tabs', tabs)
   return (
     <div css={editorTabWrapperStyle}>
       {tabs.map(i => {
@@ -20,7 +20,7 @@ const Tab = () => {
             data-state={i.active ? 'active' : 'inactive'}
             css={editorTabStyle}
             onClick={() => {
-              updateTabs(i.path);
+              // updateTabs(i.path);
             }}>
             <span>{i.path.split('/').at(-1)}</span>
             <CloseOutlined
@@ -28,7 +28,6 @@ const Tab = () => {
               className="tab-close-icon"
               onClick={e => {
                 e.stopPropagation();
-                updateTabs(i.path, true);
               }}
             />
           </div>

@@ -5,9 +5,11 @@ import {
   SideMaxWidth,
   SideMinWidth,
 } from './config/const';
+import Tab from './components/editor-tab';
 
 const Repl = () => {
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     <SplitPane
       split="vertical"
@@ -20,7 +22,9 @@ const Repl = () => {
           console.log('db');
         }}>
         Editor
+        <Tab />
       </div>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-expect-error */}
       <SplitPane
         split="horizontal"
