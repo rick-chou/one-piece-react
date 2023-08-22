@@ -2,17 +2,15 @@
  * Context
  * -------------------------------------------
  */
-type FilePath = string;
-type FileName = string;
 
 export type Tab = {
-  path: FilePath;
-  title: FileName;
+  path: string;
+  content: string;
 };
 
 export type StateTypes = {
   theme: string;
-  currentFilePath: FilePath;
+  currentFilePath: string;
   tabs: Tab[];
 };
 

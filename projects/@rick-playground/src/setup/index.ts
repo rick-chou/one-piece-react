@@ -1,9 +1,11 @@
-import { editor, languages } from 'monaco-editor';
+import { defaultTabs } from '@/setup/defaultTabs';
+import { Uri, editor, languages } from 'monaco-editor';
 import { wireTmGrammars } from 'monaco-editor-textmate';
-import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
-import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
-import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
+// import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+// import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+// import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
+// import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
+// import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import { Registry } from 'monaco-textmate';
 import { loadWASM } from 'onigasm';
 import onigasm from 'onigasm/lib/onigasm.wasm?url';
@@ -11,6 +13,28 @@ import typescriptReactTM from './TypeScriptReact.tmLanguage.json';
 import cssTM from './css.tmLanguage.json';
 import vsDark from './vs_dark_rick.json';
 import vsLight from './vs_light_rick.json';
+import { buildWorkerDefinition } from "monaco-editor-workers";
+
+buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, false);
+
+// window.MonacoEnvironment = {
+//   getWorker(_moduleId: unknown, label: string) {
+//     console.log('label', label);
+//     console.log('_moduleId', _moduleId);
+//     switch (label) {
+//       case 'css':
+//         return new cssWorker();
+//       case 'json':
+//         return new jsonWorker();
+//       case 'typescript':
+//       case 'javascript':
+//         return new tsWorker();
+//       default:
+//         return new editorWorker();
+//     }
+//   },
+//   monaco,
+// };
 
 const compilerOptions: languages.typescript.CompilerOptions = {
   strict: true,
@@ -88,18 +112,8 @@ for (const path in reactTypes) {
   );
 }
 
-window.MonacoEnvironment = {
-  getWorker(_moduleId: unknown, label: string) {
-    switch (label) {
-      case 'css':
-        return new cssWorker();
-      case 'json':
-        return new jsonWorker();
-      case 'typescript':
-      case 'javascript':
-        return new tsWorker();
-      default:
-        return new editorWorker();
-    }
-  },
-};
+defaultTabs.forEach(i => {
+  if (!editor.getModel(Uri.parse(i.path))) {
+    editor.createModel(i.content, undefined, Uri.parse(i.path));
+  }
+});

@@ -1,3 +1,4 @@
+import { Tabs, TabsProps } from 'antd';
 import SplitPane from 'react-split-pane';
 import {
   SideInitWidth,
@@ -5,9 +6,22 @@ import {
   SideMaxWidth,
   SideMinWidth,
 } from './config/const';
-import Tab from './components/editor-tab';
+import Editor from './editor';
+import Preview from './preview';
+import { defaultTabs } from './setup/defaultTabs';
+
+const items: TabsProps['items'] = defaultTabs.map(i => ({
+  key: i.path,
+  label: i.path.split('/').at(-1),
+  children: <Editor url={i.path} />,
+}));
 
 const Repl = () => {
+  const onTabChange = () => {};
+
+
+  window.postMessage({ name: 'rick' });
+
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
@@ -17,12 +31,8 @@ const Repl = () => {
       maxSize={SideMaxWidth}
       defaultSize={SideInitWidth}
       className="primary">
-      <div
-        onDoubleClick={() => {
-          console.log('db');
-        }}>
-        Editor
-        <Tab />
+      <div>
+        <Tabs items={items} onChange={onTabChange} />
       </div>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-expect-error */}
@@ -31,7 +41,9 @@ const Repl = () => {
         minSize={SideMinWidth}
         maxSize={SideMaxHeight}
         defaultSize={SideMaxHeight}>
-        <div>Preview</div>
+        <div>
+          <Preview />
+        </div>
         <div>Debug</div>
       </SplitPane>
     </SplitPane>

@@ -8,11 +8,16 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.0.8",
+    "@dnd-kit/sortable": "^7.0.2",
     "acorn": "^8.10.0",
+    "ahooks": "^3.7.8",
+    "antd": "^5.8.4",
     "color": "^4.2.3",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.41.0",
     "monaco-editor-textmate": "^4.0.0",
+    "monaco-editor-workers": "^0.41.0",
     "monaco-textmate": "^3.0.1",
     "onigasm": "^2.2.5",
     "react": "^18.2.0",

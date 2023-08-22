@@ -1,4 +1,4 @@
-import { defaultTabs } from '@/setup/tabs';
+import { defaultTabs } from '@/setup/defaultTabs';
 import { type ActionTypes, type StateTypes } from '@/types';
 import {
   createContext,
