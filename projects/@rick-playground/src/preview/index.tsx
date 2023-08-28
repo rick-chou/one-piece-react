@@ -7,26 +7,24 @@ const iframe = `
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Preview</title>
   </head>
   <body>
     <script
       async
       src="https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react",
-          "react-dom": "https://esm.sh/react-dom",
-          "react-dom/client": "https://esm.sh/react-dom/client"
-        }
-      }
-    </script>
-
     <script>
       window.addEventListener('message', ({ data }) => {
-        if(data.type === 'compiler') {
+        if (data.type === 'importmap') {
+          const script = document.createElement('script');
+          script.type = 'importmap';
+          script.innerText = JSON.stringify({ imports: data.code });
+          document.body.appendChild(script);
+        }
+      });
+      window.addEventListener('message', ({ data }) => {
+        if (data.type === 'compiler') {
           const script = document.createElement('script');
           script.type = 'module';
           script.innerText = data.code;
@@ -46,10 +44,18 @@ const Preview: React.FC<ReplProps> = ({ compiler }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   compiler?.addEventListener('message', ({ data }) => {
-    iframeRef.current?.contentWindow?.postMessage({
-      type: 'compiler',
-      code: data,
-    });
+    if (data.type === 'compile') {
+      iframeRef.current?.contentWindow?.postMessage({
+        type: 'compiler',
+        code: data.code,
+      });
+    }
+    if (data.type === 'importmap') {
+      iframeRef.current?.contentWindow?.postMessage({
+        type: 'importmap',
+        code: data.code,
+      });
+    }
   });
 
   return (
