@@ -1,4 +1,5 @@
 import { liftOff } from '@/setup';
+import { ReplProps } from '@/types';
 import { useMount, useUnmount } from 'ahooks';
 import { throttle } from 'lodash';
 import {
@@ -15,8 +16,6 @@ type EditorProps = {
   disabled?: true;
   isDark?: boolean;
   withMinimap?: boolean;
-  formatter?: Worker;
-  linter?: Worker;
   displayErrors?: boolean;
   onDocChange?: (code: string) => void;
   onEditorReady?: (
@@ -26,12 +25,11 @@ type EditorProps = {
       editor: typeof mEditor;
     },
   ) => void;
-};
+} & ReplProps;
 
 const Editor: React.FC<EditorProps> = props => {
   const editorDomRef = useRef<HTMLDivElement>(null);
   const editor = useRef<mEditor.IStandaloneCodeEditor>();
-
   const model = useMemo(
     () => mEditor.getModel(Uri.parse(props.url)),
     [props.url],

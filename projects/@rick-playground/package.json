@@ -8,14 +8,20 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.11",
+    "@babel/standalone": "^7.22.11",
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",
+    "@rollup/browser": "^3.28.1",
     "acorn": "^8.10.0",
     "ahooks": "^3.7.8",
     "antd": "^5.8.4",
     "color": "^4.2.3",
     "lodash": "^4.17.21",
-    "monaco-editor": "^0.41.0",
+    "monaco-editor": "^0.40.0",
     "monaco-editor-textmate": "^4.0.0",
     "monaco-editor-workers": "^0.41.0",
     "monaco-textmate": "^3.0.1",
@@ -25,13 +31,14 @@
     "react-split-pane": "^0.1.92"
   },
   "devDependencies": {
+    "@types/babel__standalone": "^7.1.4",
     "@types/color": "^3.0.3",
     "@types/lodash": "^4.14.197",
-    "@types/react": "^18.2.15",
+    "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "@vitejs/plugin-react": "^4.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
   },
   "overrides": {
     "react-split-pane": {

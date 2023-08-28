@@ -53,10 +53,10 @@ body {
   border-color: transparent;
 }
 
-.ant-tabs-top > .ant-tabs-nav {
-  margin: 0;
-}
-
 .ant-tabs-nav-wrap {
   margin-left: 10px;
+}
+
+.ant-tabs-editable > .ant-tabs-nav .ant-tabs-tab {
+  transition: none;
 }
