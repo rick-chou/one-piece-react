@@ -9,26 +9,53 @@
     <script
       async
       src="https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-
     <script>
       window.addEventListener('message', ({ data }) => {
-        if (data.type === 'importmap') {
+        if (data.type === 'UPDATE_CODE') {
+          /**
+           * --- UPDATE IMPROTMAP ---
+           */
+          const importmapTag = document.querySelector(
+            'script[type="importmap"]',
+          );
+          importmapTag.innerHTML = JSON.stringify({
+            imports: data.data.importmap,
+          });
+
+          /**
+           * --- UPDATE APPSRC ---
+           *
+           * note : not work by change src attribute
+           */
+          // const appsrcTag = document.querySelector('#appsrc');
+          // const oldSrc = appsrcTag.getAttribute('src');
+          // const newSrc = URL.createObjectURL(
+          //   new Blob([data.data.compileCode], {
+          //     type: 'application/javascript',
+          //   }),
+          // );
+          // appsrcTag.setAttribute('src', newSrc);
+          // URL.revokeObjectURL(oldSrc);
+
+          const appsrcTag = document.querySelector('#appsrc');
+          const oldSrc = appsrcTag.getAttribute('src');
+          appsrcTag.remove();
           const script = document.createElement('script');
-          script.type = 'importmap';
-          script.innerText = JSON.stringify({ imports: data.code });
-          document.body.appendChild(script);
-        }
-      });
-      window.addEventListener('message', ({ data }) => {
-        if (data.type === 'compiler') {
-          const script = document.createElement('script');
+          const newSrc = URL.createObjectURL(
+            new Blob([data.data.compileCode], {
+              type: 'application/javascript',
+            }),
+          );
+          script.src = newSrc;
+          script.id = 'appsrc';
           script.type = 'module';
-          script.innerText = data.code;
           document.body.appendChild(script);
+          URL.revokeObjectURL(oldSrc);
         }
       });
     </script>
-
+    <script type="importmap"></script>
+    <script type="module" id="appsrc"></script>
     <div id="root" />
   </body>
 </html>
