@@ -1,0 +1,40 @@
+name: SYNC APP REPO
+
+on:
+  - push
+
+jobs:
+  repl:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Push 📦
+        env:
+          EMAIL: 944268618@qq.com
+          USERNAME: Rick.Zhou
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          REPO: github.com/rick-chou/repl.git
+        run: |
+
+          yarn
+
+          cd projects/@rick-repl
+
+          npm ci
+          npm run build
+          cd dist
+          cp index.html 404.html
+
+          git init
+          git config --global user.email $EMAIL
+          git config --global user.name $USERNAME
+          git remote add origin https://$ACCESS_TOKEN@$REPO
+
+          git checkout -b gh-pages
+          git add .
+          git commit -m "🌈 @rickzhou/repl"
+          git push -f --set-upstream origin gh-pages

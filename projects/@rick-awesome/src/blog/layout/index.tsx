@@ -1,7 +1,6 @@
 import { useShortKey } from '@/hooks/useShortkey';
 import { useTheme } from '@/hooks/useTheme';
-import { App, ConfigProvider } from 'antd';
-import { ScrollRestoration, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Content from './content';
 import Header from './header';
 import Homepage from './homepage';
@@ -25,23 +24,13 @@ const Blog = () => {
   };
 
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          fontFamily,
-        },
-      }}>
-      <App>
-        <div css={containerStyle}>
-          <Sidebar />
-          <div className="flex flex-col flex-1">
-            <Header />
-            {renderContent()}
-          </div>
-        </div>
-      </App>
-      <ScrollRestoration />
-    </ConfigProvider>
+    <div css={containerStyle}>
+      <Sidebar />
+      <div className="flex flex-col flex-1">
+        <Header />
+        {renderContent()}
+      </div>
+    </div>
   );
 };
 
