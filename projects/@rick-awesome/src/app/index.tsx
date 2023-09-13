@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import CmdModal from '@/components/commands';
+import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/theme';
 import { Global } from '@emotion/react';
 import { useMount } from 'ahooks';
+import { App as Appwrapper, ConfigProvider } from 'antd';
 import $, { type Cash } from 'cash-dom';
 import { ScrollRestoration } from 'react-router-dom';
 import './animation.scss';
@@ -14,6 +16,8 @@ type AppProps = {
 };
 
 const App: React.FC<AppProps> = ({ apps }) => {
+  const { fontFamily } = useTheme();
+
   useMount(() => {
     // @ts-expect-error
     $.fn.addSwitchAppAnimation = function () {
@@ -49,20 +53,26 @@ const App: React.FC<AppProps> = ({ apps }) => {
   });
 
   return (
-    <div>
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily,
+        },
+      }}>
       <Global styles={globalStyle} />
       <Theme />
       <CmdModal />
       <ScrollRestoration />
-
-      <div className="app-wrapper">
-        {apps.map((_App, idx) => (
-          <div key={idx} className="sub-app">
-            <_App />
-          </div>
-        ))}
-      </div>
-    </div>
+      <Appwrapper>
+        <div className="app-wrapper">
+          {apps.map((_App, idx) => (
+            <div key={idx} className="sub-app">
+              <_App />
+            </div>
+          ))}
+        </div>
+      </Appwrapper>
+    </ConfigProvider>
   );
 };
 
