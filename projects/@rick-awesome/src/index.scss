@@ -18,3 +18,7 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.react-pdf__Page {
+  @apply shadow-md rounded-lg overflow-hidden bg-white select-text;
+}

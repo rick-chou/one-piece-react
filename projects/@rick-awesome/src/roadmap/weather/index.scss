@@ -1,6 +1,6 @@
 /* Variables */
 :root {
-  --color-keyboard-bg-color: #e9f5fa;
+  --bg-color: #e9f5fa;
   --day-text-color: #4db0d3;
 
   /* Cloudy */
@@ -45,7 +45,7 @@
 
 body {
   align-items: center;
-  background: var(--color-keyboard-bg-color);
+  background: var(--bg-color);
   display: flex;
   justify-content: center;
   min-height: 100vh;

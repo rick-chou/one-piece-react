@@ -1,5 +1,5 @@
-import { Bg } from "@/assets/pic";
-import { css } from "@emotion/react";
+import { Bg } from '@/assets/pic';
+import { css } from '@emotion/react';
 
 export const globalStyle = css`
   ::-webkit-scrollbar {

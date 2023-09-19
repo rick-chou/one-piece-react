@@ -29,10 +29,7 @@
     "paths": {
       "@/*": ["src/*"],
       /* Packages */
-      "@rickzhou/react-ui": ["../../packages/@rick-ui"],
-
-      /* Projects */
-      "@rickzhou/flowcharts/*": ["src/modules/project/flowcharts/*"]
+      "@rickzhou/react-ui": ["../../packages/@rick-ui"]
     }
   },
   "include": ["src", "script", "public/js"],

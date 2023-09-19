@@ -6,16 +6,18 @@ import {
   type RouteObject,
 } from 'react-router-dom';
 import { BlogRoutes } from './blog';
-import { ChartRoutes } from './chart';
-import { DemoRoutes } from './demo';
-import { ProjectRoutes } from './project';
+import { genRoutes } from './meta-data';
 import { RickRoutes } from './rick';
+
+const DemoRoutes: RouteObject = genRoutes('demo');
+const ChartRoutes: RouteObject = genRoutes('chart');
+const PreviewRoutes: RouteObject = genRoutes('preview');
 
 export const routes: RouteObject[] = [
   {
     path: import.meta.env.BASE_URL,
     element: <App />,
-    children: [DemoRoutes, RickRoutes, ProjectRoutes, ChartRoutes, BlogRoutes],
+    children: [DemoRoutes, RickRoutes, ChartRoutes, BlogRoutes, PreviewRoutes],
     errorElement: <ErrorPage />,
   },
   {
