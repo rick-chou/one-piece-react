@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable @typescript-eslint/no-loop-func */
 /**
+ * @author
  * @link https://codepen.io/rickyeckhardt/pen/eYNzRQJ
  */
 

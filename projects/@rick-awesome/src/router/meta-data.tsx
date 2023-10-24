@@ -45,7 +45,7 @@ const modules = import.meta.glob([
   '../modules/rick/*/index.tsx',
   '../modules/demo/*/index.tsx',
   '../modules/chart/*/index.tsx',
-  '../modules/project/*/index.tsx',
+  '../modules/preview/*/index.tsx',
 ]);
 
 export const metaData = await genMetaData(

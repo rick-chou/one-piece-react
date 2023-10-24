@@ -20,6 +20,7 @@ const baseUrl = '/one-piece-react/';
 
 export default defineConfig({
   base: baseUrl,
+  assetsInclude: ['**/*.xlsx'],
   envPrefix: 'RICK_',
   build: {
     commonjsOptions: {
@@ -114,10 +115,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@rickzhou/flowcharts': path.resolve(
-        __dirname,
-        './src/modules/project/flowcharts',
-      ),
       '@rickzhou/react-ui': path.resolve(__dirname, '../../packages/@rick-ui'),
     },
   },

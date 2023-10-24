@@ -12,7 +12,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { name, version } from '../../package.json';
-import flowchartSlice from './slice/flowchartSlice';
 import modalOpenSlice from './slice/modalOpenSlice';
 import themeSlice from './slice/themeSlice';
 
@@ -29,7 +28,6 @@ const persistConfig = {
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
-    flowcharts: flowchartSlice,
     modalOpen: modalOpenSlice,
     theme: themeSlice,
   }),
