@@ -1,0 +1,1 @@
+import{j as e,C as i}from"./index-d3b83da8.js";const s=({path:r})=>e(i,{children:e("div",{className:"rounded-2xl overflow-hidden w-full",children:e("iframe",{src:r,width:"100%",height:screen.height*.5})})});export{s as I};
