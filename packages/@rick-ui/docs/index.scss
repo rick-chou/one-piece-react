@@ -1,113 +1,107 @@
-:root {
-  --color-background: #31037d;
-  --axis-x: 1px;
-  --axis-y: 1rem;
-  --delay: 10;
-  --color-black: #000;
-  --color-white: #fff;
-  --color-orange: #d49c3d;
-  --color-red: #d14b3d;
-  --color-violet: #cf52eb;
-  --color-blue: #44a3f7;
-  --color-green: #5acb3c;
-  --color-yellow: #debf40;
-  --color-foreground: var(--color-white);
-  --font-name: Righteous;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    overscroll-behavior: none;
+  }
+  h1 {
+    @apply text-3xl font-black my-4;
+  }
+  h2 {
+    @apply text-2xl font-extrabold my-4;
+  }
+  h3 {
+    @apply text-xl font-semibold my-4;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
 }
 
-.rainbow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-name);
-  height: 100vh;
-}
-
-.c-rainbow {
-  counter-reset: rainbow;
-  position: relative;
+pre code.hljs {
   display: block;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.c-rainbow__layer {
-  --text-color: var(--color-foreground);
-  counter-increment: rainbow;
-  font-size: 3rem;
-  color: var(--text-color);
-  text-shadow: -1px -1px 0 var(--color-black), 1px -1px 0 var(--color-black),
-    -1px 1px 0 var(--color-black), 1px 1px 0 var(--color-black),
-    4px 4px 0 rgba(0, 0, 0, 0.2);
-  animation: rainbow 1.5s ease-in-out infinite;
-}
-.c-rainbow__layer:nth-child(1) {
-  animation-delay: calc(1 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 1);
-  z-index: -10;
-}
-.c-rainbow__layer:nth-child(2) {
-  animation-delay: calc(2 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 2);
-  z-index: -20;
-}
-.c-rainbow__layer:nth-child(3) {
-  animation-delay: calc(3 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 3);
-  z-index: -30;
-}
-.c-rainbow__layer:nth-child(4) {
-  animation-delay: calc(4 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 4);
-  z-index: -40;
-}
-.c-rainbow__layer:nth-child(5) {
-  animation-delay: calc(5 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 5);
-  z-index: -50;
-}
-.c-rainbow__layer:nth-child(6) {
-  animation-delay: calc(6 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 6);
-  z-index: -60;
-}
-.c-rainbow__layer:nth-child(7) {
-  animation-delay: calc(7 / var(--delay) * 1s);
-  left: calc(var(--axis-x) * 7);
-  z-index: -70;
-}
-.c-rainbow__layer:not(:first-child) {
-  position: absolute;
-  top: 0;
-}
-.c-rainbow__layer--white {
-  --text-color: var(--color-white);
-}
-.c-rainbow__layer--orange {
-  --text-color: var(--color-orange);
-}
-.c-rainbow__layer--red {
-  --text-color: var(--color-red);
-}
-.c-rainbow__layer--violet {
-  --text-color: var(--color-violet);
-}
-.c-rainbow__layer--blue {
-  --text-color: var(--color-blue);
-}
-.c-rainbow__layer--green {
-  --text-color: var(--color-green);
-}
-.c-rainbow__layer--yellow {
-  --text-color: var(--color-yellow);
+  overflow-x: auto;
+  padding: 1em;
 }
 
-@keyframes rainbow {
-  0%,
-  100% {
-    transform: translatey(var(--axis-y));
-  }
-  50% {
-    transform: translatey(calc(var(--axis-y) * -1));
-  }
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  color: #24292e;
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #d73a49;
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: #6f42c1;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+  color: #005cc5;
+}
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: #032f62;
+}
+.hljs-built_in,
+.hljs-symbol {
+  color: #e36209;
+}
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: #6a737d;
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #22863a;
+}
+.hljs-subst {
+  color: #24292e;
+}
+.hljs-section {
+  color: #005cc5;
+  font-weight: 700;
+}
+.hljs-bullet {
+  color: #735c0f;
+}
+.hljs-emphasis {
+  color: #24292e;
+  font-style: italic;
+}
+.hljs-strong {
+  color: #24292e;
+  font-weight: 700;
+}
+.hljs-addition {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+.hljs-deletion {
+  color: #b31d28;
+  background-color: #ffeef0;
 }

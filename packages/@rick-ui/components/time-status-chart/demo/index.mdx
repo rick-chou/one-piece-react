@@ -1,0 +1,37 @@
+import Example from '@/docs/example';
+import {
+  CHART_HEIGHT,
+  TIME_STATUS_CHART_MAX_Y_ITEM_SIZE,
+} from '../../_util/config';
+
+## TimeStatusChart
+
+> A graph showing changes in status over time
+
+### When To Use
+
+> For example, show whether the user turns on the camera at a certain moment in the meeting
+
+### Example
+
+<Example />
+
+### API
+
+| Property               | Description | Type                                       | Default                             |
+| ---------------------- | ----------- | ------------------------------------------ | ----------------------------------- |
+| **data**               |             | `Array<TimeStatusChartItem<T>>`            | []                                  |
+| **option**             |             | `echarts.EChartsOption`                    | {}                                  |
+| **seriesOption**       |             | `echarts.CustomSeriesOption`               | {}                                  |
+| **maxSize**            |             | `number`                                   | {TIME_STATUS_CHART_MAX_Y_ITEM_SIZE} |
+| **showEmpty**          |             | `boolean`                                  | true                                |
+| **showDot**            |             | `boolean`                                  | false                               |
+| **showCnt**            |             | `boolean`                                  | true                                |
+| **triggerEvent**       |             | `boolean`                                  | true                                |
+| **triggerEventInfoFn** |             | `(params: TimeStatusChartItem<T>) => void` | -                                   |
+| **onInit**             |             | `(echartInstance: ECharts) => void`        | -                                   |
+| **xAxisMax**           |             | `number`                                   | -                                   |
+| **xAxisMin**           |             | `number`                                   | -                                   |
+| **yAxisName**          |             | `string`                                   | -                                   |
+| **height**             |             | `string`                                   | {CHART_HEIGHT}                      |
+| **width**              |             | `string`                                   | -                                   |

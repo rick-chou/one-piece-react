@@ -1,11 +1,9 @@
-import { cleanup, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Empty from '../index';
 
 const { WithEmpty } = Empty;
 
 describe('Empty Component', () => {
-  afterEach(cleanup);
-
   it('loading props', async () => {
     render(<Empty loading={true} />);
     render(<Empty loading={false} />);
@@ -13,8 +11,6 @@ describe('Empty Component', () => {
 });
 
 describe('WithEmpty Component', () => {
-  afterEach(cleanup);
-
   it('data props', async () => {
     render(<WithEmpty data={[]}>child</WithEmpty>);
     render(<WithEmpty data={false}>child</WithEmpty>);
@@ -39,7 +35,7 @@ describe('WithEmpty Component', () => {
     render(
       <WithEmpty
         data={[]}
-        emptyProps={{ desc: 'empty', height: '50vh', loading: true }}>
+        props={{ desc: 'empty', height: '50vh', loading: true }}>
         child
       </WithEmpty>,
     );

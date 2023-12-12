@@ -1,67 +1,15 @@
-import { css } from '@emotion/react';
-import { isEmptyValue } from '@rickzhou/react-utils/common';
-import { Spin } from 'antd';
-import { type PropsWithChildren } from 'react';
-import { FlexCenter } from '../style.base';
-import { DescStyles, EmptyBgStyles } from './style';
+import InternalEmpty from './Empty';
+import { WithEmpty } from './WithEmpty';
 
-export type EmptyProps = {
-  desc?: React.ReactNode;
-  loading?: boolean;
-  height?: string;
-};
+export type { EmptyProps } from './Empty';
 
-const Empty: React.FC<EmptyProps> & {
+type InternalEmptyType = typeof InternalEmpty;
+
+type CompoundedComponent = InternalEmptyType & {
   WithEmpty: typeof WithEmpty;
-} = ({
-  loading = false,
-  desc = loading ? 'Loading...' : 'No Results Found',
-  height = '100%',
-}) => {
-  return (
-    <div
-      css={css`
-        .spin-wrapper {
-          .ant-spin {
-            max-height: none;
-          }
-        }
-      `}>
-      <Spin spinning={loading} wrapperClassName="spin-wrapper">
-        <div css={FlexCenter} style={{ height }}>
-          <div css={EmptyBgStyles} />
-          <div css={DescStyles}>{desc}</div>
-        </div>
-      </Spin>
-    </div>
-  );
 };
 
-type WithEmptyProps = {
-  data: any;
-  showEmpty?: boolean;
-  emptyProps?: EmptyProps;
-} & PropsWithChildren;
-
-const WithEmpty: React.FC<WithEmptyProps> = ({
-  data,
-  children,
-  showEmpty = true,
-  emptyProps = {},
-}) => {
-  return (
-    <>
-      {isEmptyValue(data) ? (
-        showEmpty ? (
-          <Empty height="40vh" {...emptyProps} />
-        ) : null
-      ) : (
-        children
-      )}
-    </>
-  );
-};
+const Empty = InternalEmpty as CompoundedComponent;
 
 Empty.WithEmpty = WithEmpty;
-
 export default Empty;

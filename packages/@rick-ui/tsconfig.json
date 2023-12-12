@@ -1,12 +1,13 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "jsxImportSource": "react",
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": ["docs", "components"],
+  "include": ["docs", "components", "vite-env.d.ts"],
   "exclude": ["roadmap"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

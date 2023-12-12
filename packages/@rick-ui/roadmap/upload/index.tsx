@@ -1,7 +1,6 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
-import { Hidden } from '../style.base';
 import { ContainerStyles } from './style';
 
 const maxSize = 10 * 1024 * 1024;
@@ -84,7 +83,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       </Button>
       {/* file */}
       <input
-        css={Hidden}
+        className="hidden"
         ref={fileRef}
         type="file"
         multiple={multiple}
@@ -95,7 +94,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       />
       {/* dir */}
       <input
-        css={Hidden}
+        className="hidden"
         ref={dirRef}
         type="file"
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
