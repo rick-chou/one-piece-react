@@ -230,7 +230,7 @@ module.exports = {
           'typeMethod',
           'accessor',
         ],
-        format: ['strictCamelCase', 'StrictPascalCase','UPPER_CASE'],
+        format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
         leadingUnderscore: 'allowSingleOrDouble',
         trailingUnderscore: 'allow',
         filter: {
