@@ -1,20 +1,21 @@
-import type { FC, PropsWithChildren, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 
 export type ShowProps = {
   when: boolean;
-  fallback?: ReactNode;
+  fallback?: (() => JSX.Element) | JSX.Element;
+  children: (() => JSX.Element) | JSX.Element;
 };
 
-const Show: FC<PropsWithChildren<ShowProps>> = ({
-  when,
-  fallback,
-  children,
-}) => {
-  if (when) {
-    return children;
+const render = (children?: (() => ReactNode) | ReactNode) => {
+  if (typeof children === 'function') {
+    return children();
   }
 
-  return fallback;
+  return children;
+};
+
+const Show: FC<ShowProps> = ({ when, fallback, children }) => {
+  return <>{when ? render(children) : render(fallback)}</>;
 };
 
 export default Show;

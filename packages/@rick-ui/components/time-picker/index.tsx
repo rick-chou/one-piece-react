@@ -1,5 +1,4 @@
 import { RedoOutlined } from '@ant-design/icons';
-import type { DatePickerProps } from 'antd';
 import { Button, DatePicker, Tag } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { Dayjs } from 'dayjs';
@@ -14,9 +13,15 @@ const { RangePicker } = DatePicker;
 export type TimePickerProps = {
   currentTime: [number, number];
   defaultTime?: [number, number];
-  onChange: (startTime: number, endTime: number) => void;
+  onChange: (
+    isReset: boolean,
+    timestamp: number[],
+    formatString: string[],
+    date: [Dayjs, Dayjs],
+  ) => void;
   refreshToken?: any;
   name?: string;
+  showMs?: boolean;
 };
 
 const TimePicker: React.FC<TimePickerProps> = ({
@@ -25,13 +30,15 @@ const TimePicker: React.FC<TimePickerProps> = ({
   defaultTime = currentTime,
   refreshToken,
   name = 'Time',
+  showMs = false,
 }) => {
+  const [startTime, endTime] = currentTime;
+  const [defaultStartTime, defaultEndTime] = defaultTime;
+
   const [date, setDate] = useState<[Dayjs, Dayjs]>();
   const defaultDate = useRef<[Dayjs, Dayjs]>();
   const resetBtnRef = useRef<HTMLDivElement>(null);
-
-  const [startTime, endTime] = currentTime;
-  const [defaultStartTime, defaultEndTime] = defaultTime;
+  const isReset = useRef(false);
 
   const isValidTime = useMemo(() => {
     return Number.isFinite(startTime) && Number.isFinite(endTime);
@@ -42,6 +49,14 @@ const TimePicker: React.FC<TimePickerProps> = ({
     return _date > defaultEndTime || _date < defaultStartTime;
   };
 
+  const genFormatString = (formatString: string[]) => {
+    if (showMs) {
+      return [`${first(formatString)}:000`, `${last(formatString)}:999`];
+    }
+
+    return formatString;
+  };
+
   useEffect(() => {
     if (isValidTime) {
       defaultDate.current = [dayjs(startTime), dayjs(endTime)];
@@ -49,17 +64,12 @@ const TimePicker: React.FC<TimePickerProps> = ({
     }
   }, [startTime, endTime, refreshToken, isValidTime]);
 
-  const onDateChange = (
-    value: DatePickerProps['value'] | RangePickerProps['value'],
-  ) => {
-    setDate(value as [Dayjs, Dayjs]);
-  };
-
   const renderFooter = (startTime: number, endTime: number) => {
     return (
       <div className="w-full flex justify-center py-3">
         <Tag
           onClick={() => {
+            isReset.current = true;
             resetBtnRef.current?.click();
           }}
           className="cursor-pointer"
@@ -78,13 +88,21 @@ const TimePicker: React.FC<TimePickerProps> = ({
   return (
     <Show when={isValidTime}>
       <RangePicker
+        onOpenChange={open => {
+          isReset.current = !open;
+        }}
         popupClassName="time-picker"
         showTime
-        onChange={date => {
-          onChange(dayjs(first(date)).valueOf(), dayjs(last(date)).valueOf());
+        onChange={(date, formatString) => {
+          setDate(date as [Dayjs, Dayjs]);
+          onChange(
+            isReset.current,
+            [dayjs(first(date)).valueOf(), dayjs(last(date)).valueOf()],
+            genFormatString(formatString),
+            date as [Dayjs, Dayjs],
+          );
         }}
         format="MM/DD/YYYY HH:mm:ss"
-        onCalendarChange={onDateChange}
         disabledDate={disabledDate}
         showNow={false}
         presets={[
