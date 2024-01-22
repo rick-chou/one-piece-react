@@ -2,7 +2,7 @@ import { getFileIcon } from '@/config/icon-theme';
 import Editor from '@/editor/core';
 import { useTabs } from '@/hooks/useTabs';
 import { defaultTabs } from '@/setup/defaultTabs';
-import { type ReplProps, type Tab } from '@/types/index';
+import { type ReplProps, type Tab } from '@/types';
 import { CloseOutlined, PlusOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
