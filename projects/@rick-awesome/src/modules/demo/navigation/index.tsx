@@ -2,9 +2,11 @@ import { ContentWrapper } from '@/theme';
 import { random } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import { listItemStyle, ulStyle } from './style';
+import { useTheme } from '@/hooks/useTheme';
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const { dark } = useTheme();
 
   return (
     <ContentWrapper>
@@ -19,52 +21,84 @@ const Navigation = () => {
         }}>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-reorder"></i>
+            <box-icon type="logo" name="react" color={dark ? '#FFF' : '#000'} />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-th-large"></i>
+            <box-icon type="logo" name="vuejs" color={dark ? '#FFF' : '#000'} />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-bar-chart"></i>
+            <box-icon
+              name="angular"
+              type="logo"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-tasks"></i>
+            <box-icon
+              type="logo"
+              name="visual-studio"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-bell"></i>
+            <box-icon
+              type="logo"
+              name="docker"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-archive"></i>
+            <box-icon
+              type="logo"
+              name="tailwind-css"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-comment"></i>
+            <box-icon
+              type="logo"
+              name="github"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-sitemap"></i>
+            <box-icon
+              type="logo"
+              name="nodejs"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-thumbs-up"></i>
+            <box-icon
+              type="logo"
+              name="typescript"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
         <li>
           <a css={listItemStyle} href="">
-            <i className="icon-tumblr"></i>
+            <box-icon
+              type="logo"
+              name="codepen"
+              color={dark ? '#FFF' : '#000'}
+            />
           </a>
         </li>
       </ul>

@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "preview": "tsc && vite build --mode=preview && vite preview --mode=preview",
     "//": "小心使用 不确定大版本是否有breakchange",
     "update": "npx ncu \\!vue* -u"
   },
@@ -60,6 +61,7 @@
     "vueCompiler3": "npm:@vue/compiler-sfc@^3.3.4",
     "web-vitals": "^3.5.0",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz",
+    "yargs-parser": "^21.1.1",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
