@@ -20,7 +20,7 @@ const baseUrl = '/one-piece-react/';
 
 export default defineConfig({
   base: baseUrl,
-  assetsInclude: ['**/*.xlsx'],
+  assetsInclude: ['**/*.xlsx', '**/*.html'],
   envPrefix: 'RICK_',
   build: {
     commonjsOptions: {

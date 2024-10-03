@@ -10,13 +10,15 @@ const Countdown = () => {
 
   useEffect(() => {
     instance.current = new FlipDown(
-      Number(new Date('2023-11-24')) / 1000,
+      Number(new Date('2024-11-24')) / 1000,
     ).start();
   }, []);
 
   return (
     <ContentWrapper>
-      <div className="text-8xl mb-4 font-bold italic">Wedding In</div>
+      <div className="text-4xl mb-8 font-bold italic">
+        The first anniversary of marriage in
+      </div>
       <div css={flipdownStyle}>
         <div
           id="flipdown"

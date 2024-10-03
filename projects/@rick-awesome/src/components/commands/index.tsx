@@ -7,7 +7,7 @@ import { BlogRoutes } from '@/router/blog';
 import { metaData, type MetaData } from '@/router/meta-data';
 import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
 import { Modal } from 'antd';
-import { first, last, lowerCase, toLower, upperCase } from 'lodash';
+import { first, last, lowerCase, toLower, uniq, upperCase } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -30,7 +30,14 @@ export type CommandItemTypes = {
 const commandItemCls = 'command-item';
 const commandHoverCls = 'hover';
 
-const fontFamily = [import.meta.env.RICK_FONTFAMILY, 'Roboto', 'Fira Code'];
+const fontFamily = uniq([
+  import.meta.env.RICK_FONTFAMILY,
+  'Odibee Sans',
+  'Oswald',
+  'Roboto',
+  'Fira Code',
+  'Merriweather',
+]);
 
 const CmdModal = () => {
   const { onHidden, open } = useModalOpen(OpenTypeConfig.CommandOpen);
@@ -218,7 +225,7 @@ const CmdModal = () => {
       title={null}
       footer={null}
       open={open}
-      bodyStyle={{ padding: 0 }}
+      styles={{ body: { padding: 0 } }}
       closable={false}
       maskClosable
       mask={false}

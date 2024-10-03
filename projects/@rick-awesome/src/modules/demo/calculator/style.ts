@@ -27,9 +27,8 @@ export const calculatorStyle = css`
   grid-row-gap: 25px;
   grid-column-gap: 25px;
   border-radius: 20px;
-  padding: 40px 40px 40px 40px;
+  padding: 0px 40px 20px 40px;
   width: 80%;
-  
 
   .display {
     ${inOutNeumorphism};

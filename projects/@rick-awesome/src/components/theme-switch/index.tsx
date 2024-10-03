@@ -12,7 +12,7 @@ export type ThemeSwitchProps = {
 };
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
-  const { toggleThemeMode } = useTheme();
+  const { toggleThemeMode, dark } = useTheme();
 
   return (
     <ThemeWrapper style={themeSwitchStyle}>
@@ -23,9 +23,26 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className = '' }) => {
           onClick={() => {
             toggleThemeMode();
           }}>
-          <i className="bx bxs-sun"></i>
-          <span className="btn-switch"></span>
-          <i className="bx bxs-moon"></i>
+          <box-icon
+            name={dark ? 'sun' : ''}
+            type="solid"
+            size="4vw"
+            color={dark ? '#FFF' : '#000'}
+          />
+          <span className="btn-switch">
+            <box-icon
+              name={dark ? 'moon' : 'sun'}
+              type="solid"
+              size="4vw"
+              color={dark ? '#FFF' : '#000'}
+            />
+          </span>
+          <box-icon
+            name={dark ? '' : 'moon'}
+            type="solid"
+            size="4vw"
+            color={dark ? '#FFF' : '#000'}
+          />
         </button>
       </div>
     </ThemeWrapper>

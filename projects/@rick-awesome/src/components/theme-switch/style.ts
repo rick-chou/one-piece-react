@@ -8,12 +8,12 @@ export const themeSwitchStyle = css`
       animation: animationClickOn 0.7s;
     }
 
-    .bxs-moon {
+    box-icon[name='moon'] {
       animation: rotateOn 0.7s;
     }
 
-    .bxs-sun {
-      animation: shakeOn 0.7s;
+    box-icon[name='sun'] {
+      animation: shakeOff 0.7s;
     }
   }
 
@@ -24,11 +24,11 @@ export const themeSwitchStyle = css`
       animation: animationClickOff 0.7s;
     }
 
-    .bxs-moon {
-      animation: rotateOff 0.7s;
+    box-icon[name='moon'] {
+      animation: rotateOn 0.7s;
     }
 
-    .bxs-sun {
+    box-icon[name='sun'] {
       animation: shakeOff 0.7s;
     }
   }
@@ -52,6 +52,9 @@ export const themeSwitchStyle = css`
       border-radius: 4vw;
       position: absolute;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
 
       .btn-switch {
         display: block;
@@ -61,85 +64,18 @@ export const themeSwitchStyle = css`
         border-radius: 3vw;
         position: absolute;
         z-index: 0;
-        top: 13%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      i {
-        font-size: 4vw;
-        position: absolute;
-        z-index: 1;
-        top: 26%;
-
-        &.bxs-sun {
-          left: 15%;
-        }
-
-        &.bxs-moon {
-          right: 15%;
-        }
-      }
-
-      //responsive
-      @media only screen and (max-width: 1130px) {
-        width: 10rem;
-        height: 5rem;
-        border-radius: 5rem;
-
-        .btn-switch {
-          width: 3.8rem;
-          height: 3.8rem;
-          border-radius: 3rem;
-        }
-
-        i {
-          font-size: 2.3rem;
-          top: 28%;
-
-          &.bxs-sun {
-            left: 16%;
-          }
-
-          &.bxs-moon {
-            right: 16%;
-          }
-        }
-      }
-      //responsive
-      @media only screen and (min-width: 1620px) {
-        width: 15rem;
-        height: 8rem;
-        border-radius: 5rem;
-
-        .switch-side {
-          &--left,
-          &--right {
-            width: 10rem;
-            height: 8rem;
-            border-radius: 4rem;
-          }
-        }
-
-        .btn-switch {
-          width: 6rem;
-          height: 6rem;
-          border-radius: 3vw;
-        }
-
-        i {
-          font-size: 4rem;
-          top: 25%;
-
-          &.bxs-sun {
-            left: 15.5%;
-          }
-
-          &.bxs-moon {
-            right: 15.5%;
-          }
-        }
+      box-icon {
+        position: relative;
+        z-index: 10;
       }
     }
   }
+
   // animations
   @keyframes clickOff {
     0% {
@@ -270,74 +206,6 @@ export const themeSwitchStyle = css`
     100% {
       right: auto;
       left: 9%;
-    }
-  }
-  //responsive
-  @media only screen and (max-width: 1130px) {
-    @keyframes animationClickOff {
-      0% {
-        right: auto;
-        left: 9%;
-      }
-
-      50% {
-        width: 8.5rem;
-      }
-
-      100% {
-        left: auto;
-        right: 9%;
-      }
-    }
-
-    @keyframes animationClickOn {
-      0% {
-        left: auto;
-        right: 9%;
-      }
-
-      50% {
-        width: 8.5rem;
-      }
-
-      100% {
-        right: auto;
-        left: 9%;
-      }
-    }
-  }
-  //responsive
-  @media only screen and (min-width: 1800px) {
-    @keyframes animationClickOff {
-      0% {
-        right: auto;
-        left: 9%;
-      }
-
-      50% {
-        width: 13rem;
-      }
-
-      100% {
-        left: auto;
-        right: 9%;
-      }
-    }
-
-    @keyframes animationClickOn {
-      0% {
-        left: auto;
-        right: 9%;
-      }
-
-      50% {
-        width: 13rem;
-      }
-
-      100% {
-        right: auto;
-        left: 9%;
-      }
     }
   }
 `;

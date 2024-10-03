@@ -1,7 +1,7 @@
 /* eslint-disable guard-for-in */
 
 import { mainHeaderStyle } from '@/blog/layout/style';
-import { first, pick, upperFirst } from 'lodash';
+import { capitalize, first, pick, startCase, upperFirst } from 'lodash';
 import { useOutletContext, type RouteObject } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -67,7 +67,7 @@ export const genRoutes: (path: string) => RouteObject = (path: string) =>
                   const path: string = useOutletContext();
                   return (
                     <div>
-                      <div css={mainHeaderStyle}>{upperFirst(path)}</div>
+                      <div css={mainHeaderStyle}>{startCase(path)}</div>
                       <Component />
                     </div>
                   );
