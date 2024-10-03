@@ -1,1 +1,0 @@
-import{j as r}from"./index-d3b83da8.js";import{I as t}from"./index-c0800d10.js";import"./antd-4d5318cf.js";import"./lodash-6114c6d4.js";import"./chance-d5bce0ad.js";const i=()=>r(t,{path:import.meta.resolve("./app.html")});export{i as default};
