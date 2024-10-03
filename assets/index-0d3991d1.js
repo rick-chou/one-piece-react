@@ -1,0 +1,1 @@
+import{j as o}from"./index-1a6446d7.js";import{I as t}from"./index-9af86963.js";import"./antd-4d5318cf.js";import"./lodash-6114c6d4.js";import"./chance-d5bce0ad.js";const s=()=>o(t,{path:new URL("/one-piece-react/assets/app-89056fa9.html",self.location).href});export{s as default};
