@@ -132,11 +132,16 @@ export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const ThemeWrapper: FC<
-  PropsWithChildren<{ style?: SerializedStyles }>
-> = ({ children, style }) => {
+  PropsWithChildren<{ style?: SerializedStyles; useBackground?: boolean }>
+> = ({ children, style, useBackground }) => {
   const { mode } = useTheme();
   return (
-    <div className={mode} css={style}>
+    <div
+      className={mode}
+      css={style}
+      style={{
+        background: useBackground ? 'var(--color-calculator-bg)' : 'inherit',
+      }}>
       {children}
     </div>
   );
