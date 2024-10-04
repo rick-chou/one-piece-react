@@ -14,7 +14,9 @@ export const listItemStyle = css`
   line-height: 2.5em;
   border-bottom: 1px solid var(--color-primary-bg-hover);
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   transition: all 0.25s linear;
 

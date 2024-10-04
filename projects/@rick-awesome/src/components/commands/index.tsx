@@ -37,6 +37,7 @@ const fontFamily = uniq([
   'Roboto',
   'Fira Code',
   'Merriweather',
+  'Poppins',
 ]);
 
 const CmdModal = () => {
