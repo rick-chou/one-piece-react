@@ -18,6 +18,22 @@ const inOutNeumorphism = css`
 `;
 
 export const calculatorStyle = css`
+  &.dark {
+    --color-calculator-bg: #131419;
+    --color-calculator-primary-text: #c7c7c7;
+    --color-calculator-secondary-text: #03a9f4;
+    --color-calculator-soft-highlight: rgba(255, 255, 255, 0.05);
+    --color-calculator-dark-highlight: rgba(0, 0, 0, 0.51);
+  }
+
+  &.light {
+    --color-calculator-bg: #e0e5ec;
+    --color-calculator-primary-text: rgba(144, 152, 168, 1);
+    --color-calculator-secondary-text: rgba(51, 64, 89, 1);
+    --color-calculator-soft-highlight: rgba(255, 255, 255, 0.43);
+    --color-calculator-dark-highlight: rgba(217, 210, 200, 0.51);
+  }
+
   background: var(--color-calculator-bg);
   color: var(--color-calculator-primary-text);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
@@ -28,6 +44,7 @@ export const calculatorStyle = css`
   grid-column-gap: 25px;
   border-radius: 20px;
   padding: 0px 40px 20px 40px;
+  margin-top: 4px;
   width: 80%;
 
   .display {
