@@ -1,4 +1,4 @@
 import Blog from '@/blog/layout';
-import Lion from './lion';
+import Hero from './hero';
 
-export const appList = [Blog, Lion];
+export const appList = [Blog, Hero];

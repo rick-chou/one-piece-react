@@ -8,6 +8,7 @@
 
 import { useEffect } from 'react';
 import { calculatorStyle } from './style';
+import { ContentWrapper, ThemeWrapper } from '@/theme';
 
 const operators = ['+', '-', 'x', '÷'];
 
@@ -66,8 +67,8 @@ const Calculator = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center">
-      <div css={calculatorStyle} id="calc">
+    <div className="flex justify-center items-center" id="calc">
+      <ThemeWrapper useBackground style={calculatorStyle}>
         <div className="display"></div>
         <span className="c neumorphism">C</span>
         <span className="signed neumorphism">+/-</span>
@@ -88,7 +89,7 @@ const Calculator = () => {
         <span className="zero neumorphism">0</span>
         <span className="decimal neumorphism">.</span>
         <span className="equals neumorphism">=</span>
-      </div>
+      </ThemeWrapper>
     </div>
   );
 };

@@ -35,7 +35,7 @@ export const themeConfig: Record<ThemeMode, ThemeType> = {
 };
 
 export const Theme = () => {
-  const { mode, dark, fontFamily } = useTheme();
+  const { mode, fontFamily } = useTheme();
   useEffect(() => {
     document.documentElement.setAttribute('class', mode);
 
@@ -65,9 +65,6 @@ export const Theme = () => {
           :root {
             --body-font: ${fontFamily};
             --color-active: #bae0ff;
-            --keyboard-duration: 0.3s;
-            --keyboard-hue: 0;
-            --keyboard-sat: 0%;
             --layout-content-height: ${contentHeight};
 
             --color-primary-bg: ${themeConfig[mode].colorPrimaryBg};
@@ -75,28 +72,6 @@ export const Theme = () => {
             --color-inverse-bg: ${themeConfig[mode].colorInverseBg};
             --color-primary-bg-hover: ${themeConfig[mode].colorPrimaryBgHover};
             --color-primary-text: ${themeConfig[mode].colorPrimaryText};
-
-            ${dark
-              ? `
-              --color-calculator-bg: #131419;
-              --color-calculator-primary-text: #c7c7c7;
-              --color-calculator-secondary-text: #03a9f4;
-              --color-calculator-soft-highlight: rgba(255, 255, 255, 0.05);
-              --color-calculator-dark-highlight: rgba(0, 0, 0, 0.51);
-
-              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
-              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 10%);
-              `
-              : `
-              --color-calculator-bg: #e0e5ec;
-              --color-calculator-primary-text: rgba(144, 152, 168, 1);
-              --color-calculator-secondary-text: rgba(51, 64, 89, 1);
-              --color-calculator-soft-highlight: rgba(255, 255, 255, 0.43);
-              --color-calculator-dark-highlight: rgba(217, 210, 200, 0.51);
-
-              --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 20%);
-              --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
-              `}
 
             // blog
             blockquote {
@@ -111,9 +86,16 @@ export const Theme = () => {
 };
 
 export const contentHeight = '65vh';
-
 export const codeFontFamily = import.meta.env.RICK_CODE_FONTFAMILY;
 export const containerOpacity = import.meta.env.RICK_OPACITY;
+export const fontFamily = [
+  'Edu AU VIC WA NT Guides',
+  'Fira Code',
+  'Odibee Sans',
+  'Oswald',
+  'Teko',
+  'Roboto',
+].sort();
 
 export const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
   return (

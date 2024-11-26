@@ -1800,19 +1800,19 @@ const Ticket = () => {
               <div className="flex w-full mt-auto justify-between">
                 <div className="flex flex-col">
                   <span className="text-xs text-zinc-400">Date</span>
-                  <span className="font-mono">09/02/2018</span>
+                  <span>09/02/2018</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-zinc-400">Departure</span>
-                  <span className="font-mono">13:14</span>
+                  <span>13:14</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-zinc-400">Passenger</span>
-                  <span className="font-mono">SZRK</span>
+                  <span>SZRK</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-zinc-400">Gate/Seat</span>
-                  <span className="font-mono">A13/14C</span>
+                  <span>A13/14C</span>
                 </div>
               </div>
             </div>

@@ -1,6 +1,20 @@
 import { css } from '@emotion/react';
 
 export const keyboardStyle = css`
+  --keyboard-duration: 0.3s;
+  --keyboard-hue: 0;
+  --keyboard-sat: 0%;
+
+  &.light {
+    --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 20%);
+    --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
+  }
+
+  &.dark {
+    --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
+    --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 10%);
+  }
+
   button {
     color: var(--color-keyboard-text);
     font: 1em/1.5 -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,

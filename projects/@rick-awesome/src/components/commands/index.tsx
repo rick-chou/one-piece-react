@@ -19,6 +19,7 @@ import {
   CommandModalInputDividerWrapperStyle,
   CommandModalInputStyle,
 } from './style';
+import { fontFamily } from '@/theme';
 
 export type CommandItemTypes = {
   type: string;
@@ -29,16 +30,6 @@ export type CommandItemTypes = {
 
 const commandItemCls = 'command-item';
 const commandHoverCls = 'hover';
-
-const fontFamily = uniq([
-  import.meta.env.RICK_FONTFAMILY,
-  'Odibee Sans',
-  'Oswald',
-  'Roboto',
-  'Fira Code',
-  'Merriweather',
-  'Poppins',
-]);
 
 const CmdModal = () => {
   const { onHidden, open } = useModalOpen(OpenTypeConfig.CommandOpen);
