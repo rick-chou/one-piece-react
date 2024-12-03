@@ -1,1 +1,1 @@
-module.exports = require('@rickzhou/react-css').tailwindcss;
+module.exports = require('@rickzhou/react-ui/tailwind.config.cjs');

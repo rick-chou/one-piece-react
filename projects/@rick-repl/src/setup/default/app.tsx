@@ -18,10 +18,7 @@ const GithubOutlined = () => {
 const RickPlayGround = () => {
   return (
     <div>
-      <Button
-        icon={<GithubOutlined />}
-        className="bg-yellow-300 flex items-center"
-        onClick={() => window.open(repo)}>
+      <Button icon={<GithubOutlined />} className="bg-yellow-300 flex items-center" onClick={() => window.open(repo)}>
         {key}
       </Button>
     </div>

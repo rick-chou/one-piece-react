@@ -1,7 +1,7 @@
-import * as Icons from '@/assets/sider-icon';
+import * as Icons from '@rickzhou/react-repl/assets/sider-icon';
 import { FileType, getFileType } from './file-type';
 
-const FileIconEnum = {
+const fileIconEnum = {
   [FileType.File]: <Icons.FileIcon />,
   [FileType.JS]: <Icons.JavascriptIcon />,
   [FileType.TS]: <Icons.TypeScriptDefIcon />,
@@ -28,11 +28,7 @@ const FileIconEnum = {
   [FileType.VITE]: <Icons.ViteIcon />,
 };
 
-export const getFileIcon = (
-  fileName: string,
-  isDir: boolean,
-  isExpanded: boolean,
-) => {
+export const getFileIcon = (fileName: string, isDir: boolean, isExpanded: boolean) => {
   if (isDir) {
     if (fileName.toLowerCase() === 'components') {
       return <Icons.FolderComponentsIcon />;
@@ -41,5 +37,5 @@ export const getFileIcon = (
     return isExpanded ? <Icons.FolderOpenIcon /> : <Icons.FolderCloseIcon />;
   }
 
-  return FileIconEnum[getFileType(fileName)];
+  return fileIconEnum[getFileType(fileName)];
 };

@@ -1,13 +1,8 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { App, Spin } from 'antd';
-import { useInit } from './hooks/useInit';
-
-import './index.css';
-
-import '@/setup/index';
-import SplitPane from 'react-split-pane';
-import { SideInitWidth, SideMinWidth } from './config/const';
+import '@rickzhou/react-repl/setup/index';
+import { App, Spin, Splitter } from 'antd';
+import { SideInitWidth } from './config/const';
 import Editor from './editor';
+import { useInit } from './hooks/useInit';
 import Preview from './preview';
 
 const Repl = () => {
@@ -23,19 +18,15 @@ const Repl = () => {
 
   return (
     <App>
-      {/* @ts-expect-error */}
-      <SplitPane
-        split="vertical"
-        minSize={SideMinWidth}
-        // maxSize={SideMaxWidth}
-        defaultSize={SideInitWidth}>
-        <div className="overflow-hidden">
+      <Splitter>
+        <Splitter.Panel defaultSize={SideInitWidth}>
           <Editor compiler={compiler} formatter={formatter} linter={linter} />
-        </div>
-        <div>
+        </Splitter.Panel>
+
+        <Splitter.Panel>
           <Preview compiler={compiler} />
-        </div>
-      </SplitPane>
+        </Splitter.Panel>
+      </Splitter>
     </App>
   );
 };

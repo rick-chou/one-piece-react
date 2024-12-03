@@ -1,5 +1,5 @@
-import { defaultTabs } from '@/setup/defaultTabs';
-import { type Tab } from '@/types';
+import { defaultTabs } from '@rickzhou/react-repl/setup/defaultTabs';
+import { type Tab } from '@rickzhou/react-repl/types';
 import { useLocalStorageState } from 'ahooks';
 import { Uri, editor } from 'monaco-editor';
 
@@ -12,11 +12,7 @@ export const useTabs = () => {
     setTabs(_tabs);
   };
 
-  const updateTab = (
-    path: string,
-    action: 'add' | 'remove' | 'rename',
-    newPath?: string,
-  ) => {
+  const updateTab = (path: string, action: 'add' | 'remove' | 'rename', newPath?: string) => {
     const _tabs = [...(tabs || [])];
 
     switch (action) {

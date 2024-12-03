@@ -1,14 +1,8 @@
-import { liftOff } from '@/setup';
-import { type ReplProps } from '@/types';
+import { liftOff } from '@rickzhou/react-repl/setup';
+import { type ReplProps } from '@rickzhou/react-repl/types';
 import { useMount, useUnmount } from 'ahooks';
-import { throttle } from 'lodash';
-import {
-  KeyCode,
-  KeyMod,
-  Uri,
-  languages,
-  editor as mEditor,
-} from 'monaco-editor';
+import { throttle } from 'lodash-es';
+import { KeyCode, KeyMod, Uri, languages, editor as mEditor } from 'monaco-editor';
 import { useMemo, useRef } from 'react';
 
 type EditorCoreProps = {
@@ -30,14 +24,17 @@ type EditorCoreProps = {
 const EditorCore: React.FC<EditorCoreProps> = props => {
   const editorDomRef = useRef<HTMLDivElement>(null);
   const editor = useRef<mEditor.IStandaloneCodeEditor>();
-  const model = useMemo(
-    () => mEditor.getModel(Uri.parse(props.url)),
-    [props.url],
-  );
+  const model = useMemo(() => mEditor.getModel(Uri.parse(props.url)), [props.url]);
 
   useMount(async () => {
     editor.current = mEditor.create(editorDomRef.current!, {
       model: null,
+      scrollbar: {
+        horizontalScrollbarSize: 4,
+        horizontalSliderSize: 4,
+        verticalScrollbarSize: 4,
+        verticalSliderSize: 4,
+      },
       automaticLayout: true,
       readOnly: props.disabled,
       lineDecorationsWidth: 5,
@@ -47,8 +44,8 @@ const EditorCore: React.FC<EditorCoreProps> = props => {
       formatOnPaste: true,
       formatOnType: true,
       fontFamily: 'Fira Code',
-      fontWeight: '600',
-      fontSize: 16,
+      fontWeight: '500',
+      fontSize: 14,
       showDeprecated: true,
       showUnused: true,
       showFoldingControls: 'mouseover',
@@ -70,7 +67,6 @@ const EditorCore: React.FC<EditorCoreProps> = props => {
       runLinter(code);
     });
 
-    // eslint-disable-next-line no-bitwise
     editor.current.addCommand(KeyMod.CtrlCmd | KeyCode.KeyS, async () => {
       if (editor) {
         // auto-format

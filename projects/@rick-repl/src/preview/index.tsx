@@ -1,4 +1,4 @@
-import { type ReplProps } from '@/types';
+import { type ReplProps } from '@rickzhou/react-repl/types';
 import { useRef } from 'react';
 import iframe from './iframe.html?raw';
 

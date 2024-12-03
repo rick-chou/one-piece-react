@@ -28,6 +28,7 @@ export default defineConfig({
       },
     }),
     VitePWA({
+      // disable: true,
       injectRegister: 'auto',
       workbox: {
         maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
@@ -70,9 +71,11 @@ export default defineConfig({
       },
     }),
   ],
+  server: {},
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@root': path.resolve(__dirname, '../../'),
+      '@rickzhou/react-repl': path.resolve(__dirname, '../../projects/@rick-repl/src'),
     },
   },
 });

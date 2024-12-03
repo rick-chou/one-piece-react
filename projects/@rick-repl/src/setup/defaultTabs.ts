@@ -1,18 +1,17 @@
-import { type Tab } from '@/types';
-import { last } from 'lodash';
+import { type Tab } from '@rickzhou/react-repl/types';
+import { last } from 'lodash-es';
 
-const defaultContent = import.meta.glob('./default/*', {
+const defaultContent: Record<string, string> = import.meta.glob('./default/*', {
   eager: true,
-  as: 'raw',
+  query: 'raw',
+  import: 'default',
 });
 
-const defaultTabs: Tab[] = Object.entries(defaultContent).map(
-  ([path, content]) => {
-    return {
-      path: `file:///${last(path.split('/'))!}`,
-      content,
-    };
-  },
-);
+const defaultTabs: Tab[] = Object.entries(defaultContent).map(([path, content]) => {
+  return {
+    path: `file:///${last(path.split('/'))!}`,
+    content,
+  };
+});
 
 export { defaultTabs };

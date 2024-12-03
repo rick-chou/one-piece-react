@@ -3,21 +3,20 @@ import * as monaco from 'monaco-editor';
 import { Uri, editor, languages } from 'monaco-editor';
 import { useTabs } from './useTabs';
 
-import CompilerWorker from '@/worker/compiler.worker?worker';
-import FormatterWorker from '@/worker/formatter.worker?worker';
-import LinterWorker from '@/worker/linter.worker?worker';
+import CompilerWorker from '@rickzhou/react-repl/worker/compiler.worker?worker';
+import FormatterWorker from '@rickzhou/react-repl/worker/formatter.worker?worker';
+import LinterWorker from '@rickzhou/react-repl/worker/linter.worker?worker';
 
-import TailwindcssWorker from '@/worker/tailwindcss.worker?worker';
+import TailwindcssWorker from '@rickzhou/react-repl/worker/tailwindcss.worker?worker';
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
 import JsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
 import TsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
-import {
-  configureMonacoTailwindcss,
-  tailwindcssData,
-} from 'monaco-tailwindcss';
+import { configureMonacoTailwindcss, tailwindcssData } from 'monaco-tailwindcss';
+
+window.Monaco = monaco;
 
 monaco.languages.css.cssDefaults.setOptions({
   data: {
@@ -58,7 +57,6 @@ const compilerOptions: languages.typescript.CompilerOptions = {
   moduleResolution: languages.typescript.ModuleResolutionKind.NodeJs,
   jsx: languages.typescript.JsxEmit.Preserve,
   allowNonTsExtensions: true,
-  // jsxImportSource: '@emotion/react',
 };
 
 languages.typescript.typescriptDefaults.setCompilerOptions(compilerOptions);
@@ -77,11 +75,7 @@ export const useInit = () => {
     const _tabs = [...tabs];
     _tabs.forEach(i => {
       if (!editor.getModel(Uri.parse(i.path))) {
-        const model = editor.createModel(
-          i.content,
-          undefined,
-          Uri.parse(i.path),
-        );
+        const model = editor.createModel(i.content, undefined, Uri.parse(i.path));
 
         model.onDidChangeContent(() => {
           i.content = model.getValue();
@@ -100,28 +94,31 @@ export const useInit = () => {
      * @api languages.typescript.javascriptDefaults.addExtraLib
      * @api languages.typescript.javascriptDefaults.getExtraLibs
      */
-    const types = import.meta.glob(
-      [
-        // react
-        '/node_modules/{react,react-dom}/**/*.{d.ts,json}',
-        '/node_modules/@types/{react,react-dom}/**/*.{d.ts,json}',
 
-        // antd
-        '/node_modules/antd/**/*.{d.ts,json}',
-        '/node_modules/@ant-design/icons/**/*.{d.ts,json}',
+    /**
+     * 似乎升级 Vite 后 {react,react-dom} 写法好像失效了
+     * @link https://cn.vite.dev/guide/features#multiple-patterns
+     */
+    const types: Record<string, string> = import.meta.glob(
+      [
+        '../../../../node_modules/react/*.{d.ts,json}',
+        '../../../../node_modules/react/**/*.{d.ts,json}',
+        '../../../../node_modules/react-dom/*.{d.ts,json}',
+        '../../../../node_modules/react-dom/**/*.{d.ts,json}',
+        '../../../../node_modules/antd/*.{d.ts,json}',
+        '../../../../node_modules/antd/**/*.{d.ts,json}',
+        '../../../../node_modules/@types/react/*.{d.ts,json}',
+        '../../../../node_modules/@types/react/**/*.{d.ts,json}',
+        '../../../../node_modules/@types/react-dom/*.{d.ts,json}',
+        '../../../../node_modules/@types/react-dom/**/*.{d.ts,json}',
       ],
-      { eager: true, as: 'raw' },
+      { eager: true, query: 'raw', import: 'default' },
     );
 
     Object.keys(types).forEach(path => {
-      languages.typescript.typescriptDefaults.addExtraLib(
-        types[path],
-        `file://${path}`,
-      );
-      languages.typescript.javascriptDefaults.addExtraLib(
-        types[path],
-        `file://${path}`,
-      );
+      const __path__ = path.substring(11);
+      languages.typescript.typescriptDefaults.addExtraLib(types[path], `file://${__path__}`);
+      languages.typescript.javascriptDefaults.addExtraLib(types[path], `file://${__path__}`);
     });
   };
 
