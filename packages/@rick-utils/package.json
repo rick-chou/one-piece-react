@@ -1,0 +1,27 @@
+{
+  "name": "@rickzhou/react-utils",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {},
+  "author": "rick zhou <944268618@qq.com>",
+  "homepage": "https://github.com/rick-chou/one-piece-react#readme",
+  "description": "React Utils",
+  "keywords": [
+    "React",
+    "Utils"
+  ],
+  "contributors": [
+    "rick zhou <944268618@qq.com>"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "react-fast-compare": "^3.2.2"
+  }
+}
