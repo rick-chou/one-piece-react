@@ -32,7 +32,11 @@
 - [x] Angular2.0+ Developer 🤔
 - [x] React Developer 😅
 - [x] Learn Java 😎
-- [ ] Get married 🥰
+- [x] Get married 🥰
+
+### 2024
+
+- [x] The little one has arrived ! 🍼🐣
 
 ![bg](https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/jpg/43.jpg)
 
