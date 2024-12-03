@@ -1,6 +1,6 @@
-import { Context } from '@/store';
-import { ActionType, type Tab } from '@/types';
-import { last } from 'lodash';
+import { Context } from '@rickzhou/react-editor/store';
+import { ActionType, type Tab } from '@rickzhou/react-editor/types';
+import { last } from 'lodash-es';
 import { useCallback, useContext, useMemo } from 'react';
 
 export const useTabs = () => {
@@ -65,15 +65,8 @@ export const useTabs = () => {
   };
 
   return {
-    updateTabs: useCallback(updateTabs, [
-      state.tabs,
-      state.tabsHistoryStack,
-      dispatch,
-    ]),
+    updateTabs: useCallback(updateTabs, [state.tabs, state.tabsHistoryStack, dispatch]),
     tabs: useMemo(() => state.tabs, [state.tabs]),
-    tabsHistoryStack: useMemo(
-      () => state.tabsHistoryStack,
-      [state.tabsHistoryStack],
-    ),
+    tabsHistoryStack: useMemo(() => state.tabsHistoryStack, [state.tabsHistoryStack]),
   };
 };

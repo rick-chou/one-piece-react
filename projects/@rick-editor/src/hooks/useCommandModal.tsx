@@ -1,5 +1,5 @@
-import { Context } from '@/store';
-import { ActionType } from '@/types';
+import { Context } from '@rickzhou/react-editor/store';
+import { ActionType } from '@rickzhou/react-editor/types';
 import { useCallback, useContext } from 'react';
 
 export const useCommandModal = () => {

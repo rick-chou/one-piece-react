@@ -1,7 +1,7 @@
-import { Context } from '@/store';
-import { useWelcomeStyle } from '@/styles';
-import { ActionType } from '@/types';
 import { CodeSandboxOutlined } from '@ant-design/icons';
+import { Context } from '@rickzhou/react-editor/store';
+import { useWelcomeStyle } from '@rickzhou/react-editor/styles';
+import { ActionType } from '@rickzhou/react-editor/types';
 import { parseFiles } from '@rickzhou/react-utils';
 import { Button } from 'antd';
 import { useContext } from 'react';
@@ -13,13 +13,9 @@ const Welcome = () => {
 
   const mockFile = () => {
     const { fileSet, fileTree } = parseFiles([
-      new File(
-        [JSON.stringify(packageJson, null, 2)],
-        `${packageJson.name}.json`,
-        {
-          type: 'text/plain',
-        },
-      ),
+      new File([JSON.stringify(packageJson, null, 2)], `${packageJson.name}.json`, {
+        type: 'text/plain',
+      }),
     ]);
     dispatch({ type: ActionType.RESET_CTX, payload: {} });
     dispatch({ type: ActionType.UPDATE_FILE_SET, payload: { fileSet } });

@@ -1,17 +1,6 @@
-import {
-  ActionType,
-  initState,
-  type ActionTypes,
-  type StateTypes,
-} from '@/types';
-import { sortFiles } from '@rickzhou/react-utils/file';
-import {
-  createContext,
-  useEffect,
-  useReducer,
-  type Dispatch,
-  type PropsWithChildren,
-} from 'react';
+import { ActionType, initState, type ActionTypes, type StateTypes } from '@rickzhou/react-editor/types';
+import { sortFiles } from '@rickzhou/react-utils';
+import { createContext, useEffect, useReducer, type Dispatch, type PropsWithChildren } from 'react';
 
 type ContextTypes = {
   state: StateTypes;
@@ -63,9 +52,7 @@ const ContextWrapper: React.FC<PropsWithChildren> = ({ children }) => {
     window.ctx = state;
   }, [state]);
 
-  return (
-    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
-  );
+  return <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>;
 };
 
 export default ContextWrapper;

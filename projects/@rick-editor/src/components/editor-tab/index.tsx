@@ -1,9 +1,5 @@
-import { useTabs } from '@/hooks/useTabs';
-import {
-  EditorTabCloseIconStyle,
-  useEditorTabStyle,
-  useEditorTabWrapperStyle,
-} from '@/styles';
+import { useTabs } from '@rickzhou/react-editor/hooks/useTabs';
+import { EditorTabCloseIconStyle, useEditorTabStyle, useEditorTabWrapperStyle } from '@rickzhou/react-editor/styles';
 import { CloseOutlined } from '@ant-design/icons';
 
 const Tab = () => {

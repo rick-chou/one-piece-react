@@ -1,10 +1,10 @@
-import { getFileIcon } from '@/config/icon-theme';
-import { useTabs } from '@/hooks/useTabs';
-import { useSiderTheme } from '@/styles';
 import { Global } from '@emotion/react';
+import { getFileIcon } from '@rickzhou/react-editor/config/icon-theme';
+import { useTabs } from '@rickzhou/react-editor/hooks/useTabs';
+import { useSiderTheme } from '@rickzhou/react-editor/styles';
 import { Tree } from 'antd';
 import type { DataNode, TreeProps } from 'antd/es/tree';
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash-es';
 import { type TreeNodeProps } from 'rc-tree';
 import React, { useContext, useState } from 'react';
 import { Context } from '../../store';
@@ -22,8 +22,7 @@ const FileTree: React.FC<FileTreeProps> = () => {
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
-    const dropPosition =
-      info.dropPosition - Number(dropPos[dropPos.length - 1]);
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
     const loop = (
       data: DataNode[],

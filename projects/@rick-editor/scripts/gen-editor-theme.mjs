@@ -1,16 +1,13 @@
-import { prettier as prettierConfig } from '@rickzhou/react-fabric';
 import fs from 'fs/promises';
-import _ from 'lodash';
+import _ from 'lodash-es';
 import path from 'path';
 import prettier from 'prettier';
 import { fileURLToPath } from 'url';
+import { default as prettierConfig } from '../../../.prettierrc.js';
 
 const __filename = fileURLToPath(import.meta.url);
 
-const targetPath = path.resolve(
-  __filename,
-  '../../src/assets/editor-themes/index.ts',
-);
+const targetPath = path.resolve(__filename, '../../src/assets/editor-themes/index.ts');
 
 const themeDirPath = path.resolve(__filename, '../../src/assets/editor-themes');
 
@@ -26,14 +23,11 @@ content += `
 /* eslint-disable prettier/prettier */
 `;
 
-const genFileName = fileName =>
-  _.upperFirst(_.camelCase(path.basename(fileName, '.json')));
+const genFileName = fileName => _.upperFirst(_.camelCase(path.basename(fileName, '.json')));
 
 // Gen theme file path
 dir.forEach(async fileName => {
-  const importPath = `export const ${genFileName(
-    fileName,
-  )} = (await import('./${fileName}')).default;\n`;
+  const importPath = `export const ${genFileName(fileName)} = (await import('./${fileName}')).default;\n`;
   content += importPath;
 });
 
