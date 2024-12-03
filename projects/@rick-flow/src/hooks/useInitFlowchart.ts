@@ -1,5 +1,5 @@
-import { persistKey } from '@/store';
-import { isEmpty } from 'lodash';
+import { persistKey } from '@rickzhou/react-flow/store';
+import { isEmpty } from 'lodash-es';
 import { KEY_PREFIX } from 'redux-persist';
 import { useFlowchart } from './useFlowchart';
 import { useMock } from './useMock';

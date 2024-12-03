@@ -1,33 +1,23 @@
-import { edgeTypes, nodeTypes, presetNode } from '@/config';
-import { useAction } from '@/hooks/useAction';
-import { useFlowState } from '@/hooks/useFlowState';
-import { useFlowchart } from '@/hooks/useFlowchart';
-import { useMock } from '@/hooks/useMock';
-import { useModalOpen } from '@/hooks/useModalOpen';
-import { useNavigate } from '@/hooks/useNavigate';
-import type { FlowChartType, NodeDataType } from '@/interface';
-import { Action, NodeType } from '@/interface';
-import { OpenTypeConfig } from '@/store/slice/modalOpenSlice';
+import { edgeTypes, nodeTypes, presetNode } from '@rickzhou/react-flow/config';
+import { useAction } from '@rickzhou/react-flow/hooks/useAction';
+import { useFlowState } from '@rickzhou/react-flow/hooks/useFlowState';
+import { useFlowchart } from '@rickzhou/react-flow/hooks/useFlowchart';
+import { useMock } from '@rickzhou/react-flow/hooks/useMock';
+import { useModalOpen } from '@rickzhou/react-flow/hooks/useModalOpen';
+import { useNavigate } from '@rickzhou/react-flow/hooks/useNavigate';
+import type { FlowChartType, NodeDataType } from '@rickzhou/react-flow/interface';
+import { Action, NodeType } from '@rickzhou/react-flow/interface';
+import { OpenTypeConfig } from '@rickzhou/react-flow/store/slice/modalOpenSlice';
 import {
+  FlowContainer,
   FlowContainerClassname,
   FlowNodeClassname,
   FlowNodeDragoverClassname,
-  flowContainer,
-} from '@/styles';
-import { isTree, transformData, transformDataFromChart } from '@/utils';
-import { css } from '@emotion/react';
+} from '@rickzhou/react-flow/styles';
+import { isTree, transformData, transformDataFromChart } from '@rickzhou/react-flow/utils';
 import { Empty } from '@rickzhou/react-ui';
-import {
-  Button,
-  Drawer,
-  Form,
-  Input,
-  Modal,
-  Radio,
-  Space,
-  message,
-} from 'antd';
-import { isEmpty } from 'lodash';
+import { Button, Drawer, Form, Input, Modal, Radio, Space, message } from 'antd';
+import { isEmpty } from 'lodash-es';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import type { Edge, ReactFlowInstance } from 'reactflow';
@@ -55,23 +45,13 @@ const FlowEdit = () => {
   const { action } = useAction();
   const [selectedId, setSelectedId] = useState(editNode?.data.chartId);
   const { mockLoadingFn, loading } = useMock();
-  const {
-    nodes,
-    edges,
-    setNodes,
-    setEdges,
-    onNodesChange,
-    onEdgesChange,
-    addNode,
-  } = useFlowState({
+  const { nodes, edges, setNodes, setEdges, onNodesChange, onEdgesChange, addNode } = useFlowState({
     id: id!,
     instance: instance!,
     editable: true,
     delay: 1000,
   });
-  const { open, onShow, onHidden } = useModalOpen(
-    OpenTypeConfig.FlowChartSelectOpen,
-  );
+  const { open, onShow, onHidden } = useModalOpen(OpenTypeConfig.FlowChartSelectOpen);
 
   useEffect(() => {
     if (action === Action.edit || action === Action.copy) {
@@ -86,10 +66,7 @@ const FlowEdit = () => {
       return message.warning('Please connect all nodes');
     }
 
-    const nodes = transformDataFromChart(
-      instance!.getNodes(),
-      instance!.getEdges(),
-    );
+    const nodes = transformDataFromChart(instance!.getNodes(), instance!.getEdges());
 
     const id = addChart({
       ...params,
@@ -156,10 +133,7 @@ const FlowEdit = () => {
       if (nodeId ?? isEmpty(nodes)) {
         const type = event.dataTransfer.getData('application/reactflow');
         if (presetNode.some(i => i.type === type)) {
-          if (
-            isEmpty(nodes) ||
-            isTree(instance!.getNodes(), instance!.getEdges())
-          ) {
+          if (isEmpty(nodes) || isTree(instance!.getNodes(), instance!.getEdges())) {
             addNode(Number(nodeId), type as NodeType);
           } else {
             await message.warning('Please connect all nodes');
@@ -187,15 +161,10 @@ const FlowEdit = () => {
   };
 
   return (
-    <Empty.WithEmpty
-      data={!isEmpty(nodes) || action === Action.add}
-      emptyProps={{ loading, height: '100vh' }}>
+    <Empty.WithEmpty data={!isEmpty(nodes) || action === Action.add} emptyProps={{ loading, height: '100vh' }}>
       <div className="flex overflow-hidden">
         <ReactFlowProvider>
-          <div
-            css={css`
-              ${flowContainer('100vh')}
-            `}>
+          <FlowContainer $height={'100vh'}>
             <ReactFlow
               nodeTypes={nodeTypes}
               edgeTypes={edgeTypes}
@@ -225,7 +194,7 @@ const FlowEdit = () => {
               <Controls showInteractive={false} />
               <Background color="#aaa" gap={16} />
             </ReactFlow>
-          </div>
+          </FlowContainer>
 
           <Sidebar editable={editable} onSave={onSave} />
         </ReactFlowProvider>
@@ -254,10 +223,7 @@ const FlowEdit = () => {
                   <Space direction="vertical">
                     {presetNode.map(i => {
                       return (
-                        <Radio
-                          value={i.type}
-                          key={i.type}
-                          className="capitalize">
+                        <Radio value={i.type} key={i.type} className="capitalize">
                           {i.type}
                         </Radio>
                       );

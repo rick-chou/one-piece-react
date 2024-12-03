@@ -1,4 +1,4 @@
-import { NodeType, type FlowChartType } from '@/interface';
+import { NodeType, type FlowChartType } from '@rickzhou/react-flow/interface';
 
 export const flowchartsMock: FlowChartType[] = [
   {

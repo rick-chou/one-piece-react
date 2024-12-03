@@ -5,8 +5,7 @@ export type LinkTextProps = {
   text: string;
 };
 
-const isUrlReg =
-  /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
+const isUrlReg = /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
 
 const urlPipe = (text: string) => {
   return text.replace(
@@ -23,10 +22,10 @@ const LinkText: FC<LinkTextProps> = ({ text }) => {
     <span
       dangerouslySetInnerHTML={{
         __html: DOMPurify.sanitize(_text, {
-          // eslint-disable-next-line @typescript-eslint/naming-convention
           ALLOWED_ATTR: ['target', 'href', 'class', 'rel'],
         }),
-      }}></span>
+      }}
+    />
   );
 };
 

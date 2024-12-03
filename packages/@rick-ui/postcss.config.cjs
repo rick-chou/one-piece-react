@@ -1,1 +1,6 @@
-module.exports = require('@rickzhou/react-css').postcss;
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};

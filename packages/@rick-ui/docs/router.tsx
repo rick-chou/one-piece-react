@@ -1,5 +1,5 @@
-import { materials } from '@/components/materials';
 import { MDXProvider } from '@mdx-js/react';
+import { materials } from '@rickzhou/react-ui/components/materials';
 import { createBrowserRouter, type RouteObject } from 'react-router-dom';
 import Home from './home';
 
@@ -11,9 +11,7 @@ export const routes: RouteObject[] = [
       return {
         path: material,
         async lazy() {
-          const { default: Docs } = await import(
-            `../components/${material}/demo/index.mdx`
-          );
+          const { default: Docs } = await import(`../components/${material}/demo/index.mdx`);
           return {
             Component: () => (
               <div className="prose prose-slate max-w-none">

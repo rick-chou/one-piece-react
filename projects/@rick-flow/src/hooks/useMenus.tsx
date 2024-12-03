@@ -1,14 +1,11 @@
-import { Action } from '@/interface';
-import { sleep } from '@/utils/sleep';
+import { Action } from '@rickzhou/react-flow/interface';
+import { sleep } from '@rickzhou/react-flow/utils/sleep';
 import type { MenuProps } from 'antd';
 import { Modal, message } from 'antd';
 import { useNavigate } from './useNavigate';
 import { usePreview } from './usePreview';
 
-export const useMenus = (
-  id: string,
-  onDelete: (id: string) => void,
-): MenuProps['items'] => {
+export const useMenus = (id: string, onDelete: (id: string) => void): MenuProps['items'] => {
   const navigate = useNavigate();
   const { showFlowModal } = usePreview();
   return [
@@ -30,9 +27,7 @@ export const useMenus = (
       label: (
         <div
           onClick={() => {
-            navigate(
-              `${import.meta.env.BASE_URL}edit/${id}?action=${Action.copy}`,
-            );
+            navigate(`${import.meta.env.BASE_URL}edit/${id}?action=${Action.copy}`);
           }}>
           Copy
         </div>
@@ -46,9 +41,7 @@ export const useMenus = (
       label: (
         <div
           onClick={() => {
-            navigate(
-              `${import.meta.env.BASE_URL}edit/${id}?action=${Action.edit}`,
-            );
+            navigate(`${import.meta.env.BASE_URL}edit/${id}?action=${Action.edit}`);
           }}>
           Edit
         </div>

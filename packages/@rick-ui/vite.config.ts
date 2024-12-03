@@ -11,9 +11,13 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
-    mdx({
+    react({
       jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      },
+    }),
+    mdx({
       providerImportSource: '@mdx-js/react',
       remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
       rehypePlugins: [rehypeHighlight, rehypeMdxCodeProps],
@@ -21,7 +25,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './'),
+      '@root': path.resolve(__dirname, '../../'),
+      '@rickzhou/react-ui': path.resolve(__dirname, '../../packages/@rick-ui'),
     },
   },
 });

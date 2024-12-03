@@ -1,9 +1,9 @@
-import { useFlowchart } from '@/hooks/useFlowchart';
-import { useMenus } from '@/hooks/useMenus';
-import { useMock } from '@/hooks/useMock';
-import { useNavigate } from '@/hooks/useNavigate';
-import { Action } from '@/interface';
-import { HomePreviewHeight } from '@/styles';
+import { useFlowchart } from '@rickzhou/react-flow/hooks/useFlowchart';
+import { useMenus } from '@rickzhou/react-flow/hooks/useMenus';
+import { useMock } from '@rickzhou/react-flow/hooks/useMock';
+import { useNavigate } from '@rickzhou/react-flow/hooks/useNavigate';
+import { Action } from '@rickzhou/react-flow/interface';
+import { HomePreviewHeight } from '@rickzhou/react-flow/styles';
 import {
   CheckCircleTwoTone,
   ExportOutlined,

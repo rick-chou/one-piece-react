@@ -4,7 +4,7 @@ import type { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
 import deepmerge from 'deepmerge';
 import * as echarts from 'echarts';
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash-es';
 import { useMemo, useRef, type ReactElement } from 'react';
 import { format_time_status_chart_tooltip } from '../_util/chart';
 import {

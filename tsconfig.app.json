@@ -29,10 +29,6 @@
     "paths": {
       "@root/*": ["./*"],
 
-      // Packages
-      "@rickzhou/react-ui": ["./packages/@rick-ui"],
-      "@rickzhou/react-test": ["./packages/@react-test"],
-
       // Projects
       "@rickzhou/react-repl/*": ["./projects/@rick-repl/src/*"],
       "@rickzhou/react-flow/*": ["./projects/@rick-flow/src/*"],

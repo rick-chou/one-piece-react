@@ -37,41 +37,19 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "ahooks": "^3.7.8",
-    "antd": "^5.12.1",
-    "await-to-js": "^3.0.0",
-    "dayjs": "^1.11.10",
     "deepmerge": "^4.3.1",
     "dompurify": "^3.0.6",
-    "echarts": "^5.4.3",
-    "echarts-for-react": "^3.0.2",
-    "lodash": "^4.17.21"
+    "echarts-for-react": "^3.0.2"
   },
   "devDependencies": {
     "@mdx-js/react": "^3.0.0",
     "@mdx-js/rollup": "^3.0.0",
-    "@rickzhou/react-test": "^2.0.0",
-    "@types/dompurify": "^3.0.5",
-    "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.3",
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react": "^4.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.20.1",
     "rehype-highlight": "^7.0.0",
     "rehype-mdx-code-props": "^2.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
-    "remark-mdx-frontmatter": "^4.0.0",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.5"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "remark-mdx-frontmatter": "^4.0.0"
   },
   "gitHead": "d7c45bf1ca9923b5bf4cda6d10edda4589a65146"
 }

@@ -1,14 +1,9 @@
-import { materials } from '@/components/materials';
+import { materials } from '@rickzhou/react-ui/components/materials';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, Spin } from 'antd';
-import startCase from 'lodash/startCase';
+import startCase from 'lodash-es/startCase';
 import React from 'react';
-import {
-  Outlet,
-  useLocation,
-  useNavigate,
-  useNavigation,
-} from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 
 const { Content, Sider, Header } = Layout;
 

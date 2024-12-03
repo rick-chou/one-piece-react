@@ -1,5 +1,5 @@
 import type { ECharts, EChartsOption, LineSeriesOption } from 'echarts';
-import { first, isArray, isEmpty, isEqual, uniqWith } from 'lodash';
+import { first, isArray, isEmpty, isEqual, uniqWith } from 'lodash-es';
 import { useCallback, useRef } from 'react';
 import { BASE_LINE_OPTION, CHART_HEIGHT } from '../_util/config';
 import { timestampToDateString } from '../_util/date';

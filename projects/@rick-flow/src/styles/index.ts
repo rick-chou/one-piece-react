@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import styled from 'styled-components';
 
 /**
  * reactflow css
@@ -19,49 +19,45 @@ export const HomePreviewHeight = '35vh';
 /**
  * UI
  */
-export const nodeStyle = css({
-  width: NodeWidth,
-  minHeight: NodeHeight,
-  border: '1px #d9d9d9 solid',
-  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.02)',
-  borderRadius: '6px',
-  color: '#000',
-  boxSizing: 'border-box',
-  textAlign: 'center',
-});
+export const NodeStyle = styled.div`
+  width: ${NodeWidth};
+  min-height: ${NodeHeight};
+  border: 1px #d9d9d9 solid;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  color: #000;
+  box-sizing: border-box;
+  text-align: center;
+`;
 
-export const siderbarNodeWrapperStyle = (editable: boolean) => css`
+export const SiderbarNodeWrapperStyle = styled.div<{ $editable: boolean }>`
   user-select: none;
-  cursor: ${editable ? 'grab' : 'not-allowed'};
+  cursor: ${props => (props.$editable ? 'grab' : 'not-allowed')};
   margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   transform: translate(0, 0);
 `;
 
-export const siderbarNodeStyle = css({
-  width: 250,
-  minHeight: NodeHeight / 2,
-  border: '1px #d9d9d9 solid',
-  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.02)',
-  borderRadius: '6px',
-  color: '#000',
-  boxSizing: 'border-box',
-  textAlign: 'center',
-  textTransform: 'capitalize',
-});
+export const SiderbarNodeStyle = styled.div`
+  width: 250;
+  min-height: ${NodeHeight / 2};
+  border: 1px #d9d9d9 solid;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  color: #000;
+  box-sizing: border-box;
+  text-align: center;
+  text-transform: capitalize;
+`;
 
-export const flowContainer = (height: string | number) => css`
+export const FlowContainer = styled.div<{ $height: string | number }>`
   width: 100%;
   position: relative;
-  height: ${height};
+  height: ${props => props.$height};
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
   background: #fff;
 `;
-
-export const minimapStyle = css({
-  height: MinimapHeight,
-});

@@ -1,23 +1,22 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable guard-for-in */
 import { TagsFilled } from '@ant-design/icons';
 import { useMount } from 'ahooks';
 import { Card, Divider, Space } from 'antd';
 import { type CardProps } from 'antd/es/card';
-import { keys, pick } from 'lodash';
+import { keys, pick } from 'lodash-es';
 import { useState, type FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import Code from './code';
 
-const codes = import.meta.glob([
-  '../components/*/demo/*.tsx',
-  '!../components/*/demo/index.tsx',
-]) as Record<string, () => Promise<{ App: FC }>>;
+const codes = import.meta.glob(['../components/*/demo/*.tsx', '!../components/*/demo/index.tsx']) as Record<
+  string,
+  () => Promise<{ App: FC }>
+>;
 
-const codesRaw = import.meta.glob(
-  ['../components/*/demo/*.tsx', '!../components/*/demo/index.tsx'],
-  { as: 'raw', eager: true },
-);
+const codesRaw = import.meta.glob(['../components/*/demo/*.tsx', '!../components/*/demo/index.tsx'], {
+  query: 'raw',
+  eager: true,
+  import: 'default',
+});
 
 type CodeProps = CardProps & {
   col?: number;
@@ -56,9 +55,7 @@ const Example: FC<CodeProps> = ({ children, col = 1, ...props }) => {
   });
 
   return (
-    <div
-      className="grid gap-8"
-      style={{ gridTemplateColumns: `repeat(${col}, minmax(0, 1fr))` }}>
+    <div className="grid gap-8" style={{ gridTemplateColumns: `repeat(${col}, minmax(0, 1fr))` }}>
       {modules.map((Md, idx) => (
         <div key={idx} className="h-fit">
           <Md />

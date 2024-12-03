@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash-es';
 import Show from '../show';
 import Empty, { type EmptyProps } from './Empty';
 

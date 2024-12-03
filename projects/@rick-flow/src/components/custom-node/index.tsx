@@ -1,25 +1,22 @@
-import { ReadEditorOption, presetNode } from '@/config';
-import { usePreview } from '@/hooks/usePreview';
-import type { NodeDataType, NodeDataTypeWrapper } from '@/interface';
-import { NodeType } from '@/interface';
-import { FlowNodeClassname, NodeWidth, nodeStyle } from '@/styles';
 import { MinusCircleTwoTone, PlusCircleTwoTone } from '@ant-design/icons';
 import Editor from '@monaco-editor/react';
+import { ReadEditorOption, presetNode } from '@rickzhou/react-flow/config';
+import { usePreview } from '@rickzhou/react-flow/hooks/usePreview';
+import type { NodeDataType, NodeDataTypeWrapper } from '@rickzhou/react-flow/interface';
+import { NodeType } from '@rickzhou/react-flow/interface';
+import { FlowNodeClassname, NodeStyle, NodeWidth } from '@rickzhou/react-flow/styles';
 import { Alert, Badge, Dropdown, Modal } from 'antd';
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash-es';
 import { memo } from 'react';
 import 'react-medium-image-zoom/dist/styles.css';
 import type { NodeProps } from 'reactflow';
 import { Handle, Position } from 'reactflow';
 
-const getExecutionNode = (data: NodeDataTypeWrapper) =>
-  data.executionNodes.find(i => i.id === data.id);
+const getExecutionNode = (data: NodeDataTypeWrapper) => data.executionNodes.find(i => i.id === data.id);
 
-const hasPrefix = (data: NodeDataTypeWrapper) =>
-  presetNode.some(i => i.type === data.nodeType && i.icon);
+const hasPrefix = (data: NodeDataTypeWrapper) => presetNode.some(i => i.type === data.nodeType && i.icon);
 
-const showCollapse = (data: NodeDataTypeWrapper) =>
-  !data.editable && !isEmpty(data.children);
+const showCollapse = (data: NodeDataTypeWrapper) => !data.editable && !isEmpty(data.children);
 
 const Prefix: React.FC<{ data: NodeDataType }> = ({ data }) => {
   return presetNode.find(i => i.type === data.nodeType)?.icon;
@@ -40,14 +37,7 @@ const Elements: React.FC<{
         centered: true,
         width: '70%',
         title: null,
-        content: (
-          <Editor
-            options={ReadEditorOption}
-            value={''}
-            height="50vh"
-            width="100%"
-          />
-        ),
+        content: <Editor options={ReadEditorOption} value={''} height="50vh" width="100%" />,
         footer: null,
         maskClosable: true,
         style: { padding: 0 },
@@ -64,24 +54,21 @@ const Elements: React.FC<{
 
   return (
     <div>
-      <Alert
-        type={
-          !isEmpty(node) || (!isEmpty(data.executionNodes) && data.root)
-            ? 'success'
-            : 'info'
-        }
-        className={FlowNodeClassname}
-        data-node-id={`${data.id}`}
-        css={nodeStyle}
-        description={data.label}
-        message={node?.logTime}
-        style={style}
-        onClick={() => {
-          if (!data.editable) {
-            onClick(data);
-          }
-        }}
-      />
+      <NodeStyle>
+        <Alert
+          type={!isEmpty(node) || (!isEmpty(data.executionNodes) && data.root) ? 'success' : 'info'}
+          className={FlowNodeClassname}
+          data-node-id={`${data.id}`}
+          description={data.label}
+          message={node?.logTime}
+          style={style}
+          onClick={() => {
+            if (!data.editable) {
+              onClick(data);
+            }
+          }}
+        />
+      </NodeStyle>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
     </div>
@@ -97,11 +84,7 @@ const WithCollapse: React.FC<{
       data.onCollapse(data);
     };
 
-    const Icon = data.collapsed ? (
-      <MinusCircleTwoTone onClick={onClick} />
-    ) : (
-      <PlusCircleTwoTone onClick={onClick} />
-    );
+    const Icon = data.collapsed ? <MinusCircleTwoTone onClick={onClick} /> : <PlusCircleTwoTone onClick={onClick} />;
     return (
       <Badge count={Icon}>
         <Elements data={data} style={style} />

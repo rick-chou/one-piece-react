@@ -1,4 +1,4 @@
-import { default as prettierConfig } from '@root/.prettierrc.js';
+import { default as prettierConfig } from '@root/prettier.config.js';
 import { type Options, type ParserOptions } from 'prettier';
 import parseHtmlPlugin from 'prettier/parser-html';
 import parseMdPlugin from 'prettier/parser-markdown';

@@ -1,4 +1,4 @@
-import { type DataType } from '@/components/time-status-chart/interface';
+import { type DataType } from '@rickzhou/react-ui/components/time-status-chart/interface';
 
 export const timeStatusChartData: DataType[] = [
   {

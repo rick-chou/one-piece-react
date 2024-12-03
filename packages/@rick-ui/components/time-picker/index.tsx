@@ -3,7 +3,7 @@ import { Button, DatePicker, Tag } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import { first, last } from 'lodash';
+import { first, last } from 'lodash-es';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { timestampToDateString } from '../_util/date';
 import Show from '../show';

@@ -1,4 +1,4 @@
-import DisplayCard from '@/docs/card';
+import DisplayCard from '@rickzhou/react-ui/docs/card';
 import Cpn from '..';
 
 export const Demo = () => {

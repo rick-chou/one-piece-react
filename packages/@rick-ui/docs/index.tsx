@@ -1,4 +1,4 @@
-import '@/docs/index.scss';
+import '@rickzhou/react-ui/docs/index.scss';
 import { App, ConfigProvider } from 'antd';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';

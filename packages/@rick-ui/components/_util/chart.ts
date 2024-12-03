@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { isArray } from 'lodash';
+import { isArray } from 'lodash-es';
 import { timestampToDateString } from './date';
 
 export const renderItem = (

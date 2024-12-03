@@ -1,13 +1,8 @@
-import CustomEdge from '@/components/custom-edge';
-import CustomNode from '@/components/custom-node';
-import FailBtnEdge from '@/components/fail-btn-edge';
-import { NodeType } from '@/interface';
-import {
-  AlertOutlined,
-  BranchesOutlined,
-  FileTextOutlined,
-  PictureOutlined,
-} from '@ant-design/icons';
+import { AlertOutlined, BranchesOutlined, FileTextOutlined, PictureOutlined } from '@ant-design/icons';
+import CustomEdge from '@rickzhou/react-flow/components/custom-edge';
+import CustomNode from '@rickzhou/react-flow/components/custom-node';
+import FailBtnEdge from '@rickzhou/react-flow/components/fail-btn-edge';
+import { NodeType } from '@rickzhou/react-flow/interface';
 import { type editor } from 'monaco-editor';
 import type { EdgeTypes, NodeTypes } from 'reactflow';
 

@@ -1,8 +1,8 @@
-import { type Execution } from '@/interface';
-import { isPwaMode } from '@/utils/isPwaMode';
-import { ContextModal } from '@/views';
-import Flow from '@/views/flow';
 import { FullscreenOutlined } from '@ant-design/icons';
+import { type Execution } from '@rickzhou/react-flow/interface';
+import { isPwaMode } from '@rickzhou/react-flow/utils/isPwaMode';
+import { ContextModal } from '@rickzhou/react-flow/views';
+import Flow from '@rickzhou/react-flow/views/flow';
 import { useContext } from 'react';
 import { useFlowchart } from './useFlowchart';
 import { useNavigate } from './useNavigate';

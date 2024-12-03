@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 
-import { persistor, store } from '@/store';
+import { persistor, store } from '@rickzhou/react-flow/store';
 import { ConfigProvider } from 'antd';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
