@@ -1,7 +1,7 @@
-import { CtxMenu, RickHotKey } from '@/config/hotkey';
+import { CtxMenu, RickHotKey } from '@rickzhou/react-editor/config/hotkey';
 import { useCallback } from 'react';
 
-import { useCommandModal } from '@/hooks/useCommandModal';
+import { useCommandModal } from '@rickzhou/react-editor/hooks/useCommandModal';
 import { Menu, useContextMenu } from 'react-contexify';
 
 export const EditorCtxMenu = 'editor_context_menu';
@@ -22,11 +22,7 @@ const EditorContextMenu = () => {
     <div>
       <Menu id={EditorCtxMenu} theme="dark">
         <CtxMenu hotkey={RickHotKey.format} title="Format" onClick={() => {}} />
-        <CtxMenu
-          hotkey={RickHotKey.cmd}
-          title="Command Palette..."
-          onClick={toggleCommandModal}
-        />
+        <CtxMenu hotkey={RickHotKey.cmd} title="Command Palette..." onClick={toggleCommandModal} />
       </Menu>
     </div>
   );

@@ -1,6 +1,6 @@
-import { lazy } from 'react';
+import Repl from '@rickzhou/react-repl/Repl';
 import ReactDOM from 'react-dom/client';
 
-const Repl = lazy(async () => import('@/Repl'));
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<Repl />);

@@ -9,44 +9,18 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@babel/standalone": "^7.22.17",
-    "@dnd-kit/core": "^6.0.8",
-    "@dnd-kit/sortable": "^7.0.2",
-    "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.1",
-    "@typescript-eslint/parser": "^6.6.0",
-    "ahooks": "^3.7.8",
-    "antd": "^5.9.0",
-    "eslint": "^8.49.0",
-    "eslint-plugin-react": "^7.33.2",
-    "lodash": "^4.17.21",
-    "memoize-one": "^6.0.0",
+    "@babel/standalone": "^7.26.2",
+    "@dnd-kit/core": "^6.2.0",
+    "@dnd-kit/sortable": "^9.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "monaco-editor": "^0.40.0",
     "monaco-editor-textmate": "^4.0.0",
-    "monaco-tailwindcss": "^0.6.0",
+    "monaco-tailwindcss": "^0.6.1",
     "monaco-textmate": "^3.0.1",
-    "onigasm": "^2.2.5",
-    "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-split-pane": "^0.1.92"
+    "onigasm": "^2.2.5"
   },
   "devDependencies": {
-    "@types/babel__standalone": "^7.1.4",
-    "@types/color": "^3.0.4",
-    "@types/eslint": "^8.44.2",
-    "@types/lodash": "^4.14.198",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.4",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9",
-    "vite-plugin-pwa": "^0.16.5"
-  },
-  "overrides": {
-    "react-split-pane": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    }
+    "@types/babel__standalone": "^7.1.9",
+    "@types/eslint": "^9.6.1"
   }
 }

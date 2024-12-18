@@ -1,6 +1,6 @@
-import { type FlowChartType } from '@/interface';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { type FlowChartType } from '@rickzhou/react-flow/interface';
 import { produce } from 'immer';
 
 const initialState: Record<string, FlowChartType> = {};

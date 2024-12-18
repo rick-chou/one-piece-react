@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 export enum FileType {
   'File',
   'JS',

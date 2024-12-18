@@ -17,6 +17,7 @@ export default defineConfig(({ mode, command }) => {
         },
       }),
       VitePWA({
+        disable: true,
         injectRegister: 'auto',
         workbox: {
           maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
@@ -61,7 +62,8 @@ export default defineConfig(({ mode, command }) => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@root': path.resolve(__dirname, '../../'),
+        '@rickzhou/react-flow': path.resolve(__dirname, '../../projects/@rick-flow/src'),
       },
     },
   };

@@ -1,8 +1,8 @@
-import { CtxMenu, RickHotKey } from '@/config/hotkey';
-import { parseDir, parseFiles, parseZip } from '@rickzhou/react-utils/file';
+import { CtxMenu, RickHotKey } from '@rickzhou/react-editor/config/hotkey';
+import { parseDir, parseFiles, parseZip } from '@rickzhou/react-utils';
 import { useCallback, useContext } from 'react';
 
-import { ActionType, type StateTypes } from '@/types';
+import { ActionType, type StateTypes } from '@rickzhou/react-editor/types';
 import { Menu, useContextMenu } from 'react-contexify';
 import { Context } from '../../store';
 
@@ -40,7 +40,6 @@ const SiderContextMenu = () => {
         {
           description: 'zip',
           accept: {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
             'application/zip': ['.zip'],
           },
         },
@@ -50,10 +49,7 @@ const SiderContextMenu = () => {
     updateCtx(fileSet, fileTree);
   };
 
-  const updateCtx = (
-    fileSet: StateTypes['fileSet'],
-    fileTree: StateTypes['fileTree'],
-  ) => {
+  const updateCtx = (fileSet: StateTypes['fileSet'], fileTree: StateTypes['fileTree']) => {
     dispatch({ type: ActionType.RESET_CTX, payload: {} });
     dispatch({ type: ActionType.UPDATE_FILE_SET, payload: { fileSet } });
     dispatch({ type: ActionType.UPDATE_FILE_TREE, payload: { fileTree } });
@@ -71,21 +67,9 @@ const SiderContextMenu = () => {
         {/* <CtxMenu hotkey={RickHotKey.newFile} title="New file" />
         <CtxMenu hotkey={RickHotKey.newDir} title="New directory" />
         <Separator /> */}
-        <CtxMenu
-          hotkey={RickHotKey.uploadFiles}
-          title="Upload files"
-          onClick={uploadFiles}
-        />
-        <CtxMenu
-          hotkey={RickHotKey.uploadZip}
-          title="Upload zip"
-          onClick={uploadZip}
-        />
-        <CtxMenu
-          hotkey={RickHotKey.uploadDir}
-          title="Upload directory"
-          onClick={uploadDir}
-        />
+        <CtxMenu hotkey={RickHotKey.uploadFiles} title="Upload files" onClick={uploadFiles} />
+        <CtxMenu hotkey={RickHotKey.uploadZip} title="Upload zip" onClick={uploadZip} />
+        <CtxMenu hotkey={RickHotKey.uploadDir} title="Upload directory" onClick={uploadDir} />
       </Menu>
     </div>
   );

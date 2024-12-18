@@ -1,6 +1,8 @@
 {
-  "cSpell.words": ["antd", "echarts", "rickzhou", "Sider", "zhou"],
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-workflow.json": "file:///Users/rick.zhou/Development/one-piece-react/projects/%40rick-flow/.github/workflows/deploy.yml"
-  }
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit", // Explicitly organize imports
+    "source.fixAll": "explicit", // Explicitly fix all issues
+    "source.fixAll.eslint": "explicit" // Explicitly fix ESLint issues
+  },
+  "cSpell.words": ["boxicons", "mscgenjs", "rickzhou"]
 }

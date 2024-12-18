@@ -64,7 +64,8 @@ export default defineConfig(({ mode, command }) => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@root': path.resolve(__dirname, '../../'),
+        '@rickzhou/react-editor': path.resolve(__dirname, '../../projects/@rick-editor/src'),
       },
     },
   };

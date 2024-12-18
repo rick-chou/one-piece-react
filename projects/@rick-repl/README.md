@@ -122,7 +122,7 @@ const initExtraLibs = () => {
       // antd
       '/node_modules/antd/**/*.{d.ts,json}',
     ],
-    { eager: true, as: 'raw' },
+    { eager: true, query: 'raw' },
   );
 
   Object.keys(types).forEach(path => {
@@ -218,7 +218,7 @@ self.MonacoEnvironment = {
 我们编写一个 `formatter.worker.ts` 来处理formatter的逻辑
 
 ```ts
-import { prettier as prettierConfig } from '@rickzhou/react-fabric/package.json';
+import { prettier as prettierConfig } from '@rickzhou/react-stylelint';
 import { type Config } from 'prettier';
 import pluginsBabel from 'prettier/plugins/babel';
 import pluginEstree from 'prettier/plugins/estree';

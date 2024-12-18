@@ -1,9 +1,8 @@
-import { edgeTypes, nodeTypes } from '@/config';
-import { useFlowState } from '@/hooks/useFlowState';
-import { useMock } from '@/hooks/useMock';
-import type { Execution } from '@/interface';
-import { flowContainer } from '@/styles';
-import { css } from '@emotion/react';
+import { edgeTypes, nodeTypes } from '@rickzhou/react-flow/config';
+import { useFlowState } from '@rickzhou/react-flow/hooks/useFlowState';
+import { useMock } from '@rickzhou/react-flow/hooks/useMock';
+import type { Execution } from '@rickzhou/react-flow/interface';
+import { FlowContainer } from '@rickzhou/react-flow/styles';
 import { Empty } from '@rickzhou/react-ui';
 import { useEffect, useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,11 +17,7 @@ type FlowChartProps = {
   executionNodes?: Execution['executionNodes'];
 };
 
-const FlowChart: React.FC<FlowChartProps> = ({
-  id: propsId,
-  executionNodes = [],
-  height = '100vh',
-}) => {
+const FlowChart: React.FC<FlowChartProps> = ({ id: propsId, executionNodes = [], height = '100vh' }) => {
   const reactFlowInstance = useRef<ReactFlowInstance>();
   const { id: urlId } = useParams();
   const id = useMemo(() => propsId ?? urlId, [propsId, urlId]);
@@ -44,10 +39,7 @@ const FlowChart: React.FC<FlowChartProps> = ({
     <WithEmpty data={!loading} emptyProps={{ loading, height: `${height}` }}>
       <div className="flex overflow-hidden">
         <ReactFlowProvider>
-          <div
-            css={css`
-              ${flowContainer(height)}
-            `}>
+          <FlowContainer $height={height}>
             <ReactFlow
               minZoom={0.1}
               nodeTypes={nodeTypes}
@@ -65,7 +57,7 @@ const FlowChart: React.FC<FlowChartProps> = ({
               <Controls showInteractive={false} />
               <Background color="#aaa" gap={16} />
             </ReactFlow>
-          </div>
+          </FlowContainer>
         </ReactFlowProvider>
       </div>
     </WithEmpty>

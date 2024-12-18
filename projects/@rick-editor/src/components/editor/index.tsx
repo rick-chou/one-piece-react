@@ -1,17 +1,15 @@
-import { type EditorTheme } from '@/assets/editor-themes';
-import { EditEditorOpts } from '@/config/editor';
-import { getFileLanguage } from '@/config/file-language';
-import { useTheme } from '@/hooks/useTheme';
-import { useEditorWrapperStyle } from '@/styles';
-import { type CommandItemTypes } from '@/types';
 import ReactEditor from '@monaco-editor/react';
-import { formatCode } from '@rickzhou/react-utils/editor';
+import { type EditorTheme } from '@rickzhou/react-editor/assets/editor-themes';
+import { EditEditorOpts } from '@rickzhou/react-editor/config/editor';
+import { getFileLanguage } from '@rickzhou/react-editor/config/file-language';
+import { useTheme } from '@rickzhou/react-editor/hooks/useTheme';
+import { useEditorWrapperStyle } from '@rickzhou/react-editor/styles';
+import { type CommandItemTypes } from '@rickzhou/react-editor/types';
+import { formatCode } from '@rickzhou/react-utils';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { Context } from '../../store';
 import CmdModal from '../command-modal';
-import EditorContextMenu, {
-  useEditorContextMenu,
-} from '../context-menu/editor';
+import EditorContextMenu, { useEditorContextMenu } from '../context-menu/editor';
 import Tab from '../editor-tab';
 
 const Editor = () => {

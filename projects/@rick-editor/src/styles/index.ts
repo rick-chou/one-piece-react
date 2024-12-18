@@ -1,7 +1,7 @@
-import { TabHeight } from '@/config/const';
-import { useTabs } from '@/hooks/useTabs';
-import { useTheme } from '@/hooks/useTheme';
-import { colorReverse } from '@/utils/color';
+import { TabHeight } from '@rickzhou/react-editor/config/const';
+import { useTabs } from '@rickzhou/react-editor/hooks/useTabs';
+import { useTheme } from '@rickzhou/react-editor/hooks/useTheme';
+import { colorReverse } from '@rickzhou/react-editor/utils/color';
 import { css } from '@emotion/react';
 import Color from 'color';
 
@@ -9,7 +9,9 @@ import Color from 'color';
 const themeColorToken = {};
 
 export const cardStyle = css`
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  box-shadow:
+    20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
 `;
 
 /**
@@ -131,9 +133,7 @@ export const useEditorTabStyle = () => {
     border-radius: 4px;
 
     &:hover {
-      background-color: ${isDark
-        ? color.lighten(0.8).hex()
-        : color.darken(0.8).hex()};
+      background-color: ${isDark ? color.lighten(0.8).hex() : color.darken(0.8).hex()};
       color: ${colorReverse(themeColor)};
 
       .tab-close-icon {

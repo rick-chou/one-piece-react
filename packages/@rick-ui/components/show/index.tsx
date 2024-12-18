@@ -1,12 +1,15 @@
-import type { FC, ReactNode } from 'react';
+import { memoSVC } from '@rickzhou/react-utils';
+import type { ReactNode } from 'react';
+
+type Children = (() => ReactNode) | ReactNode;
 
 export type ShowProps = {
   when: boolean;
-  fallback?: (() => JSX.Element) | JSX.Element;
-  children: (() => JSX.Element) | JSX.Element;
+  fallback?: Children;
+  children: Children;
 };
 
-const render = (children?: (() => ReactNode) | ReactNode) => {
+const render = (children?: Children) => {
   if (typeof children === 'function') {
     return children();
   }
@@ -14,8 +17,8 @@ const render = (children?: (() => ReactNode) | ReactNode) => {
   return children;
 };
 
-const Show: FC<ShowProps> = ({ when, fallback, children }) => {
+const Show = memoSVC<ShowProps>(({ when, fallback, children }) => {
   return <>{when ? render(children) : render(fallback)}</>;
-};
+});
 
 export default Show;

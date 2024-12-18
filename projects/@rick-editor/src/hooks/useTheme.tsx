@@ -1,6 +1,6 @@
-import { type EditorTheme } from '@/assets/editor-themes';
-import { Context } from '@/store';
-import { ActionType, type EditorThemeType } from '@/types';
+import { type EditorTheme } from '@rickzhou/react-editor/assets/editor-themes';
+import { Context } from '@rickzhou/react-editor/store';
+import { ActionType, type EditorThemeType } from '@rickzhou/react-editor/types';
 import { useMonaco } from '@monaco-editor/react';
 import { type editor } from 'monaco-editor';
 import { useCallback, useContext, useEffect, useMemo } from 'react';
@@ -12,17 +12,12 @@ export const useTheme = () => {
   const changeTheme = useCallback(
     async (theme: EditorTheme) => {
       if (monaco) {
-        const themeConfig = (await import('@/assets/editor-themes'))[
-          theme
-        ] as EditorThemeType;
+        const themeConfig = (await import('@rickzhou/react-editor/assets/editor-themes'))[theme] as EditorThemeType;
         dispatch({
           type: ActionType.UPDATE_THEME,
           payload: { theme: { ...themeConfig, name: theme } },
         });
-        monaco.editor.defineTheme(
-          theme,
-          themeConfig as editor.IStandaloneThemeData,
-        );
+        monaco.editor.defineTheme(theme, themeConfig as editor.IStandaloneThemeData);
         monaco.editor.setTheme(theme);
       }
     },

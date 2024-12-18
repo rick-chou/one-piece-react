@@ -1,4 +1,4 @@
-import { isPwaMode } from '@/utils/isPwaMode';
+import { isPwaMode } from '@rickzhou/react-flow/utils/isPwaMode';
 import type { NavigateOptions } from 'react-router-dom';
 import { useNavigate as _useNavigate } from 'react-router-dom';
 
@@ -6,9 +6,7 @@ export const useNavigate = () => {
   const _navigate = _useNavigate();
   const navigate = (to: string, options?: NavigateOptions) => {
     const urlPattern = to.split('?');
-    const search = new URLSearchParams(
-      urlPattern.length > 1 ? urlPattern.at(-1) : '',
-    );
+    const search = new URLSearchParams(urlPattern.length > 1 ? urlPattern.at(-1) : '');
     if (isPwaMode()) {
       search.append('mode', 'pwa');
     }

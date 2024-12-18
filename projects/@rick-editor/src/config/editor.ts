@@ -1,5 +1,5 @@
-import { EditorThemeSet } from '@/assets/editor-themes';
-import { type CommandItemTypes } from '@/types';
+import { EditorThemeSet } from '@rickzhou/react-editor/assets/editor-themes';
+import { type CommandItemTypes } from '@rickzhou/react-editor/types';
 import { type editor } from 'monaco-editor';
 
 export const genCommandItems = () => {

@@ -44,8 +44,7 @@ export const defaultFileTree: FileTreeTypes = {
 
 export const initState: StateTypes = {
   theme: {
-    ...((await import('@/assets/editor-themes/Amy.json'))
-      .default as EditorThemeType),
+    ...((await import('@rickzhou/react-editor/assets/editor-themes/Amy.json')).default as EditorThemeType),
     name: 'Amy',
   },
   currentFilePath: '',

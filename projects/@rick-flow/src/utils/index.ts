@@ -5,10 +5,10 @@ import {
   type NodeDataType,
   type NodeDataTypeWrapper,
   type TransformFn as TransformDataFn,
-} from '@/interface';
-import { NodeHeight, NodeWidth } from '@/styles';
+} from '@rickzhou/react-flow/interface';
+import { NodeHeight, NodeWidth } from '@rickzhou/react-flow/styles';
 import dagre from 'dagre';
-import { cloneDeep, without } from 'lodash';
+import { cloneDeep, without } from 'lodash-es';
 import type { Edge, Node } from 'reactflow';
 import { Position } from 'reactflow';
 

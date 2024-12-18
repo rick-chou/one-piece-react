@@ -1,12 +1,7 @@
-/* eslint-disable @typescript-eslint/no-loop-func */
-import {
-  NodeType,
-  type Execution,
-  type NodeDataTypeWrapper,
-} from '@/interface';
-import { genEdges, genNodes, getLayoutedElements } from '@/utils';
-import { sleep } from '@/utils/sleep';
-import { cloneDeep } from 'lodash';
+import { NodeType, type Execution, type NodeDataTypeWrapper } from '@rickzhou/react-flow/interface';
+import { genEdges, genNodes, getLayoutedElements } from '@rickzhou/react-flow/utils';
+import { sleep } from '@rickzhou/react-flow/utils/sleep';
+import { cloneDeep } from 'lodash-es';
 import { useCallback, useEffect, useRef } from 'react';
 import {
   addEdge,
@@ -42,11 +37,7 @@ const deleteNode = (__nodes: Node[], __edges: Edge[], deleteNodeId: string) => {
     });
     if (edges.length) {
       edges.forEach(i => {
-        if (
-          _edges
-            .filter(e => e.target === i.target)
-            .every(i => i.source === delNodeIds[idx])
-        ) {
+        if (_edges.filter(e => e.target === i.target).every(i => i.source === delNodeIds[idx])) {
           delNodeIds.push(i.target);
         }
       });
@@ -55,9 +46,7 @@ const deleteNode = (__nodes: Node[], __edges: Edge[], deleteNodeId: string) => {
     idx++;
   }
 
-  const delEdgeIds = _edges
-    .filter(e => delNodeIds.includes(e.source) || delNodeIds.includes(e.target))
-    .map(i => i.id);
+  const delEdgeIds = _edges.filter(e => delNodeIds.includes(e.source) || delNodeIds.includes(e.target)).map(i => i.id);
 
   return getLayoutedElements(
     _nodes.filter(i => !delNodeIds.includes(i.id)),
@@ -65,16 +54,8 @@ const deleteNode = (__nodes: Node[], __edges: Edge[], deleteNodeId: string) => {
   );
 };
 
-export const useFlowState = ({
-  id,
-  executionNodes = [],
-  instance,
-  editable = false,
-  delay = 0,
-}: FlowStateParams) => {
-  const [nodes, setNodes, onNodesChange] = useNodesState<NodeDataTypeWrapper>(
-    [],
-  );
+export const useFlowState = ({ id, executionNodes = [], instance, editable = false, delay = 0 }: FlowStateParams) => {
+  const [nodes, setNodes, onNodesChange] = useNodesState<NodeDataTypeWrapper>([]);
   const currentNodeId = useRef(initNodeId);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const nodesSnapshot = useRef<typeof nodes>([]);
@@ -116,20 +97,14 @@ export const useFlowState = ({
   );
 
   const onDelete = (id: number) => {
-    const { nodes: newNodes, edges: newEdges } = deleteNode(
-      instance.getNodes(),
-      instance.getEdges(),
-      `${id}`,
-    );
+    const { nodes: newNodes, edges: newEdges } = deleteNode(instance.getNodes(), instance.getEdges(), `${id}`);
     setNodes(newNodes);
     setEdges(newEdges);
   };
 
   const onConnect = ({ target, source }: Connection) => {
     if (target && source) {
-      setEdges(eds =>
-        addEdge({ id: `${source}-${target}`, source, target }, eds),
-      );
+      setEdges(eds => addEdge({ id: `${source}-${target}`, source, target }, eds));
     }
   };
 

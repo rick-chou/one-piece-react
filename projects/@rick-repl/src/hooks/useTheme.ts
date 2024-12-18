@@ -1,7 +1,7 @@
 import { useLocalStorageState, useMount } from 'ahooks';
 
-import vsDark from '@/setup/vs_dark_rick.json';
-import vsLight from '@/setup/vs_light_rick.json';
+import vsDark from '@rickzhou/react-repl/setup/vs_dark_rick.json';
+import vsLight from '@rickzhou/react-repl/setup/vs_light_rick.json';
 import { editor } from 'monaco-editor';
 
 export const useTheme = () => {
