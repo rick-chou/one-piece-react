@@ -2,12 +2,26 @@
   "name": "@rickzhou/one-piece-react",
   "private": true,
   "type": "module",
+  "author": {
+    "name": "Rick.Zhou",
+    "email": "944268618@qq.com",
+    "github": "https://github.com/rick-chou",
+    "juejin": "https://juejin.cn/user/1574156383563496",
+    "avatar": "https://cdn.jsdelivr.net/gh/rick-chou/rick-assets/png/2.png"
+  },
+  "homepage": "https://rick-chou.github.io/one-piece-react/",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "regenerate-dependecies": "./cli ./scripts/regenerate-dependecies.ts",
+    "regenerate-dependencies": "./cli ./scripts/regenerate-dependencies.ts",
     "run:ui": "pnpm --filter '@rickzhou/react-ui' dev",
+    "run:blog": "pnpm --filter '@rickzhou/blog' dev",
     "run:repl": "pnpm --filter '@rickzhou/react-repl' dev",
-    "run:editor": "pnpm --filter '@rickzhou/react-editor' dev"
+    "run:editor": "pnpm --filter '@rickzhou/react-editor' dev",
+    "run:flow": "pnpm --filter '@rickzhou/react-flow' dev",
+    "build:blog": "pnpm --filter '@rickzhou/blog' build",
+    "build:repl": "pnpm --filter '@rickzhou/react-repl' build",
+    "build:editor": "pnpm --filter '@rickzhou/react-editor' build",
+    "build:flow": "pnpm --filter '@rickzhou/react-flow' build"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
@@ -24,6 +38,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
+    "react-transition-group": "^4.4.5",
     "styled-components": "^6.1.13",
     "zustand": "^5.0.1"
   },

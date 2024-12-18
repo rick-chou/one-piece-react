@@ -6,14 +6,7 @@
   "main": "components/index.ts",
   "scripts": {
     "dev": "vite",
-    "build:docs": "tsc && vite build",
-    "build:cjs": "rm -rf lib && tsc -p config/build-cjs.json",
-    "build:esm": "rm -rf es && tsc -p config/build-esm.json",
-    "build:types": "rm -rf types && tsc -p config/build-types.json",
-    "build:lib": "npm run build:cjs && npm run build:esm && npm run build:types",
-    "preview": "vite preview",
-    "test": "jest",
-    "badges": "npx istanbul-badges-readme --coverageDir='./coverage'"
+    "build:docs": "tsc && vite build"
   },
   "author": "rick zhou <944268618@qq.com>",
   "homepage": "https://github.com/rick-chou/one-piece-react#readme",
@@ -31,15 +24,17 @@
     "registry": "https://registry.yarnpkg.com/"
   },
   "files": [
-    "es",
-    "lib",
-    "types"
+    "components"
   ],
   "license": "ISC",
   "dependencies": {
+    "acorn": "^8.10.0",
+    "boxicons": "^2.1.4",
     "deepmerge": "^4.3.1",
     "dompurify": "^3.0.6",
-    "echarts-for-react": "^3.0.2"
+    "echarts-for-react": "^3.0.2",
+    "mdx-mermaid": "^2.0.0",
+    "mscgenjs": "^6.0.2"
   },
   "devDependencies": {
     "@mdx-js/react": "^3.0.0",

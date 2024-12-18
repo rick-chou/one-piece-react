@@ -1,8 +1,9 @@
-import '@rickzhou/react-ui/docs/index.scss';
-import { App, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
+
+import '../tailwind.scss';
 
 const showErrorOverlay = (err: ErrorEvent) => {
   // must be within function call because that's when the element is defined for sure.
@@ -29,8 +30,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
       },
     }}>
-    <App>
-      <RouterProvider router={router} />
-    </App>
+    <RouterProvider router={router} />
   </ConfigProvider>,
 );
