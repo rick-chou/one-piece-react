@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/one-piece-react/sw.js', { scope: '/one-piece-react/' })})}

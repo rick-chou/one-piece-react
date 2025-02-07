@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puppy</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: rgb(248, 219, 130);
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4 {
+        display: inline-block;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+      }
+
+      .wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .leg {
+        position: absolute;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAYAAABfnvydAAAAAXNSR0IArs4c6QAAAElJREFUKFNjZICC/////4exQTQjIyMjmAYR6JIwhSBFjLMiLP6nLj+OrBnOnh1pyTBSFIA8jS0sQGGQtuIEJDhhipBDCyQJ4gMALug8VaRjkWwAAAAASUVORK5CYII=);
+        width: calc(2 * 8px);
+        height: calc(2 * 12px);
+        background-size: calc(2 * 8px) calc(2 * 12px) !important;
+        transition: 0.15s;
+      }
+
+      .body {
+        position: absolute;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAAwCAYAAACxIqevAAAAAXNSR0IArs4c6QAABSpJREFUeF7tm32a1CAMxqe30pvoAfRQegC9id5qfPBZlGELJOQL2nf/2t0pkPySvA20czzwAwIgAAJBBI6gdbEsCIAACDwgQEgCEACBMAIQoDD0WBgEQAAChBwAARB4fPv04UnF8PXnbzXdUJuIajyuAwEQWINAKTpffvwiG/X988d/10rFCAJExo4LQeA6BJL4cESn5XkSI4kIQYCuk1PwBARIBLTEJy8mESEIEClkuAgErkFAW3ykIgQBukZewQsQIBGAAJEw4SIQAAFtAlbiI+mC0AFpRxnzgcCiBCBAiwYGZvkRGL1vInmi4ufFnitBgPaMG6xWIJCFZ/ToN79jAiFSgF5N8Xw+yS8bzq5+HAdrV8W6eNYojLsvAarw1IQ0X3a7L/1XzyFAyIRbEdBq+dEVydNGKxYjS7jvBKEDGhHF59MEtO+4EKLpUPz9rtdo+zs/+/+RECANiphDTEBbfEqDIoQoFfDZudTZ/3vXZj/quVpjxIF4m+DyAjR6ulGDXPWQkerHqvZrJaxknlWTXepTGl/GPedK/b/0dy0oPYHJn1mK0KoxEW3BZr9NmwK5wiGjxP6czBF3Y0kheYz1SvacRx43g1okzkRjJDo9wcpxsRIhr5i4bcE0HeIaLS2i2SczvXU9faB2aT17LYvWcvt15pMH+1IYer9TOv16PGWMJOc1a5ViByceUx2QhUMcoykQWtdY2F52QxaFbSGYNR/u+xsRfCNvAL1znRzzUQd01uVQx6ya89IbAluAdizgMvDWTwI0hdRDeLSFyDI/RkWoyb5eSypAZdd6dmZkuQXzjgknDrcRIK8gcOD3CsrL3jMbJN1QpN3JF4ntI4Hb9XPvmHBq4BYC5BkADvzVtjHZHkkRe7Ju8ZPYv6vIrHQz49QAS4A8kotjPCVZPGwu7ZDa722vdhGvYL80BmdMemc1nEPl1lYsrdna5lHyHAIkpfQ2XjN5IopBan+EzZrbsBXsl8ZAIkC9s5zRgTMEaCAiHsmllTwetkqfALQS3fqgnHKvmN3GRHHX7EIhQJQMaV/DqWHyFswzsTgOtDB4v4uS7NCw25Nzi53Ujwj2HgJU82o9fm9tp9ABvc84CJBM7F9GSws3J250ByT1I1pEpfZHdUCKqfhuKq+YcNlfUoC8YFvcdSNsr7OVm0QrbiVnt5AtEaAeQvfOgPINJl/j+YVUr7zi5g4ESOm2wwXfS/TdO6CyCCN80YqFUmosMQ0EiBEGaQJ5wc4uSe0t0XjbfhaWnf3RtJ2Rsltcap1bM+zRASmkzgz43rLWiTJy2cKftKZHN6Rt+4jVbp/n95A0Y5GYp5+Z70FCgIQZZJHwkQJk4Y/HlkxSBMIU2HK4hhBpMIcACdNH+7CzLFavrsFiK9k749L0S6MIhCmw9fAZIdJkDgESpI9lt+ApRJoJRcVZfiVhZjsQYTPVtx2vK+Mxsn9mq9WaEwI0ot343EN8yqWlBVu7kQt4du8+ia07jFoEmgVg4QfmpBMgC1Ca0uNsQquwLd/G1bKRHqbXK6mF2pofBTxLHuO0CVxWgKzEMlp8tBMA84FAJIHLCpBFxwbxiUxVrH1FAiwBsijqEqpFgc+c8rfOS7B1uWIJwKdIApcXoAx35hAXT1oiUxNr34EAW4CsuiCL7qcVQOohLjqeO5QAfIwkMCVA2iLkKT6RsLE2CIDAK4FpAcoilKfjvky24nsoSA4QAAFfAiIBKk2lbmvyGGxvfAON1UBgRQJqArSic7AJBEBgbQJ/AOoMmm0ZeBaqAAAAAElFTkSuQmCC);
+        width: calc(2 * 6 * 48px);
+        height: calc(2 * 48px);
+        background-size: calc(2 * 6 * 48px) calc(2 * 48px) !important;
+      }
+
+      .dog {
+        position: absolute;
+        width: calc(2 * 48px);
+        height: calc(2 * 48px);
+        animation: fade-in forwards 1s;
+        transition: 0.5s;
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .head {
+        position: absolute;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAgCAYAAACl82LUAAAAAXNSR0IArs4c6QAAA+hJREFUeF7tmtuV1DAMhiddQSdQABS1FACdQFezx4cVR2h1+X1LnJXnaSbjRLfPkhz7eOzP9kACDxwJbNwmbg88bgP6y5dPz++//txG383WWh64BTgF8m8/fz9+fP382LCvBdBdtNmgN0Rqteqymj4NLp1+CwR6rSNrx3tWUjanMVdn9dWqy2r69BJbyw46PgRdOrL8towpbcVox3N5pX0pnwK7/F6u0Wdke0PyqXWydJghuzzT8rdm/0i7e4FtuX8ma1Wgk3M9IwjCEZlXZnMpl8viuhH0FHiCpQYEDjivJlKO9ImU3Rrwcl/kbz7hKQHU2Nii28x7OOiR7TzhIay5oGttg6fAKMdrkGkOtkC3xiIQeLI1+yx/IM6XeqJ2WxOPrh/HESawmcC2PHs2a6pDrJklA21lWBmImqBHWbwmu2r6ebCjstFAjrA78rmlSyTb6m21695Yq2VDe+ezWHsH+uhgczCjjFojuya7IjrUyEZBR9sJS3ZNxaqtYlo7Z12jtRePnwcy/RfBfqbP/wN9luCzQdMWqx50V9pd9JoFemQzB1iDU4Kq/S4yvAngVQOkD69JKnysrGgfHnQKtgwId8qVoEeQR/14BILVwnAAve/y+VpVlvej91wC+uxge1k9q2wkm7eCLquaBBTp0aOMTrpZE4Xs02TPhFxj7V9Gzwrbqna3LkK1iaFl9V7QqZ9vaV2u8PkG/e0cTdQCRP/T+3MvU8nXfl7Ae0H3+tXIltn/b9Ane9jKbCPKqAe6tWt7RcAnuxh6vLcuKQ+oiUfkd2qbUmV0bSPlTNi0Ml8TVIQiHnhvl9rrv2sWl1YLY/Xn5frz+VSPkSBVUfoguodingZ0bwNlFuzRTnGrXCu4vHLwszDRmxIJpda/I9fQxasFujWRNbuQSV/GvAPdm2noQ5Fx1vZ0a9ARmWXMFaCTXNJRA6426PyZ3vGDDfpfry+V0SmjjC7jfBJE5z9mTzTudK7XLLmUBa3daN5yyImIZG+tNUEzemSzthBHr3Hf8uS2zIbRTNijcx/knCgAaPXQxnkTrVeutRNsTa4I0lGge/6qeeNkHYXw3ky5O6MfDbYoq2mBoEw3qrqgOvTKlX17NLnRxShPAlavb7Vm1rt6JLFYfTnSr2u2m6cXizIjgo0GWpbzHvktMiX0PeBZrxORitAjl/fv0QE6RJczxvTaK1uV8luzPTyP3mtsj8PJCXT4CNWlR6aX5RH5I2VrfbSlw0i5iJ2jx1ivKb21BHUgVkXhOt7ugP5oB+/n5fDABj1HnNNbuUFPj0AOB2zQc8Q5vZUb9PQI5HDABj1HnNNbuUFPj0AOB7wCKr30XX1N2MUAAAAASUVORK5CYII=);
+        width: calc(2 * 6 * 31px);
+        height: calc(2 * 32px);
+        background-size: calc(2 * 6 * 31px) calc(2 * 32px) !important;
+      }
+
+      .head-wrapper.happy > .head {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAgCAYAAACl82LUAAAAAXNSR0IArs4c6QAABCpJREFUeF7tmtlx3DAMQFddxZ0kBSS/Hlfi8W9cQNJJ0tV6qAl2YAgnRVBSyP2yJYq4HkHwWG7zNz0wgAeWAWycJk4P3C4D+s+vX+4/fv+9jL6TrXN54BLgFMi///pze//2dJuwnwugq2gzQa+I1Nlml7PpU+HS9E9coEcdGW2vWQnZHNocndXPNrucTZ+9xEbZ8bY3QaeOLP9LxpSyorXjsbxSvpRfgZ3+XZ7Br2V5A/KhdJJ0yJBd+pT8zdnf0u69wNZ8n8laCHRwrmYEQNgi89JsTuViWVg3gB4CD7BEQMCA49mEyqE+obJrA16+s/yNBzwkgIiNNbplfoNBt2zHCc/Dmgo6VzZoCrRyPAcZ52AJdKmtBwJNNmef5A+P86meXrulgQfPl2UxE1gmsDV9Z7PGOkQaWTTQUoalgYgE3crikezK6afB7pXtDWQLuy2fS7pYsqXalnuutZVKNm/t3Iu1Deitg43BtDJqRHYku3p0iMj2gu4tJyTZkRkrOotx5Zz0DNZeOH4ayPDOgr2nzz+BniW4N2jcYlWD7ki7i15ZoFs2Y4A5OCmo3P9FhjYAtNnAU4dHkgpuS2e0/x50CPa6uHt+vb2/vWwOnY4E3YLcqsctEKQSBgOo/U3752Zl+r33m0NAzw62ltV7yF6z/PPrqgaGvYdsK7NyAa8pzWhGw1uQFFBPjW5ldJAnDRSYrTjZmZBzrD0y+pEB7ymbm2p7Ox0Dou3a7NGLlm+tQYd6vqZ06RlvsHs40LOyC+yfa3DSbT8t4LW7LdFFqVX6ZLyfoGd4FfXJ1autnK6BLp3atpJtuc3aarS+b/1eW5esa6l/J+AeuZbfh8zo3EFKT9h6lE048NoptVZ/RxaXUgkj1efl+f1+Z6+ReGZFCr/1DcR8mNJFy2pZsFsnxbVypeDimUNbiHIQagtKbVFZs7UogS5lcM4uT7YvbTagayPN26mnnXQ8XRt0j0xt1wOCGJkuvTJBLm5P1wjRoOM+PQtZz/YiBZnbkfE88+7SRG1uCno2aBBszfFZsOGRLUGaab+0tZk1yHDG1xIL9QW+BOfZpbHA1rYwI3emYHBzF+isfjY1epbTsTOtRVEWbJZc0DFL/iNQSQdWm5Ng5ryAQu2t0bFvLPglsLnkEtlxgkRRzj+s26NSQj3VXZfWgw0ym3XHBgcCFletZhesgwbCXrmfpvdOoEO8wH/WQOAGm1Z+QXs46FsTxtvLo5vIzVHx9mLprUWwj4CtRiYXhFofSNuJntp+L/C4ho8McI9uGW0se3HZB6Bbg4Oz27yPvte4Pc4GJ8DlI68ue2RK0+wRsvHWnSW/tc2WvNbvrW1KbdaQ3mEdL3dBv7WDZ39jeGCCPkach7dygj48AmM4YII+RpyHt3KCPjwCYzhggj5GnIe3coI+PAJjOOADdCQTbGUe9fwAAAAASUVORK5CYII=);
+      }
+
+      .head-wrapper.happy {
+        animation: infinite 0.5s pant;
+      }
+
+      @keyframes pant {
+        0%,
+        100% {
+          transform: translateY(-1px);
+        }
+        50% {
+          transform: translateY(1px);
+        }
+      }
+
+      .head-wrapper.flip.happy {
+        animation: infinite 0.5s pant-flip;
+      }
+
+      @keyframes pant-flip {
+        0%,
+        100% {
+          transform: translateY(-1px) scale(-1, 1);
+        }
+        50% {
+          transform: translateY(1px) scale(-1, 1);
+        }
+      }
+
+      .tail {
+        position: absolute;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAADZJREFUKFNjZICCWREW/2FsEJ224gQjiAYTIMnU5ceR5RlmR1qCFTFik4SpBCmihwKCjiTkTQB1sCqti9mJ/QAAAABJRU5ErkJggg==);
+        width: calc(2 * 8px);
+        height: calc(2 * 8px);
+        background-size: calc(2 * 8px) !important;
+      }
+
+      .tail-wrapper {
+        position: absolute;
+        width: calc(2 * 8px);
+        height: calc(2 * 8px);
+        transition: 0.15s;
+      }
+
+      .body-wrapper {
+        position: absolute;
+        width: calc(2 * 48px);
+        height: calc(2 * 48px);
+        overflow: hidden;
+      }
+
+      .body-wrapper,
+      .head-wrapper {
+        z-index: 1;
+      }
+
+      .walk-1 {
+        animation: infinite 0.4s walking;
+        animation-delay: 0;
+      }
+
+      .walk-2 {
+        animation: infinite 0.4s walking;
+        animation-delay: 0.2s;
+      }
+
+      @keyframes walking {
+        0%,
+        100% {
+          transform: translateY(-4px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+      }
+
+      .wag {
+        animation: infinite 0.5s wag;
+      }
+
+      @keyframes wag {
+        0%,
+        100% {
+          transform: translateX(-2px);
+        }
+        50% {
+          transform: translateX(2px);
+        }
+      }
+
+      .head-wrapper {
+        position: absolute;
+        top: 6px;
+        left: 16px;
+        width: calc(2 * 31px);
+        height: calc(2 * 32px);
+        overflow: hidden;
+      }
+
+      .flip {
+        transform: scale(-1, 1);
+      }
+
+      .img-bg {
+        image-rendering: pixelated;
+        background-repeat: no-repeat !important;
+      }
+
+      .sign {
+        position: absolute;
+        color: #9a5838;
+        bottom: 10px;
+        right: 10px;
+        font-size: 10px;
+      }
+
+      a {
+        color: #9a5838;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .indicator {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        color: #9a5838;
+      }
+
+      .d-none {
+        display: none;
+      }
+
+      .indicator {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+
+      .marker {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        transition: 0.5s;
+        z-index: 100;
+        margin-top: -5px;
+        margin-left: -5px;
+      }
+
+      .red {
+        background-color: rgb(255, 64, 0);
+      }
+      .green {
+        background-color: rgb(42, 239, 190);
+      }
+      .blue {
+        background-color: rgb(0, 140, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Move around your cursor, the puppy will look at the direction. Click or tap, and the dog will walk  -->
+
+    <body>
+      <div class="wrapper">
+        <!-- if you want to see the markers, remove d-none from them -->
+
+        <!-- indicates dog position -->
+        <div class="marker red d-none"></div>
+
+        <!-- indicates cursor position -->
+        <div class="marker green d-none"></div>
+
+        <!-- indicates dog's 'facing position'-->
+        <div class="marker blue d-none"></div>
+
+        <div class="dog">
+          <div class="body-wrapper">
+            <div class="body img-bg"></div>
+          </div>
+          <div class="head-wrapper">
+            <div class="head img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg one img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg two img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg three img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg four img-bg"></div>
+          </div>
+          <div class="tail-wrapper">
+            <div class="tail img-bg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="indicator"></div>
+    </body>
+    <script>
+      function init() {
+        const elements = {
+          body: document.querySelector('.wrapper'),
+          wrapper: document.querySelector('.wrapper'),
+          dog: document.querySelector('.dog'),
+          marker: document.querySelectorAll('.marker'),
+          // indicator: document.querySelector('.indicator'),
+        };
+
+        const animationFrames = {
+          rotate: [[0], [1], [2], [3], [5], [3, 'f'], [2, 'f'], [1, 'f']],
+        };
+
+        const directionConversions = {
+          360: 'up',
+          45: 'upright',
+          90: 'right',
+          135: 'downright',
+          180: 'down',
+          225: 'downleft',
+          270: 'left',
+          315: 'upleft',
+        };
+
+        const angles = [360, 45, 90, 135, 180, 225, 270, 315];
+        const defaultEnd = 4;
+        //  A ---- A  ________ ________
+        // |         |         |        |
+        // | ^     ^ |         |        |
+        //  ____^___  _________|________|
+        //            | |  | |  | |  | |
+        //             1    2    3    4
+        //             L    R    L    R
+        const partPositions = [
+          {
+            //0
+            leg1: { x: 26, y: 43 },
+            leg2: { x: 54, y: 43 },
+            leg3: { x: 26, y: 75 },
+            leg4: { x: 54, y: 75 },
+            tail: { x: 40, y: 70, z: 1 },
+          },
+          {
+            //1
+            leg1: { x: 33, y: 56 },
+            leg2: { x: 55, y: 56 },
+            leg3: { x: 12, y: 72 },
+            leg4: { x: 32, y: 74 },
+            tail: { x: 20, y: 64, z: 1 },
+          },
+          {
+            //2
+            leg1: { x: 59, y: 62 },
+            leg2: { x: 44, y: 60 },
+            leg3: { x: 25, y: 64 },
+            leg4: { x: 11, y: 61 },
+            tail: { x: 4, y: 44, z: 1 },
+          },
+          {
+            //3
+            leg1: { x: 39, y: 63 },
+            leg2: { x: 60, y: 56 },
+            leg3: { x: 12, y: 52 },
+            leg4: { x: 28, y: 50 },
+            tail: { x: 7, y: 21, z: 0 },
+          },
+          {
+            //4
+            leg1: { x: 23, y: 54 },
+            leg2: { x: 56, y: 54 },
+            leg3: { x: 24, y: 25 },
+            leg4: { x: 54, y: 25 },
+            tail: { x: 38, y: 2, z: 0 },
+          },
+          {
+            //5
+            leg1: { x: 21, y: 58 },
+            leg2: { x: 41, y: 64 },
+            leg3: { x: 53, y: 50 },
+            leg4: { x: 69, y: 53 },
+            tail: { x: 72, y: 22, z: 0 },
+          },
+          {
+            //6
+            leg1: { x: 22, y: 59 },
+            leg2: { x: 30, y: 64 },
+            leg3: { x: 56, y: 60 },
+            leg4: { x: 68, y: 62 },
+            tail: { x: 78, y: 40, z: 0 },
+          },
+          {
+            //7
+            leg1: { x: 47, y: 45 },
+            leg2: { x: 24, y: 53 },
+            leg3: { x: 68, y: 68 },
+            leg4: { x: 47, y: 73 },
+            tail: { x: 65, y: 65, z: 1 },
+          },
+        ];
+
+        const control = {
+          x: null,
+          y: null,
+          angle: null,
+        };
+
+        const distance = 30;
+        const nearestN = (x, n) =>
+          x === 0 ? 0 : x - 1 + Math.abs(((x - 1) % n) - n);
+        const px = num => `${num}px`;
+        const radToDeg = rad => Math.round(rad * (180 / Math.PI));
+        const degToRad = deg => deg / (180 / Math.PI);
+        const overlap = (a, b) => {
+          const buffer = 20;
+          return Math.abs(a - b) < buffer;
+        };
+
+        const rotateCoord = ({ angle, origin, x, y }) => {
+          const a = degToRad(angle);
+          const aX = x - origin.x;
+          const aY = y - origin.y;
+          return {
+            x: aX * Math.cos(a) - aY * Math.sin(a) + origin.x,
+            y: aX * Math.sin(a) + aY * Math.cos(a) + origin.y,
+          };
+        };
+
+        const setStyles = ({ target, h, w, x, y }) => {
+          if (h) target.style.height = h;
+          if (w) target.style.width = w;
+          target.style.transform = `translate(${x || 0}, ${y || 0})`;
+        };
+
+        const targetAngle = dog => {
+          if (!dog) return;
+          const angle =
+            radToDeg(Math.atan2(dog.pos.y - control.y, dog.pos.x - control.x)) -
+            90;
+          const adjustedAngle = angle < 0 ? angle + 360 : angle;
+          return nearestN(adjustedAngle, 45);
+        };
+
+        const reachedTheGoalYeah = (x, y) => {
+          return overlap(control.x, x) && overlap(control.y, y);
+        };
+
+        const positionLegs = (dog, frame) => {
+          [5, 7, 9, 11].forEach((n, i) => {
+            const { x, y } = partPositions[frame][`leg${i + 1}`];
+            setStyles({
+              target: dog.childNodes[n],
+              x: px(x),
+              y: px(y),
+            });
+          });
+        };
+
+        const moveLegs = dog => {
+          [5, 11].forEach(i =>
+            dog.childNodes[i].childNodes[1].classList.add('walk-1'),
+          );
+          [7, 9].forEach(i =>
+            dog.childNodes[i].childNodes[1].classList.add('walk-2'),
+          );
+        };
+
+        const stopLegs = dog => {
+          [5, 11].forEach(i =>
+            dog.childNodes[i].childNodes[1].classList.remove('walk-1'),
+          );
+          [7, 9].forEach(i =>
+            dog.childNodes[i].childNodes[1].classList.remove('walk-2'),
+          );
+        };
+
+        const positionTail = (dog, frame) => {
+          setStyles({
+            target: dog.childNodes[13],
+            x: px(partPositions[frame].tail.x),
+            y: px(partPositions[frame].tail.y),
+          });
+          dog.childNodes[13].style.zIndex = partPositions[frame].tail.z;
+          dog.childNodes[13].childNodes[1].classList.add('wag');
+        };
+
+        const animateDog = ({
+          target,
+          frameW,
+          currentFrame,
+          end,
+          data,
+          part,
+          speed,
+          direction,
+        }) => {
+          const offset = direction === 'clockwise' ? 1 : -1;
+
+          //update indicator
+          // elements.indicator.innerHTML = `dog-angle: ${data.angle} | control angle:${control.angle} | currentFrame: ${currentFrame} | direction: ${direction} | offset: ${offset} | frameOffset: ${data.animation[currentFrame][0] * frameW * offset} | ${data.facing.x} / ${data.facing.y} `
+
+          target.style.transform = `translateX(${px(
+            data.animation[currentFrame][0] * -frameW,
+          )})`;
+          if (part === 'body') {
+            positionLegs(data.dog, currentFrame);
+            moveLegs(data.dog);
+            positionTail(data.dog, currentFrame);
+          } else {
+            target.parentNode.classList.add('happy');
+          }
+          data.angle = angles[currentFrame];
+          data.index = currentFrame;
+
+          target.parentNode.classList[
+            data.animation[currentFrame][1] === 'f' ? 'add' : 'remove'
+          ]('flip');
+
+          let nextFrame = currentFrame + offset;
+          nextFrame =
+            nextFrame === -1
+              ? data.animation.length - 1
+              : nextFrame === data.animation.length
+              ? 0
+              : nextFrame;
+          if (currentFrame !== end) {
+            data.timer[part] = setTimeout(
+              () =>
+                animateDog({
+                  target,
+                  data,
+                  part,
+                  frameW,
+                  currentFrame: nextFrame,
+                  end,
+                  direction,
+                  speed,
+                }),
+              speed || 150,
+            );
+          } else if (part === 'body') {
+            // end
+            control.angle = angles[end];
+            data.walk = true;
+            setTimeout(() => {
+              stopLegs(data.dog);
+            }, 200);
+            setTimeout(() => {
+              document.querySelector('.happy')?.classList.remove('happy');
+            }, 5000);
+          }
+        };
+
+        const triggerDogAnimation = ({
+          target,
+          frameW,
+          start,
+          end,
+          data,
+          speed,
+          part,
+          direction,
+        }) => {
+          clearTimeout(data.timer[part]);
+          data.timer[part] = setTimeout(
+            () =>
+              animateDog({
+                target,
+                data,
+                part,
+                frameW,
+                currentFrame: start,
+                end,
+                direction,
+                speed,
+              }),
+            speed || 150,
+          );
+        };
+
+        const getDirection = ({ pos, facing, target }) => {
+          const dx2 = facing.x - pos.x;
+          const dy1 = pos.y - target.y;
+          const dx1 = target.x - pos.x;
+          const dy2 = pos.y - facing.y;
+
+          return dx2 * dy1 > dx1 * dy2 ? 'anti-clockwise' : 'clockwise';
+        };
+
+        const turnDog = ({ dog, start, end, direction }) => {
+          triggerDogAnimation({
+            target: dog.dog.childNodes[3].childNodes[1],
+            frameW: 31 * 2,
+            start,
+            end,
+            data: dog,
+            speed: 100,
+            direction,
+            part: 'head',
+          });
+
+          setTimeout(() => {
+            triggerDogAnimation({
+              target: dog.dog.childNodes[1].childNodes[1],
+              frameW: 48 * 2,
+              start,
+              end,
+              data: dog,
+              speed: 100,
+              direction,
+              part: 'body',
+            });
+          }, 200);
+        };
+
+        const createDog = () => {
+          const { dog } = elements;
+          const { width, height, left, top } = dog.getBoundingClientRect();
+          dog.style.left = px(left);
+          dog.style.top = px(top);
+
+          positionLegs(dog, 0);
+          const index = 0;
+
+          const dogData = {
+            timer: {
+              head: null,
+              body: null,
+              all: null,
+            },
+            pos: {
+              x: left + width / 2,
+              y: top + height / 2,
+            },
+            actualPos: {
+              x: left,
+              y: top,
+            },
+            facing: {
+              x: left + width / 2,
+              y: top + height / 2 + 30,
+            },
+            animation: animationFrames.rotate,
+            angle: 360,
+            index,
+            dog,
+          };
+          elements.dog = dogData;
+
+          turnDog({
+            dog: dogData,
+            start: index,
+            end: defaultEnd,
+            direction: 'clockwise',
+          });
+          positionTail(dog, 0);
+        };
+
+        const checkBoundaryAndUpdateDogPos = (x, y, dog, dogData) => {
+          const lowerLimit = -40; // buffer from window edge
+          const upperLimit = 40;
+          if (x > lowerLimit && x < elements.body.clientWidth - upperLimit) {
+            dogData.pos.x = x + 48;
+            dogData.actualPos.x = x;
+          }
+          if (y > lowerLimit && y < elements.body.clientHeight - upperLimit) {
+            dogData.pos.y = y + 48;
+            dogData.actualPos.y = y;
+          }
+          dog.style.left = px(x);
+          dog.style.top = px(y);
+        };
+
+        const positionMarker = (i, pos) => {
+          elements.marker[i].style.left = px(pos.x);
+          elements.marker[i].style.top = px(pos.y);
+        };
+
+        const moveDog = () => {
+          clearInterval(elements.dog.timer.all);
+          const { dog } = elements.dog;
+
+          elements.dog.timer.all = setInterval(() => {
+            const { left, top } = dog.getBoundingClientRect();
+            const start = angles.indexOf(elements.dog.angle);
+            const end = angles.indexOf(targetAngle(elements.dog));
+
+            // stop dog
+            if (reachedTheGoalYeah(left + 48, top + 48)) {
+              clearInterval(elements.dog.timer.all);
+              const { x, y } = elements.dog.actualPos;
+              dog.style.left = px(x);
+              dog.style.top = px(y);
+              stopLegs(dog);
+              turnDog({
+                dog: elements.dog,
+                start,
+                end: defaultEnd,
+                direction: 'clockwise',
+              });
+              return;
+            }
+
+            let { x, y } = elements.dog.actualPos;
+            const dir = directionConversions[targetAngle(elements.dog)];
+            if (dir !== 'up' && dir !== 'down')
+              x += dir.includes('left') ? -distance : distance;
+            if (dir !== 'left' && dir !== 'right')
+              y += dir.includes('up') ? -distance : distance;
+
+            positionMarker(0, elements.dog.pos);
+            positionMarker(1, control);
+
+            const { x: x2, y: y2 } = rotateCoord({
+              angle: elements.dog.angle,
+              origin: elements.dog.pos,
+              x: elements.dog.pos.x,
+              y: elements.dog.pos.y - 100,
+            });
+            elements.dog.facing.x = x2;
+            elements.dog.facing.y = y2;
+            positionMarker(2, elements.dog.facing);
+
+            if (start === end) {
+              elements.dog.turning = false;
+            }
+
+            if (!elements.dog.turning && elements.dog.walk) {
+              if (start !== end) {
+                elements.dog.turning = true;
+
+                const direction = getDirection({
+                  pos: elements.dog.pos,
+                  facing: elements.dog.facing,
+                  target: control,
+                });
+                turnDog({
+                  dog: elements.dog,
+                  start,
+                  end,
+                  direction,
+                });
+              } else {
+                checkBoundaryAndUpdateDogPos(x, y, dog, elements.dog);
+                moveLegs(dog);
+              }
+            }
+          }, 200);
+        };
+
+        createDog();
+
+        const triggerTurnDog = () => {
+          const dog = elements.dog;
+          dog.walk = false;
+          control.angle = null;
+
+          const direction = getDirection({
+            pos: dog.pos,
+            facing: dog.facing,
+            target: control,
+          });
+
+          const start = angles.indexOf(dog.angle);
+          const end = angles.indexOf(targetAngle(dog));
+          turnDog({
+            dog,
+            start,
+            end,
+            direction,
+          });
+        };
+
+        elements.body.addEventListener('mousemove', e => {
+          control.x = e.pageX;
+          control.y = e.pageY;
+          triggerTurnDog();
+        });
+
+        elements.body.addEventListener('click', moveDog);
+      }
+
+      window.addEventListener('DOMContentLoaded', init);
+    </script>
+  </body>
+</html>
