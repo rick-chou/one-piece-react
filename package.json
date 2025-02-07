@@ -12,7 +12,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "pnpm export:vscode-configs",
-    "build:blog": "pnpm prebuild && pnpm --filter '@rickzhou/blog' build",
+    "build:blog": "pnpm --filter '@rickzhou/blog' build",
     "build:editor": "pnpm --filter '@rickzhou/react-editor' build",
     "build:flow": "pnpm --filter '@rickzhou/react-flow' build",
     "build:repl": "pnpm --filter '@rickzhou/react-repl' build",

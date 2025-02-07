@@ -2,7 +2,7 @@
 export { memoSVC } from './react/memo';
 
 // Console
-export { Logger } from './console/logger';
+export { Logger } from './console/Logger';
 export { signature } from './console/signature';
 
 // File
