@@ -1,12 +1,11 @@
-import Http from '@/assets/pdf/http.pdf';
+import HttpPdf from '@rickzhou/awesome/assets/pdf/http.pdf';
+import { ContentWrapper } from '@rickzhou/awesome/theme/content-wrapper';
+import { useHover } from 'ahooks';
 import { useRef, useState } from 'react';
-import { Document, Page } from 'react-pdf';
+import { Document, Page, pdfjs } from 'react-pdf';
+
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
-
-import { ContentWrapper } from '@/theme';
-import { useHover } from 'ahooks';
-import { pdfjs } from 'react-pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -32,7 +31,7 @@ const PdfPreview = () => {
     const invalidPage = type === 'left' ? firstPageNum : numPages;
     return (
       <button
-        className="w-11 h-11 border-0 text-xs rounded-sm flex items-center justify-center hover:bg-slate-300"
+        className="flex h-11 w-11 items-center justify-center rounded-xs border-0 text-xs hover:bg-slate-300"
         style={{
           background: pageNumber === invalidPage ? '#FFF' : '',
           color: pageNumber === invalidPage ? '#ccc' : 'inherit',
@@ -49,13 +48,13 @@ const PdfPreview = () => {
   return (
     <ContentWrapper>
       <div style={{ width }} ref={ref}>
-        <Document file={Http} onLoadSuccess={onDocumentLoadSuccess}>
+        <Document file={HttpPdf} onLoadSuccess={onDocumentLoadSuccess}>
           <Page pageNumber={pageNumber} width={width} />
           <div
-            className="absolute bottom-4 flex rounded overflow-hidden bg-white shadow-2xl transition-opacity duration-500 right-1/2 translate-x-[50%] z-50"
+            className="absolute right-1/2 bottom-4 z-50 flex translate-x-[50%] overflow-hidden rounded-sm bg-white shadow-2xl transition-opacity duration-500"
             style={{ opacity: isHovering ? 1 : 0 }}>
             {btn('left')}
-            <span className="text-xs font-thin font-serif flex items-center justify-center px-2">
+            <span className="flex items-center justify-center px-2 font-serif text-xs font-thin">
               {pageNumber} of {numPages}
             </span>
             {btn('right')}
