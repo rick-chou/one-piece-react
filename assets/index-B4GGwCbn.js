@@ -1,1 +1,0 @@
-import{j as r}from"./index-Bpq67avY.js";import{I as t}from"./index-D4BRVKqH.js";import"./antd-Sqqp5mxm.js";import"./lodash-aGR4VZ5D.js";import"./prettier-y3XyMyrW.js";import"./chance-DnaHbaGl.js";import"./content-wrapper-BuVYZZHL.js";const f=()=>r(t,{path:new URL("/one-piece-react/assets/app-CAz1-bLC.html",import.meta.url).href});export{f as default};

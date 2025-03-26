@@ -1,0 +1,1 @@
+import{j as r}from"./index-Dt7Lsx6p.js";import{C as i}from"./content-wrapper-CDQMtKAm.js";const n=({path:e})=>r(i,{children:r("div",{className:"w-full overflow-hidden rounded-2xl",children:r("iframe",{src:e,width:"100%",height:screen.height*.5})})});export{n as I};

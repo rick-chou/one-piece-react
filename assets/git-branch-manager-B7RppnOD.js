@@ -1,0 +1,3 @@
+import{u as i,j as n,a as r}from"./index-Dt7Lsx6p.js";import"./antd-DGkp10QV.js";import"./lodash-BVSlK2Pl.js";import"./prettier-DJQX7j1f.js";import"./chance-DnaHbaGl.js";const u={title:"Git branch manager"};function e(t){const o=Object.assign({blockquote:"blockquote",p:"p",a:"a"},i(),t.components);return r(o.blockquote,{children:[`
+`,n(o.p,{children:n(o.a,{href:"http://matrixzk.github.io/blog/20141104/git-flow-model/",children:"http://matrixzk.github.io/blog/20141104/git-flow-model/"})}),`
+`]})}function b(t={}){const{wrapper:o}=Object.assign({},i(),t.components);return o?n(o,Object.assign({},t,{children:n(e,t)})):e(t)}export{b as default,u as frontmatter};

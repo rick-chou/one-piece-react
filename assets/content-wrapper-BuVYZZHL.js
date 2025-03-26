@@ -1,1 +1,0 @@
-import{j as t,c as s,b as n}from"./index-Bpq67avY.js";const r=({children:e})=>t("div",{css:s({display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",height:n,overflowY:"scroll"},"",""),children:e});export{r as C};

@@ -1,4 +1,0 @@
-import{u as s,j as e,a as n,F as c}from"./index-Bpq67avY.js";import"./antd-Sqqp5mxm.js";import"./lodash-aGR4VZ5D.js";import"./prettier-y3XyMyrW.js";import"./chance-DnaHbaGl.js";const x={title:"React Quick Start - Redux Toolkit"};function i(t){const o=Object.assign({blockquote:"blockquote",p:"p",a:"a"},s(),t.components),{Codesandbox:r}=o;return r||a("Codesandbox"),n(c,{children:[n(o.blockquote,{children:[`
-`,n(o.p,{children:["EN ",e(o.a,{href:"https://redux-toolkit.js.org/",children:"https://redux-toolkit.js.org/"})]}),`
-`]}),`
-`,e(r,{id:"redux-toolkit-usage-w2rmv8"})]})}function f(t={}){const{wrapper:o}=Object.assign({},s(),t.components);return o?e(o,Object.assign({},t,{children:e(i,t)})):i(t)}function a(t,o){throw new Error("Expected component `"+t+"` to be defined: you likely forgot to import, pass, or provide it.")}export{f as default,x as frontmatter};

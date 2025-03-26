@@ -1,0 +1,3 @@
+import{u as r,j as o,a as s}from"./index-Dt7Lsx6p.js";import"./antd-DGkp10QV.js";import"./lodash-BVSlK2Pl.js";import"./prettier-DJQX7j1f.js";import"./chance-DnaHbaGl.js";const p={title:"CORS"};function n(t){const e=Object.assign({blockquote:"blockquote",p:"p",a:"a"},r(),t.components);return s(e.blockquote,{children:[`
+`,o(e.p,{children:o(e.a,{href:"https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS",children:"https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS"})}),`
+`]})}function u(t={}){const{wrapper:e}=Object.assign({},r(),t.components);return e?o(e,Object.assign({},t,{children:o(n,t)})):n(t)}export{u as default,p as frontmatter};
