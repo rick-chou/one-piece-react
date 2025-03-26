@@ -1,9 +1,11 @@
 import { Hotkey } from '@rickzhou/awesome/config/shortcut';
-import { useModalOpen } from '@rickzhou/awesome/hooks/useModalOpen';
 import { type ThemeMode } from '@rickzhou/awesome/interface';
 import { BlogRoutes } from '@rickzhou/awesome/router/blog';
 import { metaData, type MetaData } from '@rickzhou/awesome/router/meta-data';
-import { OpenTypeConfig } from '@rickzhou/awesome/store/slice/modalOpenSlice';
+import {
+  OpenTypeConfig,
+  useModalOpen,
+} from '@rickzhou/awesome/store/useModalOpenConfigModel';
 import { fonts } from '@rickzhou/awesome/theme';
 import { useTheme } from '@rickzhou/react-ui';
 import { Modal } from 'antd';

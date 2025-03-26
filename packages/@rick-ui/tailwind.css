@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@source '../@rick-ui/src';
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));

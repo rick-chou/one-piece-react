@@ -1,8 +1,10 @@
 import { Hotkey } from '@rickzhou/awesome/config/shortcut';
-import { OpenTypeConfig } from '@rickzhou/awesome/store/slice/modalOpenSlice';
+import {
+  OpenTypeConfig,
+  useModalOpen,
+} from '@rickzhou/awesome/store/useModalOpenConfigModel';
 import { last, toUpper } from 'lodash-es';
 import { useEffect } from 'react';
-import { useModalOpen } from './useModalOpen';
 
 export const useShortKey = () => {
   const { onToggle: onCmdToggle } = useModalOpen(OpenTypeConfig.CommandOpen);

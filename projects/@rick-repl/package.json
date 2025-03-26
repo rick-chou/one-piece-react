@@ -1,12 +1,12 @@
 {
   "name": "@rickzhou/react-repl",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "description": "React Playground",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "dev": "vite"
   },
   "dependencies": {
     "@babel/standalone": "^7.26.2",

@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 import { key, repo } from './const';
 
 const GithubOutlined = () => {
@@ -17,11 +16,12 @@ const GithubOutlined = () => {
 
 const RickPlayGround = () => {
   return (
-    <div>
-      <Button icon={<GithubOutlined />} className="bg-yellow-300 flex items-center" onClick={() => window.open(repo)}>
-        {key}
-      </Button>
-    </div>
+    <button
+      className="flex items-center gap-x-2 overflow-hidden rounded bg-[#1677ff] px-4 py-2 ps-4 pe-4 text-white transition hover:bg-[#4096ff]"
+      onClick={() => window.open(repo)}>
+      <GithubOutlined />
+      {key}
+    </button>
   );
 };
 

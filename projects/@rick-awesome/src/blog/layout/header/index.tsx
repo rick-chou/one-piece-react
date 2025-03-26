@@ -1,8 +1,10 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Hotkey } from '@rickzhou/awesome/config/shortcut';
-import { useModalOpen } from '@rickzhou/awesome/hooks/useModalOpen';
-import { OpenTypeConfig } from '@rickzhou/awesome/store/slice/modalOpenSlice';
+import {
+  OpenTypeConfig,
+  useModalOpen,
+} from '@rickzhou/awesome/store/useModalOpenConfigModel';
 import { ThemeSwitch } from '@rickzhou/react-ui';
 import { Divider } from 'antd';
 import {

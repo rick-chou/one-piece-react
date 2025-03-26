@@ -142,7 +142,7 @@ const initExtraLibs = () => {
 
 我们都知道js是一个单进程的语言
 
-所以后续 如果我们在实现 compoiler / formatter 的功能时
+所以后续 如果我们在实现 compiler / formatter 的功能时
 
 如果都把任务交给主进程去运行 那么它就有可能会导致页面的freeze
 

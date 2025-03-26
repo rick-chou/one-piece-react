@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable no-lonely-if */
 import { transform } from '@babel/standalone';
 import { type Tab } from '@rickzhou/react-repl/types';
 import { last } from 'lodash-es';
@@ -50,13 +48,18 @@ const babelTransform = (filename: string, code: string, tabs: Tab[]) => {
                     stylesheet.appendChild(styles)
                   })()
                   `;
-                  path.node.source.value = URL.createObjectURL(new Blob([js], { type: 'application/javascript' }));
+                  path.node.source.value = URL.createObjectURL(
+                    new Blob([js], { type: 'application/javascript' }),
+                  );
                 } else {
                   // handle ts file
                   path.node.source.value = URL.createObjectURL(
-                    new Blob([babelTransform(_module.path, _module.content, tabs)], {
-                      type: 'application/javascript',
-                    }),
+                    new Blob(
+                      [babelTransform(_module.path, _module.content, tabs)],
+                      {
+                        type: 'application/javascript',
+                      },
+                    ),
                   );
                 }
               } else {

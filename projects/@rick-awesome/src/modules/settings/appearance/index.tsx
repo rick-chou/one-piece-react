@@ -1,6 +1,12 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
-import { Assets, Switch, ThemeSwitch, useTheme } from '@rickzhou/react-ui';
+import {
+  Assets,
+  // CodeInput,
+  Switch,
+  ThemeSwitch,
+  useTheme,
+} from '@rickzhou/react-ui';
 import { memoSVC } from '@rickzhou/react-utils';
 import { Button, Divider, Image, Slider, Space, Upload } from 'antd';
 import { type PropsWithChildren, type ReactNode } from 'react';
@@ -71,7 +77,7 @@ const Appearance = memoSVC(() => {
         />
       </Setting>
 
-      {/* <Setting label="Background" block>
+      <Setting label="Background" block>
         <Image
           src={Assets.Bg2}
           className="rounded-xl shadow dark:shadow-white"
@@ -79,7 +85,7 @@ const Appearance = memoSVC(() => {
         <Upload>
           <Button icon={<UploadOutlined />}>Select File</Button>
         </Upload>
-      </Setting> */}
+      </Setting>
 
       <Setting label="Font" block>
         <CheckCard.Group
@@ -101,6 +107,14 @@ const Appearance = memoSVC(() => {
           })}
         </CheckCard.Group>
       </Setting>
+
+      {/* <Setting label="Advanced Feature" block>
+        <CodeInput
+          name="advancedFeatureToggle"
+          fields={6}
+          onComplete={console.log}
+        />
+      </Setting> */}
     </Space>
   );
 });

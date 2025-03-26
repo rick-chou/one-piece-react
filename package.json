@@ -11,17 +11,13 @@
   },
   "type": "module",
   "scripts": {
-    "prebuild": "pnpm export:vscode-configs",
     "build:blog": "pnpm --filter '@rickzhou/blog' build",
-    "build:editor": "pnpm --filter '@rickzhou/react-editor' build",
-    "build:flow": "pnpm --filter '@rickzhou/react-flow' build",
     "build:repl": "pnpm --filter '@rickzhou/react-repl' build",
     "export:vscode-configs": "./cli ./scripts/export-vscode-configs.ts",
     "preinstall": "npx only-allow pnpm",
+    "prebuild": "pnpm export:vscode-configs",
     "regenerate-dependencies": "./cli ./scripts/regenerate-dependencies.ts",
     "run:blog": "pnpm --filter '@rickzhou/blog' dev",
-    "run:editor": "pnpm --filter '@rickzhou/react-editor' dev",
-    "run:flow": "pnpm --filter '@rickzhou/react-flow' dev",
     "run:repl": "pnpm --filter '@rickzhou/react-repl' dev",
     "run:ui": "pnpm --filter '@rickzhou/react-ui' dev"
   },
@@ -66,19 +62,20 @@
     "prettier-plugin-packagejson": "^2.2.18",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "rimraf": "^6.0.1",
-    "rollup-plugin-visualizer": "^5.12.0",
+    "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.69.5",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.19.2",
     "typescript": "^5.3.2",
     "typescript-eslint": "^8.16.0",
-    "vite": "^6.0.11",
+    "vite": "^6.2.3",
+    "vite-plugin-node-polyfills": "^0.23.0",
     "vite-plugin-pwa": "^0.21.0",
     "vitest": "^3.0.5"
   },
   "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">17",
-    "pnpm": ">=7 <8.6.0 || >8.6.1"
+    "pnpm": ">8.6.1"
   }
 }

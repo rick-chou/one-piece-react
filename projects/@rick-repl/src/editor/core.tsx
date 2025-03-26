@@ -2,7 +2,13 @@ import { liftOff } from '@rickzhou/react-repl/setup';
 import { type ReplProps } from '@rickzhou/react-repl/types';
 import { useMount, useUnmount } from 'ahooks';
 import { throttle } from 'lodash-es';
-import { KeyCode, KeyMod, Uri, languages, editor as mEditor } from 'monaco-editor';
+import {
+  KeyCode,
+  KeyMod,
+  Uri,
+  languages,
+  editor as mEditor,
+} from 'monaco-editor';
 import { useMemo, useRef } from 'react';
 
 type EditorCoreProps = {
@@ -24,7 +30,10 @@ type EditorCoreProps = {
 const EditorCore: React.FC<EditorCoreProps> = props => {
   const editorDomRef = useRef<HTMLDivElement>(null);
   const editor = useRef<mEditor.IStandaloneCodeEditor>();
-  const model = useMemo(() => mEditor.getModel(Uri.parse(props.url)), [props.url]);
+  const model = useMemo(
+    () => mEditor.getModel(Uri.parse(props.url)),
+    [props.url],
+  );
 
   useMount(async () => {
     editor.current = mEditor.create(editorDomRef.current!, {

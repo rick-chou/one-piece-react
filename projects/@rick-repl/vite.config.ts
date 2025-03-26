@@ -1,6 +1,9 @@
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { VitePWA } from 'vite-plugin-pwa';
 import { description, name } from './package.json';
 
@@ -21,14 +24,23 @@ export default defineConfig({
     },
   },
   plugins: [
+    nodePolyfills(),
     react({
       jsxImportSource: '@emotion/react',
       babel: {
         plugins: ['@emotion/babel-plugin'],
       },
     }),
+    visualizer({
+      template: 'treemap', // or sunburst
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      filename: 'dist/analyse.html', // will be saved in project's root
+    }),
+    tailwindcss(),
     VitePWA({
-      // disable: true,
+      disable: true,
       injectRegister: 'auto',
       workbox: {
         maximumFileSizeToCacheInBytes: 500 * 1024 * 1024,
@@ -75,7 +87,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@root': path.resolve(__dirname, '../../'),
-      '@rickzhou/react-repl': path.resolve(__dirname, '../../projects/@rick-repl/src'),
+      '@rickzhou/react-repl': path.resolve(
+        __dirname,
+        '../../projects/@rick-repl/src',
+      ),
+      /**
+       * @description browser-external:source-map-js:9 Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapConsumer" in client code.
+       * @link https://github.com/vitejs/vite/discussions/14966#discussioncomment-8230891
+       */
+      'source-map-js': 'source-map',
     },
   },
 });

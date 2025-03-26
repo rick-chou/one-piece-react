@@ -62,7 +62,7 @@ const EditorTabs: React.FC<ReplProps> = ({ compiler, formatter, linter }) => {
         </Popconfirm>
       ),
       label: (
-        <span className="flex justify-center items-center gap-2 -translate-y-[1px]">
+        <span className="flex -translate-y-[1px] items-center justify-center gap-2">
           {getFileIcon(i.path.split('/').at(-1)!, false, false)}
           {i.path.split('/').at(-1)}
         </span>
@@ -152,6 +152,9 @@ const EditorTabs: React.FC<ReplProps> = ({ compiler, formatter, linter }) => {
           <PlusOutlined />
         </Dropdown>
       }
+      hideAdd
+      tabBarGutter={0}
+      tabBarStyle={{ borderRadius: 0, marginLeft: 0 }}
       type="editable-card"
       items={items}
       onTabClick={setActiveKey}
