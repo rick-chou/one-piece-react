@@ -6,18 +6,17 @@ import {
 } from '@monaco-editor/react';
 import { memoSVC } from '@rickzhou/react-utils';
 import { type editor } from 'monaco-editor';
-import { useEffect, useMemo } from 'react';
-import { useTheme } from '../../ThemeProvider/useTheme';
+import { useEffect, useMemo, type FC } from 'react';
+import { useTheme } from '../../theme-provider/hooks/useTheme';
 import { DIFF_EDITOR_OPTIONS } from '../common/config';
-import '../common/setup';
 import { Loading } from './Loading';
 
-type DiffEditorProps = Omit<_DiffEditorProps, 'theme'> & {
+export type DiffEditorProps = Omit<_DiffEditorProps, 'theme'> & {
   readOnly?: boolean;
   language: string;
 };
 
-const DiffEditor = memoSVC<DiffEditorProps>(
+const DiffEditor: FC<DiffEditorProps> = memoSVC(
   ({ readOnly = false, ...props }) => {
     const options = useMemo(() => {
       return {

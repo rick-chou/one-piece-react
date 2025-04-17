@@ -1,4 +1,4 @@
-import { type ThemeMode } from '@rickzhou/react-ui/ThemeProvider/useTheme';
+import { type ThemeMode } from '@root/src/theme-provider/hooks/useTheme';
 
 const fontFamily = 'Oswald';
 const codeFontFamily = 'Fira Code';

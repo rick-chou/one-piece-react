@@ -1,11 +1,10 @@
 ---
 category: Components
-title: Show
-description: condition
+title: Squares
 ---
 
-# Show
+# Squares
 
 <code src="./demo/basic.tsx">Basic</code>
 
-<API id="Show"></API>
+<API id="Squares"></API>

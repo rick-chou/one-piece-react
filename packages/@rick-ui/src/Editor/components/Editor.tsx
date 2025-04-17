@@ -5,34 +5,22 @@ import {
   useMonaco,
 } from '@monaco-editor/react';
 import { memoSVC } from '@rickzhou/react-utils';
-import { type editor, type IDisposable, languages } from 'monaco-editor';
-import { useEffect, useMemo, useRef } from 'react';
-import { useTheme } from '../../ThemeProvider/useTheme';
+import { type editor } from 'monaco-editor';
+import { type FC, useEffect, useMemo, useRef } from 'react';
+import { useTheme } from '../../theme-provider/hooks/useTheme';
 import { EDITOR_OPTIONS } from '../common/config';
-import '../common/setup';
 import { Loading } from './Loading';
 
-type MakeKeysOptional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
-
-type EditorProps = Omit<_EditorProps, 'theme'> & {
-  variableAutocompleteConfig?: Array<
-    MakeKeysOptional<languages.CompletionItem, 'kind' | 'range'>
-  >;
+export type EditorProps = Omit<_EditorProps, 'theme'> & {
   readOnly?: boolean;
   language: string;
 };
 
-const Editor = memoSVC<EditorProps>(
-  ({
-    variableAutocompleteConfig = [],
-    readOnly = false,
-    language,
-    ...props
-  }) => {
+const Editor: FC<EditorProps> = memoSVC(
+  ({ readOnly = false, language, ...props }) => {
     const monaco = useMonaco();
     const { theme } = useTheme();
     const editorRef = useRef<editor.IStandaloneCodeEditor>();
-    const completionItemProvider = useRef<IDisposable>();
 
     function handleEditorDidMount(
       editor: editor.IStandaloneCodeEditor,
@@ -48,40 +36,6 @@ const Editor = memoSVC<EditorProps>(
         monaco.editor.setTheme(theme);
       }
     }, [monaco, theme]);
-
-    useEffect(() => {
-      if (monaco && variableAutocompleteConfig.length) {
-        completionItemProvider.current?.dispose?.();
-        completionItemProvider.current =
-          monaco.languages.registerCompletionItemProvider(language, {
-            triggerCharacters: ['$'],
-            provideCompletionItems: (model, position) => {
-              if (
-                model.uri.toString() ===
-                editorRef.current?.getModel()?.uri.toString()
-              ) {
-                const word = model.getWordUntilPosition(position);
-                const range = {
-                  startLineNumber: position.lineNumber,
-                  endLineNumber: position.lineNumber,
-                  startColumn: word.startColumn,
-                  endColumn: word.endColumn,
-                };
-                const suggestions = variableAutocompleteConfig.map(i => {
-                  return {
-                    kind: languages.CompletionItemKind.Variable,
-                    ...i,
-                    range,
-                  };
-                });
-                return {
-                  suggestions,
-                };
-              }
-            },
-          });
-      }
-    }, [language, monaco, variableAutocompleteConfig]);
 
     const options = useMemo(() => {
       return {

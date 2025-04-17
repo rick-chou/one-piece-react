@@ -1,11 +1,10 @@
 ---
 category: Components
-title: Show
-description: condition
+title: GridMotion
 ---
 
-# Show
+# GridMotion
 
 <code src="./demo/basic.tsx">Basic</code>
 
-<API id="Show"></API>
+<API id="GridMotion"></API>

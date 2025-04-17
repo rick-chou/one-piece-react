@@ -1,6 +1,6 @@
 {
   "name": "@rickzhou/react-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React Library",
   "license": "MIT",
   "type": "module",
@@ -17,15 +17,20 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
-    "dumi-theme-antd": "^0.4.2",
-    "monaco-editor": "^0.52.2",
-    "monaco-sql-languages": "^0.12.2"
+    "dumi-theme-antd": "^0.4.4",
+    "monaco-editor": "^0.31.0",
+    "monaco-sql-languages": "^0.12.2",
+    "ogl": "^1.0.11",
+    "react-code-input": "^3.10.1",
+    "three": "^0.175.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/three": "^0.175.0",
     "dumi": "^2.4.17",
-    "father": "^4.1.0"
+    "father": "^4.1.0",
+    "monaco-editor-webpack-plugin": "^7.1.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

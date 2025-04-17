@@ -1,11 +1,10 @@
 ---
 category: Components
-title: Show
-description: condition
+title: Aurora
 ---
 
-# Show
+# Aurora
 
 <code src="./demo/basic.tsx">Basic</code>
 
-<API id="Show"></API>
+<API id="Aurora"></API>

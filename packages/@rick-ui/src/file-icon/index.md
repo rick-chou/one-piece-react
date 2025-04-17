@@ -1,11 +1,9 @@
 ---
 category: Components
-title: Show
-description: condition
+title: FileIcon
+description: file icon
 ---
 
-# Show
+# FileIcon
 
 <code src="./demo/basic.tsx">Basic</code>
-
-<API id="Show"></API>
