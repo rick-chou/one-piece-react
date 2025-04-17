@@ -1,6 +1,6 @@
 import { useBoolean, useMount } from 'ahooks';
-import * as monaco from 'monaco-editor';
 import { Uri, editor, languages } from 'monaco-editor';
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { useTabs } from './useTabs';
 
 import CompilerWorker from '@rickzhou/react-repl/worker/compiler.worker?worker';

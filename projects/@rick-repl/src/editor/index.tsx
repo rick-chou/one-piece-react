@@ -12,9 +12,11 @@ import Editor from '@rickzhou/react-repl/editor/core';
 import { useTabs } from '@rickzhou/react-repl/hooks/useTabs';
 import { defaultTabs } from '@rickzhou/react-repl/setup/defaultTabs';
 import { type ReplProps, type Tab } from '@rickzhou/react-repl/types';
-import { getFileIcon } from '@rickzhou/react-ui';
+import { FileIcon } from '@rickzhou/react-ui';
 import { Dropdown, Popconfirm, Tabs, type MenuProps } from 'antd';
 import React, { useEffect, useState } from 'react';
+
+const { getFileIcon } = FileIcon;
 
 type DraggableTabPaneProps = {
   'data-node-key': string;
