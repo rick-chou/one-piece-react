@@ -117,6 +117,14 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
+
+    server: {
+      port: 8888,
+      hmr: {
+        overlay: false,
+      },
+    },
+
     resolve: {
       alias: {
         '@root': path.resolve(__dirname, '../../'),
@@ -126,6 +134,7 @@ export default defineConfig(({ mode }) => {
         ),
       },
     },
+
     define: {
       // By default, Vite doesn't include shims for NodeJS/
       // necessary for segment analytics lib to work

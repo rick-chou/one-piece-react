@@ -3,8 +3,8 @@
  * @link https://codepen.io/jkantner/pen/ZEqKgWJ
  */
 
-import { ThemeWrapper } from '@rickzhou/react-ui';
 import { isMac } from '@rickzhou/awesome/utils';
+import { ThemeWrapper } from '@rickzhou/react-ui';
 import { useEffect } from 'react';
 import { keyboardStyle } from './style';
 

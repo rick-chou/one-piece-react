@@ -1,5 +1,5 @@
 import { ContentWrapper } from '@rickzhou/awesome/theme/content-wrapper';
-import { useTheme } from '@rickzhou/react-ui';
+import { ThemeProvider } from '@rickzhou/react-ui';
 import { random } from 'lodash-es';
 import {
   BiLogoAngular,
@@ -16,7 +16,7 @@ import { listItemStyle, ulStyle } from './style';
 
 const Navigation = () => {
   const navigate = useNavigate();
-  const { isDark } = useTheme();
+  const { isDark } = ThemeProvider.useTheme();
 
   return (
     <ContentWrapper>

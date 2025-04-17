@@ -7,7 +7,7 @@ import {
   useModalOpen,
 } from '@rickzhou/awesome/store/useModalOpenConfigModel';
 import { fonts } from '@rickzhou/awesome/theme';
-import { useTheme } from '@rickzhou/react-ui';
+import { ThemeProvider } from '@rickzhou/react-ui';
 import { Modal } from 'antd';
 import { first, last, lowerCase, toLower, upperCase } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
@@ -41,7 +41,7 @@ const CmdModal = () => {
   >([]);
   const navigate = useNavigate();
   const [searchVal, setSearchVal] = useState('');
-  const { toggleTheme, updateTypography } = useTheme();
+  const { toggleTheme, updateTypography } = ThemeProvider.useTheme();
 
   useEffect(() => {
     const genCommandItems = () => {

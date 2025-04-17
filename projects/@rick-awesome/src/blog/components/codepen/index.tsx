@@ -1,7 +1,7 @@
-import { useTheme } from '@rickzhou/react-ui';
+import { ThemeProvider } from '@rickzhou/react-ui';
 
 const Codepen: React.FC<{ id: string }> = ({ id }) => {
-  const { theme } = useTheme();
+  const { theme } = ThemeProvider.useTheme();
   return (
     <iframe
       className="h-[500px] w-full overflow-hidden rounded-sm border-0"

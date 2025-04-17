@@ -14,5 +14,5 @@ export const copyText = async (text: string, showSuccessMsg = true) => {
     input.remove();
   }
 
-  if (showSuccessMsg) void message.success(`Copy successful!`);
+  if (showSuccessMsg) void message.success(`${text} Copied successful!`);
 };

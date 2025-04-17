@@ -1,5 +1,5 @@
 import { ContentWrapper } from '@rickzhou/awesome/theme/content-wrapper';
-import { useTheme } from '@rickzhou/react-ui';
+import { ThemeProvider } from '@rickzhou/react-ui';
 import dayjs from 'dayjs';
 import { memo, useEffect, useRef, useState } from 'react';
 import { FlipDown } from './flipdown';
@@ -19,7 +19,7 @@ const getYear = () => {
 
 const Countdown = () => {
   const instance = useRef<FlipDown>();
-  const { getInverseTheme } = useTheme();
+  const { getInverseTheme } = ThemeProvider.useTheme();
   const [nextYear] = useState(getYear);
 
   useEffect(() => {

@@ -31,7 +31,6 @@
 
       // Projects
       "@rickzhou/react-repl/*": ["./projects/@rick-repl/src/*"],
-      "@rickzhou/react-flow/*": ["./projects/@rick-flow/src/*"],
       "@rickzhou/react-editor/*": ["./projects/@rick-editor/src/*"],
       "@rickzhou/awesome/*": ["./projects/@rick-awesome/src/*"]
     }

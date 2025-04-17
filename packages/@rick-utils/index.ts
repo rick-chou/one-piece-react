@@ -18,3 +18,11 @@ export { formatCode } from './editor/formatCode';
 export { isObjectOrJsonString } from './json/isObjectOrJsonString';
 export { prettyJsonString } from './json/prettyJsonString';
 export { safeJsonParse } from './json/safeJsonParse';
+
+// Typescript
+export type { MakeKeysOptional } from './typescript/MakeKeysOptional';
+export type { MakeKeysRequired } from './typescript/MakeKeysRequired';
+export type { RecordMapping } from './typescript/RecordMapping';
+
+// Browser
+export { copyText } from './browser/copyText';

@@ -5,6 +5,9 @@ export const keyboardStyle = css`
   --keyboard-hue: 0;
   --keyboard-sat: 0%;
 
+  position: relative;
+  z-index: 999;
+
   &.light {
     --color-keyboard-bg: hsl(var(--keyboard-hue), var(--keyboard-sat), 20%);
     --color-keyboard-text: hsl(var(--keyboard-hue), var(--keyboard-sat), 90%);
@@ -17,14 +20,19 @@ export const keyboardStyle = css`
 
   button {
     color: var(--color-keyboard-text);
-    font: 1em/1.5 -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    font:
+      1em/1.5 -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      Helvetica,
       sans-serif;
     outline: none;
   }
   .keyboard,
   .keyboard:before,
   .keyboard:after {
-    transition: background-color var(--keyboard-duration),
+    transition:
+      background-color var(--keyboard-duration),
       box-shadow var(--keyboard-duration);
   }
   .keyboard,
@@ -39,7 +47,8 @@ export const keyboardStyle = css`
       hsla(var(--keyboard-hue), var(--keyboard-sat), 10%, 0)
     );
     border-radius: 0.75em;
-    box-shadow: -0.5em -0.5em 0.75em hsla(0, 0%, 0%, 0.6),
+    box-shadow:
+      -0.5em -0.5em 0.75em hsla(0, 0%, 0%, 0.6),
       0 0 0 1px hsl(var(--keyboard-hue), var(--keyboard-sat), 67%) inset;
     align-items: center;
     margin: auto;
@@ -57,27 +66,20 @@ export const keyboardStyle = css`
     bottom: 100%;
   }
   .keyboard:before {
-    box-shadow: -0.5em -0.5em 0.75em hsla(0, 0%, 0%, 0.6),
+    box-shadow:
+      -0.5em -0.5em 0.75em hsla(0, 0%, 0%, 0.6),
       0.25em 0 0.25em hsla(var(--keyboard-hue), var(--keyboard-sat), 10%, 0.2)
         inset,
-      0.25em -1.25em 0.5em hsla(
-          var(--keyboard-hue),
-          var(--keyboard-sat),
-          10%,
-          0.5
-        ) inset;
+      0.25em -1.25em 0.5em
+        hsla(var(--keyboard-hue), var(--keyboard-sat), 10%, 0.5) inset;
     left: calc(50% - 0.5em);
     width: 1em;
     height: 40em;
   }
   .keyboard:after {
     border-radius: 0.25em 0.25em 0 0;
-    box-shadow: 0.375em -0.25em 0.5em hsla(
-        var(--keyboard-hue),
-        var(--keyboard-sat),
-        10%,
-        0.5
-      ) inset;
+    box-shadow: 0.375em -0.25em 0.5em
+      hsla(var(--keyboard-hue), var(--keyboard-sat), 10%, 0.5) inset;
     left: calc(50% - 0.75em);
     width: 1.5em;
     height: 1.25em;
@@ -90,7 +92,8 @@ export const keyboardStyle = css`
   .keyboard__key {
     background-color: hsl(var(--keyboard-hue), var(--keyboard-sat), 95%);
     border-radius: 0.5em;
-    box-shadow: -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25),
+    box-shadow:
+      -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25),
       0 0 0 0.1em hsla(0, 0%, 0%, 0.3),
       0.04em 0.04em 0.04em hsla(0, 0%, 0%, 0.4) inset,
       -0.1em -0.1em 0.04em hsla(0, 0%, 100%, 0.8) inset;
@@ -101,7 +104,9 @@ export const keyboardStyle = css`
     position: relative;
     width: 5em;
     height: 5em;
-    transition: background-color var(--keyboard-duration), box-shadow 0.15s,
+    transition:
+      background-color var(--keyboard-duration),
+      box-shadow 0.15s,
       color var(--keyboard-duration);
     appearance: none;
     user-select: none;
@@ -111,7 +116,9 @@ export const keyboardStyle = css`
   }
   .keyboard__key:active,
   .keyboard__key.active {
-    box-shadow: 0 0 0.2em hsla(0, 0%, 0%, 0.2), 0 0 0 0.1em hsla(0, 0%, 0%, 0.4),
+    box-shadow:
+      0 0 0.2em hsla(0, 0%, 0%, 0.2),
+      0 0 0 0.1em hsla(0, 0%, 0%, 0.4),
       0 -0.05em 0 hsla(0, 0%, 0%, 0.6) inset,
       -0.05em -0.15em 0.05em hsla(0, 0%, 100%, 0.8) inset;
   }
@@ -160,7 +167,8 @@ export const keyboardStyle = css`
   &.dark {
     .keyboard__key {
       background-color: hsl(var(--keyboard-hue), var(--keyboard-sat), 15%);
-      box-shadow: -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25),
+      box-shadow:
+        -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25),
         0 0 0 0.1em hsla(0, 0%, 0%, 0.3),
         0.04em 0.04em 0.04em hsla(0, 0%, 0%, 0.4) inset,
         -0.1em -0.1em 0.04em hsla(0, 0%, 100%, 0.05) inset;
@@ -168,8 +176,10 @@ export const keyboardStyle = css`
     }
     .keyboard__key:active,
     .keyboard__key.active {
-      box-shadow: 0 0 0.2em hsla(0, 0%, 0%, 0.2),
-        0 0 0 0.1em hsla(0, 0%, 0%, 0.4), 0 -0.05em 0 hsla(0, 0%, 0%, 0.4) inset,
+      box-shadow:
+        0 0 0.2em hsla(0, 0%, 0%, 0.2),
+        0 0 0 0.1em hsla(0, 0%, 0%, 0.4),
+        0 -0.05em 0 hsla(0, 0%, 0%, 0.4) inset,
         -0.05em -0.15em 0.05em hsla(0, 0%, 100%, 0.05) inset;
     }
   }

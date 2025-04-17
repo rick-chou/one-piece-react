@@ -1,7 +1,7 @@
-import { useTheme } from '@rickzhou/react-ui';
+import { ThemeProvider } from '@rickzhou/react-ui';
 
 const Codesandbox: React.FC<{ id: string }> = ({ id }) => {
-  const { theme } = useTheme();
+  const { theme } = ThemeProvider.useTheme();
   return (
     <iframe
       src={`https://codesandbox.io/embed/${id}?autoresize=1&fontsize=14&hidenavigation=1&theme=${theme}`}

@@ -3,9 +3,10 @@ import { CheckCard } from '@ant-design/pro-components';
 import {
   Assets,
   // CodeInput,
+  Squares,
   Switch,
+  ThemeProvider,
   ThemeSwitch,
-  useTheme,
 } from '@rickzhou/react-ui';
 import { memoSVC } from '@rickzhou/react-utils';
 import { Button, Divider, Image, Slider, Space, Upload } from 'antd';
@@ -52,7 +53,7 @@ const Setting = memoSVC<
 
 const Appearance = memoSVC(() => {
   const { typography, updateTypography, followSystem, updateIsFollowSystem } =
-    useTheme();
+    ThemeProvider.useTheme();
   return (
     <Space className="w-full pt-4" direction="vertical">
       <Setting label="Theme">
@@ -111,7 +112,7 @@ const Appearance = memoSVC(() => {
       {/* <Setting label="Advanced Feature" block>
         <CodeInput
           name="advancedFeatureToggle"
-          fields={6}
+          length={6}
           onComplete={console.log}
         />
       </Setting> */}

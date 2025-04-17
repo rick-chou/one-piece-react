@@ -1,5 +1,5 @@
-import { useTheme } from '@rickzhou/react-ui';
 import { css } from '@emotion/react';
+import { ThemeProvider } from '@rickzhou/react-ui';
 
 export const codeBlockStyle = css`
   border-color: #ddd;
@@ -49,7 +49,7 @@ export const codeFilename = css`
 `;
 
 export const useCodeStyle = () => {
-  const { isDark } = useTheme();
+  const { isDark } = ThemeProvider.useTheme();
   if (isDark()) {
     return css`
       pre code.hljs {
