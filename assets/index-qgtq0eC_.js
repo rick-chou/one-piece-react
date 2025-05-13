@@ -1,0 +1,1 @@
+import{j as r}from"./index-CjkvZd7K.js";import{I as t}from"./index-DITt0jBI.js";import"./antd-DBIoRdLU.js";import"./lodash-BU0pYqsL.js";import"./prettier-DJQX7j1f.js";import"./chance-DnaHbaGl.js";import"./content-wrapper-DSmnbeLk.js";const f=()=>r(t,{path:new URL("/one-piece-react/assets/app-Da9Iq1EU.html",import.meta.url).href});export{f as default};
